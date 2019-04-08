@@ -9,7 +9,6 @@ using System.Data;
 using System.Data.SqlClient;
 public partial class _Default : System.Web.UI.Page
 {
-    //GITHUB TEST
     //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
     //string exception = string.Empty;
     string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
