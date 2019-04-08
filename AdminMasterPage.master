@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMasterPage.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">   
+
+    <title>Admin Homepage</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+  
+<body id="page-top">
+    <section id="form1" runat="server">
+    <nav style="background:#29292B;" class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <a class="navbar-brand" href="index.aspx">Hip Hop Illumination</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              
+                <li class="nav-item">
+            <a class="nav-link" href="Uploading.aspx">Upload Lessons</a>
+                 </li>
+
+                <li class="nav-item">
+            <a class="nav-link" href="AdminPDF.aspx">Delete Lessons</a>
+                 </li>
+
+              
+
+
+                <li class="nav-item">
+            <a class="nav-link" href="YouthTablau.aspx">Youth Users Map</a>
+                 </li>             
+             <li class="nav-item">
+                  <a class="nav-link" href="AdultTablau.aspx">Adult Users Map</a>
+            </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="ManageUsers.aspx">Manager Users</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" href="Index.aspx">Exit</a>
+                </li>
+                </ul>
+              </div>
+
+</nav>
+        </section>
+     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+   
+    
+</body>
+</html>
+
