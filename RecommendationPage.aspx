@@ -34,7 +34,7 @@ body{
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: black;
+    background: yellow;
     color: white;
     font-weight: 600;
     width: 30%;
@@ -67,6 +67,7 @@ body{
                 <div class="form-group ">
                                     <br />
         <br />
+                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />
@@ -83,8 +84,13 @@ body{
         <div class="form-group">
             <asp:Label ID="Label2" runat="server" Text="Your Recommandation" ForeColor="White"></asp:Label>
             <br />
-            <asp:DropDownList ID="ddlRecommendation" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="ID" CssClass="form-control"></asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=hhidatabase;Integrated Security=True" SelectCommand="SELECT [ID], [Name] FROM [Documents]" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
+            <asp:DropDownList ID="ddlRecommendation" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="ID" CssClass="form-control"></asp:DropDownList>            
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString %>" SelectCommand="SELECT Documents.ID , Documents.Name FROM Lessons INNER JOIN Documents ON Lessons.ID = Documents.ID WHERE Lessons.accountID = @accountID">
+                <SelectParameters>
+            <asp:ControlParameter ControlID="TextBox1" Name="accountID" PropertyName="Text" Type="String" Defaultvalue=""  />
+            </SelectParameters>
+            </asp:SqlDataSource>            
+            
             <br />
             <br />
             <br />
