@@ -33,7 +33,6 @@ public partial class ProfilePage : System.Web.UI.Page
 
         string firstName = "";
         string lastName = "";
-        string school1 = "";
         int count = 0;
 
         if (!IsPostBack)

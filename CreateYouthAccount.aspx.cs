@@ -24,7 +24,10 @@ public partial class CreateYouthAccount : System.Web.UI.Page
     String YouthUserName;
     String YouthPassword;
     String YouthGender;
-    int YouthSchoolID;
+    String favoriteArtist;
+    String favoriteMusic;
+    int accountID1;
+
 
 
     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -82,48 +85,16 @@ public partial class CreateYouthAccount : System.Web.UI.Page
 
                 //update data using list in the class
                 YouthFirstName = HttpUtility.HtmlEncode(txtFirstName.Text);
-                YouthMiddleName = HttpUtility.HtmlEncode(txtMiddleName.Text);
-                YouthLastName = HttpUtility.HtmlEncode(txtLastName.Text);
-                YouthStreet = HttpUtility.HtmlEncode(txtStreet.Text);
-                YouthCity = HttpUtility.HtmlEncode(txtCity.Text);
+                YouthLastName = HttpUtility.HtmlEncode(txtLastName.Text);              
                 YouthState = HttpUtility.HtmlEncode(ddlState.Text);
-                YouthZipcode = HttpUtility.HtmlEncode(txtZipCode.Text);
                 YouthCountry = HttpUtility.HtmlEncode(ddlCountry.SelectedItem.Value);
                 YouthEmail = HttpUtility.HtmlEncode(txtEmail.Text);
                 YouthGender = HttpUtility.HtmlEncode(ddlGender.SelectedItem.Value);
-                YouthSchoolID = 1;
                 YouthDateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
                 YouthUserName = HttpUtility.HtmlEncode(txtUsername.Text);
                 YouthPassword = HttpUtility.HtmlEncode(txtPassword.Text);
-
-
-
-                insert.CommandText = "INSERT into [dbo].Youth VALUES(@youthFirstName,NULLIF(@youthMiddleName, ' '), @youthLastName, @youthStreet, @youthCity, " +
-                "NULLIF(@youthState,' '), @youthZip, @youthCountry, @youthEmail, @youthGender, @youthSchool, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy)";
-
-                insert.Parameters.AddWithValue("@youthFirstName", YouthFirstName);
-                insert.Parameters.AddWithValue("@youthMiddleName", YouthMiddleName);
-                insert.Parameters.AddWithValue("@youthLastName", YouthLastName);
-                insert.Parameters.AddWithValue("@youthStreet", YouthStreet);
-                insert.Parameters.AddWithValue("@youthCity", YouthCity);
-                insert.Parameters.AddWithValue("@youthState", YouthState);
-                insert.Parameters.AddWithValue("@youthZip", YouthZipcode);
-                insert.Parameters.AddWithValue("@youthCountry", YouthCountry);
-                insert.Parameters.AddWithValue("@youthEmail", YouthEmail);
-                insert.Parameters.AddWithValue("@youthGender", YouthGender);
-                insert.Parameters.AddWithValue("@youthSchool", YouthSchoolID);
-                insert.Parameters.AddWithValue("@youthDateOfBirth", YouthDateOfBirth);
-                insert.Parameters.AddWithValue("@userName", YouthUserName);
-                insert.Parameters.AddWithValue("@password", PasswordHash.HashPassword(YouthPassword));
-                insert.Parameters.AddWithValue("@dateCreated", DateTime.Today);
-                insert.Parameters.AddWithValue("@lastUpdated", DateTime.Now.ToString());
-                insert.Parameters.AddWithValue("@lastUpdatedBy", YouthUserName);
-
-
-                insert.ExecuteNonQuery();
-
-                sc.Close();
-                sc.Open();
+                favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
+                favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
 
                 //INSERT INTO LOGININFO
                 SqlCommand login = new SqlCommand();
@@ -138,6 +109,51 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 login.ExecuteNonQuery();
                 sc.Close();
                 Response.Redirect("Login.aspx");
+
+
+                sc.Open();
+
+
+
+            // Pull the accountID from the loginInfo table for reference in the Youth table
+            SqlCommand accountID = new SqlCommand();
+            accountID.Connection = sc;
+            accountID.CommandText = "Select @accountID from loginInfo WHERE email = @email";
+            accountID.Parameters.AddWithValue("@accountID", accountID);
+            accountID.Parameters.AddWithValue("@email", YouthEmail);
+
+            SqlDataReader reader = accountID.ExecuteReader();
+            while (reader.Read())
+            {
+                accountID1 = int.Parse(reader["accountID"].ToString());
+            }
+            reader.Close();
+            sc.Close();
+
+
+            sc.Open();
+            // Insert new youth account into the Youth table
+            insert.CommandText = "INSERT into [dbo].Youth VALUES(@youthFirstName, @youthLastName, " +
+                "NULLIF(@youthState,' '), @youthCountry, @youthEmail, @youthGender, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
+
+                insert.Parameters.AddWithValue("@youthFirstName", YouthFirstName);
+                insert.Parameters.AddWithValue("@youthLastName", YouthLastName);
+                insert.Parameters.AddWithValue("@youthState", YouthState);
+                insert.Parameters.AddWithValue("@youthCountry", YouthCountry);
+                insert.Parameters.AddWithValue("@youthEmail", YouthEmail);
+                insert.Parameters.AddWithValue("@youthGender", YouthGender);
+                insert.Parameters.AddWithValue("@youthDateOfBirth", YouthDateOfBirth);
+                insert.Parameters.AddWithValue("@userName", YouthUserName);
+                insert.Parameters.AddWithValue("@password", PasswordHash.HashPassword(YouthPassword));
+                insert.Parameters.AddWithValue("@dateCreated", DateTime.Today);
+                insert.Parameters.AddWithValue("@lastUpdated", DateTime.Now.ToString());
+                insert.Parameters.AddWithValue("@lastUpdatedBy", YouthUserName);
+                insert.Parameters.AddWithValue("@favoriteArtist", favoriteArtist);
+                insert.Parameters.AddWithValue("@favoriteMusic", favoriteMusic);
+                insert.Parameters.AddWithValue("@accountID", accountID1);
+
+
+            insert.ExecuteNonQuery();
 
             //}
             //catch (Exception)

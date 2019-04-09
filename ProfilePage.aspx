@@ -21,8 +21,6 @@
                             <img class="mx-auto rounded-circle" src="img/admin_login.svg" alt="">
                             <h4 style="color:#fff" id="username" runat="server"> Username</h4>
                             <p style="color:#fff" id="welcome" runat="server"></p>
-                            <p style="color:#fff" id="school" runat="server">
-                                School</p>
                             <p style="color:#fff" id="lessons" runat="server">
                                 Number of Lessons Completed</p>
                         </div>
