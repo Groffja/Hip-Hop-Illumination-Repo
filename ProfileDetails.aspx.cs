@@ -101,7 +101,7 @@ public partial class ProfileDetails : System.Web.UI.Page
                     lastName = reader["lastName"].ToString();
                     state = reader["state"].ToString();
                     country = reader["country"].ToString();
-                    gender = reader["youthGender"].ToString();
+                    gender = reader["gender"].ToString();
                     email = reader["email"].ToString();
                     dateOfBirth = reader["dateOfBirth"].ToString();
                     username = reader["username"].ToString();
