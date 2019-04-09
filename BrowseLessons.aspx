@@ -106,35 +106,38 @@
                 </ItemTemplate>
                 <ControlStyle Width="1000px" />
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="Documents">
+            <asp:TemplateField HeaderText="Lessons">
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" OnClick="OpenDocument" CssClass="align-content-center"  runat="server" Text='<%# Eval("Name") %>'></asp:LinkButton>
                 </ItemTemplate>
-                <ControlStyle Width="365px" />
+                <ControlStyle Width="35%" />
                 </asp:TemplateField>
                  <asp:TemplateField HeaderText="Document Category">
                 <ItemTemplate>
-                    <asp:Label ID="lblCategory" runat="server" CssClass="align-content-center" Text='<%# Eval("DocumentCategory")%>'>
+                    <asp:Label ID="lblCategory1" runat="server" CssClass="align-content-center" Text='<%# Eval("DocumentCategory")%>'>
                 </asp:Label>
                         </ItemTemplate>
-                <ControlStyle Width="365px" />
+                <ControlStyle Width="15%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Sub-Category 1">
+                <ItemTemplate>
+                    <asp:Label ID="lblCategory2" runat="server" CssClass="align-content-center" Text='<%# Eval("DocumentCategory2")%>'>
+                </asp:Label>
+                        </ItemTemplate>
+                <ControlStyle Width="15%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Sub-Category 2">
+                <ItemTemplate>
+                    <asp:Label ID="lblCategory3" runat="server" CssClass="align-content-center" Text='<%# Eval("DocumentCategory3")%>'>
+                </asp:Label>
+                        </ItemTemplate>
+                <ControlStyle Width="15%" />
             </asp:TemplateField>
         </Columns>
         <RowStyle />
 
         
     </asp:GridView>
-     <%--<asp:SqlDataSource ID="SqlDataSource12" runat="server" 
-            connectionString="Data Source=localhost;Initial Catalog=hhidatabase;Integrated Security=True"
-            SelectCommand ="SELECT [DocumentCategory] FROM Documents">
-
-        </asp:SqlDataSource>--%>
-
-    <%--<div class="search-box">
-        <input class="search-txt align-content-center" type="text"  name="" placeholder="Type to search" />
-        <a class= "search-btn" href ="#">
-            <i class="fas fa-search"></i>
-        </a>
-    </div>--%>
+     
     </body>
 </asp:Content>
