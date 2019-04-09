@@ -36,6 +36,10 @@
                 
                 <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Category:" Width="100px"></asp:Label>
                 <asp:TextBox ID="TextBox2" runat="server" Width="206px"></asp:TextBox>
+                <asp:Label ID="lblCat2" runat="server" ForeColor="White" Text="Category 2:" Width="100px"></asp:Label>
+                <asp:TextBox ID="txtCat2" runat="server" Width="206px"></asp:TextBox>
+                <asp:Label ID="lblCat3" runat="server" ForeColor="White" Text="Category 3:" Width="100px"></asp:Label>
+                <asp:TextBox ID="txtCat3" runat="server" Width="206px"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save" Width="92px" />
             </p>
             <br />

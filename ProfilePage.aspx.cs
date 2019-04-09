@@ -39,7 +39,7 @@ public partial class ProfilePage : System.Web.UI.Page
         {
             if ((string)Session["Accounttype"] == "Adult")
             {
-                getFields.CommandText = "select firstName, middleName, lastName, street, city, state, zip, country, gender, email, dateOfBirth, username from Adult where email=@email";
+                getFields.CommandText = "select firstName, lastName, email, username from Adult where email=@email";
                 getFields.Parameters.Add(new SqlParameter("@email", (string)Session["email"]));
                 SqlDataReader reader = getFields.ExecuteReader();
                 while (reader.Read())
@@ -51,7 +51,6 @@ public partial class ProfilePage : System.Web.UI.Page
                 }
                 reader.Close();
                 lessons.Visible = false;
-                
             }
             if ((string)Session["Accounttype"] == "Admin")
             {
@@ -72,16 +71,15 @@ public partial class ProfilePage : System.Web.UI.Page
             if ((string)Session["Accounttype"] == "Youth")
             {
                 getFields.CommandText = "SELECT firstName, lastName FROM Youth Where email = @email";
+
                 getFields.Parameters.Add(new SqlParameter("@email", (string)Session["email"]));
                 SqlDataReader reader = getFields.ExecuteReader();
                 while (reader.Read())
                 {
-                    firstName = reader["youthFirstName"].ToString();
-                    lastName = reader["youthLastName"].ToString();
-                    
+                    firstName = reader["firstName"].ToString();
+                    lastName = reader["lastName"].ToString();
 
                     welcome.InnerText = "Welcome, " + firstName + " " + lastName + "!";
-                    
                 }
                 reader.Close();
 

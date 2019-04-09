@@ -18,17 +18,12 @@ public partial class YourLessons : System.Web.UI.Page
         {
             FillData();
 
-
-
         }
     }
     protected void OpenDocument(object sender, EventArgs e)
     {
         LinkButton lnk = (LinkButton)sender;
         GridViewRow gr = (GridViewRow)lnk.NamingContainer;
-
-
-
 
 
         int id = int.Parse(LessonsGridView1.DataKeys[gr.RowIndex].Value.ToString());
