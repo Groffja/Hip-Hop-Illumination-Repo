@@ -66,10 +66,12 @@ public partial class ProfilePage : System.Web.UI.Page
                 }
                 reader.Close();
                 lessons.Visible = false;
+              
             }
             if ((string)Session["Accounttype"] == "Youth")
             {
-                getFields.CommandText = "SELECT firstName, lastName FROM Youth Where youth.email = @email";
+                getFields.CommandText = "SELECT firstName, lastName FROM Youth Where email = @email";
+
                 getFields.Parameters.Add(new SqlParameter("@email", (string)Session["email"]));
                 SqlDataReader reader = getFields.ExecuteReader();
                 while (reader.Read())
