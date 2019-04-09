@@ -19,12 +19,8 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-    <style>
-        .far fa-kristina{
-            color: white;
-        }
-    </style>
-
+   
+    
 </head>
 
 <body id="page-top">
@@ -41,8 +37,13 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#services">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">The 6 Cs</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                            Lessons</a>
+                        <div class="dropdown-menu">
+                             <a class="dropdown-item" href="6Cs.aspx">The Six C's</a>
+                             <a class="dropdown-item" href="CriticalC.aspx">Critical Conciousness</a>
+                                 </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#team">Our Team</a>
@@ -68,7 +69,7 @@
     <header class="masthead">
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Hip Hip IllumiNation!</div>
+                <div class="intro-lead-in">Welcome To Hip Hop IllumiNation!</div>
                 <div class="intro-heading text-uppercase">Come Explore</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
@@ -116,167 +117,60 @@
                     <h4 class="service-heading">Vision</h4>
                     <p class="text-muted">Our vision is that young men of color, particularly those living in marginalized communities, will recognize their strengths and exercise their power to positively influence the world around them.</p>
                 </div>
-                <div class="col-md-4">
+<%--                <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-bullseye fa-stack-1x fa-inverse"></i>
                         <%--<i class="fas fa-lock fa-stack-1x fa-inverse"></i>--%>
-                    </span>
+     <%--               </span>
                     <h4 class="service-heading">Goal</h4>
                     <p class="text-muted">"Quote from Nick Carrington"</p>
-                </div>
+                </div>--%>
             </div>
         </div>
     </section>
-    <!-- Portfolio Grid -->
-    <section class="bg-light" id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">The Six C's</h2>
-                    <h3 class="section-subheading text-muted">Harnessing the power of hip hop for positive youth development</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/6C8.jpeg" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Caring</h4>
-                        <%--<p class="text-muted">Illustration</p>--%>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/6C2.jpeg" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Character</h4>
-                        <%--<p class="text-muted">Graphic Design</p>--%>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/6C3.jpeg" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Competence</h4>
-                        <%--<p class="text-muted">Identity</p>--%>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/6C4.jpeg" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Confidence</h4>
-                       <%-- <p class="text-muted">Branding</p>--%>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/6C9.jpeg" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Connection</h4>
-                       <%-- <p class="text-muted">Website Design</p>--%>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/6C6.jpeg" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Contribution</h4>
-                        <%--<p class="text-muted">Photography</p>--%>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
-    <!--Six Cs -->
+    <!--Lessons -->
 
-    <section>
+    <section id="Lessons">
              <div class="container"> 
                  <div class="row">
         <div class="col-lg-12 text-center" >
-        <h2 class="section-heading text-uppercase">Why Are the Six Cs Important for Young Men of Color?</h2>
-        <br /> 
-        <%--<p style= "width: 800px">--%>
+        <h2 class="section-heading text-uppercase">Lesson Overview</h2>
+<%--        <br /> --%>
             <h3 class="section-subheading text-muted">
+            Hip Hop IllumiNation provides a library of lessons that use themes from hip hop
+                music to promote positive youth development. These lessons are designed to prompt 
+                reflection, critical discussion, and action on the topics presented (see below). 
+                Topics have been drawn from research on youth development which suggests that 
+                each topic is an important area for growth as young people mature. They are also 
+                topics that consistently arise in hip hop music. Hip Hop IllumiNation identifies 
+                music that aligns with each topic and creates lessons that help youth connect 
+                their own development with culturally relevant themes. We regularly create new 
+                lessons and add to the library, so you have a variety of options for engaging the young people you care about.    
+                </h3>        
 
-            Young men of color disproportionately face negative perceptions about their attitudes, skills, and behaviors. 
-            These perceptions are reflected not only in institutional policies/cultures (e.g., school discipline, police brutality) 
-            but also in the beliefs and actions of their teachers, employers, and even peers. Too often, these perceptions are also 
-            unintentionally manifest in the actions of youth-serving organizations designed to help young men of color. 
-            The Six Cs provide a framework that focuses on building and reinforcing the inherent strengths that young men of color possess. 
-            Rather than preventing “problem behavior,” the Six Cs model focuses attention on developing attitudes, skills, and behaviors that help youth thrive.
-            <br />
-            <br />
-            To date, the Six Cs are the best indication of thriving within the field of youth development. 
-            The domains are interrelated and reinforce one another. So, as youth strengthen various sub domains
-            of each C, they are more likely to attain others as well. Further, experiencing success in each of the Cs 
-            makes youth, particularly young men of color, more likely to achieve longer-term outcomes that position them 
-            for success in adulthood. For example, young people who form positive relationships with neighbors 
-            (Connection) are better able to develop empathy for those neighbors (Caring). 
-            Empathy combined with a belief in one’s own ability to effect change (Confidence) and specific skills to act
-            (Competence) lead to greater social and civic engagement down the road (Contribution). Similarly, long-term 
-            educational success is a reflection of academic engagement (Connection), a positive view of one’s future (Confidence), 
-            and the academic skills to succeed (Competence).
-     <%--   </p>--%>
-                </h3>
-               
-        <br />
-        <br />
-        <h2 class="section-heading text-uppercase">How Does Hip Hop IllumiNation Contribute to the Six Cs?</h2>
-        <%--<p style="width: 800px">--%>
+
+        <h2 class="section-heading text-uppercase">Lesson Topics</h2>
             <h3 class="section-subheading text-muted">
-            Hip Hop IllumiNation’s lessons use examples from hip hop music where one or more sub domains 
-            of the Six Cs is demonstrated. Youth are prompted to identify how each positive asset is 
-            demonstrated in the music, reflect on how they can relate to the artist’s experience, and 
-            discuss how they might further cultivate the positive asset in their personal life. Adults are 
-            prompted to facilitate this process of discovery, reflection, and discussion. They are also encouraged 
-            to follow up with and support youth to ensure appropriate opportunities for cultivation are in place.
+            Our lessons cover a wide range of topics, all essential to positive youth development. They can be grouped broadly into 
+                two categories: Critical Consciousness and The Six Cs. Each of these categories is further divided into topics and 
+                sub-topics that cover essential domains of youth development (see below). You and the youth you work with will know 
+                best which topics they are most interested in or in need of pursuing. Categories and Tags make it easy to search and 
+                find appropriate lessons based on topic, sub-topic, artist, and even song title.
+           <br />
             <br />
-            <br />
-            We believe that young men of color will be motivated to emulate the positive
-            qualities of hip hop artists with whom they can relate. Hip Hop IllumiNation provides the 
-            platform and structure for them to not only identify the positive messages in hip hop music but
-            also to see how those messages relate to their own lives and access opportunities to cultivate the same qualities in themselves.
-    <%--    </p>--%>
+            NEED TO ADD THE TABLES
                 </h3>
+
+        <h2 class="section-heading text-uppercase">Structure of Lessons</h2>
+            <h3 class="section-subheading text-muted">
+            Our lessons are structured to facilitate teaching and learning. With that in mind, each lesson has a section summarizing the topic(s) and sub-topic(s) covered and how they are important for youth development. The summary is followed by learning objectives, outlining what youth and adults should gain from the lesson. Objectives are followed by the lesson content, which includes lyrics/themes from featured artist(s)/song(s), guidance for the adult leading the lesson, and specific prompts for Reflection, Discussion, and Action. At the end of each lesson, we also try to provide links to additional lessons or other resources that might extend learning.
+
+                </h3>
+
+
             </div>
                      </div>
 </div>
@@ -287,155 +181,64 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                    <h2 class="section-heading text-uppercase">Who Our Focus Is</h2>
                     <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="#" alt="">
-                        <h4>Kristina Mosqueda</h4>
-                        <p class="text-muted">Lead Designer</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <img class="mx-auto rounded-circle" src="img/team/Youth.png" alt="">
+
+                        <h4>Youth</h4>
+                        <p class="text-muted">18 and Under</p>
+                       
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="#" alt="">
-                        <h4>Dan Baron</h4>
-                        <p class="text-muted">Lead Engineer</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <img class="mx-auto rounded-circle" src="img/team/white-treble.jpg" alt="">
+                
+                        <h4>Youth Worker</h4>
+                        <p class="text-muted">need to figure this out </p>
+                       
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="#" alt="">
-                        <h4>Max Ammon</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <img class="mx-auto rounded-circle" src="img/team/parent.jpg" alt="">
+                        <h4>Parent</h4>
+                        <p class="text-muted">Can Recommend Lessons to Youth</p>
+                       
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="#" alt="">
-                        <h4>Jacob Groff</h4>
-                        <p class="text-muted">Lead Architect</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <img class="mx-auto rounded-circle" src="img/team/gray_chalk_apple.png" alt="">
+                      
+                        <h4>Teacher</h4>
+                        <p class="text-muted">Brief overview of teacher</p>
+                        
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="#" alt="">
-                        <h4>Yun Zhang</h4>
-                        <p class="text-muted">Database Engineer</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <img class="mx-auto rounded-circle" src="img/team/mentor.jpg" alt="">
+
+                        <h4>Mentor</h4>
+                        <p class="text-muted">add something about mentor </p>
+                        
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="#" alt="">
-                        <h4>Quentin Schaefer</h4>
-                        <p class="text-muted">Project Manager</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <img class="mx-auto rounded-circle" src="img/team/NewOther.jpg" alt=""/>
+
+                        <h4>Other Adult</h4>
+                        <p class="text-muted">Other adults intrested in fostering the youth</p>
+                       
                     </div>
                 </div>
             </div>
@@ -446,33 +249,7 @@
             </div>
         </div>
     </section>
-    <%--<!-- Clients -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>--%>
+    
     <!-- Contact -->
     <section id="contact">
         <div class="container">
@@ -556,211 +333,7 @@
             </div>
         </div>
     </footer>
-    <!-- Portfolio Modals -->
-    <!-- Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl"></div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Caring</h2>
-                                <p class="item-intro text-muted"> </p>
-                                <img class="img-fluid d-block mx-auto" src="img/portfolio/headphones.jpg" alt="">
-                                <p>A sense of sympathy and empathy for others.</p>
-                                <ul class="list-inline">
-                                    <li>Date: April 2019</li>                                    
-                                    <li>Category: Caring</li>
-                                </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                    <i class="fas fa-times"></i>
-                                    Close 
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl"></div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Character</h2>
-                                <p class="item-intro text-muted"> </p>
-                                <img class="img-fluid d-block mx-auto" src="img/portfolio/number2.jpg" alt="">
-
-                                <p>Respect for societal and cultural rules, possession of standards for correct behaviors, a sense of right and wrong, and integrity.</p>
-                                <ul class="list-inline">
-                                    <li>Date: April 2019</li>
-                                   
-                                    <li>Category: Character</li>
-                                </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                    <i class="fas fa-times"></i>
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl"></div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Competence</h2>
-                                <p class="item-intro text-muted"> </p>
-                                <img class="img-fluid d-block mx-auto" src="img/6C11.jpeg" alt="">
-                                <p>Positive view of one’s abilities in domain specific areas including social, academic, cognitive, and vocational.</p>
-                                <ul class="list-inline">
-                                    <li>Date: April 2019</li>
-                                    
-                                    <li>Category: Competence</li>
-                                </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                    <i class="fas fa-times"></i>
-                                    Close 
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal 4 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl"></div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Confidence</h2>
-                                <%--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>--%>
-                                <img class="img-fluid d-block mx-auto" src="img/portfolio/MusicNote.jpg" width="400px" height="800px" alt="">
-                                <p>An internal sense of overall positive self-worth and self-efficacy; one’s global self-regard, as opposed to domain specific beliefs.</p>
-                                <ul class="list-inline">
-                                    <li>Date: April 2019</li>
-                                    <li>Category: Confidence</li>
-                                </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                    <i class="fas fa-times"></i>
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal 5 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl"></div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Connection</h2>
-                                <%--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>--%>
-                                <img class="img-fluid d-block mx-auto" src="img/portfolio/connection.jpg" alt="">
-                                
-                                <p>Positive bonds with people and institutions that are reflected in mutual exchanges between the individual and peers, family, school, and community in which both parties contribute to the relationship.</p>
-                                <ul class="list-inline">
-                                    <li>Date: April 2019</li>
-                                    <li>Category: Connection</li>
-                                </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                    <i class="fas fa-times"></i>
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal 6 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl"></div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Contribution</h2>
-                               <%-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>--%>
-                                <img class="img-fluid d-block mx-auto" src="img/portfolio/microphone_02.jpg"  alt="">
-                                
-                                <p>Contribution is frequently added to the original model as scholars have recognized the importance of youth engagement in family, civic, and political life. This model suggests that youth experience positive development when their strengths in these areas are aligned with positive opportunities to grow.</p>
-                                <ul class="list-inline">
-                                    <li>Date: April 2019</li>
-                                    <%--<li>Client: Window</li>--%>
-                                    <li>Category: Contribution</li>
-                                </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                    <i class="fas fa-times"></i>
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
