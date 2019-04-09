@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="ProfilePage.aspx.cs" Inherits="ProfilePage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="ProfilePage.aspx.cs" Inherits="ProfilePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -19,7 +19,7 @@
                     <div class="col-sm-4">
                         <div class="team-member" >
                             <img class="mx-auto rounded-circle" src="img/admin_login.svg" alt="">
-                            <h4 style="color:#fff" id="username" runat="server"> Username</h4>
+                            <h4 style="color:#fff; height: 19px;" id="username" runat="server"> Username</h4>
                             <p style="color:#fff" id="welcome" runat="server"></p>
                             <p style="color:#fff" id="lessons" runat="server">
                                 Number of Lessons Completed</p>

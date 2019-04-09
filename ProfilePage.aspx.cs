@@ -51,7 +51,7 @@ public partial class ProfilePage : System.Web.UI.Page
                 }
                 reader.Close();
                 lessons.Visible = false;
-                school.Visible = false;
+                
             }
             if ((string)Session["Accounttype"] == "Admin")
             {
@@ -67,25 +67,25 @@ public partial class ProfilePage : System.Web.UI.Page
                 }
                 reader.Close();
                 lessons.Visible = false;
-                school.Visible = false;
+              
             }
             if ((string)Session["Accounttype"] == "Youth")
             {
-                getFields.CommandText = "SELECT School.schoolName, Youth.youthFirstName, Youth.youthLastName, Youth.youthID FROM Youth INNER JOIN School ON Youth.youthSchool = School.schoolID Where youth.email = @email";
+                getFields.CommandText = "SELECT firstName, lastName FROM Youth Where email = @email";
                 getFields.Parameters.Add(new SqlParameter("@email", (string)Session["email"]));
                 SqlDataReader reader = getFields.ExecuteReader();
                 while (reader.Read())
                 {
                     firstName = reader["youthFirstName"].ToString();
                     lastName = reader["youthLastName"].ToString();
-                    school1 = reader["schoolName"].ToString();
+                    
 
                     welcome.InnerText = "Welcome, " + firstName + " " + lastName + "!";
-                    school.InnerText = school1;
+                    
                 }
                 reader.Close();
 
-                getFields.CommandText = "SELECT COUNT(*) as count FROM(SELECT LessonYouth.ID, Youth.email FROM LessonYouth INNER JOIN Youth ON LessonYouth.youthID = Youth.youthID where Youth.email = @email) t";
+                getFields.CommandText = "SELECT COUNT(*) as count FROM(SELECT Lessons.ID, Youth.email FROM Lessons INNER JOIN Youth ON Lessons.accountID = Youth.accountID where Youth.email = @email) t";
                 //getFields.Parameters.Add(new SqlParameter("@email", (string)Session["email"]));
                 SqlDataReader reader2 = getFields.ExecuteReader();
                 while (reader2.Read())

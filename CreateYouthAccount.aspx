@@ -115,7 +115,7 @@ body{
 
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblFirstName" runat="server" Text="First Name" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFirstName" runat="server" Width="240px" type="text" class="form-control"  placeholder="First Name *" value="" required="true" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txtFirstName" runat="server" Width="240px" type="text" class="form-control"  placeholder="First Name *" value="" required="true" CssClass="form-control" OnTextChanged="txtFirstName_TextChanged"></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblLastName" runat="server" Text="Last Name" Width="130px"></asp:Label>
