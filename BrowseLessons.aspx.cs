@@ -63,6 +63,7 @@ public partial class BrowseLessons : System.Web.UI.Page
 
         string name = dt.Rows[0]["Name"].ToString();
         byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
+
         //string documentCategory = dt.Rows[0]["DocumentCategory"].ToString();
         //new
 
