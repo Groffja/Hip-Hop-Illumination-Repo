@@ -65,7 +65,7 @@ public partial class RecommendationPage : System.Web.UI.Page
             insert.CommandText = "SELECT accountID from LoginInfo where email = '" + email + "'";
             int receiverAccountID = Convert.ToInt32(insert.ExecuteScalar());// get receiver ID
 
-            insert.CommandText = "SELECT username,accountID from LoginInfo where email = '" + email + "'";
+            insert.CommandText = "SELECT username, accountID from LoginInfo where email = '" + email + "'";
             insert.ExecuteNonQuery();
 
 

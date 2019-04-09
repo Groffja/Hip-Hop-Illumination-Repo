@@ -96,7 +96,7 @@
     <br />
     <br />
 
-    <asp:GridView ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server"  AutoGenerateColumns="False" DataKeyNames="ID" HorizontalAlign="Center" Width="100%" AllowPaging="True" PageSize="100" CellPadding="10" >
+    <asp:GridView ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server"  AutoGenerateColumns="False" DataKeyNames="ID" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" >
        
         <AlternatingRowStyle />
         <Columns>
@@ -112,17 +112,23 @@
                 </ItemTemplate>
                 <ControlStyle Width="365px" />
                 </asp:TemplateField>
-                 <%--<asp:TemplateField HeaderText="Document Category">
+                 <asp:TemplateField HeaderText="Document Category">
                 <ItemTemplate>
-                    <asp:SqlDataSource ID="SqlDataSource12" runat="server" ConnectionString="<%$ ConnectionStrings:manageUsers %>" SelectCommand="SELECT [DocumentCategory] FROM [Documents] WHERE [DocumentCategory] IS NOT NULL ">
-                </asp:SqlDataSource>
+                    <asp:Label ID="lblCategory" runat="server" CssClass="align-content-center" Text='<%# Eval("DocumentCategory")%>'>
+                </asp:Label>
                         </ItemTemplate>
                 <ControlStyle Width="365px" />
-            </asp:TemplateField>--%>
+            </asp:TemplateField>
         </Columns>
         <RowStyle />
+
+        
     </asp:GridView>
-     
+     <%--<asp:SqlDataSource ID="SqlDataSource12" runat="server" 
+            connectionString="Data Source=localhost;Initial Catalog=hhidatabase;Integrated Security=True"
+            SelectCommand ="SELECT [DocumentCategory] FROM Documents">
+
+        </asp:SqlDataSource>--%>
 
     <%--<div class="search-box">
         <input class="search-txt align-content-center" type="text"  name="" placeholder="Type to search" />

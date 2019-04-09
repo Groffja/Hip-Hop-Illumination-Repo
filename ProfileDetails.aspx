@@ -1,14 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="ProfileDetails.aspx.cs" Inherits="ProfileDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .auto-style1 {
-            color: #fff;
-            border-color: #fed136;
-            background-color: #fed136;
-        }
-    </style>
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <style>
     section{
@@ -34,29 +27,14 @@
                     </div>
                     <div class="form-group">
                         <asp:Label ID="lblFirstName" runat="server" CssClass="col-form-label" Text="First Name"></asp:Label>
-                        <asp:TextBox ID="txtFirstName" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="form-group">
-                        <asp:Label ID="lblMiddleName" runat="server" CssClass="col-form-label" Text="Middle Name"></asp:Label>
-                        <asp:TextBox ID="txtMiddleName" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
+                        <asp:TextBox ID="txtFirstName" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False" OnTextChanged="txtFirstName_TextChanged"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <asp:Label ID="lblLastName" runat="server" CssClass="col-form-label" Text="Last Name"></asp:Label>
                         <asp:TextBox ID="txtLastName" runat="server" EnableViewState="true"  CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group">
-                        <asp:Label ID="lblStreet" runat="server" CssClass="col-form-label" Text="Street"></asp:Label>
-                        <asp:TextBox ID="txtStreet" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="form-group">
-                        <asp:Label ID="lblCity" runat="server" CssClass="col-form-label" Text="City"></asp:Label>
-                        <asp:TextBox ID="txtCity" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
-                    </div>
+              
                     <div class="form-group">
                         <asp:Label ID="lblState" runat="server" CssClass="col-form-label" Text="State"></asp:Label>
                         <asp:DropDownList ID="DropDownstate" runat="server" EnableViewState="true"  CssClass="form-control" Width="460px" Enabled="False">                                                                            
@@ -114,11 +92,7 @@
                                                </asp:DropDownList>
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group">
-                        <asp:Label ID="lblZip" runat="server" CssClass="col-form-label" Text="Zip Code"></asp:Label>
-                        <asp:TextBox ID="txtZip" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
-                    </div>
+                    
                     <div class="form-group">
                         <asp:Label ID="lblCountry" runat="server" CssClass="col-form-label" Text="Country"></asp:Label>
                          <asp:DropDownList ID="DropDowncountry" EnableViewState="true" runat="server" CssClass="form-control" Width="460px" Enabled="False">
@@ -620,6 +594,25 @@
                         <asp:TextBox ID="txtDateOfBirth" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
                         <p class="help-block text-danger"></p>
                     </div>
+
+                             <div class="form-group">
+                        <asp:Label ID="lblFavoriteArtist" runat="server" CssClass="col-form-label" Text="Favorite Artist"></asp:Label>
+                        <asp:TextBox ID="txtFavoriteArtist" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
+                        <p class="help-block text-danger"></p>
+                     </div>
+
+                             <div class="form-group">
+                        <asp:Label ID="lblFavoriteMusic" runat="server" CssClass="col-form-label" Text="Favorite Music"></asp:Label>
+                        <asp:TextBox ID="txtFavoriteMusic" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
+                        <p class="help-block text-danger"></p>
+                    </div>
+
+
+
+
+
+
+
                     <div class="form-group">
                         <asp:Button ID="Edit" runat="server" Text="Edit Profile Information" CssClass="btn-primary" OnClick="Edit_Click"/>
                         <asp:Button ID="Confirm" runat="server" Text="Submit Changes" CssClass="auto-style1" Visible="False" OnClick="Confirm_Click" />

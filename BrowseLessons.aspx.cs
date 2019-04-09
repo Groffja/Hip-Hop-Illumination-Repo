@@ -19,6 +19,7 @@ public partial class BrowseLessons : System.Web.UI.Page
             this.BindGrid();
         }
     }
+
     protected void OpenDocument(object sender, EventArgs e)
     {
         LinkButton lnk = (LinkButton)sender;
@@ -27,19 +28,8 @@ public partial class BrowseLessons : System.Web.UI.Page
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
+
     private void Download(int id)
     {
         DataTable dt = new DataTable();
@@ -56,6 +46,8 @@ public partial class BrowseLessons : System.Web.UI.Page
 
         string name = dt.Rows[0]["Name"].ToString();
         byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
+        string documentCategory = dt.Rows[0]["DocumentCategory"].ToString();
+        //new
 
         Response.ClearContent();
         Response.ContentType = "appliction/octetstream";
@@ -97,7 +89,7 @@ public partial class BrowseLessons : System.Web.UI.Page
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT ID, Name FROM Documents WHERE Name LIKE '%' + @Name + '%'";
+                cmd.CommandText = "SELECT ID, Name, DocumentCategory FROM Documents WHERE Name LIKE '%' + @Name + '%'";
                 cmd.Connection = cn;
                 cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
                 DataTable dt = new DataTable();

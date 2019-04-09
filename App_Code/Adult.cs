@@ -9,12 +9,8 @@ using System.Web;
 public class Adult
 {
     private string firstName;
-    private string middleName;
     private string lastName;
-    private string street;
-    private string city;
     private string state;
-    private string zip;
     private string country;
     private string adultType;
     private string email;
@@ -22,54 +18,38 @@ public class Adult
     private string gender;
     private string userName;
     private string password;
+    private string favoriteArtist;
+    private string favoriteMusic;
     private int lessonID;
     private string dateCreated = DateTime.Now.ToString("yyyy-MM-dd");
 
-    public Adult(string firstName, string middleName, string lastName, string street, string city, string state, string zip, string country, string adultType, string email, string dateOfBirth, string gender, string userName, string password)
+    public Adult(string firstName, string lastName, string state, string country, string adultType, string email, string dateOfBirth, string gender, string favoriteArtist, string favoriteMusic, string userName, string password)
     {
         setFirstName(firstName);
-        setMiddleName(middleName);
         setLastName(lastName);
-        setStreet(street);
-        setCity(city);
         setState(state);
-        setZip(zip);
         setCountry(country);
         setAdultType(adultType);
         setEmail(email);
         setDateOfBirth(dateOfBirth);
         setGender(gender);
+        setFavoriteArtist(favoriteArtist);
+        setFavoriteMusic(favoriteMusic);
         setUserName(userName);
-        setPassword(password);        
+        setPassword(password);
     }   
 
     protected void setFirstName(string firstName)
     {
         this.firstName = firstName;
     }
-    protected void setMiddleName(string middleName)
-    {
-        this.middleName = middleName;
-    }
     protected void setLastName(string lastName)
     {
         this.lastName = lastName;
     }
-    protected void setStreet(string street)
-    {
-        this.street = street;
-    }
-    protected void setCity(string city)
-    {
-        this.city = city;
-    }
     protected void setState(string state)
     {
         this.state = state;
-    }
-    protected void setZip(string zip)
-    {
-        this.zip = zip;
     }
     protected void setCountry(string country)
     {
@@ -86,6 +66,14 @@ public class Adult
     protected void setDateOfBirth(string dateOfBirth)
     {
         this.dateOfBirth = dateOfBirth;
+    }
+    protected void setFavoriteArtist(string favoriteArtist)
+    {
+        this.favoriteArtist = favoriteArtist;
+    }
+    protected void setFavoriteMusic(string favoriteMusic)
+    {
+        this.favoriteMusic = favoriteMusic;
     }
     protected void setUserName(string userName)
     {
@@ -105,25 +93,9 @@ public class Adult
     {
         return this.firstName;
     }
-    public string getMiddleName()
-    {
-        return this.middleName;
-    }
     public string getLastName()
     {
         return this.lastName;
-    }
-    public string getStreet()
-    {
-        return this.street;
-    }
-    public string getCity()
-    {
-        return this.city;
-    }
-    public string getZipCode()
-    {
-        return this.zip;
     }
     public string getState()
     {
@@ -144,6 +116,14 @@ public class Adult
     public string getDateOfBirth()
     {
         return this.dateOfBirth;
+    }
+    public string getFavoriteArtist()
+    {
+        return this.favoriteArtist;
+    }
+    public string getFavoriteMusic()
+    {
+        return this.favoriteMusic;
     }
     public string getUserName()
     {
