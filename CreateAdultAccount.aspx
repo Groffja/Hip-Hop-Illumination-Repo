@@ -109,29 +109,13 @@ body{
             <asp:TextBox ID="txtFirstName" runat="server" Width="240px" type="text" pattern="[A-Za-z]{1,50}" class="form-control" placeholder="First Name *" value="" required="true" CssClass="form-control"></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="middleNameLabel" runat="server" Text="Middle Name" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtMiddleName" runat="server" Width="240px" pattern="[A-Za-z]{0,50}" type="text" class="form-control" placeholder="Middle Name *" value="" CssClass="form-control" ></asp:TextBox>
-            
-</div>
-<div class="form-group input-group input-group-md label">
             <asp:Label ID="lastNameLabel" runat="server" Text="Last Name" Width="130px"></asp:Label>
             <asp:TextBox ID="txtLastName" runat="server" Width="240px" pattern="[A-Za-z]{1,50}" type="text" class="form-control" placeholder="Last Name *" value="" required="true" CssClass="form-control"></asp:TextBox>
            
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblStreet" runat="server" Text="Street" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtStreet" runat="server" Width="240px" type="text" class="form-control" placeholder="Street *" value="" required="true" CssClass="form-control"></asp:TextBox>
-            
-</div>
-<div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblCity" runat="server" Text="City" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtCity" runat="server" Width="240px" type="text" class="form-control" placeholder="City *" value="" required="true" CssClass="form-control"></asp:TextBox>
-           
-</div>
-<div class="form-group input-group input-group-md label">
             <asp:Label ID="lblState" runat="server" Text="State" Width="130px"></asp:Label>
             <br />
-            
             <asp:DropDownList ID="DropDownstate" runat="server" Width="240px"  CssClass="form-control">
 	<asp:ListItem Value="AL">Alabama</asp:ListItem>
 	<asp:ListItem Value="AK">Alaska</asp:ListItem>
@@ -187,11 +171,6 @@ body{
             </asp:DropDownList>
             <br />
             
-</div>
-<div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblZipCode" runat="server" Text="Zip Code" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtZipCode" runat="server" Width="240px" type="text" class="form-control" placeholder="Zipcode *" value="" required="true"></asp:TextBox>
-          
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblCountry" runat="server" Text="Country" Width="130px"></asp:Label>
@@ -472,6 +451,16 @@ body{
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblDateOfBirth" runat="server" Text="Date of Birth" Width="130px"></asp:Label>
             <asp:TextBox ID="txtDateOfBirth" runat="server" Width="240px" type="text" class="form-control" placeholder="DD/MM/YYYY *" value="" required="true" CssClass="form-control" TextMode="Date"></asp:TextBox>
+            
+</div>
+<div class="form-group input-group input-group-md label">
+            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre of Music" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+            
+</div>
+<div class="form-group input-group input-group-md label">
+            <asp:Label ID="lblFavoriteArtist" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">

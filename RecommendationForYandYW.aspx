@@ -82,7 +82,7 @@
             </div>
 
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringRecommendation %>" SelectCommand="SELECT Documents.Name, Recommendations.recommendedBy, Recommendations.dateRecommended FROM Documents INNER JOIN Recommendations ON Documents.ID = Recommendations.documentID WHERE RecieverAccountID = @recieverAccountID">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringRecommendation %>" SelectCommand="SELECT Documents.Name, Recommendations.recommendedBy, Recommendations.dateRecommended FROM Documents INNER JOIN Recommendations ON Documents.ID = Recommendations.ID WHERE accountID = @recieverAccountID">
 
                 <SelectParameters>
     <asp:ControlParameter ControlID="test" Name="recieverAccountID" PropertyName="Text" Type="String" Defaultvalue=""  />
