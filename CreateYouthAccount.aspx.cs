@@ -108,18 +108,14 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 login.Parameters.AddWithValue("@lastUpdatedBy", YouthUserName);
                 login.ExecuteNonQuery();
                 sc.Close();
-                Response.Redirect("Login.aspx");
+                
 
 
-                sc.Open();
-
-
-
+            sc.Open();
             // Pull the accountID from the loginInfo table for reference in the Youth table
             SqlCommand accountID = new SqlCommand();
             accountID.Connection = sc;
-            accountID.CommandText = "Select @accountID from loginInfo WHERE email = @email";
-            accountID.Parameters.AddWithValue("@accountID", accountID);
+            accountID.CommandText = "Select accountID from loginInfo WHERE email = @email";
             accountID.Parameters.AddWithValue("@email", YouthEmail);
 
             SqlDataReader reader = accountID.ExecuteReader();
@@ -134,7 +130,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
             sc.Open();
             // Insert new youth account into the Youth table
             insert.CommandText = "INSERT into [dbo].Youth VALUES(@youthFirstName, @youthLastName, " +
-                "NULLIF(@youthState,' '), @youthCountry, @youthEmail, @youthGender, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
+                "NULLIF(@youthState,' '), @youthCountry, @youthGender, @youthEmail, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
 
                 insert.Parameters.AddWithValue("@youthFirstName", YouthFirstName);
                 insert.Parameters.AddWithValue("@youthLastName", YouthLastName);
@@ -155,13 +151,14 @@ public partial class CreateYouthAccount : System.Web.UI.Page
 
             insert.ExecuteNonQuery();
 
+            Response.Redirect("Login.aspx");
             //}
             //catch (Exception)
             //{
-                
+
             //}
-            
-            
+
+
 
         }
     }
