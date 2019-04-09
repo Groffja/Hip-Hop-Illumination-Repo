@@ -3,9 +3,11 @@
 <!DOCTYPE html>
 <head>
     <title>Login</title>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -30,7 +32,7 @@ body {
 }
 
 a {
-  color: black/*#ffc40c*/;
+  color: #000066/*#ffc40c*/;
   display:inline-block;
   text-decoration-style: wavy;
   font-weight: 400;
@@ -259,26 +261,30 @@ input[type=text]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #FFC40C;
   content: "";
   transition: width 0.2s;
 }
 
 .underlineHover:hover {
-  color: #0d0d0d;
+  color: white;
 }
 
 .underlineHover:hover:after{
   width: 100%;
 }
 
-
+.form-control:focus {
+  border-color: #FFC40C;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
 
 
 /* OTHERS */
 
-*:focus {
+.textarea:focus {
     outline: none;
 } 
 
@@ -303,6 +309,9 @@ body {
 </style>
     
     </head>
+
+
+
  <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -311,6 +320,8 @@ body {
             
         </div>
     </nav>
+
+
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
@@ -324,26 +335,41 @@ body {
     </div>
         
     <!-- Login Form -->
-      <form id="form1" runat="server">
-      
-           <asp:LinkButton ID="lnkCreate" runat="server" href="UserQuestions.aspx">Create Account</asp:LinkButton>
-            <br />
-          
-          <br />
-            <strong></strong><br />
-            <asp:TextBox  ID="txtUsername" runat="server" placeholder="Email" required="required"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="txtPassword" runat="server" placeholder="Password" required="required"></asp:TextBox>
-            <br />
-            <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" BackColor="#FFC40C" ForeColor="Black" />
-            <br />
+      <form id="loginForm" class="form-horizontal" runat="server">
+          <div class="container">
+
+<%--              <div class="form-group">
+                 <asp:LinkButton ID="lnkCreate" runat="server" href="UserQuestions.aspx">Create Account</asp:LinkButton>
+              </div>--%>
+              <br />
+              <br />
+              <center>
+             <div class="form-group col-8 underlineHover">
+                  <asp:TextBox  class="form-control" ID="txtUsername" runat="server" placeholder="Email" required="required" TextMode="Email"></asp:TextBox>
+             </div>
+             
+              <div class="form-group col-8 underlineHover">
+                  <asp:TextBox class="form-control" ID="txtPassword" runat="server" placeholder="Password" required="required" TextMode="Password"></asp:TextBox>
+              </div>
+
+              <div class="form-group col-sm-6 text-center ">
+            <asp:Button class="form-control" ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" BackColor="#FFC40C" ForeColor="Black" Height="50px" Width="200px"/>
+              </div>
+                  
+              <div class="form-group">
             <asp:Label ID="lblStatus" runat="server" ForeColor="Red"></asp:Label>
-          
+
+              </div>   
+                  </center>
+          </div>
+      
       </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href="UserQuestions.aspx">Create Account</a>
+        <br />
+      <a class="underlineHover" href="#">Forgot Password</a>
     </div>
 
   </div>
