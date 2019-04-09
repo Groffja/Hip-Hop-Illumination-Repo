@@ -19,6 +19,7 @@ public partial class BrowseLessons : System.Web.UI.Page
             this.BindGrid();
         }
     }
+
     protected void OpenDocument(object sender, EventArgs e)
     {
         LinkButton lnk = (LinkButton)sender;
@@ -27,19 +28,8 @@ public partial class BrowseLessons : System.Web.UI.Page
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
+
     private void Download(int id)
     {
         DataTable dt = new DataTable();

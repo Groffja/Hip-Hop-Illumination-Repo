@@ -82,6 +82,8 @@ public partial class _Default : System.Web.UI.Page
         string name = fi.Name;
         string extn = fi.Extension;
         string category = TextBox2.Text;
+        string category2 = txtCat2.Text;
+        string category3 = txtCat3.Text;
 
         using (SqlConnection cn = new SqlConnection(conStr))
         {
@@ -92,6 +94,8 @@ public partial class _Default : System.Web.UI.Page
             cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
             cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
             cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
+            cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
+            cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
 
             cn.Open();
             cmd.ExecuteNonQuery();
