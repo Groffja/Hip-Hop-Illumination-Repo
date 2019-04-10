@@ -146,17 +146,6 @@
 
         
     </asp:GridView>
-     <%--<asp:SqlDataSource ID="SqlDataSource12" runat="server" 
-            connectionString="Data Source=localhost;Initial Catalog=hhidatabase;Integrated Security=True"
-            SelectCommand ="SELECT [DocumentCategory] FROM Documents">
-
-        </asp:SqlDataSource>--%>
-
-    <%--<div class="search-box">
-        <input class="search-txt align-content-center" type="text"  name="" placeholder="Type to search" />
-        <a class= "search-btn" href ="#">
-            <i class="fas fa-search"></i>
-        </a>
-    </div>--%>
+     
     </body>
 </asp:Content>

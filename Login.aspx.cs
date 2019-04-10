@@ -16,6 +16,7 @@ public partial class _Default : System.Web.UI.Page
     String userType;
     public static string username = "";
     protected void btnLogin_Click(object sender, EventArgs e)
+
     {
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -26,6 +27,7 @@ public partial class _Default : System.Web.UI.Page
 
 
         findPass.CommandText = "select accountID, username, accountType, Xpassword from LoginInfo where email = @email";
+
         findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
 
 
@@ -47,6 +49,7 @@ public partial class _Default : System.Web.UI.Page
                 string accountType = type;
                 string storedHash = reader["Xpassword"].ToString(); // store the database password into this variable
                 lblStatus.Text = storedHash;
+
 
 
                 if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
@@ -71,6 +74,7 @@ public partial class _Default : System.Web.UI.Page
                 else
                     lblStatus.Text = "Password is wrong.";
             }
+
         }
         else // if the username doesn't exist, it will show failure
             lblStatus.Text = "Invalid Username/Password. Please Try Again.";
