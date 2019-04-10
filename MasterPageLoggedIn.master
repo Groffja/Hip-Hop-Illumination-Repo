@@ -27,6 +27,10 @@
     
     background-color:#fed136;
 }
+        a:-webkit-any-link {
+    
+    cursor: pointer;
+    text-decoration: none;
     </style>
 </head>
 

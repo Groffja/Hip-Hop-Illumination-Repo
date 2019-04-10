@@ -71,18 +71,21 @@
 
         <div class="row d-block mx-auto"> 
             <div class="col d-block mx-auto"
-    <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" Width="100%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <center>
+    <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
-            <asp:BoundField DataField="Name" HeaderText="Document Name" SortExpression="Name"/>
-            <asp:BoundField DataField="recommendedBy" HeaderText="Recommended By" SortExpression="recommendedBy" />
-            <asp:BoundField DataField="dateRecommended" HeaderText="Date Recommended" SortExpression="dateRecommended" />
+            <asp:BoundField DataField="Name" HeaderText="Lesson" SortExpression="Name"/>
+            <asp:BoundField DataField="DocumentCategory" HeaderText="Category" SortExpression="DocumentCategory"/>
+            <asp:BoundField DataField="recommendedBy" HeaderText="Sender Username" SortExpression="recommendedBy" />
+            <asp:BoundField DataField="dateRecommended" HeaderText="Date Recieved" SortExpression="dateRecommended" />
         </Columns>
     </asp:GridView>
+                    </center>
                 </div>
             </div>
 
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringRecommendation %>" SelectCommand="SELECT Documents.Name, Recommendations.recommendedBy, Recommendations.dateRecommended FROM Documents INNER JOIN Recommendations ON Documents.ID = Recommendations.documentID WHERE RecieverAccountID = @recieverAccountID">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringRecommendation %>" SelectCommand="SELECT Documents.Name, Documents.DocumentCategory, Recommendations.recommendedBy, Recommendations.dateRecommended FROM Documents INNER JOIN Recommendations ON Documents.ID = Recommendations.ID WHERE accountID = @recieverAccountID">
 
                 <SelectParameters>
     <asp:ControlParameter ControlID="test" Name="recieverAccountID" PropertyName="Text" Type="String" Defaultvalue=""  />

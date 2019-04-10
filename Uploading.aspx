@@ -17,14 +17,14 @@
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd groove;
     </style>
 
 <body>
     <form id="form1" runat="server">
         <center>
             
-            <br />
+            
             <h3>Upload a Lesson</h3>
             <br />
             <br />
@@ -36,10 +36,14 @@
                 
                 <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Category:" Width="100px"></asp:Label>
                 <asp:TextBox ID="TextBox2" runat="server" Width="206px"></asp:TextBox>
+                <asp:Label ID="lblCat2" runat="server" ForeColor="White" Text="Subcategory:" Width="100px"></asp:Label>
+                <asp:TextBox ID="txtCat2" runat="server" Width="206px"></asp:TextBox>
+                <asp:Label ID="lblCat3" runat="server" ForeColor="White" Text="Subcategory:" Width="100px"></asp:Label>
+                <asp:TextBox ID="txtCat3" runat="server" Width="206px"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save" Width="92px" />
             </p>
             <br />
-            <asp:GridView  visible="false" ID="gvDocuments" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID" OnSelectedIndexChanged="gvDocuments_SelectedIndexChanged">
+            <asp:GridView  visible="false" Width="50%" ID="gvDocuments" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID" OnSelectedIndexChanged="gvDocuments_SelectedIndexChanged">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
                         <ItemTemplate>
@@ -58,15 +62,28 @@
 
 
         <asp:Table>
-        <asp:GridView ID="GridView2" runat="server" width="100%" AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowSorting="True">
+        <asp:GridView ID="GridView2" runat="server" width="50%" AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowSorting="True">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="DocumentCategory" HeaderText="DocumentCategory" SortExpression="DocumentCategory" />
+                <asp:BoundField DataField="DocumentCategory" HeaderText="Document Category" SortExpression="DocumentCategory" />
+                <asp:BoundField DataField="DocumentCategory2" HeaderText="Subcategory" SortExpression="DocumentCategory2" />
+                <asp:BoundField DataField="DocumentCategory3" HeaderText="Subcategory" SortExpression="DocumentCategory3" />
             </Columns>
         </asp:GridView>
-             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lessonGridview %>"  SelectCommand="SELECT [ID], [Name], [DocumentContent], [DocumentCategory] FROM [Documents]"></asp:SqlDataSource>
+             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lessonGridview %>"  SelectCommand="SELECT [ID], [Name], [DocumentContent], [DocumentCategory],[DocumentCategory2],[DocumentCategory3] FROM [Documents]"></asp:SqlDataSource>
     </asp:Table>
+            <br/>
+            <br/>
+            <h3>Upload a Resource</h3>
+            <br />
+            <asp:Label ID="Label3" runat="server" Text="Resource URL:" ForeColor="White" Width="150px"></asp:Label>
+            <asp:Textbox ID="hyperlink" runat="server" Width="391px" />
+            <br />
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="    Category:" ForeColor="White" Width="149px"></asp:Label>
+            <asp:Textbox ID="category" runat="server" Width="300px" />
+            <asp:Button ID="save" runat="server" onclick="save_Click" Text="Save" Width="92px" />
             </center>
     </form>
 </body>

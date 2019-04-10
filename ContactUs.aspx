@@ -44,15 +44,18 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                                
+                                    
+                                    <textarea id="sendMessageTextArea" class="text-primary"  placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message." cols="20" rows="2"></textarea>
+                                <div class="form-group">    
+                                <textarea class="form-control" id="messageTextArea" name="messageTextArea" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" onclick="MessageButton_Click" type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>

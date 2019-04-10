@@ -82,6 +82,8 @@ public partial class _Default : System.Web.UI.Page
         string name = fi.Name;
         string extn = fi.Extension;
         string category = TextBox2.Text;
+        string category2 = txtCat2.Text;
+        string category3 = txtCat3.Text;
 
         using (SqlConnection cn = new SqlConnection(conStr))
         {
@@ -92,6 +94,8 @@ public partial class _Default : System.Web.UI.Page
             cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
             cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
             cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
+            cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
+            cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
 
             cn.Open();
             cmd.ExecuteNonQuery();
@@ -123,11 +127,37 @@ public partial class _Default : System.Web.UI.Page
 
 
     }
+    
+    // Uploads a resource into Database
+    protected void save_Click(object sender, EventArgs e)
+    {
+        int admin;
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
+        System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
+        id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
+        id.Connection = sc;
+        sc.Open();        
+               
+        SqlDataReader reader = id.ExecuteReader();
+        while (reader.Read())
+        {
+            string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
+            admin = int.Parse(adminID);
+        }
+        
 
+        sc.Close();
 
-   
+              
+        
+        sc.Open();
+        System.Data.SqlClient.SqlCommand resource = new System.Data.SqlClient.SqlCommand();
+        resource.Connection = sc;
 
+        resource.CommandText = "INSERT INTO Resources VALUES ('"+ hyperlink.Text +"','"+ category.Text +"',"+ admin + ")"; /**/ 
+        resource.ExecuteNonQuery();
+        Response.Redirect("Uploading.aspx");
 
-
-
+    }
 }
