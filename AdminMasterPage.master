@@ -51,10 +51,11 @@
 
 
                 <li class="nav-item">
-            <a class="nav-link" href="YouthTablau.aspx">Youth Users</a>
+
+            <a class="nav-link" href="YouthTablau.aspx">User Breakdown</a>
                  </li>             
              <li class="nav-item">
-                  <a class="nav-link" href="AdultTablau.aspx">Adult Users</a>
+                  <a class="nav-link" href="AdultTablau.aspx">See Ratings</a>
             </li> 
                 <li class="nav-item">
                   <a class="nav-link" href="ManageUsers.aspx">Manager Users</a>
