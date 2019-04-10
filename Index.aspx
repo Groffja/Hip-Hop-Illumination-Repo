@@ -23,6 +23,11 @@
         .far fa-kristina{
             color: white;
         }
+        a:-webkit-any-link {
+    
+    cursor: pointer;
+    text-decoration: none;
+}
         
     </style>
 

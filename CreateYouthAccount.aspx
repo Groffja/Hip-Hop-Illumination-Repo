@@ -470,11 +470,8 @@ body{
 
           
 
-</div>
-<div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
-</div>
+
+
             <asp:Label ID="lblEmailVal" runat="server" Width="130px" ForeColor="Red"></asp:Label>
 
             <asp:Button ID="btnRegister" class="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Create" />

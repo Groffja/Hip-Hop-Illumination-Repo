@@ -454,13 +454,13 @@ body{
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblFavoriteMusic2" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteMusic2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteArtist" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblFavoriteArtist2" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteArtist2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
