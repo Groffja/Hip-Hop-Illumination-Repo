@@ -121,6 +121,26 @@ public partial class BrowseLessons : System.Web.UI.Page
         }
     }
 
+    private void CategoryGridBind()
+    {
+        using (SqlConnection cn = new SqlConnection(conStr))
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = "SELECT ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE ((DocumentCategory LIKE '%' + @category + '%') OR (DocumentCategory2 LIKE '%' + @category + '%') OR (DocumentCategory3 LIKE '%' + @category + '%')";
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("@Name", txtCat.Text.Trim());
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    sda.Fill(dt);
+                    gvDocuments.DataSource = dt;
+                    gvDocuments.DataBind();
+                }
+            }
+        }
+    }
+
     protected void OnPageIndexChanging(Object sender, GridViewPageEventArgs e)
     {
         gvDocuments.PageIndex = e.NewPageIndex;
@@ -141,6 +161,11 @@ public partial class BrowseLessons : System.Web.UI.Page
 
 
     protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        BindGrid();
+    }
+
+    protected void btnCatSearch_Click(object sender, EventArgs e)
     {
         BindGrid();
     }
