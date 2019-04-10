@@ -7,28 +7,47 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 public partial class YourLessons : System.Web.UI.Page
 {
     string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             FillData();
-
+            this.BindGrid();
         }
     }
+
     protected void OpenDocument(object sender, EventArgs e)
     {
         LinkButton lnk = (LinkButton)sender;
         GridViewRow gr = (GridViewRow)lnk.NamingContainer;
 
-
-        int id = int.Parse(LessonsGridView1.DataKeys[gr.RowIndex].Value.ToString());
+        int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
+
+        try
+        {
+            SqlConnection cn = new SqlConnection(conStr);
+            cn.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cn;
+            cmd.CommandText = "INSERT INTO Lessons VALUES (" + id + "," + Session["accountID"] + ",GETDATE(),GETDATE(),'" + Session["username"] + "');";
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+        catch
+        {
+
+        }
+
+
+
     }
+
     private void Download(int id)
     {
         DataTable dt = new DataTable();
@@ -45,6 +64,8 @@ public partial class YourLessons : System.Web.UI.Page
 
         string name = dt.Rows[0]["Name"].ToString();
         byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
+        //string documentCategory = dt.Rows[0]["DocumentCategory"].ToString();
+        //new
 
         Response.ClearContent();
         Response.ContentType = "appliction/octetstream";
@@ -69,24 +90,70 @@ public partial class YourLessons : System.Web.UI.Page
         }
         if (dt.Rows.Count > 0)
         {
-            //LessonsGridView1.DataSource = dt;
-            LessonsGridView1.DataBind();
+            gvDocuments.DataSource = dt;
+            gvDocuments.DataBind();
         }
 
     }
 
+    //protected void Search(object sender, EventArgs e)
+    //{
+    //    this.BindGrid();
+    //}
+
+    private void BindGrid()
+    {
+        using (SqlConnection cn = new SqlConnection(conStr))
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+
+                cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID";
+                //cmd.CommandText = "SELECT Documents.ID, Documents.Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
+                cmd.Connection = cn;
+                //cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    sda.Fill(dt);
+                    gvDocuments.DataSource = dt;
+                    gvDocuments.DataBind();
+                }
+            }
+        }
+    }
+
+    protected void OnPageIndexChanging(Object sender, GridViewPageEventArgs e)
+    {
+        gvDocuments.PageIndex = e.NewPageIndex;
+        this.BindGrid();
+    }
+
+    protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Cells[0].Text = Regex.Replace(e.Row.Cells[0].Text, txtSearch.Text.Trim(), delegate (Match match)
+            {
+                return string.Format("<span style = 'background-color:#D9EDF7'>{0}</span>", match.Value);
+            }, RegexOptions.IgnoreCase);
+        }
+    }
 
 
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        BindGrid();
+    }
+
+    protected void txtSearch_TextChanged(object sender, EventArgs e)
     {
 
     }
 
-    protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+    protected void gvDocuments_SelectedIndexChanged(object sender, EventArgs e)
     {
-
-
-
 
     }
 }

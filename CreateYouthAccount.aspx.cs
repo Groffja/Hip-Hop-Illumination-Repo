@@ -96,7 +96,30 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
                 favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
 
+            
+            string emails = " ";
+            SqlCommand emailCheck = new SqlCommand();
+            emailCheck.Connection = sc;
+            emailCheck.CommandText = "Select NULLIF(email,' ') as email from loginInfo WHERE email = @email";
+            emailCheck.Parameters.AddWithValue("@email", YouthEmail);
+
+            SqlDataReader reader1 = emailCheck.ExecuteReader();
+
+            while (reader1.Read())
+            {
+                emails = reader1["email"].ToString();
+
+            }
+
+
+
+            reader1.Close();
+            sc.Close();
+            if (emails == " ")
+            {
+
                 //INSERT INTO LOGININFO
+                sc.Open();
                 SqlCommand login = new SqlCommand();
                 login.Connection = sc;
                 login.CommandText = "INSERT INTO [dbo].[LoginInfo] VALUES (@accountType, @username, @Xpassword, @email, @lastUpdated, @lastUpdatedBy);";
@@ -108,29 +131,29 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 login.Parameters.AddWithValue("@lastUpdatedBy", YouthUserName);
                 login.ExecuteNonQuery();
                 sc.Close();
-                
 
 
-            sc.Open();
-            // Pull the accountID from the loginInfo table for reference in the Youth table
-            SqlCommand accountID = new SqlCommand();
-            accountID.Connection = sc;
-            accountID.CommandText = "Select accountID from loginInfo WHERE email = @email";
-            accountID.Parameters.AddWithValue("@email", YouthEmail);
 
-            SqlDataReader reader = accountID.ExecuteReader();
-            while (reader.Read())
-            {
-                accountID1 = int.Parse(reader["accountID"].ToString());
-            }
-            reader.Close();
-            sc.Close();
+                sc.Open();
+                // Pull the accountID from the loginInfo table for reference in the Youth table
+                SqlCommand accountID = new SqlCommand();
+                accountID.Connection = sc;
+                accountID.CommandText = "Select accountID from loginInfo WHERE email = @email";
+                accountID.Parameters.AddWithValue("@email", YouthEmail);
+
+                SqlDataReader reader = accountID.ExecuteReader();
+                while (reader.Read())
+                {
+                    accountID1 = int.Parse(reader["accountID"].ToString());
+                }
+                reader.Close();
+                sc.Close();
 
 
-            sc.Open();
-            // Insert new youth account into the Youth table
-            insert.CommandText = "INSERT into [dbo].Youth VALUES(@youthFirstName, @youthLastName, " +
-                "NULLIF(@youthState,' '), @youthCountry, @youthGender, @youthEmail, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
+                sc.Open();
+                // Insert new youth account into the Youth table
+                insert.CommandText = "INSERT into [dbo].Youth VALUES(@youthFirstName, @youthLastName, " +
+                    "NULLIF(@youthState,' '), @youthCountry, @youthGender, @youthEmail, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
 
                 insert.Parameters.AddWithValue("@youthFirstName", YouthFirstName);
                 insert.Parameters.AddWithValue("@youthLastName", YouthLastName);
@@ -149,24 +172,19 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 insert.Parameters.AddWithValue("@accountID", accountID1);
 
 
-            insert.ExecuteNonQuery();
+                insert.ExecuteNonQuery();
 
-            Response.Redirect("Login.aspx");
-            //}
-            //catch (Exception)
-            //{
+                Response.Redirect("Login.aspx");
+            }
 
-            //}
+            else
+            {
+                lblEmailVal.Text = "ERROR:Email Provided already registered with an account!!";
+            }
 
-
-
+            
         }
     }
 
-
-
-    protected void txtFirstName_TextChanged(object sender, EventArgs e)
-    {
-
-    }
+   
 }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,19 +13,21 @@ public partial class _Default : System.Web.UI.Page
     {
         txtUsername.Focus();
     }
-        String userType;
+    String userType;
     public static string username = "";
     protected void btnLogin_Click(object sender, EventArgs e)
-    {        
 
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
-            sc.Open();
-            System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
-            findPass.Connection = sc;        
-        
+    {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
+        sc.Open();
+        System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
+        findPass.Connection = sc;
+
 
         findPass.CommandText = "select accountID, username, accountType, Xpassword from LoginInfo where email = @email";
+
         findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
 
 
@@ -35,29 +36,30 @@ public partial class _Default : System.Web.UI.Page
 
 
 
-            if (reader.HasRows) // if the username exists, it will continue
+        if (reader.HasRows) // if the username exists, it will continue
+        {
+            while (reader.Read()) // this will read the single record that matches the entered username
             {
-                while (reader.Read()) // this will read the single record that matches the entered username
-                {
                 //string storedHash = "";
 
-                    string accountReaderID = reader["accountID"].ToString();
-                    int accountID = int.Parse(accountReaderID);                    
-                    string user = reader["username"].ToString();
-                    string type = reader["accountType"].ToString();
-                    string accountType = type;
-                    string storedHash = reader["Xpassword"].ToString(); // store the database password into this variable
-                    lblStatus.Text = storedHash;
+                string accountReaderID = reader["accountID"].ToString();
+                int accountID = int.Parse(accountReaderID);
+                string user = reader["username"].ToString();
+                string type = reader["accountType"].ToString();
+                string accountType = type;
+                string storedHash = reader["Xpassword"].ToString(); // store the database password into this variable
+                lblStatus.Text = storedHash;
 
 
-                    if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
-                    {
-                        lblStatus.Text = "Success!";
-                        btnLogin.Enabled = false;
-                        txtUsername.Enabled = false;
-                        txtPassword.Enabled = false;
-                        Session["loggedIn"] = "true";    //Profile-tab visible on homepage
-                        Session["username"] = user;
+
+                if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
+                {
+                    lblStatus.Text = "Success!";
+                    btnLogin.Enabled = false;
+                    txtUsername.Enabled = false;
+                    txtPassword.Enabled = false;
+                    Session["loggedIn"] = "true";    //Profile-tab visible on homepage
+                    Session["username"] = user;
                     Session.Add("email", txtUsername.Text);
                     Session.Add("accountType", type);
                     Session.Add("username", username);
@@ -67,19 +69,20 @@ public partial class _Default : System.Web.UI.Page
                         Response.Redirect("AdminHomepage.aspx");
                     }
                     else { Response.Redirect("ProfilePage.aspx"); }
-                  
-                }
-                    else
-                        lblStatus.Text = "Password is wrong.";
-                }
-            }
-            else // if the username doesn't exist, it will show failure
-                lblStatus.Text = "Invalid Username/Password. Please Try Again.";
 
-            sc.Close();
-            
-    }      
-    
+                }
+                else
+                    lblStatus.Text = "Password is wrong.";
+            }
+
+        }
+        else // if the username doesn't exist, it will show failure
+            lblStatus.Text = "Invalid Username/Password. Please Try Again.";
+
+        sc.Close();
+
+    }
+
 
     protected void lnkCreate_Click(object sender, EventArgs e)
     {
