@@ -25,6 +25,10 @@
     #noUnderline{
         text-decoration:none;
     }
+    a:-webkit-any-link {
+    
+    cursor: pointer;
+    text-decoration: none;
 
 </style>
 </head>
@@ -40,29 +44,29 @@
             <ul class="navbar-nav">
               
                 <li class="nav-item">
-            <a class="nav-link" href="Uploading.aspx">Upload Lessons</a>
+            <a class="nav-link" href="Uploading.aspx">Upload Content</a>
                  </li>
 
                 <li class="nav-item">
-            <a class="nav-link" href="AdminPDF.aspx">Delete Lessons</a>
-                 </li>
-
-              
-
-
-                <li class="nav-item">
-
-            <a class="nav-link" href="YouthTablau.aspx">User Breakdown</a>
+            <a class="nav-link" href="AdminPDF.aspx">Delete Content</a>
                  </li>             
+
+                <li class="nav-item">
+            <a class="nav-link" href="YouthTablau.aspx">User Statistics</a>
+                 </li>     
+                
              <li class="nav-item">
-                  <a class="nav-link" href="AdultTablau.aspx">See Ratings</a>
+                  <a class="nav-link" href="AdultTablau.aspx">User Feedback</a>
             </li> 
+
                 <li class="nav-item">
                   <a class="nav-link" href="ManageUsers.aspx">Manager Users</a>
             </li>
+
             <li class="nav-item">
                  <a class="nav-link" href="Index.aspx">Exit</a>
                 </li>
+
                 </ul>
               </div>
 

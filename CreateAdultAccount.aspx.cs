@@ -56,8 +56,8 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         string email = HttpUtility.HtmlEncode(txtEmail.Text);
         string state = HttpUtility.HtmlEncode(DropDownstate.Text);
         string user = HttpUtility.HtmlEncode(DropDownuser.Text);
-        string favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
-        string favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
+        string favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist2.Text);
+        string favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic2.Text);
 
         // if Country is not United States
         if (DropDownstate.Enabled == false)
