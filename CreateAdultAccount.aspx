@@ -477,6 +477,7 @@ body{
 
             <%--<asp:Button ID="btnRegister" class="btnRegister" runat="server" OnClick="CreateAccount_Click" Text="Create" />--%>
                         <asp:Button ID="CreateAccount" runat="server" Text="Create" class="btnRegister" OnClick="CreateAccount_Click1"/>
+                        <asp:Label ID="lblEmailVal" runat="server" Width="130px" ForeColor="Red"></asp:Label>
           
 </div>
 

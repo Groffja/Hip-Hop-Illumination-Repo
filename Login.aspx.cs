@@ -26,7 +26,37 @@ public partial class _Default : System.Web.UI.Page
             findPass.Connection = sc;        
         
 
-        findPass.CommandText = "select accountID, username, accountType, Xpassword from LoginInfo where email = @email";
+
+        //userType = type.SelectedItem.Value;
+        //    if (userType.Equals("Adult"))
+        //    {
+        //    //findPass.CommandText = "select Xpassword from Adult where username = @Username";
+        //    findPass.CommandText = "select Xpassword from Adult where email = @email";
+        //    findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
+        //    //findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
+
+        //}
+        //    else if (userType.Equals("Youth"))
+        //    {
+        //        //findPass.CommandText = "select Xpassword from Youth where username = @Username";
+        //        //findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
+        //        findPass.CommandText = "select Xpassword from Youth where email = @email";
+        //        findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
+        //}
+        //    else if (userType.Equals("YouthWorker"))
+        //    {
+        //        findPass.CommandText = "select Xpassword from YouthWorker where email = @email";
+        //        findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
+        //    }
+        //    else if (userType.Equals("Admin"))
+        //    {
+        //        findPass.CommandText = "select Xpassword from Admin where username = @email";
+        //        findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
+        //    }
+       
+
+        findPass.CommandText = "select username, accountType, Xpassword from LoginInfo where email = @email";
+
         findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
 
 
