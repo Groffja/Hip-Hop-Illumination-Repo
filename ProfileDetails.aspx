@@ -584,16 +584,6 @@
                                             </asp:DropDownList>
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group">
-                        <asp:Label ID="lblEmail" runat="server" CssClass="col-form-label" Text="Email"></asp:Label>
-                        <asp:TextBox ID="txtEmail" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="form-group">
-                        <asp:Label ID="lblDateOfBirth" runat="server" CssClass="col-form-label" Text="Date of Birth"></asp:Label>
-                        <asp:TextBox ID="txtDateOfBirth" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
-                    </div>
 
                              <div class="form-group">
                         <asp:Label ID="lblFavoriteArtist" runat="server" CssClass="col-form-label" Text="Favorite Artist"></asp:Label>

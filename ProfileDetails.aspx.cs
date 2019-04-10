@@ -52,7 +52,7 @@ public partial class ProfileDetails : System.Web.UI.Page
         {
             if ((string)Session["Accounttype"] == "Adult")
             {
-                getFields.CommandText = "select firstName, lastName, state, country, gender, email, dateOfBirth, username, favoriteArtist, favoriteMusic from Adult where email=@email";
+                getFields.CommandText = "select firstName, lastName, state, country, gender, username, favoriteArtist, favoriteMusic from Adult where email=@email";
                 getFields.Parameters.Add(new SqlParameter("@email", (string)Session["email"]));
                 SqlDataReader reader = getFields.ExecuteReader();
                 while (reader.Read())
@@ -62,8 +62,8 @@ public partial class ProfileDetails : System.Web.UI.Page
                     state = reader["state"].ToString();
                     country = reader["country"].ToString();
                     gender = reader["gender"].ToString();
-                    email = reader["email"].ToString();
-                    dateOfBirth = reader["dateOfBirth"].ToString();
+                    //email = reader["email"].ToString();
+                    //dateOfBirth = reader["dateOfBirth"].ToString();
                     username = reader["username"].ToString();
                     favoriteArtist = reader["favoriteArtist"].ToString();
                     favoriteMusic = reader["favoriteMusic"].ToString();
@@ -83,9 +83,9 @@ public partial class ProfileDetails : System.Web.UI.Page
                     
                     DropDowncountry.Text = country;
                     DropDowngender.Text = gender;
-                    txtEmail.Text = email;
-                    DateTime oDate = DateTime.Parse(dateOfBirth);
-                    txtDateOfBirth.Text = oDate.ToString("MM/dd/yyyy");
+                    
+                   
+                    
                 }
                 reader.Close();
 
@@ -102,8 +102,8 @@ public partial class ProfileDetails : System.Web.UI.Page
                     state = reader["state"].ToString();
                     country = reader["country"].ToString();
                     gender = reader["gender"].ToString();
-                    email = reader["email"].ToString();
-                    dateOfBirth = reader["dateOfBirth"].ToString();
+                
+                    
                     username = reader["username"].ToString();
                     favoriteArtist = reader["favoriteArtist"].ToString();
                     favoriteMusic = reader["favoriteMusic"].ToString();
@@ -124,9 +124,7 @@ public partial class ProfileDetails : System.Web.UI.Page
                     
                     DropDowncountry.Text = country;
                     DropDowngender.Text = gender;
-                    txtEmail.Text = email;
-                    DateTime oDate = DateTime.Parse(dateOfBirth);
-                    txtDateOfBirth.Text = oDate.ToString("MM/dd/yyyy");
+                    
                 }
                 reader.Close();
             }
@@ -184,8 +182,7 @@ public partial class ProfileDetails : System.Web.UI.Page
       
         DropDowncountry.Enabled = true;
         DropDowngender.Enabled = true;
-        txtEmail.Enabled = true;
-        txtDateOfBirth.Enabled = true;
+        
     }
 
     protected void Confirm_Click(object sender, EventArgs e)
@@ -206,8 +203,7 @@ public partial class ProfileDetails : System.Web.UI.Page
         
         country = DropDowncountry.Text;
         gender = DropDowngender.Text;
-        email = txtEmail.Text;
-        dateOfBirth = txtDateOfBirth.Text;
+        
         favoriteMusic = txtFavoriteMusic.Text;
         favoriteArtist = txtFavoriteArtist.Text;
        
@@ -222,15 +218,14 @@ public partial class ProfileDetails : System.Web.UI.Page
 
         if ((string)Session["Accounttype"] == "Adult")
         {
-            updateRecord.CommandText = "Update Adult SET firstName = @firstName, lastName = @lastName, state = @state, country = @country, gender = @gender, email = @email, dateOfBirth = @dateOfBirth, username = @username, favoriteArtist = @favoriteArtist, favoriteMusic = @favoriteMusic, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy WHERE email=@emailSession";
+            updateRecord.CommandText = "Update Adult SET firstName = @firstName, lastName = @lastName, state = @state, country = @country, gender = @gender, username = @username, favoriteArtist = @favoriteArtist, favoriteMusic = @favoriteMusic, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy WHERE email=@emailSession";
             updateRecord.Parameters.Add(new SqlParameter("@emailSession", (string)Session["email"]));
             updateRecord.Parameters.Add(new SqlParameter("@firstName", firstName));
             updateRecord.Parameters.Add(new SqlParameter("@lastName", lastName));
             updateRecord.Parameters.Add(new SqlParameter("@state", state));
             updateRecord.Parameters.Add(new SqlParameter("@country", country));
             updateRecord.Parameters.Add(new SqlParameter("@gender", gender));
-            updateRecord.Parameters.Add(new SqlParameter("@email", email));
-            updateRecord.Parameters.Add(new SqlParameter("@dateOfBirth", dateOfBirth));
+            
             updateRecord.Parameters.Add(new SqlParameter("@username", username));
             updateRecord.Parameters.Add(new SqlParameter("@favoriteArtist", favoriteArtist));
             updateRecord.Parameters.Add(new SqlParameter("@favoriteMusic", favoriteMusic));
@@ -244,7 +239,7 @@ public partial class ProfileDetails : System.Web.UI.Page
 
         else if ((string)Session["Accounttype"] == "Youth")
         {
-            updateRecord.CommandText = "Update Youth SET firstName = @firstName, lastName = @lastName, state = @state, country = @country, gender = @gender, email = @email, dateOfBirth = @dateOfBirth, username = @username, favoriteArtist = @favoriteArtist, favoriteMusic = @favoriteMusic, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy WHERE email=@emailSession";
+            updateRecord.CommandText = "Update Youth SET firstName = @firstName, lastName = @lastName, state = @state, country = @country, gender = @gender, username = @username, favoriteArtist = @favoriteArtist, favoriteMusic = @favoriteMusic, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy WHERE email=@emailSession";
             updateRecord.Parameters.Add(new SqlParameter("@emailSession", (string)Session["email"]));
             updateRecord.Parameters.Add(new SqlParameter("@firstName", firstName));
             
@@ -254,8 +249,7 @@ public partial class ProfileDetails : System.Web.UI.Page
             
             updateRecord.Parameters.Add(new SqlParameter("@country", country));
             updateRecord.Parameters.Add(new SqlParameter("@gender", gender));
-            updateRecord.Parameters.Add(new SqlParameter("@email", email));
-            updateRecord.Parameters.Add(new SqlParameter("@dateOfBirth", dateOfBirth));
+          
             updateRecord.Parameters.Add(new SqlParameter("@username", username));
             updateRecord.Parameters.Add(new SqlParameter("@favoriteArtist", favoriteArtist));
             updateRecord.Parameters.Add(new SqlParameter("@favoriteMusic", favoriteMusic));
@@ -298,8 +292,7 @@ public partial class ProfileDetails : System.Web.UI.Page
         
         DropDowncountry.Enabled = false;
         DropDowngender.Enabled = false;
-        txtEmail.Enabled = false;
-        txtDateOfBirth.Enabled = false;
+       
         txtFavoriteArtist.Enabled = false;
         txtFavoriteMusic.Enabled = false;
 
