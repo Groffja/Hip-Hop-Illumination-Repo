@@ -28,6 +28,23 @@ public partial class BrowseLessons : System.Web.UI.Page
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
 
+        try
+        {
+            SqlConnection cn = new SqlConnection(conStr);
+            cn.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cn;
+            cmd.CommandText = "INSERT INTO Lessons VALUES (" + id + "," + Session["accountID"] + ",GETDATE(),GETDATE(),'" + Session["username"] + "');";
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+        catch
+        {
+
+        }
+        
+
+
     }
 
     private void Download(int id)
@@ -46,7 +63,8 @@ public partial class BrowseLessons : System.Web.UI.Page
 
         string name = dt.Rows[0]["Name"].ToString();
         byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
-        string documentCategory = dt.Rows[0]["DocumentCategory"].ToString();
+
+        //string documentCategory = dt.Rows[0]["DocumentCategory"].ToString();
         //new
 
         Response.ClearContent();
@@ -89,7 +107,7 @@ public partial class BrowseLessons : System.Web.UI.Page
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT ID, Name, DocumentCategory FROM Documents WHERE Name LIKE '%' + @Name + '%'";
+                cmd.CommandText = "SELECT ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
                 cmd.Connection = cn;
                 cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
                 DataTable dt = new DataTable();

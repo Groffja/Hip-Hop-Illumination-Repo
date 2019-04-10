@@ -56,7 +56,7 @@ public partial class Review_Us : System.Web.UI.Page
             string name = " ";
             SqlConnection cn = new SqlConnection(conStr);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT Name FROM[dbo].Documents WHERE ID = (SELECT MAX(ID) FROM[dbo].[Documents]);";
+            cmd.CommandText = "SELECT Name FROM[dbo].Lessons WHERE ID = (SELECT MAX(ID) FROM[dbo].[Documents]);";
             cn.Open();
             cmd.Connection = cn;
             SqlDataReader reader = cmd.ExecuteReader();

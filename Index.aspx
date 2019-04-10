@@ -23,6 +23,7 @@
         .far fa-kristina{
             color: white;
         }
+        
     </style>
 
 </head>

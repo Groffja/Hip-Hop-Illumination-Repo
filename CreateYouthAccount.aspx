@@ -450,6 +450,14 @@ body{
             
 </div>
 <div class="form-group input-group input-group-md label">
+            <asp:Label ID="lblFavoriteArtist" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+</div>
+<div class="form-group input-group input-group-md label">
+            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+</div>
+<div class="form-group input-group input-group-md label">
             <asp:Label ID="lblUsername" runat="server" Text="Username" Width="130px"></asp:Label>
             <asp:TextBox ID="txtUsername" runat="server" Width="240px" type="text" class="form-control"  placeholder="Username *" value="" required="true" CssClass="form-control"></asp:TextBox>
             
@@ -459,16 +467,16 @@ body{
             <asp:TextBox ID="txtPassword" runat="server" Width="240px" type="text" class="form-control"  placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>
           
 </div>
-<div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteArtist" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+
           
+
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
             <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
 </div>
             <asp:Label ID="lblEmailVal" runat="server" Width="130px" ForeColor="Red"></asp:Label>
+
             <asp:Button ID="btnRegister" class="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Create" />
           
 </div>

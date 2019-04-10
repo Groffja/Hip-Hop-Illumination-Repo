@@ -17,21 +17,14 @@ public partial class _Default : System.Web.UI.Page
         String userType;
     public static string username = "";
     protected void btnLogin_Click(object sender, EventArgs e)
-    {
-        // connect to database to retrieve stored password string
-        //try
-        //{
+    {        
 
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
             sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
             sc.Open();
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
-            findPass.Connection = sc;
-
-
-        // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-
-        //findPass.CommandText = "(SELECT Xpassword from Adult where email ='" + txtUsername.Text + "') UNION (SELECT Xpassword from Youth where youthEmail ='" + txtUsername.Text + "') UNION (SELECT Xpassword from YouthWorker where youthWorkerEmail ='" + txtUsername.Text + "') UNION(SELECT Xpassword from Admin where username = '" + txtUsername.Text + "')";
+            findPass.Connection = sc;        
+        
 
 
         //userType = type.SelectedItem.Value;
@@ -63,6 +56,7 @@ public partial class _Default : System.Web.UI.Page
        
 
         findPass.CommandText = "select username, accountType, Xpassword from LoginInfo where email = @email";
+
         findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
 
 
@@ -77,6 +71,8 @@ public partial class _Default : System.Web.UI.Page
                 {
                 //string storedHash = "";
 
+                    string accountReaderID = reader["accountID"].ToString();
+                    int accountID = int.Parse(accountReaderID);                    
                     string user = reader["username"].ToString();
                     string type = reader["accountType"].ToString();
                     string accountType = type;
@@ -95,6 +91,7 @@ public partial class _Default : System.Web.UI.Page
                     Session.Add("email", txtUsername.Text);
                     Session.Add("accountType", type);
                     Session.Add("username", username);
+                    Session.Add("accountID", accountID);
                     if (type == "Admin")
                     {
                         Response.Redirect("AdminHomepage.aspx");
@@ -110,11 +107,8 @@ public partial class _Default : System.Web.UI.Page
                 lblStatus.Text = "Invalid Username/Password. Please Try Again.";
 
             sc.Close();
-        }
-        //catch
-        //{
-        //    lblStatus.Text = "Database Error.";
-        //}
+            
+    }      
     
 
     protected void lnkCreate_Click(object sender, EventArgs e)
@@ -122,14 +116,4 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("createUser.aspx", false);
     }
 
-
-
-    //SAVED DROPDOWN
-    //<asp:DropDownList class="type" id="type" runat="server">
-    //          <asp:ListItem Disabled Text="UserType"></asp:ListItem>
-    //          <asp:ListItem Value = "Youth" > Youth </ asp:ListItem>
-    //          <asp:ListItem Value = "YouthWorker" > Youth Worker</asp:ListItem>
-    //          <asp:ListItem Value = "Adult" > Adult </ asp:ListItem>
-    //          <asp:ListItem Value = "Admin" > Admin </ asp:ListItem>
-    //      </asp:DropDownList>
 }
