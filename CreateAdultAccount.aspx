@@ -454,7 +454,7 @@ body{
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre of Music" Width="130px"></asp:Label>
+            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
             <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
             
 </div>
@@ -477,6 +477,7 @@ body{
 
             <%--<asp:Button ID="btnRegister" class="btnRegister" runat="server" OnClick="CreateAccount_Click" Text="Create" />--%>
                         <asp:Button ID="CreateAccount" runat="server" Text="Create" class="btnRegister" OnClick="CreateAccount_Click1"/>
+                        <asp:Label ID="lblEmailVal" runat="server" Width="130px" ForeColor="Red"></asp:Label>
           
 </div>
 

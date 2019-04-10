@@ -60,6 +60,7 @@ public partial class _Default : System.Web.UI.Page
         //        findPass.CommandText = "select Xpassword from Admin where username = @email";
         //        findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
         //    }
+       
 
         findPass.CommandText = "select username, accountType, Xpassword from LoginInfo where email = @email";
         findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
