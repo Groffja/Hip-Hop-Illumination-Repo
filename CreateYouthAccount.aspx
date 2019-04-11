@@ -454,8 +454,8 @@ body{
             <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblfavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtfavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblUsername" runat="server" Text="Username" Width="130px"></asp:Label>
@@ -469,6 +469,13 @@ body{
 </div>
 
           
+
+</div>
+<div class="form-group input-group input-group-md label">
+            <asp:Label ID="labelFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
+            <asp:TextBox ID="textFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+</div>
+
 
 
 
