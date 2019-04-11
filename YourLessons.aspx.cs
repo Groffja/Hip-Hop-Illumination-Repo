@@ -19,6 +19,23 @@ public partial class YourLessons : System.Web.UI.Page
             FillData();
             this.BindGrid();
         }
+        if (!IsPostBack)
+        {
+            SqlConnection sc = new SqlConnection(conStr);
+            sc.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sc;
+            cmd.CommandText = "SELECT accountID FROM Lessons WHERE accountID = @accountID";
+            cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
+
+            SqlDataReader reader1 = cmd.ExecuteReader();
+
+            if (!reader1.HasRows)
+            {
+                noLessons.Enabled = true;
+            }
+        }
+
     }
 
     protected void OpenDocument(object sender, EventArgs e)

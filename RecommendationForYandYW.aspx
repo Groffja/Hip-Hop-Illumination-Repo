@@ -72,6 +72,7 @@
         <div class="row d-block mx-auto"> 
             <div class="col d-block mx-auto"
                 <center>
+    <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">You currently have no Recommendations!</asp:Label>
     <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="Name" HeaderText="Lesson" SortExpression="Name"/>

@@ -70,6 +70,21 @@ public partial class CreateYouthAccount : System.Web.UI.Page
 
     }
 
+    // State only enabled when country = United States
+    protected void DropDowncountry_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        String US = "US";
+        string country = ddlCountry.SelectedValue;
+        if (country == US)
+        {
+            ddlState.Enabled = true;
+        }
+        else
+        {
+            ddlState.Enabled = false;
+        }
+    }
+
     protected void btnRegister_Click(object sender, EventArgs e)
     {
 

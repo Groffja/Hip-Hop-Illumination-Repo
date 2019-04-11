@@ -31,9 +31,12 @@ public partial class CreateAdultAccount : System.Web.UI.Page
 
     }
 
+    // State only enabled when country = United States
     protected void DropDowncountry_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (DropDowncountry.Items[0].Selected)
+        String US = "US";
+        string country = DropDowncountry.SelectedValue;
+        if (country == US)
         {
             DropDownstate.Enabled = true;
         }
@@ -42,7 +45,6 @@ public partial class CreateAdultAccount : System.Web.UI.Page
             DropDownstate.Enabled = false;
         }
     }
-
 
     protected void CreateAccount_Click1(object sender, EventArgs e)
     {
