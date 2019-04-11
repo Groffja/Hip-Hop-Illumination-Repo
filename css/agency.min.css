@@ -127,7 +127,8 @@ section {
         }
 
             #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-                color: #fed136
+                color: #fed136;
+                 
             }
 
     @media (min-width:992px) {
@@ -595,9 +596,12 @@ section {
 
     section#contact {
         background-color: #212529;
-        background-image: url(../img/map-image.png);
+        
+        background-image: url('../img/about/Contact.jpg');
         background-repeat: no-repeat;
-        background-position: center
+        background-position: center;
+        
+
     }
 
         section#contact .section-heading {

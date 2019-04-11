@@ -19,6 +19,7 @@ public partial class BrowseLessons : System.Web.UI.Page
             this.BindGrid();
         }
     }
+
     protected void OpenDocument(object sender, EventArgs e)
     {
         LinkButton lnk = (LinkButton)sender;
@@ -27,19 +28,25 @@ public partial class BrowseLessons : System.Web.UI.Page
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
 
+        try
+        {
+            SqlConnection cn = new SqlConnection(conStr);
+            cn.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cn;
+            cmd.CommandText = "INSERT INTO Lessons VALUES (" + id + "," + Session["accountID"] + ",GETDATE(),GETDATE(),'" + Session["username"] + "');";
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+        catch
+        {
 
-
-
-
-
-
-
-
-
+        }
 
 
 
     }
+
     private void Download(int id)
     {
         DataTable dt = new DataTable();
@@ -56,7 +63,8 @@ public partial class BrowseLessons : System.Web.UI.Page
 
         string name = dt.Rows[0]["Name"].ToString();
         byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
-        string documentCategory = dt.Rows[0]["DocumentCategory"].ToString();
+
+        //string documentCategory = dt.Rows[0]["DocumentCategory"].ToString();
         //new
 
         Response.ClearContent();
@@ -99,9 +107,29 @@ public partial class BrowseLessons : System.Web.UI.Page
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT ID, Name, DocumentCategory FROM Documents WHERE Name LIKE '%' + @Name + '%'";
+                cmd.CommandText = "SELECT ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
                 cmd.Connection = cn;
                 cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    sda.Fill(dt);
+                    gvDocuments.DataSource = dt;
+                    gvDocuments.DataBind();
+                }
+            }
+        }
+    }
+
+    private void CategoryGridBind()
+    {
+        using (SqlConnection cn = new SqlConnection(conStr))
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = "SELECT ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE ((DocumentCategory LIKE '%' + @category + '%') OR (DocumentCategory2 LIKE '%' + @category + '%') OR (DocumentCategory3 LIKE '%' + @category + '%')";
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("@Name", txtCat.Text.Trim());
                 DataTable dt = new DataTable();
                 using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                 {
@@ -133,6 +161,11 @@ public partial class BrowseLessons : System.Web.UI.Page
 
 
     protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        BindGrid();
+    }
+
+    protected void btnCatSearch_Click(object sender, EventArgs e)
     {
         BindGrid();
     }

@@ -97,6 +97,7 @@ table {
             </div>
 
         <asp:Table>
+
         <asp:GridView ID="GridView2" runat="server"  AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="10">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
@@ -108,6 +109,7 @@ table {
         </asp:GridView>
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lessonGridview %>"  SelectCommand="SELECT [ID], [Name], [DocumentContent], [DocumentCategory],[DocumentCategory2],[DocumentCategory3] FROM [Documents]"></asp:SqlDataSource>
     </asp:Table>
+
 
                                                 </div>
                     <div class="col-6">

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <head>
     <title>Review Us</title>
-</head>
+
 <style>
     body{
         padding-top: 50px !important;
@@ -48,6 +48,21 @@ input.star-1:checked ~ label.star:before {
   color: #FE7;
   text-shadow: 0 0 20px #952;
 } 
+input.star-2:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+} 
+input.star-3:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+} 
+input.star-4:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+} 
 input.star-5:checked ~ label.star:before { color: #F62; }
 
 
@@ -58,11 +73,12 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
         font-family: FontAwesome;
     }
 </style>        
-        
+        </head>
+    <body>
             
             <br />
             <asp:GridView ID="gvDocuments" runat="server" CssClass="table-dark table-hover" AutoGenerateColumns="False" DataKeyNames="ID">
-                <%--<Columns>
+               <%-- <Columns>
                     <asp:TemplateField HeaderText="Document ID">
                         <ItemTemplate>
                             <%# Container.DataItemIndex+1 %>
@@ -70,7 +86,7 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Documents">
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" OnClick="OpenDocument" runat="server" Text='<%# Eval("Name") %>'></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1"  runat="server" Text='<%# Eval("Name") %>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>--%>
@@ -79,7 +95,7 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
     
 
 
-
+        <div class="container" runat="server">
     <div class="container">  
       <div></div>
           <center>
@@ -89,12 +105,12 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
           </center>
           </div>       
 
-    <table class="table table-striped table-dark">
+    <table runat="server" class="table table-striped table-dark" >
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Documents</th>
-      <th scope="col">Read Again?</th>
+      <%--<th scope="col">Read Again?</th>--%>
       <th scope="col">Rating</th>
       <th scope="col">Submit</th>
     </tr>
@@ -103,103 +119,108 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
     <tr>
       <th scope="row">1</th>      
       <td id="doc1" runat="server"></td>
-      <td><button type="button" class="btn btn-primary">Read</button></td>
+      <%--<td><asp:Button class="btn btn-primary" Text="Read" runat="server"  onclick="btnRead" /></td>--%>
       <td>         
-        <div class="stars">  
-    <input class="star star-1" id="star-1" type="radio" name="star" hidden/>
-    <label class="star star-1" for="star-1"></label>
-    <input class="star star-2" id="star-2" type="radio" name="star" hidden/>
-    <label class="star star-2" for="star-2"></label>
-    <input class="star star-3" id="star-3" type="radio" name="star" hidden/>
-    <label class="star star-3" for="star-3"></label>
-    <input class="star star-4" id="star-4" type="radio" name="star" hidden/>
-    <label class="star star-4" for="star-4"></label>
-    <input class="star star-5" id="star-5" type="radio" name="star" hidden/>
-    <label class="star star-5" for="star-5"></label>
+        <div class="stars input-group"  >  
+    <input class="star star-1" ClientIDMode="static" runat="server" id="star1" type="radio" name="star" hidden/>
+    <label class="star star-1" ClientIDMode="static" runat="server" for="star1"></label>
+    <input class="star star-2" ClientIDMode="static" runat="server"  id="star2" type="radio" name="star" hidden/>
+    <label class="star star-2" ClientIDMode="static" runat="server" for="star2"></label>
+    <input class="star star-3" ClientIDMode="static" runat="server" id="star3" type="radio" name="star" hidden/>
+    <label class="star star-3" ClientIDMode="static" runat="server" for="star3"></label>
+    <input class="star star-4" ClientIDMode="static" runat="server" id="star4" type="radio" name="star" hidden/>
+    <label class="star star-4" ClientIDMode="static" runat="server" for="star4"></label>
+    <input class="star star-5" ClientIDMode="static" runat="server" id="star5" type="radio" name="star" hidden/>
+    <label class="star star-5" ClientIDMode="static" runat="server" for="star5"></label>
     </div>
       </td>
-        <td><button type="button" class="btn btn-primary">Submit</button></td>
+        <td><asp:Button class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit1" /></td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td id="doc2" runat="server"></td>
-      <td><button type="button" class="btn btn-primary">Read</button></td>
+      <%--<td><asp:Button class="btn btn-primary" Text="Read" runat="server"  onclick="btnRead" /></td>--%>
       <td>
            <div class="stars">  
-    <input class="star star-1" id="star-6" type="radio" name="star" hidden/>
-    <label class="star star-1" for="star-6"></label>
-    <input class="star star-2" id="star-7" type="radio" name="star" hidden/>
-    <label class="star star-2" for="star-7"></label>
-    <input class="star star-3" id="star-8" type="radio" name="star" hidden/>
-    <label class="star star-3" for="star-8"></label>
-    <input class="star star-4" id="star-9" type="radio" name="star" hidden/>
-    <label class="star star-4" for="star-9"></label>
-    <input class="star star-5" id="star-10" type="radio" name="star" hidden/>
-    <label class="star star-5" for="star-10"></label>
+    <input class="star star-1" ClientIDMode="static" runat="server" id="star6" type="radio" name="star" hidden/>
+    <label class="star star-1" ClientIDMode="static" runat="server" for="star6"></label>
+    <input class="star star-2" ClientIDMode="static" runat="server" id="star7" type="radio" name="star" hidden/>
+    <label class="star star-2" ClientIDMode="static" runat="server" for="star7"></label>
+    <input class="star star-3" ClientIDMode="static" runat="server" id="star8" type="radio" name="star" hidden/>
+    <label class="star star-3" ClientIDMode="static" runat="server" for="star8"></label>
+    <input class="star star-4" ClientIDMode="static" runat="server" id="star9" type="radio" name="star" hidden/>
+    <label class="star star-4" ClientIDMode="static" runat="server" for="star9"></label>
+    <input class="star star-5" ClientIDMode="static" runat="server" id="star10" type="radio" name="star" hidden/>
+    <label class="star star-5" ClientIDMode="static" runat="server" for="star10"></label>
     </div>
       </td>
-        <td><button type="button" class="btn btn-primary">Submit</button></td>
+        <td><asp:Button  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit2" /></td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td id="doc3" runat="server"></td>
-      <td><button type="button" class="btn btn-primary">Read</button></td>
+      <%--<td><asp:Button class="btn btn-primary" Text="Read" runat="server"  onclick="btnRead" /></td>--%>
       <td>
            <div class="stars">  
-    <input class="star star-1" id="star-11" type="radio" name="star" hidden/>
-    <label class="star star-1" for="star-11"></label>
-    <input class="star star-2" id="star-12" type="radio" name="star" hidden/>
-    <label class="star star-2" for="star-12"></label>
-    <input class="star star-3" id="star-13" type="radio" name="star" hidden/>
-    <label class="star star-3" for="star-13"></label>
-    <input class="star star-4" id="star-14" type="radio" name="star" hidden/>
-    <label class="star star-4" for="star-14"></label>
-    <input class="star star-5" id="star-15" type="radio" name="star" hidden/>
-    <label class="star star-5" for="star-15"></label>
+    <input class="star star-1" ClientIDMode="static" runat="server" id="star11" type="radio" name="star" hidden/>
+    <label class="star star-1" ClientIDMode="static" runat="server" for="star11"></label>
+    <input class="star star-2" ClientIDMode="static" runat="server" id="star12" type="radio" name="star" hidden/>
+    <label class="star star-2" ClientIDMode="static" runat="server" for="star12"></label>
+    <input class="star star-3" ClientIDMode="static" runat="server" id="star13" type="radio" name="star" hidden/>
+    <label class="star star-3" ClientIDMode="static" runat="server" for="star13"></label>
+    <input class="star star-4" ClientIDMode="static" runat="server" id="star14" type="radio" name="star" hidden/>
+    <label class="star star-4" ClientIDMode="static" runat="server" for="star14"></label>
+    <input class="star star-5" ClientIDMode="static" runat="server" id="star15" type="radio" name="star" hidden/>
+    <label class="star star-5" ClientIDMode="static" runat="server" for="star15"></label>
     </div>
       </td>
-        <td><button type="button" class="btn btn-primary">Submit</button></td>
+        <td><asp:Button  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit3" /></td>
     </tr>
       <tr>
         <th scope="row">4</th>      
       <td id="doc4" runat="server"></td>
-      <td><button type="button" class="btn btn-primary">Read</button></td>
+      <%--<td><asp:Button class="btn btn-primary" Text="Read" runat="server"  onclick="btnRead" /></td>--%>
       <td> 
           <div class="stars">  
-    <input class="star star-1" id="star-16" type="radio" name="star" hidden/>
-    <label class="star star-1" for="star-16"></label>
-    <input class="star star-2" id="star-17" type="radio" name="star" hidden/>
-    <label class="star star-2" for="star-17"></label>
-    <input class="star star-3" id="star-18" type="radio" name="star" hidden/>
-    <label class="star star-3" for="star-18"></label>
-    <input class="star star-4" id="star-19" type="radio" name="star" hidden/>
-    <label class="star star-4" for="star-19"></label>
-    <input class="star star-5" id="star-20" type="radio" name="star" hidden/>
-    <label class="star star-5" for="star-20"></label>
+    <input class="star star-1" ClientIDMode="static" runat="server" id="star16" type="radio" name="star" hidden/>
+    <label class="star star-1" ClientIDMode="static" runat="server" for="star16"></label>
+    <input class="star star-2" ClientIDMode="static" runat="server" id="star17" type="radio" name="star" hidden/>
+    <label class="star star-2" ClientIDMode="static" runat="server" for="star17"></label>
+    <input class="star star-3" ClientIDMode="static" runat="server" id="star18" type="radio" name="star" hidden/>
+    <label class="star star-3" ClientIDMode="static" runat="server" for="star18"></label>
+    <input class="star star-4" ClientIDMode="static" runat="server" id="star19" type="radio" name="star" hidden/>
+    <label class="star star-4" ClientIDMode="static" runat="server" for="star19"></label>
+    <input class="star star-5" ClientIDMode="static" runat="server" id="star20" type="radio" name="star" hidden/>
+    <label class="star star-5" ClientIDMode="static" runat="server" for="star20"></label>
     </div>
       </td>
-          <td><button type="button" class="btn btn-primary">Submit</button></td>
+          <td><asp:Button class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit4" /></td>
     </tr>
     <tr>
       <th scope="row">5</th>
       <td id="doc5" runat="server"></td>
-      <td><button type="button" class="btn btn-primary">Read</button></td>
+      <%--<td><asp:Button class="btn btn-primary" Text="Read" runat="server"  onclick="btnRead" /></td>--%>
       <td>
            <div class="stars">  
-    <input class="star star-1" id="star-21" type="radio" name="star" hidden/>
-    <label class="star star-1" for="star-21"></label>
-    <input class="star star-2" id="star-22" type="radio" name="star" hidden/>
-    <label class="star star-2" for="star-22"></label>
-    <input class="star star-3" id="star-23" type="radio" name="star" hidden/>
-    <label class="star star-3" for="star-23"></label>
-    <input class="star star-4" id="star-24" type="radio" name="star" hidden/>
-    <label class="star star-4" for="star-24"></label>
-    <input class="star star-5" id="star-25" type="radio" name="star" hidden/>
-    <label class="star star-5" for="star-25"></label>
+    <input class="star star-1" ClientIDMode="static" runat="server" id="star21" type="radio" name="star" hidden/>
+    <label class="star star-1" ClientIDMode="static" runat="server" for="star21"></label>
+    <input class="star star-2" ClientIDMode="static" runat="server" id="star22" type="radio" name="star" hidden/>
+    <label class="star star-2" ClientIDMode="static" runat="server" for="star22"></label>
+    <input class="star star-3" ClientIDMode="static" runat="server" id="star23" type="radio" name="star" hidden/>
+    <label class="star star-3" ClientIDMode="static" runat="server" for="star23"></label>
+    <input class="star star-4" ClientIDMode="static" runat="server" id="star24" type="radio" name="star" hidden/>
+    <label class="star star-4" ClientIDMode="static" runat="server" for="star24"></label>
+    <input class="star star-5" ClientIDMode="static" runat="server" id="star25" type="radio" name="star" hidden/>
+    <label class="star star-5" ClientIDMode="static" runat="server" for="star25"></label>
     </div>
       </td>
-        <td><button type="button" class="btn btn-primary">Submit</button></td>
+        <td><asp:Button  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit5" /></td>
     </tr>    
   </tbody>
 </table>
+            
+            </div>
+        <asp:Label id="lblStarVal" runat="server" Text="" ForeColor="#CC0000" />
+<%--            </form>--%>
+        </body>
 </asp:Content>
