@@ -93,7 +93,7 @@
     <br />
        
     
-        <asp:GridView ID="GridView1" CssClass="table-dark table-striped table-hover" runat="server" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataSourceID="SqlDataSourceFeedback">
+        <asp:GridView ID="GridView2" CssClass="table-dark table-striped table-hover" runat="server" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataSourceID="SqlDataSourceFeedback">
             <Columns>
                 <asp:BoundField DataField="accountID" HeaderText="accountID" SortExpression="accountID" />
                 <asp:BoundField DataField="username" HeaderText="username" SortExpression="username" />
