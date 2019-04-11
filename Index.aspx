@@ -54,11 +54,11 @@
                             Lessons</a>
                         <div class="dropdown-menu">
                              <a class="dropdown-item" href="6Cs.aspx">The Six C's</a>
-                             <a class="dropdown-item" href="CriticalC.aspx">Critical Conciousness</a>
+                             <a class="dropdown-item" href="CriticalConciousness.aspx">Critical Conciousness</a>
                                  </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#team">Our Team</a>
+                        <a class="nav-link js-scroll-trigger" href="#team">Our Focus</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -82,7 +82,7 @@
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Hip Hop IllumiNation!</div>
-                <div class="intro-heading text-uppercase">Come Explore</div>
+                <div class="intro-heading text-uppercase">Let the Music Speak</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
         </div>
@@ -93,7 +93,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">About Us</h2>
-                    <h3 class="section-subheading text-muted">
+                    <center>
+                    <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width: 900px">
                         Hip Hop IllumiNation was born out of a love for hip hop music, a commitment to positive youth development,
                         and a burning desire to combine the two productively.
                         We deeply believe that hip hop music provides poignant insight into the lived experiences of the marginalized and dispossessed,
@@ -107,10 +108,11 @@
                         We believe that marginalized youth need to first be aware of and reflect upon the sociopolitical circumstances that may present barriers on their pathways to adulthood.
                         Then, they must build and bolster developmental assets, so they can finally take effective action to navigate and/or dismantle these barriers.
                     </h3>
+                        </center>
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-globe-americas fa-stack-1x fa-inverse"></i>
@@ -119,25 +121,21 @@
                         
                     </span>
                     <h4 class="service-heading">Mission</h4>
-                    <p class="text-muted">Our mission is to increase critical consciousness and developmental assets among young men of color (ages 14-24) through guided exploration of hip hop music.</p>
-                </div>
-                <div class="col-md-4">
+                    <center>
+                    <p class="text-muted" style="text-align:left; width: 400px">Our mission is to increase critical consciousness and developmental assets among young men of color (ages 14-24) through guided exploration of hip hop music.</p>
+               </center>
+                    </div>
+                <div class="col-md-6">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Vision</h4>
-                    <p class="text-muted">Our vision is that young men of color, particularly those living in marginalized communities, will recognize their strengths and exercise their power to positively influence the world around them.</p>
+                    <center>
+                    <p class="text-muted" style="text-align:left; width: 400px">Our vision is that young men of color, particularly those living in marginalized communities, will recognize their strengths and exercise their power to positively influence the world around them.</p>
+                </center>
                 </div>
-<%--                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-bullseye fa-stack-1x fa-inverse"></i>
-                        <%--<i class="fas fa-lock fa-stack-1x fa-inverse"></i>--%>
-     <%--               </span>
-                    <h4 class="service-heading">Goal</h4>
-                    <p class="text-muted">"Quote from Nick Carrington"</p>
-                </div>--%>
+
             </div>
         </div>
     </section>
@@ -149,9 +147,10 @@
              <div class="container"> 
                  <div class="row">
         <div class="col-lg-12 text-center" >
+            <center>
         <h2 class="section-heading text-uppercase">Lesson Overview</h2>
 <%--        <br /> --%>
-            <h3 class="section-subheading text-muted">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
             Hip Hop IllumiNation provides a library of lessons that use themes from hip hop
                 music to promote positive youth development. These lessons are designed to prompt 
                 reflection, critical discussion, and action on the topics presented (see below). 
@@ -163,9 +162,10 @@
                 lessons and add to the library, so you have a variety of options for engaging the young people you care about.    
                 </h3>        
 
-
+</center>
+            <center>
         <h2 class="section-heading text-uppercase">Lesson Topics</h2>
-            <h3 class="section-subheading text-muted">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
             Our lessons cover a wide range of topics, all essential to positive youth development. They can be grouped broadly into 
                 two categories: Critical Consciousness and The Six Cs. Each of these categories is further divided into topics and 
                 sub-topics that cover essential domains of youth development (see below). You and the youth you work with will know 
@@ -173,27 +173,34 @@
                 find appropriate lessons based on topic, sub-topic, artist, and even song title.
            <br />
             <br />
-            NEED TO ADD THE TABLES
+            <img src="img/logos/CriticalConTable.png" style="width:500px; display:block; margin:auto"/>
+                <p class="section-subheading text-muted" style="font-style:normal; text-align:center">Critical Consciousness Topics and Sub Topics</p>
                 </h3>
-
+            
+ </center>
+            <center>
         <h2 class="section-heading text-uppercase">Structure of Lessons</h2>
-            <h3 class="section-subheading text-muted">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
             Our lessons are structured to facilitate teaching and learning. With that in mind, each lesson has a section summarizing the topic(s) and sub-topic(s) covered and how they are important for youth development. The summary is followed by learning objectives, outlining what youth and adults should gain from the lesson. Objectives are followed by the lesson content, which includes lyrics/themes from featured artist(s)/song(s), guidance for the adult leading the lesson, and specific prompts for Reflection, Discussion, and Action. At the end of each lesson, we also try to provide links to additional lessons or other resources that might extend learning.
-
+                <br />
+                <br />
+                <img src="img/logos/SixCsTable.png" style="width:800px; display:block; margin:auto"/>
+                <p class="section-subheading text-muted" style="font-style:normal; text-align:center">The Six Cs Topics and Sub Topics</p>
                 </h3>
-
+                
+            </center>
 
             </div>
                      </div>
 </div>
     </section>
-  
+   
     <!-- Team -->
     <section class="bg-light" id="team">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">Who Our Focus Is</h2>
+                    <h2 class="section-heading text-uppercase">Our Focus</h2>
                     <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
@@ -203,7 +210,7 @@
                         <img class="mx-auto rounded-circle" src="img/team/Youth.png" alt="">
 
                         <h4>Youth</h4>
-                        <p class="text-muted">18 and Under</p>
+                        <%--<p class="text-muted">18 and Under</p>--%>
                        
                     </div>
                 </div>
@@ -212,7 +219,7 @@
                         <img class="mx-auto rounded-circle" src="img/team/white-treble.jpg" alt="">
                 
                         <h4>Youth Worker</h4>
-                        <p class="text-muted">need to figure this out </p>
+                        <%--<p class="text-muted">need to figure this out </p>--%>
                        
                     </div>
                 </div>
@@ -220,7 +227,7 @@
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="img/team/parent.jpg" alt="">
                         <h4>Parent</h4>
-                        <p class="text-muted">Can Recommend Lessons to Youth</p>
+                       <%-- <p class="text-muted">Can Recommend Lessons to Youth</p>--%>
                        
                     </div>
                 </div>
@@ -231,7 +238,7 @@
                         <img class="mx-auto rounded-circle" src="img/team/gray_chalk_apple.png" alt="">
                       
                         <h4>Teacher</h4>
-                        <p class="text-muted">Brief overview of teacher</p>
+                        <%--<p class="text-muted">Brief overview of teacher</p>--%>
                         
                     </div>
                 </div>
@@ -240,7 +247,7 @@
                         <img class="mx-auto rounded-circle" src="img/team/mentor.jpg" alt="">
 
                         <h4>Mentor</h4>
-                        <p class="text-muted">add something about mentor </p>
+                        <%--<p class="text-muted">add something about mentor </p>--%>
                         
                     </div>
                 </div>
@@ -249,7 +256,7 @@
                         <img class="mx-auto rounded-circle" src="img/team/NewOther.jpg" alt=""/>
 
                         <h4>Other Adult</h4>
-                        <p class="text-muted">Other adults intrested in fostering the youth</p>
+                        <%--<p class="text-muted">Other adults intrested in fostering the youth</p>--%>
                        
                     </div>
                 </div>
