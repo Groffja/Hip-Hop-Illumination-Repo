@@ -4,18 +4,20 @@
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <style>
-    section{
-    margin: 0;
+    body{
+    margin: 5%;
     background: url(img/header-bg.jpg);
-    background-size: 1440px 800px; 
-    overflow-y: scroll;
+    background-size: 100%;     
         }
     </style>
-    <section>
+    
+
+    
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 style="color:#fff;" class="section-heading text-uppercase">Your Profile</h2>
+                    <br />
                 </div>
             </div>
             <div class="col-sm-4" style="margin: 0 auto">
@@ -610,6 +612,6 @@
                 </div>
             </div>
         </div>
-        </section>
+       
 
 </asp:Content>

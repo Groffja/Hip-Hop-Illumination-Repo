@@ -27,16 +27,19 @@
     
     background-color:#fed136;
 }
+        navbar-dark{
+            background:  #212529;
+        }
         a:-webkit-any-link {
-    
-    cursor: pointer;
-    text-decoration: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body id="page-top">
     <form id="form1" runat="server">
-        <nav style="background:black;" class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <nav  class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
           <a class="navbar-brand" href="index.aspx">Hip Hop Illumination</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,15 +58,17 @@
                         <a class="dropdown-item" href="BrowseLessons.aspx">Browse Lessons</a>                        
                   </div>
               </li>
-
+                <li class="nav-item">
+                <a class="nav-link" href="Resources.aspx">Resources</a>
+              </li>
                <li class="nav-item">
                 <asp:LinkButton class="nav-link" ID="LinkBtnRecommendation" runat="server" OnClick="LinkBtnRecommendation_Click" ForeColor="White" >Recommendations</asp:LinkButton>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" href="Review Us.aspx">Review Us</a>
-              </li>
+                <a class="nav-link" href="Review Us.aspx">Illuminate</a>
+              </li>                
               <li class="nav-item">
-                <a class="nav-link" href="ContactUs.aspx">Contact Us</a>
+                <a class="nav-link" href="ContactUs.aspx">Support</a>
               </li>
             </ul>
           </div>

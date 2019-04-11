@@ -103,8 +103,8 @@
     <br />
     <br />
     <br />
-
-    <asp:GridView ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server"  AutoGenerateColumns="False" DataKeyNames="ID" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" OnSelectedIndexChanged="gvDocuments_SelectedIndexChanged1" >
+    <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Enabled="false">You have no completed lessons!</asp:Label>
+    <asp:GridView ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server"  AutoGenerateColumns="False" DataKeyNames="ID" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" >
        
         <AlternatingRowStyle />
         <Columns>

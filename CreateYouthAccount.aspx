@@ -185,8 +185,8 @@ body{
             <asp:Label ID="lblCountry" runat="server" Text="Country" Width="130px"></asp:Label>
             <br />
            
-            <asp:DropDownList ID="ddlCountry" runat="server"  Width="240px"  CssClass="form-control">
-                    <asp:ListItem Selected="true">United States</asp:ListItem>                    
+            <asp:DropDownList ID="ddlCountry" runat="server"  Width="240px" OnSelectedIndexChanged="DropDowncountry_SelectedIndexChanged" AutoPostBack="True" CssClass="form-control">
+                    <asp:ListItem Selected="true" Value="US">United States</asp:ListItem>                    
                     <asp:ListItem>Afghanistan</asp:ListItem>
                     <asp:ListItem>Albania</asp:ListItem>
                     <asp:ListItem>Algeria</asp:ListItem>
@@ -434,6 +434,7 @@ body{
                                    <asp:DropDownList ID="ddlGender"  CssClass="form-control" runat="server" Width="240px" >
                                                 <asp:ListItem Value="M">Male</asp:ListItem>
                                                 <asp:ListItem Value="F">Female</asp:ListItem>
+                                                <asp:ListItem Value="T">Transgender</asp:ListItem>
                                                 <asp:ListItem Value="Did Not Answer">Prefer not to answer</asp:ListItem>
                                             </asp:DropDownList>
 </div>

@@ -37,7 +37,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
         try
         {
 
-            sc.ConnectionString = @"Server = LocalHost; Database = hhidatabase; Trusted_Connection = Yes";
+            sc.ConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
@@ -53,8 +53,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
         {
             try
             {
-                sc.ConnectionString = @"Server = LocalHost; Database = hhidatabase; Trusted_Connection = Yes";
-
+                sc.ConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
                 sc.Open();
                 System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
                 insert.Connection = sc;
@@ -68,6 +67,21 @@ public partial class CreateYouthAccount : System.Web.UI.Page
         }
 
 
+    }
+
+    // State only enabled when country = United States
+    protected void DropDowncountry_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        String US = "US";
+        string country = ddlCountry.SelectedValue;
+        if (country == US)
+        {
+            ddlState.Enabled = true;
+        }
+        else
+        {
+            ddlState.Enabled = false;
+        }
     }
 
     protected void btnRegister_Click(object sender, EventArgs e)
