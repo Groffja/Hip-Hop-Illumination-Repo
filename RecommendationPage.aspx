@@ -26,6 +26,7 @@ body{
             margin: 0;
             padding:0;
             background-image: url(img/header-bg.jpg);
+            color: white;
         }
 .btnRegister
    {
@@ -34,8 +35,8 @@ body{
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: yellow;
-    color: white;
+    background: #fed136 ;
+    color: black;
     font-weight: 600;
     width: 30%;
     cursor: pointer;
@@ -46,8 +47,10 @@ body{
 }
 
     </style>
-
+        
+        
     </head>
+        
     <body>
         <br />
         <br />
@@ -59,7 +62,7 @@ body{
         <br />
         <br />
         <br />
-
+        <center><h1>Recommend a Lesson</h1></center>
     <form id="recommendation" method="post">
       
         <div class="row d-block mx-auto">
@@ -67,7 +70,7 @@ body{
                 <div class="form-group ">
                                     <br />
         <br />
-                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
         <br />
         <br />
         <br />

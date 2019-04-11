@@ -37,7 +37,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
         try
         {
 
-            sc.ConnectionString = @"Server = LocalHost; Database = hhidatabase; Trusted_Connection = Yes";
+            sc.ConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
@@ -53,8 +53,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
         {
             try
             {
-                sc.ConnectionString = @"Server = LocalHost; Database = hhidatabase; Trusted_Connection = Yes";
-
+                sc.ConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
                 sc.Open();
                 System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
                 insert.Connection = sc;
