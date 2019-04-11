@@ -127,7 +127,8 @@ section {
         }
 
             #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-                color: #fed136
+                color: #fed136;
+                 
             }
 
     @media (min-width:992px) {

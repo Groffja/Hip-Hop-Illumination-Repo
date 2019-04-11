@@ -475,6 +475,10 @@ body{
             <asp:Label ID="labelFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
             <asp:TextBox ID="textFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
 </div>
+
+
+
+
             <asp:Label ID="lblEmailVal" runat="server" Width="130px" ForeColor="Red"></asp:Label>
 
             <asp:Button ID="btnRegister" class="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Create" />
