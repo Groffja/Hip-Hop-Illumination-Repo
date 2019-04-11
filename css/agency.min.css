@@ -595,13 +595,11 @@ section {
         }
 
     section#contact {
-        background-color: #212529;
-        
-        background-image: url('../img/about/Contact.jpg');
+        /*background-color: #212529;*/
+        /*background-image: url('../img/about/Contact.jpg');*/
         background-repeat: no-repeat;
         background-position: center;
-        
-
+        background-image: url('../img/Photos-20190411T182208Z-001/Photos/Contact.jpg');
     }
 
         section#contact .section-heading {

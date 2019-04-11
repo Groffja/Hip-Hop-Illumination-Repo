@@ -173,10 +173,10 @@
                 find appropriate lessons based on topic, sub-topic, artist, and even song title.
            <br />
             <br />
-            <img src="img/logos/CriticalConTable.png" style="width:500px; display:block; margin:auto"/>
+            <img src="img/Photos-20190411T182208Z-001/Photos/CriticalConTable.png" style="width:500px; display:block; margin:auto"/>
                 <p class="section-subheading text-muted" style="font-style:normal; text-align:center">Critical Consciousness Topics and Sub Topics</p>
                 </h3>
-            
+           
  </center>
             <center>
         <h2 class="section-heading text-uppercase">Structure of Lessons</h2>
@@ -184,7 +184,7 @@
             Our lessons are structured to facilitate teaching and learning. With that in mind, each lesson has a section summarizing the topic(s) and sub-topic(s) covered and how they are important for youth development. The summary is followed by learning objectives, outlining what youth and adults should gain from the lesson. Objectives are followed by the lesson content, which includes lyrics/themes from featured artist(s)/song(s), guidance for the adult leading the lesson, and specific prompts for Reflection, Discussion, and Action. At the end of each lesson, we also try to provide links to additional lessons or other resources that might extend learning.
                 <br />
                 <br />
-                <img src="img/logos/SixCsTable.png" style="width:800px; display:block; margin:auto"/>
+                <img src="img/Photos-20190411T182208Z-001/Photos/SixCsTable.png" style="width:800px; display:block; margin:auto"/>
                 <p class="section-subheading text-muted" style="font-style:normal; text-align:center">The Six Cs Topics and Sub Topics</p>
                 </h3>
                 
