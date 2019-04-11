@@ -67,11 +67,18 @@
                   <a class="nav-link" href="ManageUsers.aspx">Manager Users</a>
             </li>
 
+                <li class="nav-item">
+                 <a class="nav-link" href="Feedback.aspx">Feedback</a>
+                </li>
+
+
+
             <li class="nav-item">
                  <a class="nav-link" href="Index.aspx">Exit</a>
                 </li>
 
-                </ul>
+            </ul>
+
               </div>
 
 </nav>

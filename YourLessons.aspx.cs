@@ -173,4 +173,9 @@ public partial class YourLessons : System.Web.UI.Page
     {
 
     }
+
+    protected void gvDocuments_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+
+    }
 }
