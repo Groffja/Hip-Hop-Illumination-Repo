@@ -15,11 +15,11 @@ public partial class Feedback : System.Web.UI.Page
     string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
+        //if (IsPostBack)
+        //{
             
-            this.BindGrid();
-        }
+        //    this.BindGrid();
+        //}
 
 
 
@@ -40,6 +40,13 @@ public partial class Feedback : System.Web.UI.Page
     {
 
         String search = txtSearch.Text;
+        Session["test"] = search;
+
+        GridViewSearchFeedback.DataBind();
+        GridViewSearchFeedback.Visible = true;
+        GridView2.Visible = false;
+
+
 
 
     }
@@ -50,7 +57,7 @@ public partial class Feedback : System.Web.UI.Page
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM Feedback INNER JOIN LoginInfo ON Feedback.accountID = LoginInfo.accountID WHERE Feedback.comment LIKE '% " + "@Name"  + "%'";
+                cmd.CommandText = "SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM Feedback INNER JOIN LoginInfo ON Feedback.accountID = LoginInfo.accountID WHERE Feedback.comment LIKE '%" + "@Name"  + "%'";
                 cmd.Connection = cn;
                 cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
                 DataTable dt = new DataTable();
@@ -67,4 +74,9 @@ public partial class Feedback : System.Web.UI.Page
 
 
 
+
+    protected void SqlDataSourceFeedback_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
+    }
 }
