@@ -31,9 +31,12 @@ public partial class CreateAdultAccount : System.Web.UI.Page
 
     }
 
+    // State only enabled when country = United States
     protected void DropDowncountry_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (DropDowncountry.Items[0].Selected)
+        String US = "US";
+        string country = DropDowncountry.SelectedValue;
+        if (country == US)
         {
             DropDownstate.Enabled = true;
         }
@@ -42,7 +45,6 @@ public partial class CreateAdultAccount : System.Web.UI.Page
             DropDownstate.Enabled = false;
         }
     }
-
 
     protected void CreateAccount_Click1(object sender, EventArgs e)
     {
@@ -56,8 +58,8 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         string email = HttpUtility.HtmlEncode(txtEmail.Text);
         string state = HttpUtility.HtmlEncode(DropDownstate.Text);
         string user = HttpUtility.HtmlEncode(DropDownuser.Text);
-        string favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
-        string favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
+        string favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist2.Text);
+        string favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic2.Text);
 
         // if Country is not United States
         if (DropDownstate.Enabled == false)

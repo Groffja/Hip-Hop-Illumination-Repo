@@ -6,7 +6,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <title>Create Account</title>
+    <title>Hip Hop IllumiNation.com</title>
     <style type="text/css">
 .drop{border:ridge;}
 
@@ -116,7 +116,7 @@ body{
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblState" runat="server" Text="State" Width="130px"></asp:Label>
             <br />
-            <asp:DropDownList ID="DropDownstate" runat="server" Width="240px"  CssClass="form-control">
+            <asp:DropDownList ID="DropDownstate" runat="server" Width="240px" CssClass="form-control">
 	<asp:ListItem Value="AL">Alabama</asp:ListItem>
 	<asp:ListItem Value="AK">Alaska</asp:ListItem>
 	<asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -176,8 +176,8 @@ body{
             <asp:Label ID="lblCountry" runat="server" Text="Country" Width="130px"></asp:Label>
             <br />
            
-            <asp:DropDownList ID="DropDowncountry" runat="server"  Width="240px"  CssClass="form-control">
-                    <asp:ListItem Selected="true">United States</asp:ListItem>                    
+            <asp:DropDownList ID="DropDowncountry" runat="server"  Width="240px" OnSelectedIndexChanged="DropDowncountry_SelectedIndexChanged" AutoPostBack="True" CssClass="form-control">
+                    <asp:ListItem Selected="true" Value="US">United States</asp:ListItem>                    
                     <asp:ListItem>Afghanistan</asp:ListItem>
                     <asp:ListItem>Albania</asp:ListItem>
                     <asp:ListItem>Algeria</asp:ListItem>
@@ -438,6 +438,7 @@ body{
                                    <asp:DropDownList ID="DropDowngender"  CssClass="form-control" runat="server" Width="240px" >
                                                 <asp:ListItem Value="M">Male</asp:ListItem>
                                                 <asp:ListItem Value="F">Female</asp:ListItem>
+                                                <asp:ListItem Value="T">Transgender</asp:ListItem>
                                                 <asp:ListItem Value="Did Not Answer">Prefer not to answer</asp:ListItem>
                                             </asp:DropDownList>
 </div>
@@ -454,13 +455,13 @@ body{
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblFavoriteMusic2" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteMusic2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteArtist" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblFavoriteArtist2" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteArtist2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">

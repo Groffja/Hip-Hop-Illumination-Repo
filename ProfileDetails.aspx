@@ -4,18 +4,20 @@
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <style>
-    section{
-    margin: 0;
+    body{
+    margin: 5%;
     background: url(img/header-bg.jpg);
-    background-size: 1440px 800px; 
-    overflow-y: scroll;
+    background-size: 100%;     
         }
     </style>
-    <section>
+    
+
+    
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 style="color:#fff;" class="section-heading text-uppercase">Your Profile</h2>
+                    <br />
                 </div>
             </div>
             <div class="col-sm-4" style="margin: 0 auto">
@@ -584,16 +586,6 @@
                                             </asp:DropDownList>
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group">
-                        <asp:Label ID="lblEmail" runat="server" CssClass="col-form-label" Text="Email"></asp:Label>
-                        <asp:TextBox ID="txtEmail" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="form-group">
-                        <asp:Label ID="lblDateOfBirth" runat="server" CssClass="col-form-label" Text="Date of Birth"></asp:Label>
-                        <asp:TextBox ID="txtDateOfBirth" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
-                        <p class="help-block text-danger"></p>
-                    </div>
 
                              <div class="form-group">
                         <asp:Label ID="lblFavoriteArtist" runat="server" CssClass="col-form-label" Text="Favorite Artist"></asp:Label>
@@ -620,6 +612,6 @@
                 </div>
             </div>
         </div>
-        </section>
+       
 
 </asp:Content>

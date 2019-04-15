@@ -50,16 +50,20 @@
         <br />
         <br />
             <form id="recommendationForMeForm" method="post">
+                 <center>
 <div class="row d-block mx-auto">
     <div class="col d-block mx-auto">
-        <div class="row"> 
+        <div class="row "> 
         <div class="form-group col-4">
+           
         <asp:Button ID="btnSeeData" runat="server" OnClick="btnSeeData_Click" Text="See Recommendation" class="btnRegister"/>
+                
         <asp:TextBox ID="test" runat="server" Visible="False"></asp:TextBox>
             <br />
             <asp:Label ID="Label1" class="align-content-center" runat="server" Width="400px"></asp:Label>
             </div>
             </div>
+        
 <%--            <div class="row"> 
 
             <div class="form-group col-3 d-block mx-auto">
@@ -72,6 +76,7 @@
         <div class="row d-block mx-auto"> 
             <div class="col d-block mx-auto"
                 <center>
+    <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">You currently have no Recommendations!</asp:Label>
     <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="Name" HeaderText="Lesson" SortExpression="Name"/>
@@ -101,6 +106,7 @@
     
     </div>
     </div>
+                     </center>
                 </form>
     </body>
     </html>
