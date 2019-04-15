@@ -125,7 +125,7 @@ public partial class YourLessons : System.Web.UI.Page
             using (SqlCommand cmd = new SqlCommand())
             {
 
-                cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID";
+                cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID WHERE Lessons.accountID =" + Session["accountID"] + ";";
                 //cmd.CommandText = "SELECT Documents.ID, Documents.Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
                 cmd.Connection = cn;
                 //cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());

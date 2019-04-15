@@ -50,16 +50,20 @@
         <br />
         <br />
             <form id="recommendationForMeForm" method="post">
+                 <center>
 <div class="row d-block mx-auto">
     <div class="col d-block mx-auto">
-        <div class="row"> 
+        <div class="row "> 
         <div class="form-group col-4">
+           
         <asp:Button ID="btnSeeData" runat="server" OnClick="btnSeeData_Click" Text="See Recommendation" class="btnRegister"/>
+                
         <asp:TextBox ID="test" runat="server" Visible="False"></asp:TextBox>
             <br />
             <asp:Label ID="Label1" class="align-content-center" runat="server" Width="400px"></asp:Label>
             </div>
             </div>
+        
 <%--            <div class="row"> 
 
             <div class="form-group col-3 d-block mx-auto">
@@ -102,6 +106,7 @@
     
     </div>
     </div>
+                     </center>
                 </form>
     </body>
     </html>

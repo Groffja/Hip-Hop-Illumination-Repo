@@ -98,7 +98,7 @@ table {
 
         <asp:Table>
 
-        <asp:GridView ID="GridView2" runat="server"  AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="10">
+        <asp:GridView ID="GridView2" runat="server" width="30%"  AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="10">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -148,7 +148,7 @@ table {
                         <br />
             <br />
 
-    <asp:GridView ID="GridView3" runat="server" autoPostback="True" AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover"  AllowSorting="True" CellPadding="10" DataKeyNames="resourceID" DataSourceID="SqlDataSourceResources">
+    <asp:GridView ID="GridView3" runat="server" autoPostback="True" Width="30%" AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover"  AllowSorting="True" CellPadding="10" DataKeyNames="resourceID" DataSourceID="SqlDataSourceResources">
         <Columns>
             <asp:BoundField DataField="resourceID" HeaderText="resourceID" InsertVisible="False" ReadOnly="True" SortExpression="resourceID" />
             <asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
