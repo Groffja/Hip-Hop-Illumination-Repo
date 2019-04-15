@@ -19,11 +19,13 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-<%--    <style>
-        .far fa-kristina{
-            color: white;
-        }
-    </style>--%>
+<style>
+    a:-webkit-any-link {
+    
+    cursor: pointer;
+    text-decoration: none;
+}
+</style>
 
 </head>
 
@@ -138,14 +140,15 @@
 
     <!--Six Cs -->
 
-    <section>
+    <section style="background-color:lightgray">
              <div class="container"> 
                  <div class="row">
         <div class="col-lg-12 text-center" >
+            <center>
         <h2 class="section-heading text-uppercase">Why Are the Six C's Important for Young Men of Color?</h2>
         <br /> 
-        <%--<p style= "width: 800px">--%>
-            <h3 class="section-subheading text-muted">
+       
+                <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
 
             Young men of color disproportionately face negative perceptions about their attitudes, skills, and behaviors. 
             These perceptions are reflected not only in institutional policies/cultures (e.g., school discipline, police brutality) 
@@ -165,14 +168,15 @@
             (Competence) lead to greater social and civic engagement down the road (Contribution). Similarly, long-term 
             educational success is a reflection of academic engagement (Connection), a positive view of one’s future (Confidence), 
             and the academic skills to succeed (Competence).
-     <%--   </p>--%>
+
                 </h3>
-               
+            </center>   
         <br />
         <br />
+            <center>
         <h2 class="section-heading text-uppercase">How Does Hip Hop IllumiNation Contribute to the Six Cs?</h2>
-        <%--<p style="width: 800px">--%>
-            <h3 class="section-subheading text-muted">
+      
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
             Hip Hop IllumiNation’s lessons use examples from hip hop music where one or more sub domains 
             of the Six Cs is demonstrated. Youth are prompted to identify how each positive asset is 
             demonstrated in the music, reflect on how they can relate to the artist’s experience, and 
@@ -185,8 +189,9 @@
             qualities of hip hop artists with whom they can relate. Hip Hop IllumiNation provides the 
             platform and structure for them to not only identify the positive messages in hip hop music but
             also to see how those messages relate to their own lives and access opportunities to cultivate the same qualities in themselves.
-    <%--    </p>--%>
+
                 </h3>
+                </center>
             </div>
                      </div>
 </div>

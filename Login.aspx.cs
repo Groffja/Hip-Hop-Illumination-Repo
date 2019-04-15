@@ -63,7 +63,7 @@ public partial class _Default : System.Web.UI.Page
                     Session.Add("email", txtUsername.Text);
                     Session.Add("accountType", type);
                     Session.Add("username", username);
-                    Session.Add("accountID", accountID);
+                    Session["accountID"] = accountReaderID;
                     if (type == "Admin")
                     {
                         Response.Redirect("AdminHomepage.aspx");

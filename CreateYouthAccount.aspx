@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/YouthCreate.css" crossorigin="anonymous">
 
-    <title>Create Account</title>
+    <title>Hip Hop IllumiNation.com</title>
 
 <style type="text/css">
 .drop{border:ridge;}
@@ -185,8 +185,8 @@ body{
             <asp:Label ID="lblCountry" runat="server" Text="Country" Width="130px"></asp:Label>
             <br />
            
-            <asp:DropDownList ID="ddlCountry" runat="server"  Width="240px"  CssClass="form-control">
-                    <asp:ListItem Selected="true">United States</asp:ListItem>                    
+            <asp:DropDownList ID="ddlCountry" runat="server"  Width="240px" OnSelectedIndexChanged="DropDowncountry_SelectedIndexChanged" AutoPostBack="True" CssClass="form-control">
+                    <asp:ListItem Selected="true" Value="US">United States</asp:ListItem>                    
                     <asp:ListItem>Afghanistan</asp:ListItem>
                     <asp:ListItem>Albania</asp:ListItem>
                     <asp:ListItem>Algeria</asp:ListItem>
@@ -434,6 +434,7 @@ body{
                                    <asp:DropDownList ID="ddlGender"  CssClass="form-control" runat="server" Width="240px" >
                                                 <asp:ListItem Value="M">Male</asp:ListItem>
                                                 <asp:ListItem Value="F">Female</asp:ListItem>
+                                                <asp:ListItem Value="T">Transgender</asp:ListItem>
                                                 <asp:ListItem Value="Did Not Answer">Prefer not to answer</asp:ListItem>
                                             </asp:DropDownList>
 </div>
@@ -471,14 +472,6 @@ body{
           
 
 </div>
-<div class="form-group input-group input-group-md label">
-            <asp:Label ID="labelFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
-            <asp:TextBox ID="textFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
-</div>
-
-
-
-
             <asp:Label ID="lblEmailVal" runat="server" Width="130px" ForeColor="Red"></asp:Label>
 
             <asp:Button ID="btnRegister" class="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Create" />

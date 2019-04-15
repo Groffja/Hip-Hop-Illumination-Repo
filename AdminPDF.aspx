@@ -25,7 +25,7 @@ h3{
 
 </style>
     <center>
-    <h3>Delete Hip Hop Illumination Users</h3>
+    <h3>Delete Lessons</h3>
     <br />
     
    

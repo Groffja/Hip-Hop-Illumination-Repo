@@ -18,6 +18,21 @@ public partial class BrowseLessons : System.Web.UI.Page
             FillData();
             this.BindGrid();
         }
+        if (!IsPostBack)
+        {
+            SqlConnection sc = new SqlConnection(conStr);
+            sc.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sc;
+            cmd.CommandText = "SELECT ID FROM Documents";
+
+            SqlDataReader reader1 = cmd.ExecuteReader();
+
+            if (!reader1.HasRows)
+            {
+                noLessons.Enabled = true;
+            }
+        }
     }
 
     protected void OpenDocument(object sender, EventArgs e)

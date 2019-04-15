@@ -13,9 +13,7 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.css" rel="stylesheet">
     <style>
-    body{
-        padding-top: 50px !important;
-    }
+    
     </style>
     <section id="contact">
         <div class="container">

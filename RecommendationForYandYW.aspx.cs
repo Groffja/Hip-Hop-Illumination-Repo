@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 public partial class RecommendationForYandYW : System.Web.UI.Page
 {
     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -44,21 +44,7 @@ public partial class RecommendationForYandYW : System.Web.UI.Page
             catch (Exception)
             {
             }
-
-            //    System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-
-            //SqlConnection sc = new SqlConnection();
-            //SqlCommand insert = new SqlCommand();
-            //insert.CommandText = "SELECT accountID from [dbo].[LoginInfo] where email = '" + Session["email"] + "'";
-
-            //int receiverID = Convert.ToInt32(insert.ExecuteScalar());// get receiver ID
-
-            //sc.Open();
-            //insert.Connection = sc;
-            //insert.ExecuteNonQuery();
-            //sc.Close();
-
-
+ 
         }
     }
     protected void btnSeeData_Click(object sender, EventArgs e)
@@ -71,7 +57,19 @@ public partial class RecommendationForYandYW : System.Web.UI.Page
 
         insert.CommandText = "SELECT accountID from [dbo].[LoginInfo] where email = '" + Session["email"] + "'";
         int receiverAccountID = Convert.ToInt32(insert.ExecuteScalar());// get receiver ID
-        test.Text = receiverAccountID.ToString();              
-        
+        test.Text = receiverAccountID.ToString();
+
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = sc;
+        cmd.CommandText = "SELECT accountID FROM Recommendations WHERE accountID = @accountID";
+        cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
+
+        SqlDataReader reader1 = cmd.ExecuteReader();
+
+        if (!reader1.HasRows)
+        {
+            noLessons.Visible = true;
+        }
+
     }
 }
