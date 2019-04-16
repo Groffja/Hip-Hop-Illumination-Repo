@@ -157,7 +157,7 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         }
         else
         {
-            lblEmailVal.Text = "ERROR:Email Provided already registered with an account!!";
+            lblEmailVal.Text = "This email already exists";
         }
     }
 }
