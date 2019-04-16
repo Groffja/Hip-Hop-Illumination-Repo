@@ -19,6 +19,23 @@ public partial class YourLessons : System.Web.UI.Page
             FillData();
             this.BindGrid();
         }
+        if (!IsPostBack)
+        {
+            SqlConnection sc = new SqlConnection(conStr);
+            sc.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sc;
+            cmd.CommandText = "SELECT accountID FROM Lessons WHERE accountID = @accountID";
+            cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
+
+            SqlDataReader reader1 = cmd.ExecuteReader();
+
+            if (!reader1.HasRows)
+            {
+                noLessons.Enabled = true;
+            }
+        }
+
     }
 
     protected void OpenDocument(object sender, EventArgs e)
@@ -108,7 +125,7 @@ public partial class YourLessons : System.Web.UI.Page
             using (SqlCommand cmd = new SqlCommand())
             {
 
-                cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID";
+                cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID WHERE Lessons.accountID =" + Session["accountID"] + ";";
                 //cmd.CommandText = "SELECT Documents.ID, Documents.Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
                 cmd.Connection = cn;
                 //cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
@@ -153,6 +170,11 @@ public partial class YourLessons : System.Web.UI.Page
     }
 
     protected void gvDocuments_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void gvDocuments_SelectedIndexChanged1(object sender, EventArgs e)
     {
 
     }

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">   
 
-    <title>Admin Homepage</title>
+    <title>Hip Hop IllumiNation.com</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -53,8 +53,12 @@
 
                 <li class="nav-item">
             <a class="nav-link" href="YouthTablau.aspx">User Statistics</a>
-                 </li>     
+                 </li>  
                 
+                <li class="nav-item">
+            <a class="nav-link" href="Youtube.aspx">Upload Resources</a>
+                 </li>
+                                
              <li class="nav-item">
                   <a class="nav-link" href="AdultTablau.aspx">User Feedback</a>
             </li> 
@@ -63,11 +67,18 @@
                   <a class="nav-link" href="ManageUsers.aspx">Manager Users</a>
             </li>
 
+                <li class="nav-item">
+                 <a class="nav-link" href="Feedback.aspx">Feedback</a>
+                </li>
+
+
+
             <li class="nav-item">
                  <a class="nav-link" href="Index.aspx">Exit</a>
                 </li>
 
-                </ul>
+            </ul>
+
               </div>
 
 </nav>
@@ -78,4 +89,3 @@
     
 </body>
 </html>
-
