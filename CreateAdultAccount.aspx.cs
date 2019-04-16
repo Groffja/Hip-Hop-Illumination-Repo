@@ -74,15 +74,15 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         emailCheck.Parameters.AddWithValue("@email", email);
 
         SqlDataReader reader1 = emailCheck.ExecuteReader();
-        
+
         while (reader1.Read())
         {
             emails = reader1["email"].ToString();
-            
+
         }
-        
-        
-        
+
+
+
         reader1.Close();
         sc.Close();
         if (emails == " ")

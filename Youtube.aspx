@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="Youtube.aspx.cs" Inherits="Youtube" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="Youtube.aspx.cs" Inherits="Youtube" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -14,10 +14,39 @@
             background-image: url(http://localhost:65108/img/header-bg.jpg);
             color:white;
         }
-
+/*section{
+        padding-top: 50px !important;
+        margin: 10px;
+        background: url(img/header-bg.jpg);
+        background-size: 1440px 800px; 
+        overflow-y: scroll;
+        padding-left: 50px;
+    }
+body{
+            margin: 0;
+            padding:0;
+            background-image: url(img/header-bg.jpg);
+        }
+.btnRegister
+   {
+    float: right;
+    margin-top: 8%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: yellow;
+    color: white;
+    font-weight: 600;
+    width: 30%;
+    cursor: pointer;
+    border:1px solid white;
+}
+.smallStyle{
+    color:white;
+}*/
 
     </style>
-    <title>Hip Hop IllumiNation.com</title>
+    <title>Content Upload</title>
 </head>
 <body>
     
@@ -29,38 +58,36 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-        <asp:Label ID="Label2" runat="server" Text="URL "  Width="10%"></asp:Label>
-            <asp:textbox ID="txtUrl" runat="server" class="form-control" required="true" Width="20%" enabled="true"/>
+        <asp:Label ID="Label2" runat="server" Text="URL "  Width="100px"></asp:Label>
+            <asp:textbox ID="url" runat="server" class="form-control" Width="300px" />
         <br />
                         </div>
          <div class="form-group">
-        <asp:Label ID="Label3" runat="server" Text="Category " Width="10%"></asp:Label>
-        <asp:TextBox ID="txtCategory" runat="server" class="form-control" required="true" Width="20%"></asp:TextBox>
+        <asp:Label ID="Label3" runat="server" Text="Category " Width="100px"></asp:Label>
+        <asp:TextBox ID="txtCategory" runat="server" class="form-control" Width="300px"></asp:TextBox>
         <br />
               </div>
 
 <div class="form-group">
-        <asp:Label ID="Label4" runat="server"  Text="Title " Width="10%"></asp:Label>
-        <asp:TextBox ID="txtTitle" runat="server" class="form-control" required="true" Width="20%"></asp:TextBox>
+        <asp:Label ID="Label4" runat="server"  Text="Title " Width="100px"></asp:Label>
+        <asp:TextBox ID="txtTitle" runat="server" class="form-control" Width="300px"></asp:TextBox>
         <br />
     </div>
 
                     <div class="form-group">
-        <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning" OnClick="Button1_Click" Text="Save" Width="10%" Enabled="false" />
-        <asp:Button ID="Button2" runat="server" CssClass="btn btn-warning" OnClick="Button2_Click" Text="Check URL" Width="10%" />
+        <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning" OnClick="Button1_Click" Text="Save" Width="92px" />
  </div>
-                    <asp:Label ID="Label5" runat="server" Width="25%"></asp:Label>
         <br />
         
     
     
-    <center>
+    
         <div>
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" CssClass="table-dark table-hover align-content-center" width="90%" AutoGenerateColumns="False" DataSourceID="SqlDataSource123">
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" CssClass="table-dark table-hover" width="70%" AutoGenerateColumns="False" DataSourceID="SqlDataSource123">
                 <Columns>
-                    <asp:BoundField DataField="title" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="15%" HeaderText="Title" SortExpression="title" />
-                    <asp:BoundField DataField="category" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="15%" HeaderText="Category" SortExpression="category" />
-                    <asp:BoundField DataField="Hyperlink" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="60%" HeaderText="Hyperlink" SortExpression="Hyperlink" />
+                    <asp:BoundField DataField="title" HeaderStyle-CssClass="align-content-center" HeaderText="Title" SortExpression="title" />
+                    <asp:BoundField DataField="category" HeaderStyle-CssClass="align-content-center" HeaderText="Category" SortExpression="category" />
+                    <asp:BoundField DataField="Hyperlink" HeaderStyle-CssClass="align-content-center" HeaderText="Hyperlink" SortExpression="Hyperlink" />
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource123" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString2 %>" SelectCommand="SELECT [title], [category], [Hyperlink] FROM [Resources]"></asp:SqlDataSource>
@@ -98,7 +125,7 @@
         
         
         </div>
-            </center>
+            
             </div>
         </div>
 
@@ -108,4 +135,3 @@
 </body>
 </html>
 </asp:Content>
-

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,110 +31,94 @@ public partial class _Default : System.Web.UI.Page
     }
     private void Download(int id)
     {
-        try
+        DataTable dt = new DataTable();
+        using (SqlConnection cn = new SqlConnection(conStr))
         {
-            DataTable dt = new DataTable();
-            using (SqlConnection cn = new SqlConnection(conStr))
-            {
-                SqlCommand cmd = new SqlCommand("GetDocument", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
-                cn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand("GetDocument", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
+            cn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
 
-                dt.Load(reader);
-            }
-
-            string name = dt.Rows[0]["Name"].ToString();
-            byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
-
-            Response.ClearContent();
-            Response.ContentType = "appliction/octetstream";
-            Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
-            Response.AddHeader("Content-Length", documentBytes.Length.ToString());
-
-            Response.BinaryWrite(documentBytes);
-            Response.Flush();
-            Response.Close();
+            dt.Load(reader);
         }
-        catch
-        {
 
-        }
+        string name = dt.Rows[0]["Name"].ToString();
+        byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
+
+        Response.ClearContent();
+        Response.ContentType = "appliction/octetstream";
+        Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
+        Response.AddHeader("Content-Length", documentBytes.Length.ToString());
+
+        Response.BinaryWrite(documentBytes);
+        Response.Flush();
+        Response.Close();
     }
     private void FillData()
     {
-        try
+        DataTable dt = new DataTable();
+        using (SqlConnection cn = new SqlConnection(conStr))
         {
-            DataTable dt = new DataTable();
-            using (SqlConnection cn = new SqlConnection(conStr))
-            {
-                SqlCommand cmd = new SqlCommand("GetDocuments", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand("GetDocuments", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
 
-                dt.Load(reader);
-            }
-            if (dt.Rows.Count > 0)
-            {
-                gvDocuments.DataSource = dt;
-                gvDocuments.DataBind();
-            }
+            dt.Load(reader);
         }
-        catch
+        if (dt.Rows.Count > 0)
         {
-
+            gvDocuments.DataSource = dt;
+            gvDocuments.DataBind();
         }
+
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        try
+        FileInfo fi = new FileInfo(FileUpload1.FileName);
+        byte[] documentContent = FileUpload1.FileBytes;
+
+        string name = fi.Name;
+        string extn = fi.Extension;
+        string category = TextBox2.Text;
+        string category2 = txtCat2.Text;
+        string category3 = txtCat3.Text;
+
+        using (SqlConnection cn = new SqlConnection(conStr))
         {
-            FileInfo fi = new FileInfo(FileUpload1.FileName);
-            byte[] documentContent = FileUpload1.FileBytes;
-            
+            SqlCommand cmd = new SqlCommand("SaveDocument", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-            string name = fi.Name;
-            string extn = fi.Extension;
-            string category = TextBox2.Text;
-            string category2 = txtCat2.Text;
-            string category3 = txtCat3.Text;
+            cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = name;
+            cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
+            cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
+            cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
+            cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
+            cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
 
-            using (SqlConnection cn = new SqlConnection(conStr))
-            {
-                SqlCommand cmd = new SqlCommand("SaveDocument", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = name;
-                cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
-                cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
-                cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
-                cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
-                cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
-
-                cn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            FillData();
-            Response.Redirect("Uploading.aspx");
+            cn.Open();
+            cmd.ExecuteNonQuery();
         }
-        catch
-        {
-
-        }
+        FillData();
+        Response.Redirect("Uploading.aspx");
     }
-    
+
+    protected void gvDocuments_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //SqlCommand delete = new SqlCommand();
+        //delete.CommandText = "DELETE FROM [Documents] WHERE [DocumentID]=@DocumentID";
+        //delete.ExecuteNonQuery();
+
+    }
     protected void Row_Deleting(object sender, EventArgs e)
     {
         //int row = GridView1.SelectedIndex;
         //string rowCell = GridView1.SelectedRow.Cells.ToString();
 
 
-        
         sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
-
         sc.Open();
         System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
         delete.Connection = sc;
@@ -148,60 +132,60 @@ public partial class _Default : System.Web.UI.Page
     // Uploads a resource into Database
     protected void save_Click(object sender, EventArgs e)
     {
+        int admin;
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+        System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
+        id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
+        id.Connection = sc;
+        sc.Open();
 
-        try
+        SqlDataReader reader = id.ExecuteReader();
+        while (reader.Read())
         {
-            int admin;
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
-            System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
-            id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
-            id.Connection = sc;
-            sc.Open();
-
-            SqlDataReader reader = id.ExecuteReader();
-            while (reader.Read())
-            {
-                string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
-                admin = int.Parse(adminID);
-            }
-        }
-        catch
-        {
-
+            string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
+            admin = int.Parse(adminID);
         }
 
+        // Uploads a resource into Database
+
+
+        //System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
+        //id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
+        //id.Connection = sc;
+        //sc.Open();        
+
+        //SqlDataReader reader = id.ExecuteReader();
+        //while (reader.Read())
+        //{
+        //    string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
+        //    admin = int.Parse(adminID);
+        //}
+        sc.Close();
+
+        //sc.Open();
+        //System.Data.SqlClient.SqlCommand resource = new System.Data.SqlClient.SqlCommand();
+        //resource.Connection = sc;
+
+        //String resourceLink = "<a href='" + hyperlink.Text + "'></a>";
+        String resourceLink = hyperlink.Text;
+
+        //resource.CommandText = "INSERT INTO Resources VALUES ('"+ resourceLink + "','"+ txtTitle.Text+ "','"+ category.Text +"',"+ 1 + ")"; /**/ 
+        //resource.ExecuteNonQuery();
+        //Response.Redirect("Uploading.aspx");
+
+        sc.Open();
+        SqlCommand resource = new SqlCommand();
+        resource.Connection = sc;
+        resource.CommandText = "INSERT INTO [dbo].[Resources] VALUES  (@Hyperlink,  @title, @category, @adminID);";
+        resource.Parameters.AddWithValue("@Hyperlink", resourceLink);
+        resource.Parameters.AddWithValue("@title", txtTitle.Text);
+        resource.Parameters.AddWithValue("@category", category.Text);
+        resource.Parameters.AddWithValue("@adminID", 1);
+        resource.ExecuteNonQuery();
+        sc.Close();
+
+        Response.Redirect("Uploading.aspx");
 
     }
-
-    void Application_Error(object sender, EventArgs e)
-    {
-        // Code that runs when an unhandled error occurs
-        //Exception ex;
-
-
-            Response.Redirect("Uploading.aspx");
-        }
-        catch
-
-
-        {
-            System.Exception lastException = Server.GetLastError();
-            HttpException httpException = (HttpException)lastException;
-            int httpCode = httpException.GetHttpCode();
-            int errorCode = httpException.ErrorCode;
-            if (errorCode == -2147467259)
-            {
-                Server.ClearError();
-                Response.Redirect("Uploading.aspx?fileTooLarge=true");
-            }
-        }
-
-
-
-
-
-
-    }
-
 }

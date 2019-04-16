@@ -22,23 +22,13 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 <style>
-    .btn-secondary
-   {
-    height:5%;
-    width:10%;
-    background-color:#fed136;
-}
-        navbar-dark{
-            background:  #212529;
-        }
-        
     #noUnderline{
         text-decoration:none;
     }
     a:-webkit-any-link {
-        cursor: pointer;
-        text-decoration: none;
-    }
+    
+    cursor: pointer;
+    text-decoration: none;
 
 </style>
 </head>
@@ -46,7 +36,7 @@
 <body id="page-top">
     <section id="form1" runat="server">
     <nav style="background:#29292B; " class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <a class="navbar-brand" href="index.aspx">Hip Hop IllumiNation</a>
+        <a class="navbar-brand" href="index.aspx">Hip Hop Illumination</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -62,12 +52,16 @@
                  </li>             
 
                 <li class="nav-item">
-                  <a class="nav-link" href="AdultTablau.aspx">User Statistics</a>
-                 </li> 
+            <a class="nav-link" href="YouthTablau.aspx">User Statistics</a>
+                 </li>  
                 
                 <li class="nav-item">
             <a class="nav-link" href="Youtube.aspx">Upload Resources</a>
                  </li>
+                                
+             <li class="nav-item">
+                  <a class="nav-link" href="AdultTablau.aspx">User Feedback</a>
+            </li> 
 
                 <li class="nav-item">
                   <a class="nav-link" href="ManageUsers.aspx">Manager Users</a>
@@ -86,7 +80,7 @@
             </ul>
 
               </div>
-        
+
 </nav>
         </section>
      <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
