@@ -73,7 +73,7 @@ public partial class RecommendationPage : System.Web.UI.Page
                 email = txtEmail.Text;
                 documentID = Convert.ToInt32(ddlRecommendation.SelectedItem.Value);// get document ID
 
-                insert.CommandText = "SELECT accountID from LoginInfo where email = '" + email + "'";
+                insert.CommandText = "SELECT accountID from LoginInfo where email ='" + email + "'";
                 int receiverAccountID = Convert.ToInt32(insert.ExecuteScalar());// get receiver ID
 
                 insert.CommandText = "SELECT username, accountID from LoginInfo where email = '" + email + "'";
