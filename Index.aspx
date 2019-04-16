@@ -46,11 +46,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive" runat="server">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">About Us</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop1" data-toggle="dropdown">About Us</a>
+                         <div class="dropdown-menu">
+                             <a class="dropdown-item" href="Founder.aspx">Founder</a>
+                                 </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop" data-toggle="dropdown" >
                             Lessons</a>
                         <div class="dropdown-menu">
                              <a class="dropdown-item" href="6Cs.aspx">The Six C's</a>
@@ -173,10 +176,10 @@
                 find appropriate lessons based on topic, sub-topic, artist, and even song title.
            <br />
             <br />
-            <img src="img/logos/CriticalConTable.png" style="width:500px; display:block; margin:auto"/>
+            <img src="img/Photos-20190411T182208Z-001/Photos/CriticalConTable.png" style="width:500px; display:block; margin:auto"/>
                 <p class="section-subheading text-muted" style="font-style:normal; text-align:center">Critical Consciousness Topics and Sub Topics</p>
                 </h3>
-            
+           
  </center>
             <center>
         <h2 class="section-heading text-uppercase">Structure of Lessons</h2>
@@ -184,7 +187,7 @@
             Our lessons are structured to facilitate teaching and learning. With that in mind, each lesson has a section summarizing the topic(s) and sub-topic(s) covered and how they are important for youth development. The summary is followed by learning objectives, outlining what youth and adults should gain from the lesson. Objectives are followed by the lesson content, which includes lyrics/themes from featured artist(s)/song(s), guidance for the adult leading the lesson, and specific prompts for Reflection, Discussion, and Action. At the end of each lesson, we also try to provide links to additional lessons or other resources that might extend learning.
                 <br />
                 <br />
-                <img src="img/logos/SixCsTable.png" style="width:800px; display:block; margin:auto"/>
+                <img src="img/Photos-20190411T182208Z-001/Photos/SixCsTable.png" style="width:800px; display:block; margin:auto"/>
                 <p class="section-subheading text-muted" style="font-style:normal; text-align:center">The Six Cs Topics and Sub Topics</p>
                 </h3>
                 
@@ -267,8 +270,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    
+        </section>
+        
     <!-- Contact -->
     <section id="contact">
         <div class="container">
@@ -318,13 +321,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Hip Hop IllumiNation</span>
+                    <span class="copyright">Copyright &copy; 2018 Hip Hop IllumiNation, All Rights Reserved</span>
                 </div>
                 <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
+                    <p>
+            <i class="fas fa-envelope mr-3"></i> info@hiphopillumination.org</p>
+          <p>
+            <i class="fas fa-phone mr-3"></i>(240)346-8465</p>
+          <p>
+                    <%--<ul class="list-inline social-buttons">
                         <li class="list-inline-item">
                             <a href="#">
-                                <i class="fab fa-twitter"></i>
+                                <p>
+                                <i class="fas fa-envelope mr-3"></i>info@hiphopillumination.org</p>
                             </a>
                         </li>
                         <li class="list-inline-item">
@@ -337,8 +346,11 @@
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                         </li>
-                    </ul>
+                    </ul>--%>
                 </div>
+
+                
+
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
                         <li class="list-inline-item">

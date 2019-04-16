@@ -12,6 +12,7 @@ public partial class _Default : System.Web.UI.Page
     //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
     //string exception = string.Empty;
     string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
+    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -116,7 +117,7 @@ public partial class _Default : System.Web.UI.Page
         //int row = GridView1.SelectedIndex;
         //string rowCell = GridView1.SelectedRow.Cells.ToString();
 
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        
         sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
         sc.Open();
         System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
@@ -145,6 +146,7 @@ public partial class _Default : System.Web.UI.Page
             string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
             admin = int.Parse(adminID);
         }
+
 
     }
 

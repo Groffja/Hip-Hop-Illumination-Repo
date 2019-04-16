@@ -83,7 +83,7 @@ table {
 
         <asp:Table>
 
-        <asp:GridView ID="GridView2" runat="server"  AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="10">
+        <asp:GridView ID="GridView2" runat="server" width="30%"  AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="10">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -97,7 +97,9 @@ table {
 </center>
 
                                                 </div>
+
    
+
                         </div>
 </div>
 

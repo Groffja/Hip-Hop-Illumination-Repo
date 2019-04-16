@@ -37,7 +37,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
         try
         {
 
-            sc.ConnectionString = @"Server = LocalHost; Database = hhidatabase; Trusted_Connection = Yes";
+            sc.ConnectionString = ConfigurationManager.ConnectionStrings["manageUsers"].ConnectionString;
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
@@ -53,8 +53,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
         {
             try
             {
-                sc.ConnectionString = @"Server = LocalHost; Database = hhidatabase; Trusted_Connection = Yes";
-
+                sc.ConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
                 sc.Open();
                 System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
                 insert.Connection = sc;
@@ -70,33 +69,44 @@ public partial class CreateYouthAccount : System.Web.UI.Page
 
     }
 
+    // State only enabled when country = United States
+    protected void DropDowncountry_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        String US = "US";
+        string country = ddlCountry.SelectedValue;
+        if (country == US)
+        {
+            ddlState.Enabled = true;
+        }
+        else
+        {
+            ddlState.Enabled = false;
+        }
+    }
+
     protected void btnRegister_Click(object sender, EventArgs e)
     {
 
         if (Page.IsValid)
-        {
-
-            //try
-            //{
-                sc.Close();
-                sc.Open();
-                System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-                insert.Connection = sc;
-
-                //update data using list in the class
-                YouthFirstName = HttpUtility.HtmlEncode(txtFirstName.Text);
-                YouthLastName = HttpUtility.HtmlEncode(txtLastName.Text);              
-                YouthState = HttpUtility.HtmlEncode(ddlState.Text);
-                YouthCountry = HttpUtility.HtmlEncode(ddlCountry.SelectedItem.Value);
-                YouthEmail = HttpUtility.HtmlEncode(txtEmail.Text);
-                YouthGender = HttpUtility.HtmlEncode(ddlGender.SelectedItem.Value);
-                YouthDateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
-                YouthUserName = HttpUtility.HtmlEncode(txtUsername.Text);
-                YouthPassword = HttpUtility.HtmlEncode(txtPassword.Text);
-                favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
-                favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
-
+        {            
+            sc.Close();
+                
             
+            
+            //update data using list in the class
+            YouthFirstName = HttpUtility.HtmlEncode(txtFirstName.Text);
+            YouthLastName = HttpUtility.HtmlEncode(txtLastName.Text);              
+            YouthState = HttpUtility.HtmlEncode(ddlState.Text);
+            YouthCountry = HttpUtility.HtmlEncode(ddlCountry.SelectedItem.Value);
+            YouthEmail = HttpUtility.HtmlEncode(txtEmail.Text);
+            YouthGender = HttpUtility.HtmlEncode(ddlGender.SelectedItem.Value);
+            YouthDateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
+            YouthUserName = HttpUtility.HtmlEncode(txtUsername.Text);
+            YouthPassword = HttpUtility.HtmlEncode(txtPassword.Text);
+            favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
+            favoriteMusic = HttpUtility.HtmlEncode(txtfavoriteMusic.Text);
+
+            sc.Open();
             string emails = " ";
             SqlCommand emailCheck = new SqlCommand();
             emailCheck.Connection = sc;
@@ -152,6 +162,8 @@ public partial class CreateYouthAccount : System.Web.UI.Page
 
                 sc.Open();
                 // Insert new youth account into the Youth table
+                System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+                insert.Connection = sc;
                 insert.CommandText = "INSERT into [dbo].Youth VALUES(@youthFirstName, @youthLastName, " +
                     "NULLIF(@youthState,' '), @youthCountry, @youthGender, @youthEmail, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
 

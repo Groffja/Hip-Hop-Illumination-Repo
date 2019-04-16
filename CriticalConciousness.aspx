@@ -46,11 +46,12 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">Critical Consciousness</h2>
+                    <br />
                    <%-- <h3 class="section-subheading text-muted">Harnessing the power of hip hop for positive youth development</h3>--%>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-6 portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -64,7 +65,7 @@
                         <%--<p class="text-muted">Illustration</p>--%>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-6 portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -78,7 +79,7 @@
                         <%--<p class="text-muted">Graphic Design</p>--%>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-6 portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -92,7 +93,7 @@
                         <%--<p class="text-muted">Identity</p>--%>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-6 portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -118,10 +119,11 @@
              <div class="container"> 
                  <div class="row">
         <div class="col-lg-12 text-center" >
+            <center>
         <h2 class="section-heading text-uppercase">What is Critical Consciousness?</h2>
         <br /> 
       
-            <h3 class="section-subheading text-muted">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
 
             Critical consciousness has been defined briefly as the “capacity to recognize and overcome
             sociopolitical barriers.” It consists of two components: critical reflection and critical 
@@ -130,12 +132,13 @@
                 perceived ability to change oppressive conditions in the community or society. This is referred to as 
                 “sociopolitical control.” If supported intentionally, this control leads to individual or collective social action to effect social change.
                 </h3>
-               
+               </center>
         <br />
-        <br />
+      
+            <center>
         <h2 class="section-heading text-uppercase">Why is Critical Consciousness Important for Young Men of Color?</h2>
        
-            <h3 class="section-subheading text-muted">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
             Theories on critical consciousness suggest that it can help marginalized youth overcome structural barriers or constraints. 
                 Attainment of critical consciousness has been associated with improved mental health, school engagement, 
                 career development, and occupational status among marginalized youth. In addition, when supported by caring
@@ -148,12 +151,13 @@
                 and helping young men of color gain critical consciousness, then, may play a vital role in shifting their future sociopolitical realities.
            
                 </h3>
-
+            </center>
             <br />
-            <br />
+          
+            <center>
             <h2 class="section-heading text-uppercase">How Does Hip Hop IllumiNation Contribute to Critical Consciousness?</h2>
        
-            <h3 class="section-subheading text-muted">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
            Hip Hop IllumiNation, recognizing that hip hop culture is rooted in perceptions of oppression and marginalization, 
                 leverages the music’s provocative themes to generate critical consciousness among young men of color. It is well 
                 known that hip hop artists often exhibit critical reflection in their music, earning some the label of 
@@ -162,6 +166,7 @@
                 to believe in their own ability to effect social change.
            
                 </h3>
+                </center>
             </div>
                      </div>
 </div>
