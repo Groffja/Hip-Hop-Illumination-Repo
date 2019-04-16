@@ -34,7 +34,9 @@
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" id="email" type="text" placeholder="Your Email *" runat="server" required="required" data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
+                                    <p class="help-block text-danger">
+                                 
+                                    </p>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" id="phone" type="text" placeholder="Your Phone *" runat="server" required="required" data-validation-required-message="Please enter your phone number.">
