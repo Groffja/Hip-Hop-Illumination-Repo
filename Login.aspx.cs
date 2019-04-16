@@ -22,7 +22,7 @@ public partial class _Default : System.Web.UI.Page
         string password = HttpUtility.HtmlEncode(txtPassword.Text);
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
+        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
         sc.Open();
         System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
         findPass.Connection = sc;
@@ -90,5 +90,7 @@ public partial class _Default : System.Web.UI.Page
     {
         Response.Redirect("createUser.aspx", false);
     }
+
+
 
 }

@@ -111,11 +111,17 @@
         
         
         </asp:GridView>
+
+
         <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="manageUsers" SelectCommand="SELECT        Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment 
 FROM            Feedback INNER JOIN
                          LoginInfo ON Feedback.accountID = LoginInfo.accountID
 
-" OnSelecting="SqlDataSourceFeedback_Selecting"></asp:SqlDataSource>
+
+    
+    
+        <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringFeedback %>" SelectCommand="SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM LoginInfo INNER JOIN Feedback ON LoginInfo.accountID = Feedback.accountID"></asp:SqlDataSource>
+
     
     
      <asp:GridView ID="GridViewSearchFeedback" CssClass="table-dark table-striped table-hover" runat="server" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataSourceID="SqlDataSourceFeedbackSearch" Visible="False">

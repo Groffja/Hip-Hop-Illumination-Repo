@@ -7,13 +7,14 @@ using System.Web.UI.WebControls;
 using System.Collections.Specialized;
 using System.Data.SqlClient;
 
+
 public partial class _Default : System.Web.UI.Page
 {
-    string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
+    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void MessageButton_Click(object sender, EventArgs e)
@@ -27,6 +28,7 @@ public partial class _Default : System.Web.UI.Page
 
         message = messageTextArea.Value.ToString();
         accountID = Session["accountID"].ToString();
+       
 
         try
         {
@@ -42,6 +44,8 @@ public partial class _Default : System.Web.UI.Page
         
             cmd.Parameters.Clear();
             cn.Close();
+
+            
         }
         catch
         {

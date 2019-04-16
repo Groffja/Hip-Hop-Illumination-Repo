@@ -22,13 +22,23 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 <style>
+    .btn-secondary
+   {
+    height:5%;
+    width:10%;
+    background-color:#fed136;
+}
+        navbar-dark{
+            background:  #212529;
+        }
+        
     #noUnderline{
         text-decoration:none;
     }
     a:-webkit-any-link {
-    
-    cursor: pointer;
-    text-decoration: none;
+        cursor: pointer;
+        text-decoration: none;
+    }
 
 </style>
 </head>
@@ -52,16 +62,12 @@
                  </li>             
 
                 <li class="nav-item">
-            <a class="nav-link" href="YouthTablau.aspx">User Statistics</a>
-                 </li>  
+                  <a class="nav-link" href="AdultTablau.aspx">User Statistics</a>
+                 </li> 
                 
                 <li class="nav-item">
             <a class="nav-link" href="Youtube.aspx">Upload Resources</a>
                  </li>
-                                
-             <li class="nav-item">
-                  <a class="nav-link" href="AdultTablau.aspx">User Feedback</a>
-            </li> 
 
                 <li class="nav-item">
                   <a class="nav-link" href="ManageUsers.aspx">Manager Users</a>
@@ -80,7 +86,7 @@
             </ul>
 
               </div>
-
+        
 </nav>
         </section>
      <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
