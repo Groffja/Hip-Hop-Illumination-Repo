@@ -40,7 +40,7 @@
                                     </p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="phone" type="text" placeholder="Your Phone *" runat="server" required="required" data-validation-required-message="Please enter your phone number.">
+                                    <input class="form-control" id="phone" type="text" placeholder="Topic *" runat="server" required="required" data-validation-required-message="Please enter a topic.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
