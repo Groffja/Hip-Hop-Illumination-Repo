@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 public partial class BrowseLessons : System.Web.UI.Page
 {
-    string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
+    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)

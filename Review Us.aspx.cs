@@ -11,18 +11,18 @@ using System.Text.RegularExpressions;
 
 public partial class Review_Us : System.Web.UI.Page
 {
-    string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
+    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
     int count = 0;
     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
     int ratingCount = 1;
     int id = 0;
-
+    string docID;
     int value = 0;
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
 
 
@@ -291,130 +291,190 @@ public partial class Review_Us : System.Web.UI.Page
 
 
     }
-    //protected void btnRead(object sender, EventArgs e)
-    //{
-    //    LinkButton lnk = (LinkButton)sender;
-    //    GridViewRow gr = (GridViewRow)lnk.NamingContainer;
-
-    //    int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
-    //    Download(id);
-
-    //    //try
-    //    //{
-    //    //    SqlConnection cn = new SqlConnection(conStr);
-    //    //    cn.Open();
-    //    //    SqlCommand cmd = new SqlCommand();
-    //    //    cmd.Connection = cn;
-    //    //    cmd.CommandText = "INSERT INTO Lessons VALUES (" + id + "," + Session["accountID"] + ",GETDATE(),GETDATE(),'" + Session["username"] + "');";
-    //    //    cmd.ExecuteNonQuery();
-    //    //    cn.Close();
-    //    //}
-    //    //catch
-    //    //{
-
-    //    //}
-
-    //}
-    //private void Download(int id)
-    //{
-    //    DataTable dt = new DataTable();
-    //    using (SqlConnection cn = new SqlConnection(conStr))
-    //    {
-    //        SqlCommand cmd = new SqlCommand("GetDocument", cn);
-    //        cmd.CommandType = CommandType.StoredProcedure;
-    //        cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
-    //        cn.Open();
-    //        SqlDataReader reader = cmd.ExecuteReader();
-
-    //        dt.Load(reader);
-    //    }
-
-    //    string name = dt.Rows[0]["Name"].ToString();
 
 
-
-    //    byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
-
-    //    Response.ClearContent();
-    //    Response.ContentType = "appliction/octetstream";
-    //    Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
-    //    Response.AddHeader("Content-Length", documentBytes.Length.ToString());
-
-    //    Response.BinaryWrite(documentBytes);
-    //    Response.Flush();
-    //    Response.Close();
-
-    //}
 
     protected void btnSubmit1(object sender, EventArgs e)
     {
+        try
+        {
+            sc.Open();
+            SqlCommand check = new SqlCommand();
+            check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc1.InnerText + "'";
+            SqlConnection cn = new SqlConnection(conStr);
+            cn.Open();
+            check.Connection = cn;
+            SqlDataReader reader = check.ExecuteReader();
 
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 1);  // document id
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+            while (reader.Read())
+            {
+                docID = reader["ID"].ToString();
+            }
+            cn.Close();
+            sc.Close();
 
-        login.ExecuteNonQuery();
+
+            lblStarVal.Text = "Rating Submitted!";
+            sc.Open();
+            SqlCommand login = new SqlCommand();
+            login.Connection = sc;
+            login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
+            login.Parameters.AddWithValue("@ID", Convert.ToInt32(docID));  // document id
+            login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+            login.Parameters.AddWithValue("@Rating", value);
+
+            login.ExecuteNonQuery();
+        }
+        catch
+        {
+            lblStarVal.Text = "Error - Not signed in or no document name!";
+        }
     }
+
+
     protected void btnSubmit2(object sender, EventArgs e)
     {
+        try
+        {
+            sc.Open();
+            SqlCommand check = new SqlCommand();
+            check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc2.InnerText + "'";
+            SqlConnection cn = new SqlConnection(conStr);
+            cn.Open();
+            check.Connection = cn;
+            SqlDataReader reader = check.ExecuteReader();
 
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 2);
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+            while (reader.Read())
+            {
+                docID = reader["ID"].ToString();
+            }
+            cn.Close();
+            sc.Close();
 
-        login.ExecuteNonQuery();
+
+            lblStarVal.Text = "Rating Submitted!";
+            sc.Open();
+            SqlCommand login = new SqlCommand();
+            login.Connection = sc;
+            login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
+            login.Parameters.AddWithValue("@ID", docID);
+            login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+            login.Parameters.AddWithValue("@Rating", value);
+
+            login.ExecuteNonQuery();
+        }
+        catch
+        {
+            lblStarVal.Text = "Error - Not signed in or no document name!";
+        }
     }
     protected void btnSubmit3(object sender, EventArgs e)
     {
-        id = 3;
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 3);
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+        try
+        {
+            sc.Open();
+            SqlCommand check = new SqlCommand();
+            check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc3.InnerText + "'";
+            SqlConnection cn = new SqlConnection(conStr);
+            cn.Open();
+            check.Connection = cn;
+            SqlDataReader reader = check.ExecuteReader();
 
-        login.ExecuteNonQuery();
+            while (reader.Read())
+            {
+                docID = reader["ID"].ToString();
+            }
+            cn.Close();
+            sc.Close();
+
+
+            lblStarVal.Text = "Rating Submitted!";
+            sc.Open();
+            SqlCommand login = new SqlCommand();
+            login.Connection = sc;
+            login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
+            login.Parameters.AddWithValue("@ID", docID);
+            login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+            login.Parameters.AddWithValue("@Rating", value);
+
+            login.ExecuteNonQuery();
+        }
+        catch
+        {
+            lblStarVal.Text = "Error - Not signed in or no document name!";
+        }
     }
     protected void btnSubmit4(object sender, EventArgs e)
     {
+        try
+        {
+            sc.Open();
+            SqlCommand check = new SqlCommand();
+            check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc4.InnerText + "'";
+            SqlConnection cn = new SqlConnection(conStr);
+            cn.Open();
+            check.Connection = cn;
+            SqlDataReader reader = check.ExecuteReader();
 
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 4);
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+            while (reader.Read())
+            {
+                docID = reader["ID"].ToString();
+            }
+            cn.Close();
+            sc.Close();
 
-        login.ExecuteNonQuery();
+
+            lblStarVal.Text = "Rating Submitted!";
+            sc.Open();
+            SqlCommand login = new SqlCommand();
+            login.Connection = sc;
+            login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
+            login.Parameters.AddWithValue("@ID", docID);
+            login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+            login.Parameters.AddWithValue("@Rating", value);
+
+            login.ExecuteNonQuery();
+        }
+        catch
+        {
+            lblStarVal.Text = "Error - Not signed in or no document name!";
+        }
     }
     protected void btnSubmit5(object sender, EventArgs e)
     {
-        id = 5;
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 5);
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+        try
+        {
+            sc.Open();
+            SqlCommand check = new SqlCommand();
+            check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc5.InnerText + "'";
+            SqlConnection cn = new SqlConnection(conStr);
+            cn.Open();
+            check.Connection = cn;
+            SqlDataReader reader = check.ExecuteReader();
 
-        login.ExecuteNonQuery();
+            while (reader.Read())
+            {
+                docID = reader["ID"].ToString();
+            }
+            cn.Close();
+            sc.Close();
+
+
+            lblStarVal.Text = "Rating Submitted!";
+            sc.Open();
+            SqlCommand login = new SqlCommand();
+            login.Connection = sc;
+            login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
+            login.Parameters.AddWithValue("@ID", docID);
+            login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+            login.Parameters.AddWithValue("@Rating", value);
+
+            login.ExecuteNonQuery();
+        }
+        catch
+        {
+            lblStarVal.Text = "Error - Not signed in or no document name!";
+        }
     }
 
 
