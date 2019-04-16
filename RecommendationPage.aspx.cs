@@ -65,6 +65,7 @@ public partial class RecommendationPage : System.Web.UI.Page
         {
             try
             {
+                string emailRecommendation = HttpUtility.HtmlEncode(txtEmail.Text);
                 sc.Close();
                 sc.Open();
                 System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();

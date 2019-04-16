@@ -99,7 +99,7 @@ body{
                 <div class="col-md-3 register-left">
                         <img src="img/microphone-pngrepo-com.png" alt=""/>
                         <h3>Welcome</h3>
-                        <p>to Hip Hop Illumination!</p>
+                        <p>to Hip Hop IllumiNation!</p>
                 </div>  <!-- left aside-->
 
             <div class="col-md-9 register-right">  
