@@ -47,7 +47,7 @@
             <asp:CommandField ShowSelectButton="True" ButtonType="Button" ControlStyle-CssClass="btn-primary" />
             <asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
             <asp:BoundField DataField="category" HeaderText="category" SortExpression="category" />
-            <asp:BoundField DataField="Hyperlink" HeaderText="Hyperlink" SortExpression="Hyperlink"  />                 
+            <asp:BoundField DataField="Hyperlink" HeaderText="Hyperlink" SortExpression="Hyperlink" />                 
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringResources %>" SelectCommand="SELECT [title], [category], [Hyperlink] FROM [Resources]"></asp:SqlDataSource>

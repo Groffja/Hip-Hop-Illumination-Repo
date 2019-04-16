@@ -18,9 +18,9 @@ public partial class Default2 : System.Web.UI.Page
         {
             Response.Redirect("CreateAdultAccount.aspx");
         }
-        else{
+        else if (adultNo.Checked){
             Response.Redirect("CreateYouthAccount.aspx");
             }
-        //else { Label1.Text = "Not all options selected"; }
+        else { Label1.Text = "Not all options selected"; }
     }
 }

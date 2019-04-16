@@ -4,7 +4,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <title>Hip Hop IllumiNation.com</title>
     <form  id="form2"  runat="server">
     <style>
   table {
@@ -71,20 +70,14 @@ th, td {
             
         </form>
         </center>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:manageUsers %>"  DeleteCommand= "DELETE FROM [Adult] WHERE [email]=@email;DELETE FROM [Lessons] WHERE [accountID]=@accountID;DELETE FROM [Feedback] WHERE [accountID]=@accountID; DELETE FROM [Ratings] WHERE [accountID]=@accountID;DELETE FROM [Recommendations] WHERE [accountID]=@accountID;DELETE FROM [LoginInfo] WHERE [email]=@email" SelectCommand="SELECT [adultID], [username], [email],[accountID], CONVERT(varchar,[lastUpdated],1) AS lastUpdated FROM [Adult]">
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:manageUsers %>"  DeleteCommand= "DELETE FROM [Adult] WHERE [email]=@email;DELETE FROM [LoginInfo] WHERE [email]=@email" SelectCommand="SELECT [adultID], [username], [email], CONVERT(varchar,[lastUpdated],1) AS lastUpdated FROM [Adult]">
     <DeleteParameters>
         <asp:Parameter Name="email" />
-    </DeleteParameters>
-     <DeleteParameters>
-        <asp:Parameter Name="accountID" />
     </DeleteParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:manageUsers %>"  DeleteCommand= "DELETE FROM [Youth] WHERE [email]=@email;DELETE FROM [Lessons] WHERE [accountID]=@accountID;DELETE FROM [Feedback] WHERE [accountID]=@accountID; DELETE FROM [Ratings] WHERE [accountID]=@accountID;DELETE FROM [Recommendations] WHERE [accountID]=@accountID;DELETE FROM [LoginInfo] WHERE [email]=@email" SelectCommand="SELECT [youthID], [username], [email], [accountID], CONVERT(varchar,[lastUpdated],1) AS lastUpdated FROM [Youth]">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:manageUsers %>"  DeleteCommand= "DELETE FROM [Youth] WHERE [email]=@email;DELETE FROM [LoginInfo] WHERE [email]=@email " SelectCommand="SELECT [youthID], [username], [email], CONVERT(varchar,[lastUpdated],1) AS lastUpdated FROM [Youth]">
     <DeleteParameters>
         <asp:Parameter Name="email" />
-    </DeleteParameters>
-         <DeleteParameters>
-        <asp:Parameter Name="accountID" />
     </DeleteParameters>
     </asp:SqlDataSource>
       
