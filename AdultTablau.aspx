@@ -4,10 +4,126 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <style>
-        body{
+body{
     background-image:url(img/header-bg.jpg);
 }
-    </style>
-    <div float='right' class='tableauPlaceholder' id='viz1553031974956' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Hi&#47;HipHopIlluminationBreakdown&#47;AdultDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HipHopIlluminationBreakdown&#47;AdultDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Hi&#47;HipHopIlluminationBreakdown&#47;AdultDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1553031974956');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-</asp:Content>
+.btnRegister1
+   {
+    float:left;
+    position:relative;
+    right:0px;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+    background: #fed136;
+    color: black;
+    font-weight: 50px;
+    width:65%;
+    cursor: pointer;
+    border:1px solid white;
+    margin-top:10px;
+    margin-bottom: 10px
+}
+h3{
+      color: white;
+  }
+p{
+    color: white;
+    font-weight: bold;
+}
 
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+
+/*.divWidth{
+    display:inline;
+}*/
+
+#container1{
+    float:left;
+    position:relative;
+    right:0px;
+    margin-left:0;
+    width: 15%;
+    padding: 2%
+    
+    
+}
+
+#container2{
+    float:left;
+    position:relative;
+    right:100px;
+    width: 85%
+}
+
+
+
+    </style>
+    <form runat="server">
+
+            <div class="row">
+                <div id="container1">
+<%--                <div class="span6" >--%>
+                    
+
+    <div runat="server">
+        <p>
+            Data View Options
+        </p>
+    </div>               
+<div class="row">
+        <asp:Button class="btnRegister1" ID="Button1" runat="server" Text="Youth Users Map" OnClick="Button1_Click" />
+</div>
+<div class="row">
+        <asp:Button class="btnRegister1" ID="Button2" runat="server" Text="Adult Users Map" OnClick="Button2_Click" />
+</div>
+<div class="row">
+        <asp:Button class="btnRegister1" ID="Button3" runat="server" Text="Favorite Artisit" OnClick="Button3_Click" />
+</div>
+<div class="row">
+        <asp:Button class="btnRegister1" ID="Button4" runat="server" Text="Favorite Music" OnClick="Button4_Click" />
+</div>
+<div class="row">
+        <asp:Button class="btnRegister1" ID="Button5" runat="server" Text="Gender Ratio" OnClick="Button5_Click" />
+</div>
+<div class="row">
+        <asp:Button class="btnRegister1" ID="Button6" runat="server" Text="Age Breakdown" OnClick="Button6_Click" />
+</div>
+
+<%--</div>--%>
+
+
+</div>
+
+<div id="container2">
+
+<%--<div class="span6">--%>
+    <div id="youthMap" runat="server">
+        <script type='text/javascript' src='https://us-east-1.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 848px;'><object class='tableauViz' width='100%' height='848' style='display:none;'><param name='host_url' value='https%3A%2F%2Fus-east-1.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;hiphopilluminationmap' /><param name='name' value='YouthUsersMap&#47;AdultUsers' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>
+    </div>
+    <div id="adultMap" runat="server">
+        <script type='text/javascript' src='https://us-east-1.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 848px;'><object class='tableauViz' width='100%' height='848' style='display:none;'><param name='host_url' value='https%3A%2F%2Fus-east-1.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;hiphopilluminationmap' /><param name='name' value='YouthUsersMap&#47;YouthUsers_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=false' /></object></div>
+    </div>
+    <div id="favoriteArtist" runat="server">
+        <script type='text/javascript' src='https://us-east-1.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 848px;'><object class='tableauViz' width='100%' height='848' style='display:none;'><param name='host_url' value='https%3A%2F%2Fus-east-1.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;hiphopilluminationmap' /><param name='name' value='YouthUsersMap&#47;Artist_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>
+    </div>
+    <div id="favoriteGenre" runat="server">
+        <script type='text/javascript' src='https://us-east-1.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 848px;'><object class='tableauViz' width='100%' height='848' style='display:none;'><param name='host_url' value='https%3A%2F%2Fus-east-1.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;hiphopilluminationmap' /><param name='name' value='YouthUsersMap&#47;Genre_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>
+    </div>
+     <div id="gender" runat="server">
+        <script type='text/javascript' src='https://us-east-1.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1920px; height: 800px;'><object class='tableauViz' width='1920' height='800' style='display:none;'><param name='host_url' value='https%3A%2F%2Fus-east-1.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;hiphopilluminationmap' /><param name='name' value='YouthUsersMaptest&#47;Gender' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>     </div>
+    <div id="populationPyramid" runat="server">
+        <script type='text/javascript' src='https://us-east-1.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 800px;'><object class='tableauViz' width='100%' height='800' style='display:none;'><param name='host_url' value='https%3A%2F%2Fus-east-1.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;hiphopilluminationmap' /><param name='name' value='YouthUsersMaptest&#47;Population' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>
+    </div>
+
+<%--</div>--%>
+</div>
+
+</div>
+
+ </form>
+</asp:Content>
