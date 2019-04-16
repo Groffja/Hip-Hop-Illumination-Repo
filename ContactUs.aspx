@@ -15,6 +15,7 @@
     <style>
     
     </style>
+    <title> Hip Hop IllumiNation.com</title>
     <section id="contact">
         <div class="container">
             <div class="row">

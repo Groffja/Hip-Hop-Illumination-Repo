@@ -75,35 +75,35 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        FileInfo fi = new FileInfo(FileUpload1.FileName);
-        byte[] documentContent = FileUpload1.FileBytes;
+    //protected void Button1_Click(object sender, EventArgs e)
+    //{
+    //    FileInfo fi = new FileInfo(FileUpload1.FileName);
+    //    byte[] documentContent = FileUpload1.FileBytes;
 
-        string name = fi.Name;
-        string extn = fi.Extension;
-        string category = TextBox2.Text;
-        string category2 = txtCat2.Text;
-        string category3 = txtCat3.Text;
+    //    string name = fi.Name;
+    //    string extn = fi.Extension;
+    //    string category = TextBox2.Text;
+    //    string category2 = txtCat2.Text;
+    //    string category3 = txtCat3.Text;
 
-        using (SqlConnection cn = new SqlConnection(conStr))
-        {
-            SqlCommand cmd = new SqlCommand("SaveDocument", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
+    //    using (SqlConnection cn = new SqlConnection(conStr))
+    //    {
+    //        SqlCommand cmd = new SqlCommand("SaveDocument", cn);
+    //        cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = name;
-            cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
-            cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
-            cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
-            cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
-            cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
+    //        cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = name;
+    //        cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
+    //        cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
+    //        cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
+    //        cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
+    //        cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
 
-            cn.Open();
-            cmd.ExecuteNonQuery();
-        }
-        FillData();
-        Response.Redirect("Uploading.aspx");
-    }
+    //        cn.Open();
+    //        cmd.ExecuteNonQuery();
+    //    }
+    //    FillData();
+    //    Response.Redirect("Uploading.aspx");
+    //}
 
     protected void gvDocuments_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -132,60 +132,48 @@ public partial class _Default : System.Web.UI.Page
     // Uploads a resource into Database
     protected void save_Click(object sender, EventArgs e)
     {
-        int admin;
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
-        System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
-        id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
-        id.Connection = sc;
-        sc.Open();        
-               
-        SqlDataReader reader = id.ExecuteReader();
-        while (reader.Read())
+        try
         {
-            string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
-            admin = int.Parse(adminID);
+            int admin;
+            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
+            System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
+            id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
+            id.Connection = sc;
+            sc.Open();
+
+            SqlDataReader reader = id.ExecuteReader();
+            while (reader.Read())
+            {
+                string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
+                admin = int.Parse(adminID);
+            }
+
+
+            sc.Close();
+
+
+            //String resourceLink = hyperlink.Text;
+
+
+
+            //sc.Open();
+            //SqlCommand resource = new SqlCommand();
+            //resource.Connection = sc;
+            //resource.CommandText = "INSERT INTO [dbo].[Resources] VALUES  (@Hyperlink,  @title, @category, @adminID);";
+            //resource.Parameters.AddWithValue("@Hyperlink", resourceLink);
+            //resource.Parameters.AddWithValue("@title", txtTitle.Text);
+            //resource.Parameters.AddWithValue("@category", category.Text);
+            //resource.Parameters.AddWithValue("@adminID", 1);
+            //resource.ExecuteNonQuery();
+            //sc.Close();
+
+            Response.Redirect("Uploading.aspx");
         }
-        
-        // Uploads a resource into Database
-               
-       
-        //System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
-        //id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
-        //id.Connection = sc;
-        //sc.Open();        
+        catch
+        {
 
-        //SqlDataReader reader = id.ExecuteReader();
-        //while (reader.Read())
-        //{
-        //    string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
-        //    admin = int.Parse(adminID);
-        //}
-        sc.Close();
-
-        //sc.Open();
-        //System.Data.SqlClient.SqlCommand resource = new System.Data.SqlClient.SqlCommand();
-        //resource.Connection = sc;
-
-        //String resourceLink = "<a href='" + hyperlink.Text + "'></a>";
-        String resourceLink = hyperlink.Text;
-
-        //resource.CommandText = "INSERT INTO Resources VALUES ('"+ resourceLink + "','"+ txtTitle.Text+ "','"+ category.Text +"',"+ 1 + ")"; /**/ 
-        //resource.ExecuteNonQuery();
-        //Response.Redirect("Uploading.aspx");
-        
-        sc.Open();
-        SqlCommand resource = new SqlCommand();
-        resource.Connection = sc;
-        resource.CommandText = "INSERT INTO [dbo].[Resources] VALUES  (@Hyperlink,  @title, @category, @adminID);";
-        resource.Parameters.AddWithValue("@Hyperlink", resourceLink);
-        resource.Parameters.AddWithValue("@title", txtTitle.Text);
-        resource.Parameters.AddWithValue("@category", category.Text);
-        resource.Parameters.AddWithValue("@adminID", 1);
-        resource.ExecuteNonQuery();
-        sc.Close();
-        
-        Response.Redirect("Uploading.aspx");
+        }
 
     }
 }
