@@ -124,10 +124,10 @@ body{
                       <br />
      </div>
                         <div class="form-check form-group rightStyle">
-            <input runat="server" Class="form-check-input" type="radio" id="adultYes" name="adult" value="yes">
+            <input runat="server" Class="form-check-input" type="radio" id="adultYes" name="adult" value="yes" required>
             <asp:Label ID="Label1" class="form-check-label" runat="server" Text="Yes" Width="130px" for="adultYes" ></asp:Label>
                             <br />
-            <input runat="server" Class="form-check-input" type="radio" id="adultNo" name="adult" value="no">
+            <input runat="server" Class="form-check-input" type="radio" id="adultNo" name="adult" value="no" required>
             <asp:Label ID="Label2" class="form-check-label" runat="server" Text="No" Width="130px" for="adultYes" ></asp:Label>
                           </div>
            
