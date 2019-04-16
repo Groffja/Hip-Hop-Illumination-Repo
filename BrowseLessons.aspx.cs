@@ -39,6 +39,7 @@ public partial class BrowseLessons : System.Web.UI.Page
     {
         LinkButton lnk = (LinkButton)sender;
         GridViewRow gr = (GridViewRow)lnk.NamingContainer;
+                       
 
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);

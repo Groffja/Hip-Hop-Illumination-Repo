@@ -30,7 +30,7 @@
                 <div class="col">
                     <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="URL "  Width="10%"></asp:Label>
-            <asp:textbox ID="url" runat="server" class="form-control" required="true" Width="20%" />
+            <asp:textbox ID="txtUrl" runat="server" class="form-control" required="true" Width="20%" enabled="true"/>
         <br />
                         </div>
          <div class="form-group">

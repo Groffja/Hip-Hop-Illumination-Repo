@@ -7,13 +7,14 @@ using System.Web.UI.WebControls;
 using System.Collections.Specialized;
 using System.Data.SqlClient;
 
+
 public partial class _Default : System.Web.UI.Page
 {
     string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void MessageButton_Click(object sender, EventArgs e)

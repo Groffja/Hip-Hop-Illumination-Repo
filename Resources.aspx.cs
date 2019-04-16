@@ -20,7 +20,8 @@ public partial class Resources : System.Web.UI.Page
         
         // Store URL from gridview into string
         string url = " ";
-        url = row.Cells[3].Text;
+        url = row.Cells[3].Text;      
+
         Response.Redirect(url);
 
         
