@@ -177,11 +177,11 @@ public partial class _Default : System.Web.UI.Page
         sc.Open();
         SqlCommand resource = new SqlCommand();
         resource.Connection = sc;
-        resource.CommandText = "INSERT INTO [dbo].[Resources] VALUES  (@Hyperlink,  @title, @category, @adminID);";
-        resource.Parameters.AddWithValue("@Hyperlink", resourceLink);
-        resource.Parameters.AddWithValue("@title", txtTitle.Text);
-        resource.Parameters.AddWithValue("@category", category.Text);
-        resource.Parameters.AddWithValue("@adminID", 1);
+
+
+        resource.CommandText = "INSERT INTO Resources VALUES ('"+ hyperlink.Text +"','"+ category.Text +"',"+ 1 + ")"; /**/ 
+
+       
         resource.ExecuteNonQuery();
         sc.Close();
         
