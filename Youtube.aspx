@@ -48,8 +48,11 @@
                     <div class="form-group">
         <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning" OnClick="Button1_Click" Text="Save" Width="10%" Enabled="false" />
         <asp:Button ID="Button2" runat="server" CssClass="btn btn-warning" OnClick="Button2_Click" Text="Check URL" Width="10%" />
+        <%--<asp:Button ID="Button3" runat="server" CssClass="btn btn-warning" OnClick="Button3_Click" Text="URL is valid" Width="10%" />--%>
  </div>
                     <asp:Label ID="Label5" runat="server" Width="25%"></asp:Label>
+                    <br />
+                    <asp:Button ID="Button3" runat="server" CssClass="btn btn-warning" OnClick="Button3_Click" Text="Continue Anyway" Width="15%" Visible="false" />
         <br />
         
     

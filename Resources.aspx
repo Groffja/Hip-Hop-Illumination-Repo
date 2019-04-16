@@ -45,9 +45,9 @@
     <asp:GridView ID="GridView1" runat="server" AllowSorting="True" CssClass="table-dark table-striped table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Width="60%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>            
             <asp:CommandField ShowSelectButton="True" ButtonType="Button" ControlStyle-CssClass="btn-primary" />
-            <asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
-            <asp:BoundField DataField="category" HeaderText="category" SortExpression="category" />
-            <asp:BoundField DataField="Hyperlink" HeaderText="Hyperlink" SortExpression="Hyperlink"  />                 
+            <asp:BoundField DataField="title" HeaderText="Title" SortExpression="title" />
+            <asp:BoundField DataField="category" HeaderText="Category" SortExpression="category" />
+            <asp:BoundField DataField="Hyperlink" HeaderText="Website" SortExpression="Hyperlink"  />                 
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringResources %>" SelectCommand="SELECT [title], [category], [Hyperlink] FROM [Resources]"></asp:SqlDataSource>
