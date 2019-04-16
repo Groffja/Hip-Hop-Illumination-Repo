@@ -30,7 +30,7 @@ public partial class BrowseLessons : System.Web.UI.Page
 
             if (!reader1.HasRows)
             {
-                noLessons.Enabled = true;
+                noLessons.Visible = true;
             }
         }
     }
@@ -55,7 +55,8 @@ public partial class BrowseLessons : System.Web.UI.Page
         }
         catch
         {
-
+            noLessons.Text = "Not signed into account!!";
+            noLessons.Visible = true;
         }
 
 

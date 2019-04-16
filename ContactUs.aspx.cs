@@ -27,7 +27,6 @@ public partial class _Default : System.Web.UI.Page
 
         message = messageTextArea.Value.ToString();
         accountID = Session["accountID"].ToString();
-       
 
         try
         {
@@ -40,11 +39,9 @@ public partial class _Default : System.Web.UI.Page
             cmd.Parameters.AddWithValue(@accountID, accountID);
             
             cmd.ExecuteNonQuery();
-        
+            
             cmd.Parameters.Clear();
             cn.Close();
-
-            
         }
         catch
         {

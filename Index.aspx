@@ -46,14 +46,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive" runat="server">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop1" data-toggle="dropdown">About Us</a>
-                         <div class="dropdown-menu">
-                             <a class="dropdown-item" href="Founder.aspx">Founder</a>
-                                 </div>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services">About Us</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop" data-toggle="dropdown" >
+                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                             Lessons</a>
                         <div class="dropdown-menu">
                              <a class="dropdown-item" href="6Cs.aspx">The Six C's</a>
@@ -270,8 +267,8 @@
                 </div>
             </div>
         </div>
-        </section>
-        
+    </section>
+    
     <!-- Contact -->
     <section id="contact">
         <div class="container">
@@ -321,19 +318,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; 2018 Hip Hop IllumiNation, All Rights Reserved</span>
+                    <span class="copyright">Copyright &copy; Hip Hop IllumiNation</span>
                 </div>
                 <div class="col-md-4">
-                    <p>
-            <i class="fas fa-envelope mr-3"></i> info@hiphopillumination.org</p>
-          <p>
-            <i class="fas fa-phone mr-3"></i>(240)346-8465</p>
-          <p>
-                    <%--<ul class="list-inline social-buttons">
+                    <ul class="list-inline social-buttons">
                         <li class="list-inline-item">
                             <a href="#">
-                                <p>
-                                <i class="fas fa-envelope mr-3"></i>info@hiphopillumination.org</p>
+                                <i class="fab fa-twitter"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
@@ -346,11 +337,8 @@
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                         </li>
-                    </ul>--%>
+                    </ul>
                 </div>
-
-                
-
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
                         <li class="list-inline-item">
