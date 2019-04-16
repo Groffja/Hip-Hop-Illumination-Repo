@@ -54,7 +54,7 @@ public partial class AdultTablau : System.Web.UI.Page
         adultMap.Visible = false;
         youthMap.Visible = false;
         favoriteArtist.Visible = false;
-        favoriteGenre.Visible = true;
+        favoriteGenre.Visible = false;
         gender.Visible = true;
     }
 }
