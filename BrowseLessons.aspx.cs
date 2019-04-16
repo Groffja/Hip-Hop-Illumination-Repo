@@ -39,6 +39,7 @@ public partial class BrowseLessons : System.Web.UI.Page
     {
         LinkButton lnk = (LinkButton)sender;
         GridViewRow gr = (GridViewRow)lnk.NamingContainer;
+                       
 
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
@@ -177,11 +178,13 @@ public partial class BrowseLessons : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
+        string searchLesson = HttpUtility.HtmlEncode(txtSearch.Text);
         BindGrid();
     }
 
     protected void btnCatSearch_Click(object sender, EventArgs e)
     {
+        string searchCategory = HttpUtility.HtmlEncode(txtCat.Text);
         BindGrid();
     }
 

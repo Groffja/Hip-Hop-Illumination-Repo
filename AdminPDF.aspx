@@ -36,7 +36,7 @@ h3{
                 <asp:BoundField DataField="LastUpdated" HeaderText="LastUpdated" SortExpression="LastUpdated" />
             </Columns>
         </asp:GridView>
-             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lessonGridview %>" DeleteCommand=" DELETE FROM [Recommendations] WHERE [ID]=@ID; DELETE FROM [Documents] WHERE [ID]=@ID;  DELETE FROM [Lessons] WHERE [ID]=@ID;  DELETE FROM [Ratings] WHERE [ID]=@ID;"  SelectCommand="SELECT [ID], [Name], [DocumentContent], [LastUpdated] FROM [Documents] ">
+             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lessonGridview %>" DeleteCommand=" DELETE FROM [Recommendations] WHERE [ID]=@ID; DELETE FROM [Lessons] WHERE [ID]=@ID;  DELETE FROM [Ratings] WHERE [ID]=@ID;  DELETE FROM [Documents] WHERE [ID]=@ID;"  SelectCommand="SELECT [ID], [Name], [DocumentContent], [LastUpdated] FROM [Documents] ">
                  <DeleteParameters>
                      <asp:Parameter Name="ID" />
                  </DeleteParameters>

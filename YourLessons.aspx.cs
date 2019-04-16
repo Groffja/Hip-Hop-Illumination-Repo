@@ -113,10 +113,6 @@ public partial class YourLessons : System.Web.UI.Page
 
     }
 
-    //protected void Search(object sender, EventArgs e)
-    //{
-    //    this.BindGrid();
-    //}
 
     private void BindGrid()
     {
@@ -161,6 +157,7 @@ public partial class YourLessons : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
+        string search = HttpUtility.HtmlEncode(txtSearch.Text);
         BindGrid();
     }
 
