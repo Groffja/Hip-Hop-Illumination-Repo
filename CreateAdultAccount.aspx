@@ -98,7 +98,7 @@ body{
                 <div class="col-md-3 register-left">
                         <img src="img/microphone-pngrepo-com.png" alt=""/>
                         <h3>Welcome</h3>
-                        <p>to Hip Hop Illumination!</p>
+                        <p>to Hip Hop IllumiNation!</p>
                 </div>  <!-- left aside-->
 
             <div class="col-md-9 register-right">  
@@ -442,7 +442,7 @@ body{
                                                 <asp:ListItem Value="F">Female</asp:ListItem>
 
                                                 <asp:ListItem Value="T">Transgender</asp:ListItem>
-                                                <asp:ListItem Value="Did Not Answer">Prefer not to answer</asp:ListItem>
+                                                <asp:ListItem Value="Did Not Answer">Prefer not to disclose</asp:ListItem>
 
                                             </asp:DropDownList>
 </div>
