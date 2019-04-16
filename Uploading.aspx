@@ -6,8 +6,10 @@
     <!DOCTYPE html>
 
 <html>
-<style>
-body{
+
+    <style>
+        body{
+
     background-image:url(img/header-bg.jpg);
 }
 h3{
@@ -27,6 +29,8 @@ table {
                     <div class="container">
                 <div class="row">
                     <div class="col">
+
+
 
 
             <center>
@@ -56,14 +60,16 @@ table {
             <br />
             <br />
 
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save" Width="92px" Class="btn btn-outline-warning" Height="40px"/>
+                <center>
+            <asp:Button ID="Button1" runat="server" OnClick="save_Click" Text="Save" Width="92px" Class="btn btn-outline-warning" Height="40px"/>
+    </center>
 
                         <br />
 
             <br />
 
 
-            <asp:GridView  visible="false" ID="gvDocuments" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID" OnSelectedIndexChanged="gvDocuments_SelectedIndexChanged" CellPadding="10" PageSize="5">
+            <asp:GridView  visible="true" ID="gvDocuments" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID" OnSelectedIndexChanged="gvDocuments_SelectedIndexChanged" CellPadding="10" PageSize="5">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
                         <ItemTemplate>
@@ -79,26 +85,17 @@ table {
             </asp:GridView>
 
 
+            </div>
+                    <asp:SqlDataSource ID="SqlDataSource69" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString %>" SelectCommand="SELECT [Name] AS Title, [DocumentCategory] AS Category, [DocumentCategory2] AS Subcategory, [DocumentCategory3] AS Subcategory2 FROM [Documents]"></asp:SqlDataSource>
+            </div>
+            </div>
 
-
-        <asp:Table>
-
-        <asp:GridView ID="GridView2" runat="server" width="30%"  AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover" DataKeyNames="ID" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="10">
-            <Columns>
-                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="DocumentCategory" HeaderText="Document Category" SortExpression="DocumentCategory" />
-                <asp:BoundField DataField="DocumentCategory2" HeaderText="Subcategory" SortExpression="DocumentCategory2" />
-                <asp:BoundField DataField="DocumentCategory3" HeaderText="Subcategory" SortExpression="DocumentCategory3" />
-            </Columns>
-        </asp:GridView>
-             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lessonGridview %>"  SelectCommand="SELECT [ID], [Name], [DocumentContent], [DocumentCategory],[DocumentCategory2],[DocumentCategory3] FROM [Documents]"></asp:SqlDataSource>
-    </asp:Table>
-</center>
 
                                                 </div>
+                    <div class="col-6">
 
-   
+              
+</div>
 
                         </div>
 </div>
