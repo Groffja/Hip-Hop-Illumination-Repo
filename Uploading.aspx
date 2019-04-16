@@ -6,8 +6,11 @@
     <!DOCTYPE html>
 
 <html>
-<style>
-body{
+
+
+    <style>
+        body{
+
     background-image:url(img/header-bg.jpg);
 }
 h3{
@@ -27,6 +30,7 @@ table {
                     <div class="container">
                 <div class="row">
                     <div class="col">
+
 
 
             <center>
@@ -56,7 +60,11 @@ table {
             <br />
             <br />
 
-            
+
+                <center>
+            <asp:Button ID="Button1" runat="server" OnClick="save_Click" Text="Save" Width="92px" Class="btn btn-outline-warning" Height="40px"/>
+    </center>
+
 
                         <br />
 
@@ -80,6 +88,13 @@ table {
 
 
 
+            </div>
+                    <asp:SqlDataSource ID="SqlDataSource69" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString %>" SelectCommand="SELECT [Name] AS Title, [DocumentCategory] AS Category, [DocumentCategory2] AS Subcategory, [DocumentCategory3] AS Subcategory2 FROM [Documents]"></asp:SqlDataSource>
+            </div>
+            </div>
+
+
+
 
         <asp:Table>
 
@@ -98,7 +113,10 @@ table {
 
                                                 </div>
 
-   
+
+              
+</div>
+
 
                         </div>
 </div>

@@ -13,7 +13,7 @@ public partial class CreateYouthWorkerAccount : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         
-        sc.ConnectionString = @"Server= LocalHost; Database = hhidatabase; Trusted_Connection = Yes";
+        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
     }
     
