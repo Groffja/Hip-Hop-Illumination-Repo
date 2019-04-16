@@ -1,18 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="Review Us.aspx.cs" Inherits="Review_Us" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <%--<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>--%>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <head>
-    <title>Hip Hop IllumiNation.com</title>
-
-<style>
+﻿<style>
     body{
         padding-top: 50px !important;
         margin: 0;
@@ -40,7 +26,7 @@ label.star {
   transition: all .2s;
 } 
 input.star:checked ~ label.star:before {
-  content: '\f005';
+  content: '\f0eb';
   color: #FD4;
   transition: all .25s;
 } 
@@ -49,17 +35,17 @@ input.star-1:checked ~ label.star:before {
   text-shadow: 0 0 20px #952;
 } 
 input.star-2:checked ~ label.star:before {
-  content: '\f005';
+  content: '\f0eb';
   color: #FD4;
   transition: all .25s;
 } 
 input.star-3:checked ~ label.star:before {
-  content: '\f005';
+  content: '\f0eb';
   color: #FD4;
   transition: all .25s;
 } 
 input.star-4:checked ~ label.star:before {
-  content: '\f005';
+  content: '\f0eb';
   color: #FD4;
   transition: all .25s;
 } 
@@ -69,9 +55,13 @@ input.star-5:checked ~ label.star:before { color: #F62; }
 label.star:hover { transform: rotate(-15deg) scale(1.3); }
 
     label.star:before {
-        content: '\f006';
+        content: '\f0eb';
         font-family: FontAwesome;
     }
+/*checks{
+   content: '\f00c';
+   color: forestgreen;                                     green check
+}*/
 </style>        
         </head>
     <body>
@@ -105,7 +95,7 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
           </center>
           </div>       
 
-    <table runat="server" class="table table-striped table-dark" >
+    <table ID="Table1" runat="server" class="table table-striped table-dark" >
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -113,6 +103,7 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
       <%--<th scope="col">Read Again?</th>--%>
       <th scope="col">Rating</th>
       <th scope="col">Submit</th>
+      <%--<th scope="col">Status</th>                        green checks--%>
     </tr>
   </thead>
   <tbody>
@@ -135,6 +126,7 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
     </div>
       </td>
         <td><asp:Button class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit1" /></td>
+        <%--<td><label id="check1" ClientIDMode="static" runat="server" content="\f00c"></label></td>                                    green check--%>
     </tr>
     <tr>
       <th scope="row">2</th>
@@ -220,7 +212,9 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
 </table>
             
             </div>
+        <center>
         <asp:Label id="lblStarVal" runat="server" Text="" ForeColor="#CC0000" />
+            </center>
 <%--            </form>--%>
         </body>
 </asp:Content>
