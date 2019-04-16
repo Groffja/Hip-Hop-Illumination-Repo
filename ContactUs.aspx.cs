@@ -27,6 +27,7 @@ public partial class _Default : System.Web.UI.Page
 
         message = messageTextArea.Value.ToString();
         accountID = Session["accountID"].ToString();
+       
 
         try
         {
