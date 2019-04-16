@@ -62,7 +62,8 @@ public partial class ProfileDetails : System.Web.UI.Page
                     state = reader["state"].ToString();
                     country = reader["country"].ToString();
                     gender = reader["gender"].ToString();
-                    
+                    //email = reader["email"].ToString();
+                    //dateOfBirth = reader["dateOfBirth"].ToString();
                     username = reader["username"].ToString();
                     favoriteArtist = reader["favoriteArtist"].ToString();
                     favoriteMusic = reader["favoriteMusic"].ToString();
@@ -129,7 +130,39 @@ public partial class ProfileDetails : System.Web.UI.Page
             }
             else
             {
-                
+                //getFields.CommandText = "select youthWorkerFirstName, youthWorkerMiddleName, youthWorkerLastName, youthWorkerStreet, youthWorkerCity, youthWorkerState, youthWorkerZip, youthWorkerCountry, youthWorkerGender, email, youthWorkerDateOfBirth, username from YouthWorker where email=@email";
+                //getFields.Parameters.Add(new SqlParameter("@email", (string)Session["email"]));
+                //SqlDataReader reader = getFields.ExecuteReader();
+                //while (reader.Read())
+                //{
+                //    firstName = reader["youthWorkerFirstName"].ToString();
+                //    middleName = reader["youthWorkerMiddleName"].ToString();
+                //    lastName = reader["youthWorkerLastName"].ToString();
+                //    street = reader["youthWorkerStreet"].ToString();
+                //    city = reader["youthWorkerCity"].ToString();
+                //    state = reader["youthWorkerState"].ToString();
+                //    zip = reader["youthWorkerZip"].ToString();
+                //    country = reader["youthWorkerCountry"].ToString();
+                //    gender = reader["youthWorkerGender"].ToString();
+                //    email = reader["email"].ToString();
+                //    dateOfBirth = reader["youthWorkerDateOfBirth"].ToString();
+                //    username = reader["username"].ToString();
+
+                //    txtUsername.Text = username;
+                //    txtFirstName.Text = firstName;
+                //    txtMiddleName.Text = middleName;
+                //    txtLastName.Text = lastName;
+                //    txtStreet.Text = street;
+                //    txtCity.Text = city;
+                //    DropDownstate.Text = state;
+                //    txtZip.Text = zip;
+                //    DropDowncountry.Text = country;
+                //    DropDowngender.Text = gender;
+                //    txtEmail.Text = email;
+                //    DateTime oDate = DateTime.Parse(dateOfBirth);
+                //    txtDateOfBirth.Text = oDate.ToString("MM/dd/yyyy");
+                //}
+                //reader.Close();
             }
         }
         sc.Close();
@@ -159,17 +192,20 @@ public partial class ProfileDetails : System.Web.UI.Page
 
         Confirm.Visible = false;
         Edit.Visible = true;
+
+        username = txtUsername.Text;
+        firstName = txtFirstName.Text;
+   
+        lastName = txtLastName.Text;
         
-        string username = HttpUtility.HtmlEncode(txtUsername.Text);
-        string firstName = HttpUtility.HtmlEncode(txtFirstName.Text);
-        string lastName = HttpUtility.HtmlEncode(txtLastName.Text);
-        string state = HttpUtility.HtmlEncode(DropDownstate.Text);
+      
+        state = DropDownstate.Text;
         
         country = DropDowncountry.Text;
         gender = DropDowngender.Text;
         
-        string favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
-        string favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
+        favoriteMusic = txtFavoriteMusic.Text;
+        favoriteArtist = txtFavoriteArtist.Text;
        
        
         string lastUpdated = DateTime.Now.ToString();
@@ -223,7 +259,27 @@ public partial class ProfileDetails : System.Web.UI.Page
             updateRecord.ExecuteNonQuery();
         }
 
+        //else if ((string)Session["Accounttype"] == "YouthWorker")
+        //{
+        //    updateRecord.CommandText = "Update YouthWorker SET youthWorkerFirstName = @firstName, youthWorkerMiddleName = @middleName, youthWorkerLastName = @lastName, youthWorkerStreet = @street, youthWorkerCity = @city, youthWorkerState = @state, youthWorkerZip = @zip, youthWorkerCountry = @country, youthWorkerGender = @gender, email = @email, youthWorkerDateOfBirth = @dateOfBirth, username = @username, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy WHERE email=@emailSession";
+        //    updateRecord.Parameters.Add(new SqlParameter("@emailSession", (string)Session["email"]));
+        //    updateRecord.Parameters.Add(new SqlParameter("@firstName", firstName));
+        //    updateRecord.Parameters.Add(new SqlParameter("@middleName", middleName));
+        //    updateRecord.Parameters.Add(new SqlParameter("@lastName", lastName));
+        //    updateRecord.Parameters.Add(new SqlParameter("@street", street));
+        //    updateRecord.Parameters.Add(new SqlParameter("@city", city));
+        //    updateRecord.Parameters.Add(new SqlParameter("@state", state));
+        //    updateRecord.Parameters.Add(new SqlParameter("@zip", zip));
+        //    updateRecord.Parameters.Add(new SqlParameter("@country", country));
+        //    updateRecord.Parameters.Add(new SqlParameter("@gender", gender));
+        //    updateRecord.Parameters.Add(new SqlParameter("@email", email));
+        //    updateRecord.Parameters.Add(new SqlParameter("@dateOfBirth", dateOfBirth));
+        //    updateRecord.Parameters.Add(new SqlParameter("@username", username));
+        //    updateRecord.Parameters.Add(new SqlParameter("@lastUpdated", lastUpdated));
+        //    updateRecord.Parameters.Add(new SqlParameter("@lastUpdatedBy", lastUpdatedBy));
 
+        //    updateRecord.ExecuteNonQuery();
+        //}
 
         sc.Close();
 
