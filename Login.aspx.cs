@@ -18,6 +18,8 @@ public partial class _Default : System.Web.UI.Page
     protected void btnLogin_Click(object sender, EventArgs e)
 
     {
+        
+        string password = HttpUtility.HtmlEncode(txtPassword.Text);
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
@@ -28,7 +30,7 @@ public partial class _Default : System.Web.UI.Page
 
         findPass.CommandText = "select accountID, username, accountType, Xpassword from LoginInfo where email = @email";
 
-        findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text));
+        findPass.Parameters.Add(new SqlParameter("@email", HttpUtility.HtmlEncode(txtUsername.Text)));
 
 
 
@@ -52,7 +54,7 @@ public partial class _Default : System.Web.UI.Page
 
 
 
-                if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
+                if (PasswordHash.ValidatePassword(password, storedHash)) // if the entered password matches what is stored, it will show success
                 {
                     lblStatus.Text = "Success!";
                     btnLogin.Enabled = false;

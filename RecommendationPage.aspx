@@ -85,7 +85,7 @@ body{
 
 
         <div class="form-group">
-            <asp:Label ID="Label2" runat="server" Text="Your Recommandation" ForeColor="White"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Your Recommendation" ForeColor="White"></asp:Label>
             <br />
             <asp:DropDownList ID="ddlRecommendation" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="ID" CssClass="form-control"></asp:DropDownList>            
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString %>" SelectCommand="SELECT Documents.ID , Documents.Name FROM Lessons INNER JOIN Documents ON Lessons.ID = Documents.ID WHERE Lessons.accountID = @accountID">
