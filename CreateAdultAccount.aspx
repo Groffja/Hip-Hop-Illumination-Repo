@@ -74,7 +74,9 @@ register {
   vertical-align: super;
   padding-top: 5px;
   font-size: 20px;
-}
+            top: 1px;
+            left: -17px;
+        }
 
 body{
     background-image:url(img/lombardo_cover.jpeg);
@@ -102,7 +104,7 @@ body{
             <div class="col-md-9 register-right">  
                  <h3 class="register-heading">Create Account</h3>
                 <div class="row register-form">
-                    <div class="form-group">
+                    <div class="form-group" aria-busy="False">
 
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="Label1" runat="server" Text="First Name" Width="130px"></asp:Label>
@@ -438,7 +440,7 @@ body{
                                    <asp:DropDownList ID="DropDowngender"  CssClass="form-control" runat="server" Width="240px" >
                                                 <asp:ListItem Value="M">Male</asp:ListItem>
                                                 <asp:ListItem Value="F">Female</asp:ListItem>
-                                                <asp:ListItem Value="Did Not Answer">Prefer not to answer</asp:ListItem>
+                                                <asp:ListItem Value="Did Not Answer">Transgender</asp:ListItem>
                                             </asp:DropDownList>
 </div>
 
@@ -452,15 +454,18 @@ body{
             <asp:Label ID="lblDateOfBirth" runat="server" Text="Date of Birth" Width="130px"></asp:Label>
             <asp:TextBox ID="txtDateOfBirth" runat="server" Width="240px" type="text" class="form-control" placeholder="DD/MM/YYYY *" value="" required="true" CssClass="form-control" TextMode="Date"></asp:TextBox>
             
+            <br />
+            <asp:RangeValidator ID="ageValidator" runat="server" ControlToValidate="txtDateOfBirth" Display="Dynamic" ErrorMessage="Must be 18+" ForeColor="Red" MaximumValue="04/15/2001" MinimumValue="04/15/1900" Type="Date"></asp:RangeValidator>
+            
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblFavoriteMusic2" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteMusic2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txtFavoriteMusic2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control">Optional...</asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblFavoriteArtist2" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteArtist2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txtFavoriteArtist2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control">Optional...</asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">

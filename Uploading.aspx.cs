@@ -155,7 +155,7 @@ public partial class _Default : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand resource = new System.Data.SqlClient.SqlCommand();
         resource.Connection = sc;
 
-        resource.CommandText = "INSERT INTO Resources VALUES ('"+ hyperlink.Text +"','"+ category.Text +"',"+ admin + ")"; /**/ 
+        resource.CommandText = "INSERT INTO Resources VALUES ('"+ hyperlink.Text +"','"+ category.Text +"',"+ 1 + ")"; /**/ 
         resource.ExecuteNonQuery();
         Response.Redirect("Uploading.aspx");
 
