@@ -84,7 +84,7 @@ th, td {
         <asp:Button class="btnRegister1" ID="Button5" runat="server" Text="Gender Ratio" OnClick="Button5_Click" />
 </div>
 <div class="row">
-        <asp:Button class="btnRegister1" ID="Button6" runat="server" Text="Population Pyramid" OnClick="Button6_Click" />
+        <asp:Button class="btnRegister1" ID="Button6" runat="server" Text="Age Breakdown" OnClick="Button6_Click" />
 </div>
 
 <%--</div>--%>
