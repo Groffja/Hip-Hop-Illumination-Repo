@@ -6,7 +6,7 @@
     <!DOCTYPE html>
 
 <html>
-    <style>
+<style>
 body{
     background-image:url(img/header-bg.jpg);
 }
@@ -19,33 +19,19 @@ table {
             width: 100%;
             border: 1px solid #ddd yellow;
         }
-/*#c1{
-    float:left;
-}*/
-
-
-/*#c2{
-    position:relative;
-    float:right;
-}*/      
-
-    </style>
+</style>
 
 <body>
     <form id="form1" runat="server">
 
                     <div class="container">
                 <div class="row">
-                    <div class="col-6">
-
-
-
-            <div class="container" id="c1">
-                <div class="row">
                     <div class="col">
+
+
             <center>
                 <h3>Upload a Lesson</h3>
-                </center>
+                
                 <br />
                 <br />
 
@@ -69,9 +55,9 @@ table {
 
             <br />
             <br />
-                <center>
+
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save" Width="92px" Class="btn btn-outline-warning" Height="40px"/>
-    </center>
+
                         <br />
 
             <br />
@@ -92,9 +78,8 @@ table {
                 </Columns>
             </asp:GridView>
 
-            </div>
-            </div>
-            </div>
+
+
 
         <asp:Table>
 
@@ -109,58 +94,10 @@ table {
         </asp:GridView>
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lessonGridview %>"  SelectCommand="SELECT [ID], [Name], [DocumentContent], [DocumentCategory],[DocumentCategory2],[DocumentCategory3] FROM [Documents]"></asp:SqlDataSource>
     </asp:Table>
-
+</center>
 
                                                 </div>
-                    <div class="col-6">
-
-              <div class="container" id="c2">
-                <div class="row">
-                    <div class="col">
-     
-
-
-<center>
-            <h3>Upload a Resource</h3>
-    </center>
-                        <br />
-            <br />
-            <asp:Label ID="Label3" runat="server" Text="Resource URL:" ForeColor="White" Width="150px" Height="50px"></asp:Label>
-            <asp:Textbox ID="hyperlink" runat="server" Width="300px" />
-            <br />
-            <br />
-            <asp:Label ID="title" runat="server" Text="Resource Title" ForeColor="White" Width="150px" Height="50px"></asp:Label>
-            <asp:Textbox ID="txtTitle" runat="server" Width="300px" />
-            <br />
-            <br />
-            <asp:Label ID="Label4" runat="server" Text="    Category:" ForeColor="White" Width="150px" Height="50px"></asp:Label>
-            <asp:Textbox ID="category" runat="server" Width="300px" />
-                        <br />
-                        <br />
-                        <asp:TextBox ID="TextBox3" runat="server" Height="50px" Visible="False"></asp:TextBox>
-                        <br />
-            <br />
-                        <center>
-            <asp:Button ID="save" runat="server" onclick="save_Click" Text="Save" Width="92px" Class="btn btn-outline-warning" Height="40px"/>
-                        </center>
-            <br />
-                        <br />
-                        <br />
-            <br />
-
-    <asp:GridView ID="GridView3" runat="server" autoPostback="True" AutoGenerateColumns="False" CssClass="table-dark table-striped table-hover"  AllowSorting="True" CellPadding="10" DataKeyNames="resourceID" DataSourceID="SqlDataSourceResources">
-        <Columns>
-            <asp:BoundField DataField="resourceID" HeaderText="resourceID" InsertVisible="False" ReadOnly="True" SortExpression="resourceID" />
-            <asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
-            <asp:BoundField DataField="category" HeaderText="category" SortExpression="category" />
-            <asp:BoundField DataField="Hyperlink" HeaderText="Hyperlink" SortExpression="Hyperlink" />
-        </Columns>
-    </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSourceResources" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringResources %>" SelectCommand="SELECT [resourceID], [title], [category], [Hyperlink] FROM [Resources]"></asp:SqlDataSource>
-</div>
-                    </div>
-</div>
-</div>
+   
                         </div>
 </div>
 
