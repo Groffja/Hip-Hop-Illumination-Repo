@@ -9,6 +9,67 @@ public partial class AdultTablau : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        populationPyramid.Visible = false;
+        gender.Visible = false;
+        youthMap.Visible = false;
+        adultMap.Visible = false;
+        favoriteArtist.Visible = false;
+        favoriteGenre.Visible = false;
+    }
 
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        populationPyramid.Visible = false;
+        gender.Visible = false;
+        favoriteGenre.Visible = false;
+        favoriteArtist.Visible = false;
+        youthMap.Visible = false;
+        adultMap.Visible = true;
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        populationPyramid.Visible = false;
+        gender.Visible = false; ;
+        favoriteGenre.Visible = false;
+        favoriteArtist.Visible = false;
+        adultMap.Visible = false;
+        youthMap.Visible = true;
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        populationPyramid.Visible = false;
+        gender.Visible = false;
+        favoriteGenre.Visible = false;
+        adultMap.Visible = false;
+        youthMap.Visible = false;
+        favoriteArtist.Visible = true;
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        populationPyramid.Visible = false;
+        gender.Visible = false;
+        adultMap.Visible = false;
+        youthMap.Visible = false;
+        favoriteArtist.Visible = false;
+        favoriteGenre.Visible = true;
+    }
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        populationPyramid.Visible = false;
+        adultMap.Visible = false;
+        youthMap.Visible = false;
+        favoriteArtist.Visible = false;
+        favoriteGenre.Visible = false;
+        gender.Visible = true;
+    }
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        adultMap.Visible = false;
+        youthMap.Visible = false;
+        favoriteArtist.Visible = false;
+        favoriteGenre.Visible = false;
+        gender.Visible = false;
+        populationPyramid.Visible = true;
     }
 }
