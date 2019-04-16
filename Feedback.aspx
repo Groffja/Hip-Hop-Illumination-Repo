@@ -93,7 +93,7 @@
     <br />
        
     
-        <asp:GridView ID="GridView1" CssClass="table-dark table-striped table-hover" runat="server" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataSourceID="SqlDataSourceFeedback">
+        <asp:GridView ID="GridView2" CssClass="table-dark table-striped table-hover" runat="server" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataSourceID="SqlDataSourceFeedback">
             <Columns>
                 <asp:BoundField DataField="accountID" HeaderText="accountID" SortExpression="accountID" />
                 <asp:BoundField DataField="username" HeaderText="username" SortExpression="username" />
@@ -111,7 +111,48 @@
         
         
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="manageUsers" SelectCommand="SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM Feedback INNER JOIN LoginInfo ON Feedback.accountID = LoginInfo.accountID"></asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="manageUsers" SelectCommand="SELECT        Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment 
+FROM            Feedback INNER JOIN
+                         LoginInfo ON Feedback.accountID = LoginInfo.accountID
+
+" OnSelecting="SqlDataSourceFeedback_Selecting"></asp:SqlDataSource>
+    
+    
+     <asp:GridView ID="GridViewSearchFeedback" CssClass="table-dark table-striped table-hover" runat="server" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataSourceID="SqlDataSourceFeedbackSearch" Visible="False">
+            <Columns>
+                <asp:BoundField DataField="accountID" HeaderText="accountID" SortExpression="accountID" />
+                <asp:BoundField DataField="username" HeaderText="username" SortExpression="username" />
+                <asp:BoundField DataField="comment" HeaderText="comment" SortExpression="comment" />
+            </Columns>
+            
+            
+            
+            
+            
+            
+         
+        
+        
+        
+        </asp:GridView>
+    
+    
+    
+    
+        <asp:SqlDataSource ID="SqlDataSourceFeedbackSearch" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString2 %>" SelectCommand="
+  SELECT        Feedback.accountID, LoginInfo.username,  Feedback.comment
+  FROM            Feedback INNER JOIN
+                         LoginInfo ON Feedback.accountID = LoginInfo.accountID
+  WHERE   ([comment] LIKE '%' + @comment + '%')">
+            <SelectParameters>
+                <asp:SessionParameter Name="comment" SessionField="test" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+    
+    
+    
+    
     </form>
 </asp:Content>
 
