@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="RecommendationForYandYW.aspx.cs" Inherits="RecommendationForYandYW" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="RecommendationForYandYW.aspx.cs" Inherits="RecommendationForYandYW" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -9,8 +9,10 @@
         <head>
             <style type="text/css">
                 body{
+
             margin: 0;
             padding:0;
+
             background-image: url(img/header-bg.jpg);
         }
 .btnRegister
@@ -77,15 +79,25 @@
             <div class="col d-block mx-auto"
                 <center>
     <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">You currently have no Recommendations!</asp:Label>
-    <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+    
+        <Center>
+
+        
+        <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <AlternatingRowStyle /> 
         <Columns>
+            
             <asp:BoundField DataField="Name" HeaderText="Lesson" SortExpression="Name"/>
             <asp:BoundField DataField="DocumentCategory" HeaderText="Category" SortExpression="DocumentCategory"/>
             <asp:BoundField DataField="recommendedBy" HeaderText="Sender Username" SortExpression="recommendedBy" />
             <asp:BoundField DataField="dateRecommended" HeaderText="Date Recieved" SortExpression="dateRecommended" />
         </Columns>
+        <RowStyle />
     </asp:GridView>
-                    </center>
+
+       </Center>        
+
+
                 </div>
             </div>
 
@@ -114,3 +126,4 @@
 
 
 </asp:Content>
+

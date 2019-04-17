@@ -7,7 +7,8 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
-public partial class _Default : System.Web.UI.Page
+
+public partial class Uploading : System.Web.UI.Page
 {
     //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
     //string exception = string.Empty;
@@ -29,94 +30,108 @@ public partial class _Default : System.Web.UI.Page
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
     }
+
     private void Download(int id)
     {
-        DataTable dt = new DataTable();
-        using (SqlConnection cn = new SqlConnection(conStr))
+        try
         {
-            SqlCommand cmd = new SqlCommand("GetDocument", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
-            cn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            using (SqlConnection cn = new SqlConnection(conStr))
+            {
+                SqlCommand cmd = new SqlCommand("GetDocument", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-            dt.Load(reader);
+                dt.Load(reader);
+            }
+
+            string name = dt.Rows[0]["Name"].ToString();
+            byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
+
+            Response.ClearContent();
+            Response.ContentType = "appliction/octetstream";
+            Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
+            Response.AddHeader("Content-Length", documentBytes.Length.ToString());
+
+            Response.BinaryWrite(documentBytes);
+            Response.Flush();
+            Response.Close();
         }
+        catch
+        {
 
-        string name = dt.Rows[0]["Name"].ToString();
-        byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
-
-        Response.ClearContent();
-        Response.ContentType = "appliction/octetstream";
-        Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
-        Response.AddHeader("Content-Length", documentBytes.Length.ToString());
-
-        Response.BinaryWrite(documentBytes);
-        Response.Flush();
-        Response.Close();
+        }
     }
     private void FillData()
     {
-        DataTable dt = new DataTable();
-        using (SqlConnection cn = new SqlConnection(conStr))
+        try
         {
-            SqlCommand cmd = new SqlCommand("GetDocuments", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            using (SqlConnection cn = new SqlConnection(conStr))
+            {
+                SqlCommand cmd = new SqlCommand("GetDocuments", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-            dt.Load(reader);
+                dt.Load(reader);
+            }
+            if (dt.Rows.Count > 0)
+            {
+                gvDocuments.DataSource = dt;
+                gvDocuments.DataBind();
+            }
         }
-        if (dt.Rows.Count > 0)
+        catch
         {
-            gvDocuments.DataSource = dt;
-            gvDocuments.DataBind();
-        }
 
+        }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void save_Click(object sender, EventArgs e)
     {
-        FileInfo fi = new FileInfo(FileUpload1.FileName);
-        byte[] documentContent = FileUpload1.FileBytes;
-
-        string name = fi.Name;
-        string extn = fi.Extension;
-        string category = TextBox2.Text;
-        string category2 = txtCat2.Text;
-        string category3 = txtCat3.Text;
-
-        using (SqlConnection cn = new SqlConnection(conStr))
+        try
         {
-            SqlCommand cmd = new SqlCommand("SaveDocument", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            FileInfo fi = new FileInfo(FileUpload1.FileName);
+            byte[] documentContent = FileUpload1.FileBytes;
 
-            cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = name;
-            cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
-            cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
-            cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
-            cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
-            cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
 
-            cn.Open();
-            cmd.ExecuteNonQuery();
+            string name = fi.Name;
+            string extn = fi.Extension;
+            string category = TextBox2.Text;
+            string category2 = txtCat2.Text;
+            string category3 = txtCat3.Text;
+
+            using (SqlConnection cn = new SqlConnection(conStr))
+            {
+                SqlCommand cmd = new SqlCommand("SaveDocument", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = name;
+                cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
+                cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
+                cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
+                cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
+                cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            FillData();
+            Response.Redirect("Uploading.aspx");
         }
-        FillData();
-        Response.Redirect("Uploading.aspx");
-    }
+        catch
+        {
 
-    protected void gvDocuments_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        //SqlCommand delete = new SqlCommand();
-        //delete.CommandText = "DELETE FROM [Documents] WHERE [DocumentID]=@DocumentID";
-        //delete.ExecuteNonQuery();
-
+        }
     }
+    
     protected void Row_Deleting(object sender, EventArgs e)
     {
         //int row = GridView1.SelectedIndex;
         //string rowCell = GridView1.SelectedRow.Cells.ToString();
-
 
         sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
         sc.Open();
@@ -126,66 +141,6 @@ public partial class _Default : System.Web.UI.Page
         delete.CommandText = "DELETE FROM [Documents] WHERE [DocumentID]=@DocumentID";
         delete.ExecuteNonQuery();
 
-
-    }
-
-    // Uploads a resource into Database
-    protected void save_Click(object sender, EventArgs e)
-    {
-        int admin;
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
-        System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
-        id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
-        id.Connection = sc;
-        sc.Open();
-
-        SqlDataReader reader = id.ExecuteReader();
-        while (reader.Read())
-        {
-            string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
-            admin = int.Parse(adminID);
-        }
-
-        // Uploads a resource into Database
-
-
-        //System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
-        //id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
-        //id.Connection = sc;
-        //sc.Open();        
-
-        //SqlDataReader reader = id.ExecuteReader();
-        //while (reader.Read())
-        //{
-        //    string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
-        //    admin = int.Parse(adminID);
-        //}
-        sc.Close();
-
-        //sc.Open();
-        //System.Data.SqlClient.SqlCommand resource = new System.Data.SqlClient.SqlCommand();
-        //resource.Connection = sc;
-
-        //String resourceLink = "<a href='" + hyperlink.Text + "'></a>";
-        String resourceLink = hyperlink.Text;
-
-        //resource.CommandText = "INSERT INTO Resources VALUES ('"+ resourceLink + "','"+ txtTitle.Text+ "','"+ category.Text +"',"+ 1 + ")"; /**/ 
-        //resource.ExecuteNonQuery();
-        //Response.Redirect("Uploading.aspx");
-
-        sc.Open();
-        SqlCommand resource = new SqlCommand();
-        resource.Connection = sc;
-        resource.CommandText = "INSERT INTO [dbo].[Resources] VALUES  (@Hyperlink,  @title, @category, @adminID);";
-        resource.Parameters.AddWithValue("@Hyperlink", resourceLink);
-        resource.Parameters.AddWithValue("@title", txtTitle.Text);
-        resource.Parameters.AddWithValue("@category", category.Text);
-        resource.Parameters.AddWithValue("@adminID", 1);
-        resource.ExecuteNonQuery();
-        sc.Close();
-
-        Response.Redirect("Uploading.aspx");
 
     }
 }

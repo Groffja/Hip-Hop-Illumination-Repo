@@ -104,7 +104,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
             YouthUserName = HttpUtility.HtmlEncode(txtUsername.Text);
             YouthPassword = HttpUtility.HtmlEncode(txtPassword.Text);
             favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
-            favoriteMusic = HttpUtility.HtmlEncode(txtfavoriteMusic.Text);
+            favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
 
             sc.Open();
             string emails = " ";

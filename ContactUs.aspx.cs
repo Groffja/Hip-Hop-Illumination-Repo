@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,44 +22,44 @@ public partial class _Default : System.Web.UI.Page
 
     protected void MessageButton_Click(object sender, EventArgs e)
     {
-        String accountID = "";
-        String message = "";
 
         //stored in the feedback table
         //    stringName = name.ToString();
         //   stringEmail = email.ToString();
 
-        message = messageTextArea.Value.ToString();
-        accountID = Session["accountID"].ToString();
-       
 
+        string message = messageTextArea.Value.ToString();
+        
         try
         {
             SqlConnection cn = new SqlConnection(conStr);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
-            cmd.CommandText = "INSERT INTO [dbo].[Feedback] VALUES (" + @accountID + ",'" + @message + "');";
-            cmd.Parameters.AddWithValue(@message, message);
-            cmd.Parameters.AddWithValue(@accountID, accountID);
+            
+            cmd.CommandText = "INSERT INTO [dbo].[Feedback] VALUES (@accountID, @message);";
+            cmd.Parameters.AddWithValue("@message", message);
+            cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
             
             cmd.ExecuteNonQuery();
         
             cmd.Parameters.Clear();
             cn.Close();
 
-            
+            dvMsg.Visible = true;
+            lblMsg.Text = "Message has been sent. Thank You.";
+            messageTextArea.Value = "";
+            name.Value = "";
+            email.Value = "";
+            phone.Value = "";
+
         }
         catch
         {
-
+            dvMsg.Visible = true;
+            lblMsg.Text = "Something went wrong";
         }
 
-     
-        messageTextArea.Value = "";
-        name.Value = "";
-        email.Value = "";
-        phone.Value = "";
 
 
         
@@ -69,5 +69,10 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
+    protected void btnShowMsg_Click(object sender, EventArgs e)
+    {
+        dvMsg.Visible = true;
+        lblMsg.Text = "This is notification message demo";
+    }
 
 }
