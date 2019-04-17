@@ -36,8 +36,7 @@ a {
   display:inline-block;
   text-decoration-style: wavy;
   font-weight: 400;
-            height: 18px;
-        }
+}
 
 h2 {
   text-align: center;
@@ -302,8 +301,9 @@ input[type=text]:placeholder {
 
 body {
     margin: 0;
-    background: url(img/header-bg.jpg);
-    background-size: 1440px 800px;            
+    background: url(img/about/Login.jpg);
+   
+    background-size: cover;            
     font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -370,7 +370,7 @@ body {
     <div id="formFooter">
       <a class="underlineHover" href="UserQuestions.aspx">Create Account</a>
         <br />
-      <a class="underlineHover" href="ForgotPassword.aspx">Forgot Password</a>
+      <a class="underlineHover" href="#">Forgot Password</a>
     </div>
 
   </div>

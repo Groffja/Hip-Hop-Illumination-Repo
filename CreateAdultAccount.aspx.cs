@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ public partial class CreateAdultAccount : System.Web.UI.Page
 
         try
         {
-            sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
         }
 
@@ -157,8 +157,7 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         }
         else
         {
-            lblEmailVal.Text = "This email already exists";
+            lblEmailVal.Text = "ERROR:Email Provided already registered with an account!!";
         }
     }
-
 }

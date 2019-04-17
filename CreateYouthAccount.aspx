@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="CreateYouthAccount.aspx.cs" Inherits="CreateYouthAccount" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="CreateYouthAccount.aspx.cs" Inherits="CreateYouthAccount" %>
 
 
 <!DOCTYPE html>
@@ -88,45 +88,11 @@ body{
     background-repeat:no-repeat;
     background-size: auto;
 }
-.confirmMessage{
-    font-size:15px;
-}
+
 
 
         </style>
-<script type="text/javascript">
-function checkPass()
-{
-    //Store the password field objects into variables ...
-    var pass1 = document.getElementById('txtPassword');
-    var pass2 = document.getElementById('check');
-    //Store the Confimation Message Object ...
-    var message = document.getElementById('confirmMessage');
-    //Set the colors we will be using ...
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
-    //Compare the values in the password field 
-    //and the confirmation field
-    if(pass1.value == pass2.value){
-        //The passwords match. 
-        //Set the color to the good color and inform
-        //the user that they have entered the correct password 
-        pass2.style.backgroundColor = goodColor;
-        message.style.color = goodColor;
-        message.innerHTML = "Passwords Match!"
-    }else{
-        //The passwords do not match.
-        //Set the color to the bad color and
-        //notify the user.
-        pass2.style.backgroundColor = badColor;
-        message.style.color = badColor;
-        message.innerHTML = "Passwords do not match!"
-    }
-    }
 
-
-
-</script>
 
 </head>
 
@@ -149,11 +115,11 @@ function checkPass()
 
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblFirstName" runat="server" Text="First Name" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFirstName" runat="server" Width="240px" type="text" pattern="[A-Za-z]{1,50}" class="form-control"  placeholder="First Name *" value="" required="true" CssClass="form-control" ></asp:TextBox>
+            <asp:TextBox ID="txtFirstName" runat="server" Width="240px" type="text" class="form-control"  placeholder="First Name *" value="" required="true" CssClass="form-control" ></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblLastName" runat="server" Text="Last Name" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtLastName" runat="server" Width="240px" type="text" pattern="[A-Za-z]{1,50}" class="form-control"  placeholder="Last Name *" value="" required="true" CssClass="form-control"></asp:TextBox>        
+            <asp:TextBox ID="txtLastName" runat="server" Width="240px" type="text" class="form-control"  placeholder="Last Name *" value="" required="true" CssClass="form-control"></asp:TextBox>        
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblState" runat="server" Text="State" Width="130px"></asp:Label>
@@ -484,45 +450,35 @@ function checkPass()
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblDateOfBirth" runat="server" Text="Date of Birth" Width="130px"></asp:Label>
             <asp:TextBox ID="txtDateOfBirth" runat="server" Width="240px" type="text" class="form-control" placeholder="DD/MM/YYYY *" value="" required="true" CssClass="form-control" TextMode="Date"></asp:TextBox>
-    </div>
-
-
+             <br />
+            <asp:RangeValidator ID="ageValidator" runat="server" ControlToValidate="txtDateOfBirth" Display="Dynamic" ErrorMessage="Must be 14-18 Years Old" ForeColor="Red" MaximumValue="04/15/2005" MinimumValue="04/15/2001" Type="Date"></asp:RangeValidator>
+            
+</div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblFavoriteArtist" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control" placeholder="Optional..."></asp:TextBox>
+            <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control">Optional...</asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
 
             <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control" placeholder="Optional..."></asp:TextBox>
+            <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control">Optional...</asp:TextBox>
 
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="lblUsername" runat="server" Text="Username" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtUsername" runat="server" Width="240px" type="text" class="form-control"  pattern="{1,50}" placeholder="Username *" value="" required="true" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txtUsername" runat="server" Width="240px" type="text" class="form-control"  placeholder="Username *" value="" required="true" CssClass="form-control"></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
             <asp:Label ID="Label2" runat="server" Text="Password" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtPassword" runat="server" Width="240px" type="text" pattern=".{8,}"  title="Must contain at least eight characters" class="form-control"  placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>
-</div>
-<div class="form-group input-group input-group-md label">
-            <asp:Label ID="Label4" runat="server" Text="Password" Width="130px"></asp:Label>
-            <asp:TextBox ID="check" runat="server" onkeyup="checkPass(); return false;" Width="240px" type="text" pattern=".{8,}"  title="Must contain at least eight characters" class="form-control" placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>      
-
-</div>
-<div class="form-group input-group input-group-md label">
-            <asp:CompareValidator ID="ComparePassword" runat="server" ControlToCompare="txtPassword" ControlToValidate="check"></asp:CompareValidator>
-            <span id="confirmMessage" class="confirmMessage"></span>
-</div>
-<div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblEmailVal" runat="server" width="370px" ForeColor="#FF6666" Font-Overline="False" Font-Size="Medium" Font-Strikeout="False" Height="15px"></asp:Label>
-</div>
-<div class="form-group input-group input-group-md label">
-         <asp:RangeValidator ID="ageValidator" runat="server" width="370px" ControlToValidate="txtDateOfBirth" Display="Dynamic" ErrorMessage="Age must between 14 - 18" ForeColor="#FF6666" MaximumValue="04/15/2005" MinimumValue="04/15/2001" Type="Date" Font-Size="Medium" Height="15px"></asp:RangeValidator>
-         
+            <asp:TextBox ID="txtPassword" runat="server" Width="240px" type="text" class="form-control"  placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>
+          
 </div>
 
+          
+
+</div>
+            <asp:Label ID="lblEmailVal" runat="server" Width="130px" ForeColor="Red"></asp:Label>
 
             <asp:Button ID="btnRegister" class="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Create" />
                                             <br />
@@ -544,5 +500,4 @@ function checkPass()
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </form>
 </body>
-
 </html>

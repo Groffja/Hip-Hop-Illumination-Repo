@@ -1,5 +1,4 @@
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -113,7 +112,6 @@ public partial class Youtube : System.Web.UI.Page
 
     public bool UrlIsValid(string url)
     {
-        
         Label5.Text = " ";
         try
         {
@@ -140,7 +138,6 @@ public partial class Youtube : System.Web.UI.Page
                     //log.Warn(String.Format("The remote server has thrown an internal error. Url is not valid: {0}", url));
                     Debug.WriteLine(String.Format("The remote server has thrown an internal error. Url is not valid: {0}", url));
                     Label5.Text = "Invalid URL. Please Try Again.";
-                    Button3.Visible = true;
                     return false;
                     
                 }
@@ -151,30 +148,21 @@ public partial class Youtube : System.Web.UI.Page
         {
             if (ex.Status == WebExceptionStatus.ProtocolError) //400 errors
             {
-                Button3.Visible = true;
                 return false;
             }
             else
             {
                 //log.Warn(String.Format("Unhandled status [{0}] returned for url: {1}", ex.Status, url), ex);
                 Label5.Text = "Invalid URL. Please Try Again.";
-                Button3.Visible = true;
             }
         }
         catch (Exception ex)
         {
             //log.Error(String.Format("Could not test url {0}.", url), ex);
             Label5.Text = "Invalid URL. Please Try Again.";
-            Button3.Visible = true;
         }
         return false;
         
-    }
-
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        Button1.Enabled = true;
     }
 
 }
