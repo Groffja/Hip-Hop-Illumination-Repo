@@ -34,6 +34,9 @@
             cursor: pointer;
             text-decoration: none;
         }
+        #mainNav {
+            background-color: #212529;
+        }
     </style>
 </head>
 
