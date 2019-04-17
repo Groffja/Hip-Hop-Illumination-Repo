@@ -1,0 +1,13 @@
+﻿body {
+}
+.notification {
+    background-color: #006699;
+    min-height: 40px;
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 10px 10px 5px #888888;
+}

@@ -148,15 +148,15 @@ function checkPass()
                     <div class="form-group">
 
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFirstName" runat="server" Text="First Name" Width="130px"></asp:Label>
+            <asp:Label ID="lblFirstName" runat="server" Text="First Name" Width="180px"></asp:Label>
             <asp:TextBox ID="txtFirstName" runat="server" Width="240px" type="text" pattern="[A-Za-z]{1,50}" class="form-control"  placeholder="First Name *" value="" required="true" CssClass="form-control" ></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblLastName" runat="server" Text="Last Name" Width="130px"></asp:Label>
+            <asp:Label ID="lblLastName" runat="server" Text="Last Name" Width="180px"></asp:Label>
             <asp:TextBox ID="txtLastName" runat="server" Width="240px" type="text" pattern="[A-Za-z]{1,50}" class="form-control"  placeholder="Last Name *" value="" required="true" CssClass="form-control"></asp:TextBox>        
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblState" runat="server" Text="State" Width="130px"></asp:Label>
+            <asp:Label ID="lblState" runat="server" Text="State" Width="180px"></asp:Label>
             <br />
             
             <asp:DropDownList ID="ddlState" runat="server" Width="240px"  CssClass="form-control">
@@ -216,7 +216,7 @@ function checkPass()
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblCountry" runat="server" Text="Country" Width="130px"></asp:Label>
+            <asp:Label ID="lblCountry" runat="server" Text="Country" Width="180px"></asp:Label>
             <br />
            
             <asp:DropDownList ID="ddlCountry" runat="server"  Width="240px" OnSelectedIndexChanged="DropDowncountry_SelectedIndexChanged" AutoPostBack="True" CssClass="form-control">
@@ -463,7 +463,7 @@ function checkPass()
 </div>
 
 <div class="form-group input-group input-group-md label">
-                                   <asp:Label ID="genderLabel" runat="server" Text="Gender" Width="130px"></asp:Label>
+                                   <asp:Label ID="genderLabel" runat="server" Text="Gender" Width="180px"></asp:Label>
                                    <br />
                                    <asp:DropDownList ID="ddlGender"  CssClass="form-control" runat="server" Width="240px" >
                                                 <asp:ListItem Value="M">Male</asp:ListItem>
@@ -476,38 +476,38 @@ function checkPass()
 </div>
 
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblEmail" runat="server" Text="Email" Width="130px"></asp:Label>
+            <asp:Label ID="lblEmail" runat="server" Text="Email" Width="180px"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server" Width="240px" type="text" class="form-control" placeholder="Email *" value=""  required="true" CssClass="form-control" TextMode="Email"></asp:TextBox>
             
 </div>
 
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblDateOfBirth" runat="server" Text="Date of Birth" Width="130px"></asp:Label>
+            <asp:Label ID="lblDateOfBirth" runat="server" Text="Date of Birth" Width="180px"></asp:Label>
             <asp:TextBox ID="txtDateOfBirth" runat="server" Width="240px" type="text" class="form-control" placeholder="DD/MM/YYYY *" value="" required="true" CssClass="form-control" TextMode="Date"></asp:TextBox>
     </div>
 
 
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteArtist" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
+            <asp:Label ID="lblFavoriteArtist" runat="server" Text="Favorite Artist" Width="180px"></asp:Label>
             <asp:TextBox ID="txtFavoriteArtist" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control" placeholder="Optional..."></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
 
-            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
+            <asp:Label ID="lblFavoriteMusic" runat="server" Text="Favorite Genre" Width="180px"></asp:Label>
             <asp:TextBox ID="txtFavoriteMusic" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control" placeholder="Optional..."></asp:TextBox>
 
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblUsername" runat="server" Text="Username" Width="130px"></asp:Label>
+            <asp:Label ID="lblUsername" runat="server" Text="Username" Width="180px"></asp:Label>
             <asp:TextBox ID="txtUsername" runat="server" Width="240px" type="text" class="form-control"  pattern="{1,50}" placeholder="Username *" value="" required="true" CssClass="form-control"></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="Label2" runat="server" Text="Password" Width="130px"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Password" Width="180px"></asp:Label>
             <asp:TextBox ID="txtPassword" runat="server" Width="240px" type="text" pattern=".{8,}"  title="Must contain at least eight characters" class="form-control"  placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="Label4" runat="server" Text="Password" Width="130px"></asp:Label>
+            <asp:Label ID="Label4" runat="server" Text="Confirm Password" Width="180px"></asp:Label>
             <asp:TextBox ID="check" runat="server" onkeyup="checkPass(); return false;" Width="240px" type="text" pattern=".{8,}"  title="Must contain at least eight characters" class="form-control" placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>      
 
 </div>

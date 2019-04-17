@@ -8,7 +8,7 @@ using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 
-public partial class UploadLesson : System.Web.UI.Page
+public partial class Uploading : System.Web.UI.Page
 {
     //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
     //string exception = string.Empty;

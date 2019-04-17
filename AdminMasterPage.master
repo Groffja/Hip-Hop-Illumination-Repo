@@ -50,7 +50,7 @@
           Upload
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="UploadLesson.aspx">Upload Content</a>
+          <a class="dropdown-item" href="Uploading.aspx">Upload Content</a>
           <a class="dropdown-item" href="Youtube.aspx">Upload Resource</a>
         </div>
       </li> 
