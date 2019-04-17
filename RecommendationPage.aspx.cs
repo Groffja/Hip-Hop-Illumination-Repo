@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -114,4 +114,5 @@ public partial class RecommendationPage : System.Web.UI.Page
         }
 
     }
+
 }

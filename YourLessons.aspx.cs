@@ -21,18 +21,26 @@ public partial class YourLessons : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            SqlConnection sc = new SqlConnection(conStr);
-            sc.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = sc;
-            cmd.CommandText = "SELECT accountID FROM Lessons WHERE accountID = @accountID";
-            cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
-
-            SqlDataReader reader1 = cmd.ExecuteReader();
-
-            if (!reader1.HasRows)
+            try
             {
-                noLessons.Enabled = true;
+                SqlConnection sc = new SqlConnection(conStr);
+                sc.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sc;
+                cmd.CommandText = "SELECT accountID FROM Lessons WHERE accountID = @accountID";
+                cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
+
+                SqlDataReader reader1 = cmd.ExecuteReader();
+
+                if (!reader1.HasRows)
+                {
+                    noLessons.Visible = true;
+                }
+            }
+            catch
+            {
+                noLessons.Text = "Not signed into an account!!";
+                noLessons.Visible = true;
             }
         }
 
@@ -58,7 +66,8 @@ public partial class YourLessons : System.Web.UI.Page
         }
         catch
         {
-
+            noLessons.Text = "Not signed into an account!!";
+            noLessons.Visible = true;
         }
 
 
@@ -124,17 +133,24 @@ public partial class YourLessons : System.Web.UI.Page
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-
-                cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID WHERE Lessons.accountID =" + Session["accountID"] + ";";
-                //cmd.CommandText = "SELECT Documents.ID, Documents.Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
-                cmd.Connection = cn;
-                //cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                try
                 {
-                    sda.Fill(dt);
-                    gvDocuments.DataSource = dt;
-                    gvDocuments.DataBind();
+                    cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID WHERE Lessons.accountID =" + Session["accountID"] + ";";
+                    //cmd.CommandText = "SELECT Documents.ID, Documents.Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
+                    cmd.Connection = cn;
+                    //cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(dt);
+                        gvDocuments.DataSource = dt;
+                        gvDocuments.DataBind();
+                    }
+                }
+                catch
+                {
+                    noLessons.Text = "Not signed into account!!";
+                    noLessons.Visible = true;
                 }
             }
         }

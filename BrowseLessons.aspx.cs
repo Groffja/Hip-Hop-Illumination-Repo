@@ -30,7 +30,7 @@ public partial class BrowseLessons : System.Web.UI.Page
 
             if (!reader1.HasRows)
             {
-                noLessons.Enabled = true;
+                noLessons.Visible = true;
             }
         }
     }
@@ -39,9 +39,6 @@ public partial class BrowseLessons : System.Web.UI.Page
     {
         LinkButton lnk = (LinkButton)sender;
         GridViewRow gr = (GridViewRow)lnk.NamingContainer;
-
-        
-
 
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
@@ -58,7 +55,8 @@ public partial class BrowseLessons : System.Web.UI.Page
         }
         catch
         {
-
+            noLessons.Text = "Not signed into account!!";
+            noLessons.Visible = true;
         }
 
 
@@ -197,4 +195,5 @@ public partial class BrowseLessons : System.Web.UI.Page
     {
 
     }
+
 }
