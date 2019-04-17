@@ -69,7 +69,7 @@ th, td {
     </Columns>
 </asp:GridView>       
 
-            <asp:SqlDataSource ID="SqlDataSourceCurrentResources" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringCurrentResources %>"  DeleteCommand= "DELETE FROM [Resources] WHERE [resourceID]=@resourceID;" SelectCommand="SELECT [resourceID], [title], [category], [Hyperlink] FROM [Resources]">
+            <asp:SqlDataSource ID="SqlDataSourceCurrentResources" runat="server" ConnectionString="<%$ ConnectionStrings:manageUsers %>"  DeleteCommand= "DELETE FROM [Resources] WHERE [resourceID]=@resourceID;" SelectCommand="SELECT [resourceID], [title], [category], [Hyperlink] FROM [Resources]">
     <DeleteParameters>
         <asp:Parameter Name="resourceID" />
     </DeleteParameters>
