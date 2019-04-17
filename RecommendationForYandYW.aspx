@@ -8,7 +8,7 @@
     <html>
         <head>
             <style type="text/css">
-body{
+                body{
 
             background-image: url(img/header-bg.jpg);
         }
@@ -69,14 +69,22 @@ h1{
             <div class="col d-block mx-auto"
 
     <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">You currently have no Recommendations!</asp:Label>
-    <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+    
+        <Center>
+
+        
+        <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <AlternatingRowStyle /> 
         <Columns>
+            
             <asp:BoundField DataField="Name" HeaderText="Lesson" SortExpression="Name"/>
             <asp:BoundField DataField="DocumentCategory" HeaderText="Category" SortExpression="DocumentCategory"/>
             <asp:BoundField DataField="recommendedBy" HeaderText="Sender Username" SortExpression="recommendedBy" />
             <asp:BoundField DataField="dateRecommended" HeaderText="Date Recieved" SortExpression="dateRecommended" />
         </Columns>
+        <RowStyle />
     </asp:GridView>
+       </Center>        
 
                 </div>
             </div>
