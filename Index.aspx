@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Default" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -364,4 +364,5 @@
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
 </body>
+
 </html>

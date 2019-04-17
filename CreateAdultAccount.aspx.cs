@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ public partial class CreateAdultAccount : System.Web.UI.Page
 
         try
         {
-            sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+            sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
 
         }
 
@@ -74,15 +74,15 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         emailCheck.Parameters.AddWithValue("@email", email);
 
         SqlDataReader reader1 = emailCheck.ExecuteReader();
-
+        
         while (reader1.Read())
         {
             emails = reader1["email"].ToString();
-
+            
         }
-
-
-
+        
+        
+        
         reader1.Close();
         sc.Close();
         if (emails == " ")
@@ -157,7 +157,8 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         }
         else
         {
-            lblEmailVal.Text = "ERROR:Email Provided already registered with an account!!";
+            lblEmailVal.Text = "This email already exists";
         }
     }
+
 }
