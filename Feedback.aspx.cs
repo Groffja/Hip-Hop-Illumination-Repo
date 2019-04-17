@@ -11,8 +11,24 @@ using System.Text.RegularExpressions;
 
 public partial class Feedback : System.Web.UI.Page
 {
+
+    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Check session is expire or timeout. 
+        if (Session["loggedIn"] == null)
+        {
+            Response.Redirect("Login.aspx?info=0");
+        }
+
+        if (IsPostBack)
+        {
+
+            this.BindGrid();
+        }
+
+
+
 
     }
 
@@ -27,6 +43,49 @@ public partial class Feedback : System.Web.UI.Page
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)
+    {
+
+        String search = txtSearch.Text;
+        Session["test"] = search;
+
+        GridViewSearchFeedback.DataBind();
+        GridViewSearchFeedback.Visible = true;
+        GridView2.Visible = false;
+
+        if(txtSearch.Text == "")
+        {
+            GridViewSearchFeedback.Visible = false;
+            GridView2.Visible = true;
+        }
+
+
+    }
+
+    private void BindGrid()
+    {
+        using (SqlConnection cn = new SqlConnection(conStr))
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = "SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM Feedback INNER JOIN LoginInfo ON Feedback.accountID = LoginInfo.accountID WHERE Feedback.comment LIKE '%" + "@Name"  + "%'";
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    sda.Fill(dt);
+                    //GridView2.DataSource = dt;
+                    GridView2.DataBind();
+                }
+            }
+        }
+    }
+
+
+
+
+
+    protected void SqlDataSourceFeedback_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
 
     }

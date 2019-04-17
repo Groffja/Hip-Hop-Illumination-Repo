@@ -7,45 +7,45 @@ using System.Web.UI.WebControls;
 using System.Collections.Specialized;
 using System.Data.SqlClient;
 
-
 public partial class _Default : System.Web.UI.Page
 {
     string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        // Check session is expire or timeout. 
+        if (Session["email"] == null)
+        {
+            Response.Redirect("Login.aspx?info=0");
+        }
     }
 
     protected void MessageButton_Click(object sender, EventArgs e)
     {
 
-
-
         //stored in the feedback table
         //    stringName = name.ToString();
         //   stringEmail = email.ToString();
 
+
         string message = messageTextArea.Value.ToString();
-
-
         
-       
-
         try
         {
             SqlConnection cn = new SqlConnection(conStr);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
+            
             cmd.CommandText = "INSERT INTO [dbo].[Feedback] VALUES (@accountID, @message);";
             cmd.Parameters.AddWithValue("@message", message);
             cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
-
+            
             cmd.ExecuteNonQuery();
         
             cmd.Parameters.Clear();
             cn.Close();
+
             dvMsg.Visible = true;
             lblMsg.Text = "Message has been sent. Thank You.";
             messageTextArea.Value = "";
@@ -60,8 +60,6 @@ public partial class _Default : System.Web.UI.Page
             lblMsg.Text = "Something went wrong";
         }
 
-     
-        
 
 
         
@@ -70,12 +68,11 @@ public partial class _Default : System.Web.UI.Page
 
 
     }
+
     protected void btnShowMsg_Click(object sender, EventArgs e)
     {
         dvMsg.Visible = true;
         lblMsg.Text = "This is notification message demo";
     }
-
-
 
 }

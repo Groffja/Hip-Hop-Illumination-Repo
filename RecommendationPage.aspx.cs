@@ -16,6 +16,11 @@ public partial class RecommendationPage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Check session is expire or timeout. 
+        if (Session["adminLoggedIn"] == null)
+        {
+            Response.Redirect("Login.aspx?info=0");
+        }
         try
         {
 
@@ -63,8 +68,6 @@ public partial class RecommendationPage : System.Web.UI.Page
     {
         if (Page.IsValid)
         {
-
-
             sc.Close();
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
@@ -108,11 +111,8 @@ public partial class RecommendationPage : System.Web.UI.Page
                 
             //TextBox1.Text = Session["accountID"].ToString();
             //int accountID = Convert.ToInt32(TextBox1.Text);
-            
-
 
         }
 
     }
-
 }
