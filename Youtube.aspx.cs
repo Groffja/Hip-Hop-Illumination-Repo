@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,8 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net;
+using System.Diagnostics;
 
 public partial class Youtube : System.Web.UI.Page
 {
@@ -88,7 +91,7 @@ public partial class Youtube : System.Web.UI.Page
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = txtTitle.Text;
-            cmd.Parameters.Add("@Hyperlink", SqlDbType.VarChar).Value = url.Text;
+            cmd.Parameters.Add("@Hyperlink", SqlDbType.VarChar).Value = txtUrl.Text;
             cmd.Parameters.Add("@category", SqlDbType.VarChar).Value = txtCategory.Text;
 
 
@@ -99,5 +102,79 @@ public partial class Youtube : System.Web.UI.Page
         Response.Redirect("Youtube.aspx");
     }
 
+
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {       
+        UrlIsValid(txtUrl.Text);
+        
+
+    }
+
+    public bool UrlIsValid(string url)
+    {
+        
+        Label5.Text = " ";
+        try
+        {
+            System.Net.HttpWebRequest request = System.Net.HttpWebRequest.Create(url) as System.Net.HttpWebRequest;
+            request.Timeout = 5000; //set the timeout to 5 seconds to keep the user from waiting too long for the page to load
+            request.Method = "HEAD"; //Get only the header information -- no need to download any content
+
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                
+                int statusCode = (int)response.StatusCode;
+                if (statusCode >= 100 && statusCode < 400) //Good requests
+                {
+                    Button1.Enabled = true;
+                    bool valid = true;
+                    Label5.Text = "URL is Valid!";
+                    //txtUrl.Enabled = false;
+                    return valid;
+                    
+
+                }
+                else if (statusCode >= 500 && statusCode <= 510) //Server Errors
+                {
+                    //log.Warn(String.Format("The remote server has thrown an internal error. Url is not valid: {0}", url));
+                    Debug.WriteLine(String.Format("The remote server has thrown an internal error. Url is not valid: {0}", url));
+                    Label5.Text = "Invalid URL. Please Try Again.";
+                    Button3.Visible = true;
+                    return false;
+                    
+                }
+                
+            }
+        }
+        catch (WebException ex)
+        {
+            if (ex.Status == WebExceptionStatus.ProtocolError) //400 errors
+            {
+                Button3.Visible = true;
+                return false;
+            }
+            else
+            {
+                //log.Warn(String.Format("Unhandled status [{0}] returned for url: {1}", ex.Status, url), ex);
+                Label5.Text = "Invalid URL. Please Try Again.";
+                Button3.Visible = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            //log.Error(String.Format("Could not test url {0}.", url), ex);
+            Label5.Text = "Invalid URL. Please Try Again.";
+            Button3.Visible = true;
+        }
+        return false;
+        
+    }
+
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Button1.Enabled = true;
+    }
 
 }
