@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +7,8 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
-public partial class _Default : System.Web.UI.Page
+
+public partial class Uploading : System.Web.UI.Page
 {
     //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
     //string exception = string.Empty;
@@ -29,6 +30,7 @@ public partial class _Default : System.Web.UI.Page
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
     }
+
     private void Download(int id)
     {
         try
@@ -94,7 +96,7 @@ public partial class _Default : System.Web.UI.Page
         {
             FileInfo fi = new FileInfo(FileUpload1.FileName);
             byte[] documentContent = FileUpload1.FileBytes;
-            
+
 
             string name = fi.Name;
             string extn = fi.Extension;
@@ -125,14 +127,14 @@ public partial class _Default : System.Web.UI.Page
 
         }
     }
-    
+
     protected void Row_Deleting(object sender, EventArgs e)
     {
         //int row = GridView1.SelectedIndex;
         //string rowCell = GridView1.SelectedRow.Cells.ToString();
 
 
-        
+
         sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
         sc.Open();
@@ -145,15 +147,4 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    
-
-
-    }
-
-   
-
-
-
-
-
-    
+}

@@ -113,13 +113,13 @@
         </asp:GridView>
 
 
-        <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="manageUsers" SelectCommand="SELECT        Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment 
-FROM            Feedback INNER JOIN
-                         LoginInfo ON Feedback.accountID = LoginInfo.accountID
+
+       <%-- <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="manageUsers" SelectCommand="SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM Feedback INNER JOIN LoginInfo ON Feedback.accountID = LoginInfo.accountID"--%>
 
 
     
     
+
         <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringFeedback %>" SelectCommand="SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM LoginInfo INNER JOIN Feedback ON LoginInfo.accountID = Feedback.accountID"></asp:SqlDataSource>
 
     
@@ -130,15 +130,6 @@ FROM            Feedback INNER JOIN
                 <asp:BoundField DataField="username" HeaderText="username" SortExpression="username" />
                 <asp:BoundField DataField="comment" HeaderText="comment" SortExpression="comment" />
             </Columns>
-            
-            
-            
-            
-            
-            
-         
-        
-        
         
         </asp:GridView>
     
@@ -160,4 +151,3 @@ FROM            Feedback INNER JOIN
     
     </form>
 </asp:Content>
-

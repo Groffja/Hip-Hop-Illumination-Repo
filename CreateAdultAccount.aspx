@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="CreateAdultAccount.aspx.cs" Inherits="CreateAdultAccount" %>
+<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="CreateAdultAccount.aspx.cs" Inherits="CreateAdultAccount" %>
 
     <!DOCTYPE html>
 
@@ -84,10 +84,45 @@ body{
     background-repeat:no-repeat;
     background-size: auto;
 }
-
-
+.confirmMessage{
+    font-size:15px;
+}
+.bootstrap-select .btn:focus{
+    outline-color:#fed136;
+}
 
         </style>
+<script type="text/javascript">
+function checkPass()
+{
+    //Store the password field objects into variables ...
+    var pass1 = document.getElementById('txtPassword');
+    var pass2 = document.getElementById('check');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(pass1.value == pass2.value){
+        //The passwords match. 
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match!"
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!"
+    }
+}
+
+</script>
 </head>
 <body> 
     <form runat="server">
@@ -107,16 +142,16 @@ body{
                     <div class="form-group" aria-busy="False">
 
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="Label1" runat="server" Text="First Name" Width="130px"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="First Name" Width="180px"></asp:Label>
             <asp:TextBox ID="txtFirstName" runat="server" Width="240px" type="text" pattern="[A-Za-z]{1,50}" class="form-control" placeholder="First Name *" value="" required="true" CssClass="form-control"></asp:TextBox>
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lastNameLabel" runat="server" Text="Last Name" Width="130px"></asp:Label>
+            <asp:Label ID="lastNameLabel" runat="server" Text="Last Name" Width="180px"></asp:Label>
             <asp:TextBox ID="txtLastName" runat="server" Width="240px" pattern="[A-Za-z]{1,50}" type="text" class="form-control" placeholder="Last Name *" value="" required="true" CssClass="form-control"></asp:TextBox>
            
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblState" runat="server" Text="State" Width="130px"></asp:Label>
+            <asp:Label ID="lblState" runat="server" Text="State" Width="180px"></asp:Label>
             <br />
             <asp:DropDownList ID="DropDownstate" runat="server" Width="240px" CssClass="form-control">
 	<asp:ListItem Value="AL">Alabama</asp:ListItem>
@@ -175,7 +210,7 @@ body{
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblCountry" runat="server" Text="Country" Width="130px"></asp:Label>
+            <asp:Label ID="lblCountry" runat="server" Text="Country" Width="180px"></asp:Label>
             <br />
            
             <asp:DropDownList ID="DropDowncountry" runat="server"  Width="240px" OnSelectedIndexChanged="DropDowncountry_SelectedIndexChanged" AutoPostBack="True" CssClass="form-control">
@@ -420,7 +455,7 @@ body{
             <br />
     </div>
     <div class="form-group input-group input-group-md label">
-            <asp:Label ID="Label3" runat="server" Text="Occupation" Width="130px"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Occupation" Width="180px"></asp:Label>
             <br />
             
             <asp:DropDownList ID="DropDownuser" runat="server" Width="240px"  CssClass="form-control">
@@ -435,12 +470,11 @@ body{
 </div>
 
 <div class="form-group input-group input-group-md label">
-                                   <asp:Label ID="genderLabel" runat="server" Text="Gender" Width="130px"></asp:Label>
+                                   <asp:Label ID="genderLabel" runat="server" Text="Gender" Width="180px"></asp:Label>
                                    <br />
                                    <asp:DropDownList ID="DropDowngender"  CssClass="form-control" runat="server" Width="240px" >
                                                 <asp:ListItem Value="M">Male</asp:ListItem>
                                                 <asp:ListItem Value="F">Female</asp:ListItem>
-
                                                 <asp:ListItem Value="T">Transgender</asp:ListItem>
                                                 <asp:ListItem Value="Did Not Answer">Prefer not to disclose</asp:ListItem>
 
@@ -448,45 +482,58 @@ body{
 </div>
 
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblEmail" runat="server" Text="Email" Width="130px"></asp:Label>
+            <asp:Label ID="lblEmail" runat="server" Text="Email" Width="180px"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server" Width="240px" type="text" class="form-control" placeholder="Email *" value=""  required="true" CssClass="form-control" TextMode="Email"></asp:TextBox>
             
 </div>
 
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblDateOfBirth" runat="server" Text="Date of Birth" Width="130px"></asp:Label>
+            <asp:Label ID="lblDateOfBirth" runat="server" Text="Date of Birth" Width="180px"></asp:Label>
             <asp:TextBox ID="txtDateOfBirth" runat="server" Width="240px" type="text" class="form-control" placeholder="DD/MM/YYYY *" value="" required="true" CssClass="form-control" TextMode="Date"></asp:TextBox>
             
             <br />
-            <asp:RangeValidator ID="ageValidator" runat="server" ControlToValidate="txtDateOfBirth" Display="Dynamic" ErrorMessage="Must be 18+" ForeColor="Red" MaximumValue="04/15/2001" MinimumValue="04/15/1900" Type="Date"></asp:RangeValidator>
+            
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteMusic2" runat="server" Text="Favorite Genre" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteMusic2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control">Optional...</asp:TextBox>
+            <asp:Label ID="lblFavoriteMusic2" runat="server" Text="Favorite Genre" Width="180px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteMusic2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control" placeholder="Optional..."></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblFavoriteArtist2" runat="server" Text="Favorite Artist" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtFavoriteArtist2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control">Optional...</asp:TextBox>
+            <asp:Label ID="lblFavoriteArtist2" runat="server" Text="Favorite Artist" Width="180px"></asp:Label>
+            <asp:TextBox ID="txtFavoriteArtist2" runat="server" Width="240px" type="text" class="form-control" CssClass="form-control" placeholder="Optional..."></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="lblUsername" runat="server" Text="Username" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtUsername" runat="server" Width="240px" type="text" class="form-control" placeholder="Username *" value="" required="true" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblUsername" runat="server" Text="Username" Width="180px"></asp:Label>
+            <asp:TextBox ID="txtUsername" runat="server" Width="240px" type="text" pattern="{1,50}" class="form-control" placeholder="Username *" value="" required="true" CssClass="form-control"></asp:TextBox>
             
 </div>
 <div class="form-group input-group input-group-md label">
-            <asp:Label ID="Label2" runat="server" Text="Password" Width="130px"></asp:Label>
-            <asp:TextBox ID="txtPassword" runat="server" Width="240px" type="text" class="form-control" placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="Label2" runat="server" Text="Password" Width="180px"></asp:Label>
+            <asp:TextBox ID="txtPassword" runat="server" Width="240px" type="text" pattern=".{8,}"  title="Must contain at least eight characters" class="form-control" placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>
           
 </div>
-             
+<div class="form-group input-group input-group-md label">
+            <asp:Label ID="Label4" runat="server" Text="Password" Width="180px"></asp:Label>
+            <asp:TextBox ID="check" runat="server" onkeyup="checkPass(); return false;" pattern=".{8,}"  title="Must contain at least eight characters" Width="240px" type="text" class="form-control" placeholder="Password *" value="" TextMode="Password" required="true" CssClass="form-control"></asp:TextBox>      
 
+    </div>
+                        <div class="form-group input-group input-group-md label">
+                            <asp:CompareValidator ID="ComparePassword" runat="server" ControlToCompare="txtPassword" ControlToValidate="check"></asp:CompareValidator>
+            <span id="confirmMessage" class="confirmMessage"></span>
+</div>
+
+<div class="form-group input-group input-group-md label">
+            <asp:Label ID="lblEmailVal" runat="server" width="370px" ForeColor="#FF6666" Font-Overline="False" Font-Size="Medium" Font-Strikeout="False" Height="15px"></asp:Label>
+</div>
+<div class="form-group input-group input-group-md label">
+         <asp:RangeValidator ID="ageValidator" runat="server" width="370px" ControlToValidate="txtDateOfBirth" Display="Dynamic" ErrorMessage="Must be 18+" ForeColor="#FF6666" MaximumValue="04/15/2001" MinimumValue="04/15/1900" Type="Date" Font-Size="Medium" Height="15px"></asp:RangeValidator>
+</div>
             <%--<asp:Button ID="btnRegister" class="btnRegister" runat="server" OnClick="CreateAccount_Click" Text="Create" />--%>
                         <asp:Button ID="CreateAccount" runat="server" Text="Create" class="btnRegister" OnClick="CreateAccount_Click1"/>
-                        <asp:Label ID="lblEmailVal" runat="server" Width="130px" ForeColor="Red"></asp:Label>
-          
+
 </div>
 
         </div> <!-- row register-form -->
@@ -502,4 +549,5 @@ body{
      
 </body>
 </html>
+
 

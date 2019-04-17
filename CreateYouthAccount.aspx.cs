@@ -88,14 +88,14 @@ public partial class CreateYouthAccount : System.Web.UI.Page
     {
 
         if (Page.IsValid)
-        {            
+        {
             sc.Close();
-                
-            
-            
+
+
+
             //update data using list in the class
             YouthFirstName = HttpUtility.HtmlEncode(txtFirstName.Text);
-            YouthLastName = HttpUtility.HtmlEncode(txtLastName.Text);              
+            YouthLastName = HttpUtility.HtmlEncode(txtLastName.Text);
             YouthState = HttpUtility.HtmlEncode(ddlState.Text);
             YouthCountry = HttpUtility.HtmlEncode(ddlCountry.SelectedItem.Value);
             YouthEmail = HttpUtility.HtmlEncode(txtEmail.Text);
@@ -194,9 +194,9 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 lblEmailVal.Text = "ERROR:Email Provided already registered with an account!!";
             }
 
-            
+
         }
     }
 
-   
+
 }

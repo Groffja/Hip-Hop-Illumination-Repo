@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,10 +20,11 @@ public partial class Resources : System.Web.UI.Page
         
         // Store URL from gridview into string
         string url = " ";
-        url = row.Cells[3].Text;      
-
-        Response.Redirect(url);
+        url = row.Cells[3].Text;
+        Response.Write("<script>window.open('"+url+"','_blank')</script>");
+        
 
         
     }
+
 }
