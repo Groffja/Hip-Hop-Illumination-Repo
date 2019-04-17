@@ -1,8 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ForgotPassword.aspx.cs" Inherits="_Default" %>
+
 
 <!DOCTYPE html>
 <head>
-    <title>Login</title>
+    <title>Forgot Password</title>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -332,29 +333,31 @@ body {
         <br />
         
       <%--<img id="icon" src="img/admin_login.svg"/>--%>
-        <img src="img/microphone.jpg" width="300px" height="300px"/>
-    </div>
+        &nbsp;</div>
         
     <!-- Login Form -->
       <form id="loginForm" class="form-horizontal" runat="server">
           <div class="container">
 
-<%--              <div class="form-group">
-                 <asp:LinkButton ID="lnkCreate" runat="server" href="UserQuestions.aspx">Create Account</asp:LinkButton>
-              </div>--%>
+            <h2>Reset Password</h2>
               <br />
               <br />
               <center>
+                  <asp:Label ID="lblEmail" runat="server">Email to Reset:</asp:Label>
+                  <br />
              <div class="form-group col-8 underlineHover">
                   <asp:TextBox  class="form-control" ID="txtUsername" runat="server" placeholder="Email" required="required" TextMode="Email"></asp:TextBox>
              </div>
-             
-              <div class="form-group col-8 underlineHover">
-                  <asp:TextBox class="form-control" ID="txtPassword" runat="server" placeholder="Password" required="required" TextMode="Password"></asp:TextBox>
-              </div>
 
+                  <asp:Label ID="lblPassword" runat="server">Password for Email:</asp:Label>
+                  <br />
+             <div class="form-group col-8 underlineHover">
+                  <asp:TextBox  class="form-control" ID="txtPassword" runat="server" placeholder="Password for Email" required="required"></asp:TextBox>
+             </div>
+             
+              
               <div class="form-group col-sm-6 text-center ">
-            <asp:Button class="form-control" ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" BackColor="#FFC40C" ForeColor="Black" Height="50px" Width="200px"/>
+            <asp:Button class="form-control" ID="btnReset" runat="server" OnClick="btnReset_Click" Text="Send Reset Email" BackColor="#FFC40C" ForeColor="Black" Height="50px" Width="200px"/>
               </div>
                   
               <div class="form-group">
@@ -368,8 +371,7 @@ body {
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="UserQuestions.aspx">Create Account</a>
-        <br />
+      &nbsp;<br />
       <a class="underlineHover" href="ForgotPassword.aspx">Forgot Password</a>
     </div>
 

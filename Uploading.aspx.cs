@@ -88,7 +88,7 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void save_Click(object sender, EventArgs e)
     {
         try
         {
@@ -143,65 +143,16 @@ public partial class _Default : System.Web.UI.Page
         delete.ExecuteNonQuery();
 
 
-    }
+    }  
 
-    // Uploads a resource into Database
-    protected void save_Click(object sender, EventArgs e)
-    {
-
-        try
-        {
-            int admin;
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
-            System.Data.SqlClient.SqlCommand id = new System.Data.SqlClient.SqlCommand();
-            id.CommandText = "SELECT adminID FROM Admin WHERE (accountID =" + Session["accountID"] + ")";
-            id.Connection = sc;
-            sc.Open();
-
-            SqlDataReader reader = id.ExecuteReader();
-            while (reader.Read())
-            {
-                string adminID = reader["adminID"].ToString(); //// Need to find way to store get adminID and reference it the resource.commandText SQL Query
-                admin = int.Parse(adminID);
-            }
-        }
-        catch
-        {
-
-        }
-
-
-    }
-
-    void Application_Error(object sender, EventArgs e)
-    {
-        // Code that runs when an unhandled error occurs
-        //Exception ex;
-
-
-            Response.Redirect("Uploading.aspx");
-        }
-        catch
-
-
-        {
-            System.Exception lastException = Server.GetLastError();
-            HttpException httpException = (HttpException)lastException;
-            int httpCode = httpException.GetHttpCode();
-            int errorCode = httpException.ErrorCode;
-            if (errorCode == -2147467259)
-            {
-                Server.ClearError();
-                Response.Redirect("Uploading.aspx?fileTooLarge=true");
-            }
-        }
-
-
-
-
-
-
-    }
-
+    
 }
+
+
+
+
+
+
+    
+
+

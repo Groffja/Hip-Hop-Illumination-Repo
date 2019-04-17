@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Default" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +46,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive" runat="server">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services">About Us</a>
+                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop" data-toggle="dropdown" >
+                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                             Lessons</a>
                         <div class="dropdown-menu">
                              <a class="dropdown-item" href="6Cs.aspx">The Six C's</a>
@@ -57,12 +59,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#team">Our Focus</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link js-scroll-trigger dropdown-toggle" id="navbardrop1" data-toggle="dropdown">About Us</a>
-                         <div class="dropdown-menu">
-                             <a class="dropdown-item" href="Founder.aspx">Founder</a>
-                                 </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -87,11 +83,62 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Hip Hop IllumiNation!</div>
                 <div class="intro-heading text-uppercase">Let the Music Speak</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#Lessons">Tell Me More</a>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
         </div>
     </header>
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">About Us</h2>
+                    <center>
+                    <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width: 900px">
+                        Hip Hop IllumiNation was born out of a love for hip hop music, a commitment to positive youth development,
+                        and a burning desire to combine the two productively.
+                        We deeply believe that hip hop music provides poignant insight into the lived experiences of the marginalized and dispossessed,
+                        serving as a prism through which young people, particularly young men of color, might view the world around them.
+                        It also serves as a mirror into which they can gaze and reflect upon their own selves–good, bad, and ugly.
+                        We hope that Hip Hop IllumiNation prompts you to stand over the shoulders of those young men as they explore the art.
+                        We hope that you elicit, encourage, and sometimes challenge their insights and reflections,
+                        pushing them to realize and express their best selves while resisting and disrupting the structures that stand in their way.
+                        <br />
+                        <br />
+                        We believe that marginalized youth need to first be aware of and reflect upon the sociopolitical circumstances that may present barriers on their pathways to adulthood.
+                        Then, they must build and bolster developmental assets, so they can finally take effective action to navigate and/or dismantle these barriers.
+                    </h3>
+                        </center>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-globe-americas fa-stack-1x fa-inverse"></i>
+                        <%--<i class="fab fa-angellist fa-stack-1x fa-inverse"></i>--%>
+                        <%--<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>--%>
+                        
+                    </span>
+                    <h4 class="service-heading">Mission</h4>
+                    <center>
+                    <p class="text-muted" style="text-align:left; width: 400px">Our mission is to increase critical consciousness and developmental assets among young men of color (ages 14-24) through guided exploration of hip hop music.</p>
+               </center>
+                    </div>
+                <div class="col-md-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Vision</h4>
+                    <center>
+                    <p class="text-muted" style="text-align:left; width: 400px">Our vision is that young men of color, particularly those living in marginalized communities, will recognize their strengths and exercise their power to positively influence the world around them.</p>
+                </center>
+                </div>
 
+            </div>
+        </div>
+    </section>
    
 
     <!--Lessons -->
@@ -220,59 +267,8 @@
                 </div>
             </div>
         </div>
-        </section>
-    <!-- Services -->
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">About Us</h2>
-                    <center>
-                    <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width: 900px">
-                        Hip Hop IllumiNation was born out of a love for hip hop music, a commitment to positive youth development,
-                        and a burning desire to combine the two productively.
-                        We deeply believe that hip hop music provides poignant insight into the lived experiences of the marginalized and dispossessed,
-                        serving as a prism through which young people, particularly young men of color, might view the world around them.
-                        It also serves as a mirror into which they can gaze and reflect upon their own selves–good, bad, and ugly.
-                        We hope that Hip Hop IllumiNation prompts you to stand over the shoulders of those young men as they explore the art.
-                        We hope that you elicit, encourage, and sometimes challenge their insights and reflections,
-                        pushing them to realize and express their best selves while resisting and disrupting the structures that stand in their way.
-                        <br />
-                        <br />
-                        We believe that marginalized youth need to first be aware of and reflect upon the sociopolitical circumstances that may present barriers on their pathways to adulthood.
-                        Then, they must build and bolster developmental assets, so they can finally take effective action to navigate and/or dismantle these barriers.
-                    </h3>
-                        </center>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-globe-americas fa-stack-1x fa-inverse"></i>
-                        <%--<i class="fab fa-angellist fa-stack-1x fa-inverse"></i>--%>
-                        <%--<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>--%>
-                        
-                    </span>
-                    <h4 class="service-heading">Mission</h4>
-                    <center>
-                    <p class="text-muted" style="text-align:left; width: 400px">Our mission is to increase critical consciousness and developmental assets among young men of color (ages 14-24) through guided exploration of hip hop music.</p>
-               </center>
-                    </div>
-                <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Vision</h4>
-                    <center>
-                    <p class="text-muted" style="text-align:left; width: 400px">Our vision is that young men of color, particularly those living in marginalized communities, will recognize their strengths and exercise their power to positively influence the world around them.</p>
-                </center>
-                </div>
-
-            </div>
-        </div>
-    </section>        
+    </section>
+    
     <!-- Contact -->
     <section id="contact">
         <div class="container">
@@ -284,34 +280,32 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="contactForm" name="sentMessage" runat="server" novalidate="novalidate">
+                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" id="name" runat="server" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="email" runat="server" type="text" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="phone" type="text" runat="server" placeholder="Topic *" required="required" data-validation-required-message="Please enter a topic.">
+                                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" id="messageTextArea" runat="server" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <asp:Button ID="sendMessageButtonIndex" runat="server" CssClass="btn btn-primary btn-xl text-uppercase" Text="Send Message" OnClick="IndexMessageButton_Click"  />
-                                
-                                
+                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
@@ -324,19 +318,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; 2018 Hip Hop IllumiNation, All Rights Reserved</span>
+                    <span class="copyright">Copyright &copy; Hip Hop IllumiNation</span>
                 </div>
                 <div class="col-md-4">
-                    <p>
-            <i class="fas fa-envelope mr-3"></i> info@hiphopillumination.org</p>
-          <p>
-            <i class="fas fa-phone mr-3"></i>(240)346-8465</p>
-          <p>
-                    <%--<ul class="list-inline social-buttons">
+                    <ul class="list-inline social-buttons">
                         <li class="list-inline-item">
                             <a href="#">
-                                <p>
-                                <i class="fas fa-envelope mr-3"></i>info@hiphopillumination.org</p>
+                                <i class="fab fa-twitter"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
@@ -349,11 +337,8 @@
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                         </li>
-                    </ul>--%>
+                    </ul>
                 </div>
-
-                
-
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
                         <li class="list-inline-item">
@@ -379,4 +364,5 @@
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
 </body>
+
 </html>

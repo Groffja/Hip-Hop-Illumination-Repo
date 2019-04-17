@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="RecommendationForYandYW.aspx.cs" Inherits="RecommendationForYandYW" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="RecommendationForYandYW.aspx.cs" Inherits="RecommendationForYandYW" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -10,27 +10,33 @@
             <style type="text/css">
                 body{
 
+            margin: 0;
+            padding:0;
+
             background-image: url(img/header-bg.jpg);
         }
+.btnRegister
+   {
+    float: left;
+    margin-top: 8%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #fed136;
+    color: black;
+    font-weight: 600;
+    width: 40%;
+    cursor: pointer;
+    border:1px solid white;
+}
 .marginZero{
     margin:0;
     padding:0;
 }
-h1{
-    color:white;
-}
-.btnSee{
-    margin-top: 2%;
-    border: none;
-    border-radius: 1.5rem;
-    background: #fed136;
-    color: black;
-    font-weight: 600;
-    width: 200px;
-    cursor: pointer;
-    border:1px solid white;
-}
+
+
             </style>
+
 
 
         </head>
@@ -47,27 +53,31 @@ h1{
         <br />
             <form id="recommendationForMeForm" method="post">
                  <center>
-                     <h1>Recommendations for You</h1>
-                      <asp:Button ID="btnSeeData" runat="server" OnClick="btnSeeData_Click" Text="See Recommendation" class="btnSee"/>
-                     </center>
-               
 <div class="row d-block mx-auto">
     <div class="col d-block mx-auto">
         <div class="row "> 
         <div class="form-group col-4">
-
-        
-
+           
+        <asp:Button ID="btnSeeData" runat="server" OnClick="btnSeeData_Click" Text="See Recommendation" class="btnRegister"/>
+                
         <asp:TextBox ID="test" runat="server" Visible="False"></asp:TextBox>
             <br />
             <asp:Label ID="Label1" class="align-content-center" runat="server" Width="400px"></asp:Label>
             </div>
             </div>
         
+<%--            <div class="row"> 
+
+            <div class="form-group col-3 d-block mx-auto">
+            <asp:Label ID="Label1" runat="server" Text="Recommendation For You" ForeColor="white"></asp:Label>
+
+            </div>
+                 
+            </div>--%>
 
         <div class="row d-block mx-auto"> 
             <div class="col d-block mx-auto"
-
+                <center>
     <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">You currently have no Recommendations!</asp:Label>
     
         <Center>
@@ -84,7 +94,9 @@ h1{
         </Columns>
         <RowStyle />
     </asp:GridView>
+
        </Center>        
+
 
                 </div>
             </div>
@@ -106,7 +118,7 @@ h1{
     
     </div>
     </div>
- 
+                     </center>
                 </form>
     </body>
     </html>
@@ -114,3 +126,4 @@ h1{
 
 
 </asp:Content>
+

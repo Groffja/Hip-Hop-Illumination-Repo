@@ -112,6 +112,14 @@
         
         </asp:GridView>
 
+
+
+       <%-- <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="manageUsers" SelectCommand="SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM Feedback INNER JOIN LoginInfo ON Feedback.accountID = LoginInfo.accountID"--%>
+
+
+    
+    
+
         <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringFeedback %>" SelectCommand="SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM LoginInfo INNER JOIN Feedback ON LoginInfo.accountID = Feedback.accountID"></asp:SqlDataSource>
 
     
@@ -143,4 +151,3 @@
     
     </form>
 </asp:Content>
-

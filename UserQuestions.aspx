@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/YouthCreate.css" crossorigin="anonymous">
 
-    <title>Hip Hop IllumiNation.com</title>
+    <title>User Questions</title>
     <style>
         .drop{border:ridge;}
 
@@ -99,7 +99,7 @@ body{
                 <div class="col-md-3 register-left">
                         <img src="img/microphone-pngrepo-com.png" alt=""/>
                         <h3>Welcome</h3>
-                        <p>to Hip Hop IllumiNation!</p>
+                        <p>to Hip Hop Illumination!</p>
                 </div>  <!-- left aside-->
 
             <div class="col-md-9 register-right">  
@@ -124,10 +124,10 @@ body{
                       <br />
      </div>
                         <div class="form-check form-group rightStyle">
-            <input runat="server" Class="form-check-input" type="radio" id="adultYes" name="adult" value="yes" required>
+            <input runat="server" Class="form-check-input" type="radio" id="adultYes" name="adult" value="yes">
             <asp:Label ID="Label1" class="form-check-label" runat="server" Text="Yes" Width="130px" for="adultYes" ></asp:Label>
                             <br />
-            <input runat="server" Class="form-check-input" type="radio" id="adultNo" name="adult" value="no" required>
+            <input runat="server" Class="form-check-input" type="radio" id="adultNo" name="adult" value="no">
             <asp:Label ID="Label2" class="form-check-label" runat="server" Text="No" Width="130px" for="adultYes" ></asp:Label>
                           </div>
            
