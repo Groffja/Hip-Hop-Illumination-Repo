@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="Youtube.aspx.cs" Inherits="Youtube" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="Youtube.aspx.cs" Inherits="Youtube" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -30,7 +30,7 @@
                 <div class="col">
                     <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="URL "  Width="10%"></asp:Label>
-            <asp:textbox ID="url" runat="server" class="form-control" required="true" Width="20%" />
+            <asp:textbox ID="txtUrl" runat="server" class="form-control" required="true" Width="20%" enabled="true"/>
         <br />
                         </div>
          <div class="form-group">
@@ -48,8 +48,11 @@
                     <div class="form-group">
         <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning" OnClick="Button1_Click" Text="Save" Width="10%" Enabled="false" />
         <asp:Button ID="Button2" runat="server" CssClass="btn btn-warning" OnClick="Button2_Click" Text="Check URL" Width="10%" />
+        <%--<asp:Button ID="Button3" runat="server" CssClass="btn btn-warning" OnClick="Button3_Click" Text="URL is valid" Width="10%" />--%>
  </div>
                     <asp:Label ID="Label5" runat="server" Width="25%"></asp:Label>
+                    <br />
+                    <asp:Button ID="Button3" runat="server" CssClass="btn btn-warning" OnClick="Button3_Click" Text="Continue Anyway" Width="15%" Visible="false" />
         <br />
         
     
@@ -108,3 +111,4 @@
 </body>
 </html>
 </asp:Content>
+

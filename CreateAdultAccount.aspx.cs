@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
@@ -160,4 +160,5 @@ public partial class CreateAdultAccount : System.Web.UI.Page
             lblEmailVal.Text = "This email already exists";
         }
     }
+
 }

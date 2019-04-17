@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <head>
     <title>Hip Hop IllumiNation.com</title>
-
 <style>
     body{
         padding-top: 50px !important;
@@ -40,7 +39,7 @@ label.star {
   transition: all .2s;
 } 
 input.star:checked ~ label.star:before {
-  content: '\f005';
+  content: '\f0eb';
   color: #FD4;
   transition: all .25s;
 } 
@@ -49,17 +48,17 @@ input.star-1:checked ~ label.star:before {
   text-shadow: 0 0 20px #952;
 } 
 input.star-2:checked ~ label.star:before {
-  content: '\f005';
+  content: '\f0eb';
   color: #FD4;
   transition: all .25s;
 } 
 input.star-3:checked ~ label.star:before {
-  content: '\f005';
+  content: '\f0eb';
   color: #FD4;
   transition: all .25s;
 } 
 input.star-4:checked ~ label.star:before {
-  content: '\f005';
+  content: '\f0eb';
   color: #FD4;
   transition: all .25s;
 } 
@@ -69,9 +68,13 @@ input.star-5:checked ~ label.star:before { color: #F62; }
 label.star:hover { transform: rotate(-15deg) scale(1.3); }
 
     label.star:before {
-        content: '\f006';
+        content: '\f0eb';
         font-family: FontAwesome;
     }
+/*checks{
+   content: '\f00c';
+   color: forestgreen;                                     green check
+}*/
 </style>        
         </head>
     <body>
@@ -105,14 +108,16 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
           </center>
           </div>       
 
-    <table runat="server" class="table table-striped table-dark" >
+    <table ID="Table1" runat="server" class="table table-striped table-dark" >
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Documents</th>
       <%--<th scope="col">Read Again?</th>--%>
-      <th scope="col">Rating</th>
+      <th scope="col" >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Rating</th>
+      <th scope="col">Comment</th>
       <th scope="col">Submit</th>
+      <%--<th scope="col">Status</th>                        green checks--%>
     </tr>
   </thead>
   <tbody>
@@ -134,7 +139,9 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
     <label class="star star-5" ClientIDMode="static" runat="server" for="star5"></label>
     </div>
       </td>
-        <td><asp:Button class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit1" /></td>
+        <td><asp:TextBox  ID="txtComment1" runat="server" placeholder="Rating Comment"></asp:TextBox></td>
+        <td><asp:Button id="submitbtn1" class="btn btn-primary" Text="Submit" runat="server" onclick="btnSubmit1" /></td>
+        <%--<td><label id="check1" ClientIDMode="static" runat="server" content="\f00c"></label></td>                                    green check--%>
     </tr>
     <tr>
       <th scope="row">2</th>
@@ -154,7 +161,8 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
     <label class="star star-5" ClientIDMode="static" runat="server" for="star10"></label>
     </div>
       </td>
-        <td><asp:Button  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit2" /></td>
+        <td><asp:TextBox  ID="txtComment2" runat="server" placeholder="Rating Comment"></asp:TextBox></td>
+        <td><asp:Button id="submitbtn2"  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit2" /></td>
     </tr>
     <tr>
       <th scope="row">3</th>
@@ -174,7 +182,8 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
     <label class="star star-5" ClientIDMode="static" runat="server" for="star15"></label>
     </div>
       </td>
-        <td><asp:Button  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit3" /></td>
+       <td><asp:TextBox  ID="txtComment3" runat="server" placeholder="Rating Comment"></asp:TextBox></td>
+        <td><asp:Button id="submitbtn3"  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit3" /></td>
     </tr>
       <tr>
         <th scope="row">4</th>      
@@ -194,7 +203,8 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
     <label class="star star-5" ClientIDMode="static" runat="server" for="star20"></label>
     </div>
       </td>
-          <td><asp:Button class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit4" /></td>
+          <td><asp:TextBox  ID="txtComment4" runat="server" placeholder="Rating Comment"></asp:TextBox></td>
+          <td><asp:Button id="submitbtn4"  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit4" /></td>
     </tr>
     <tr>
       <th scope="row">5</th>
@@ -214,13 +224,17 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
     <label class="star star-5" ClientIDMode="static" runat="server" for="star25"></label>
     </div>
       </td>
-        <td><asp:Button  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit5" /></td>
+        <td><asp:TextBox  ID="txtComment5" runat="server" placeholder="Rating Comment"></asp:TextBox></td>
+        
+        <td><asp:Button id="submitbtn5"  class="btn btn-primary" Text="Submit" runat="server"  onclick="btnSubmit5" /></td>
     </tr>    
   </tbody>
 </table>
             
             </div>
-        <asp:Label id="lblStarVal" runat="server" Text="" ForeColor="#CC0000" />
+        <center>
+        <asp:Label id="lblStarVal" runat="server" Text="" ForeColor="White" visible="false" class="btn btn-primary"/>
+            </center>
 <%--            </form>--%>
         </body>
 </asp:Content>

@@ -110,7 +110,7 @@ public partial class Uploading : System.Web.UI.Page
         //string rowCell = GridView1.SelectedRow.Cells.ToString();
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=LOCALHOST;Database=hhidatabase;Trusted_Connection=Yes;";
+        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
         sc.Open();
         System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
         delete.Connection = sc;

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="CreateAdultAccount.aspx.cs" Inherits="CreateAdultAccount" %>
+<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="CreateAdultAccount.aspx.cs" Inherits="CreateAdultAccount" %>
 
     <!DOCTYPE html>
 
@@ -550,4 +550,5 @@ function checkPass()
      
 </body>
 </html>
+
 

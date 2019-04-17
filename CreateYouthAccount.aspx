@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="CreateYouthAccount.aspx.cs" Inherits="CreateYouthAccount" %>
+<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="CreateYouthAccount.aspx.cs" Inherits="CreateYouthAccount" %>
 
 
 <!DOCTYPE html>
@@ -544,4 +544,5 @@ function checkPass()
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </form>
 </body>
+
 </html>

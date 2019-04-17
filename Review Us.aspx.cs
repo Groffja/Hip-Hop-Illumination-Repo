@@ -11,18 +11,18 @@ using System.Text.RegularExpressions;
 
 public partial class Review_Us : System.Web.UI.Page
 {
-    string conStr = @"Data Source=localhost;Database=hhidatabase;Integrated Security=true";
+    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
     int count = 0;
     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
     int ratingCount = 1;
     int id = 0;
-
+    string docID;
     int value = 0;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+        
+        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
 
 
@@ -74,6 +74,7 @@ public partial class Review_Us : System.Web.UI.Page
         if (star11.Checked)   //ROW 3
         {
             value = 5;
+            
         }
         if (star12.Checked)
         {
@@ -133,140 +134,51 @@ public partial class Review_Us : System.Web.UI.Page
         {
             value = 1;
         }
-
+        
 
         if (!IsPostBack)
         {
             FillData();
 
         }
-        //SqlConnection quentin = new SqlConnection(conStr);
-        //SqlCommand getType = new SqlCommand();        
-        //getType.CommandText = "SELECT accountType FROM LoginInfo where username =" + Session["username"] + ";" ;
-        //getType.Connection = quentin;
-        //quentin.Open();
-        //string type;               
-        //SqlDataReader otherReader = getType.ExecuteReader();
-        //type = otherReader.ToString();               
-        //quentin.Close();
-        //if (type == "Youth")
-        //{
-        //    string ID = " ";
-        //    SqlConnection idk = new SqlConnection(conStr);
-        //    SqlCommand getID = new SqlCommand();
-        //    getID.CommandText = "SELECT youthID FROM Youth where username =" + Session["username"] + ";";
-        //    getID.Connection = idk;
-        //    idk.Open();
-
-        //    SqlDataReader otherOtherReader = getID.ExecuteReader();            
-        //    while (otherOtherReader.Read())
-        //    {
-        //        ID = otherOtherReader["youthID"].ToString();
-
-        //    }
-        //    int theID = int.Parse(ID);
-        //    idk.Close();
-
-        // THE SQL STATEMENT FOR SEARCHING LESSON YOUTH "SELECT Documents.Name FROM Documents INNER JOIN LessonYouth ON Documents.ID = (SELECT MAX(LessonYouth.ID) FROM LessonYouth WHERE LessonYouth.youthID =" + theID + ");";
-
-        if (count == 0)
-        {
+        
             string name = " ";
             SqlConnection cn = new SqlConnection(conStr);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT ID,Name FROM[dbo].Documents WHERE ID = (SELECT MAX(ID) FROM[dbo].[Documents]);";
+            cmd.CommandText = "SELECT Documents.ID, Documents.Name, Lessons.dateStarted FROM Lessons INNER JOIN Documents ON Lessons.ID = Documents.ID WHERE(Lessons.accountID = '" + Session["accountID"] + "') ORDER BY Lessons.dateStarted DESC";
             cn.Open();
             cmd.Connection = cn;
             SqlDataReader reader = cmd.ExecuteReader();
-
+            int countName = 1;
             while (reader.Read())
             {
                 name = reader["Name"].ToString();
                 id = Convert.ToInt32(reader["ID"]);
 
-
-            }
-            cn.Close();
-            doc1.InnerText = name;
-            count++;
-        }
-        if (count == 1)
-        {
-            string name = " ";
-            SqlConnection cn = new SqlConnection(conStr);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT ID,Name FROM[dbo].Documents WHERE ID = (SELECT MAX(ID) - 1 FROM[dbo].[Documents]);";
-            cn.Open();
-            cmd.Connection = cn;
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            if (countName == 1)
             {
-                name = reader["Name"].ToString();
-                id = Convert.ToInt32(reader["ID"]);
+                doc1.InnerText = name;
             }
-            cn.Close();
-            doc2.InnerText = name;
-            count++;
-        }
-        if (count == 2)
-        {
-            string name = " ";
-            SqlConnection cn = new SqlConnection(conStr);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT ID,Name FROM [dbo].Documents WHERE ID = (SELECT MAX(ID)-2 FROM [dbo].[Documents]);";
-            cn.Open();
-            cmd.Connection = cn;
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            if (countName == 2)
             {
-                name = reader["Name"].ToString();
-                id = Convert.ToInt32(reader["ID"]);
+                doc2.InnerText = name;
             }
-            cn.Close();
-            doc3.InnerText = name;
-            count++;
-        }
-        if (count == 3)
-        {
-            string name = " ";
-            SqlConnection cn = new SqlConnection(conStr);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT ID,Name FROM [dbo].Documents WHERE ID = (SELECT MAX(ID)-3 FROM [dbo].[Documents]);";
-            cn.Open();
-            cmd.Connection = cn;
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            if (countName == 3)
             {
-                name = reader["Name"].ToString();
-                id = Convert.ToInt32(reader["ID"]);
+                doc3.InnerText = name;
             }
-            cn.Close();
-            doc4.InnerText = name;
-            count++;
-        }
-        if (count == 4)
-        {
-            string name = " ";
-            SqlConnection cn = new SqlConnection(conStr);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT ID,Name FROM [dbo].Documents WHERE ID = (SELECT MAX(ID)-4 FROM [dbo].[Documents]);";
-            cn.Open();
-            cmd.Connection = cn;
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            if (countName == 4)
             {
-                name = reader["Name"].ToString();
-                id = Convert.ToInt32(reader["ID"]);
+                doc4.InnerText = name;
+            }
+            if (countName == 5)
+            {
+                doc5.InnerText = name;
+            }
+            countName++;
             }
             cn.Close();
-            doc5.InnerText = name;
-        }
-
-
+      
     }
 
 
@@ -286,135 +198,223 @@ public partial class Review_Us : System.Web.UI.Page
         {
             gvDocuments.DataSource = dt;
             gvDocuments.DataBind();
-
         }
-
-
+        
     }
-    //protected void btnRead(object sender, EventArgs e)
-    //{
-    //    LinkButton lnk = (LinkButton)sender;
-    //    GridViewRow gr = (GridViewRow)lnk.NamingContainer;
-
-    //    int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
-    //    Download(id);
-
-    //    //try
-    //    //{
-    //    //    SqlConnection cn = new SqlConnection(conStr);
-    //    //    cn.Open();
-    //    //    SqlCommand cmd = new SqlCommand();
-    //    //    cmd.Connection = cn;
-    //    //    cmd.CommandText = "INSERT INTO Lessons VALUES (" + id + "," + Session["accountID"] + ",GETDATE(),GETDATE(),'" + Session["username"] + "');";
-    //    //    cmd.ExecuteNonQuery();
-    //    //    cn.Close();
-    //    //}
-    //    //catch
-    //    //{
-
-    //    //}
-
-    //}
-    //private void Download(int id)
-    //{
-    //    DataTable dt = new DataTable();
-    //    using (SqlConnection cn = new SqlConnection(conStr))
-    //    {
-    //        SqlCommand cmd = new SqlCommand("GetDocument", cn);
-    //        cmd.CommandType = CommandType.StoredProcedure;
-    //        cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
-    //        cn.Open();
-    //        SqlDataReader reader = cmd.ExecuteReader();
-
-    //        dt.Load(reader);
-    //    }
-
-    //    string name = dt.Rows[0]["Name"].ToString();
 
 
-
-    //    byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
-
-    //    Response.ClearContent();
-    //    Response.ContentType = "appliction/octetstream";
-    //    Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
-    //    Response.AddHeader("Content-Length", documentBytes.Length.ToString());
-
-    //    Response.BinaryWrite(documentBytes);
-    //    Response.Flush();
-    //    Response.Close();
-
-    //}
 
     protected void btnSubmit1(object sender, EventArgs e)
     {
+        if (value != 0)
+        {
+            try
+            {
+                sc.Open();
+                SqlCommand check = new SqlCommand();
+                check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc1.InnerText + "'";
+                SqlConnection cn = new SqlConnection(conStr);
+                cn.Open();
+                check.Connection = cn;
+                SqlDataReader reader = check.ExecuteReader();
 
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 1);  // document id
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+                while (reader.Read())
+                {
+                    docID = reader["ID"].ToString();
+                }
+                cn.Close();
+                sc.Close();
 
-        login.ExecuteNonQuery();
+
+                lblStarVal.Text = "Rating Submitted!";
+                sc.Open();
+                SqlCommand login = new SqlCommand();
+                login.Connection = sc;
+                login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating,@Comment)";
+                login.Parameters.AddWithValue("@ID", Convert.ToInt32(docID));  // document id
+                login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+                login.Parameters.AddWithValue("@Rating", value);
+                login.Parameters.AddWithValue("@Comment", txtComment1.Text);
+
+                login.ExecuteNonQuery();
+            }
+            catch
+            {
+                lblStarVal.Text = "Error - Not signed in or no document name!";
+            }
+        }
+        else { lblStarVal.Text = "Please Select a Rating"; }
+        lblStarVal.Visible = true;
     }
+
+
     protected void btnSubmit2(object sender, EventArgs e)
     {
+        if (value != 0)
+        {
+            try
+            {
+                sc.Open();
+                SqlCommand check = new SqlCommand();
+                check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc2.InnerText + "'";
+                SqlConnection cn = new SqlConnection(conStr);
+                cn.Open();
+                check.Connection = cn;
+                SqlDataReader reader = check.ExecuteReader();
 
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 2);
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+                while (reader.Read())
+                {
+                    docID = reader["ID"].ToString();
+                }
+                cn.Close();
+                sc.Close();
 
-        login.ExecuteNonQuery();
+
+                lblStarVal.Text = "Rating Submitted!";
+                sc.Open();
+                SqlCommand login = new SqlCommand();
+                login.Connection = sc;
+                login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating, @Comment)";
+                login.Parameters.AddWithValue("@ID", docID);
+                login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+                login.Parameters.AddWithValue("@Rating", value);
+                login.Parameters.AddWithValue("@Comment", txtComment2.Text);
+
+                login.ExecuteNonQuery();
+            }
+            catch
+            {
+                lblStarVal.Text = "Error - Not signed in or no document name!";
+            }
+        }
+        else { lblStarVal.Text = "Please Select a Rating"; }
+        lblStarVal.Visible = true;
     }
     protected void btnSubmit3(object sender, EventArgs e)
     {
-        id = 3;
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 3);
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+        if (value != 0)
+        {
+            try
+            {
+                sc.Open();
+                SqlCommand check = new SqlCommand();
+                check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc3.InnerText + "'";
+                SqlConnection cn = new SqlConnection(conStr);
+                cn.Open();
+                check.Connection = cn;
+                SqlDataReader reader = check.ExecuteReader();
 
-        login.ExecuteNonQuery();
+                while (reader.Read())
+                {
+                    docID = reader["ID"].ToString();
+                }
+                cn.Close();
+                sc.Close();
+
+
+                lblStarVal.Text = "Rating Submitted!";
+                sc.Open();
+                SqlCommand login = new SqlCommand();
+                login.Connection = sc;
+                login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating,@Comment)";
+                login.Parameters.AddWithValue("@ID", docID);
+                login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+                login.Parameters.AddWithValue("@Rating", value);
+                login.Parameters.AddWithValue("@Comment", txtComment3.Text);
+
+                login.ExecuteNonQuery();
+            }
+            catch
+            {
+                lblStarVal.Text = "Error - Not signed in or no document name!";
+            }
+        }
+        else { lblStarVal.Text = "Please Select a Rating"; }
+        lblStarVal.Visible = true;
     }
     protected void btnSubmit4(object sender, EventArgs e)
     {
+        if (value != 0)
+        {
+            try
+            {
+                sc.Open();
+                SqlCommand check = new SqlCommand();
+                check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc4.InnerText + "'";
+                SqlConnection cn = new SqlConnection(conStr);
+                cn.Open();
+                check.Connection = cn;
+                SqlDataReader reader = check.ExecuteReader();
 
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 4);
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+                while (reader.Read())
+                {
+                    docID = reader["ID"].ToString();
+                }
+                cn.Close();
+                sc.Close();
 
-        login.ExecuteNonQuery();
+
+                lblStarVal.Text = "Rating Submitted!";
+                sc.Open();
+                SqlCommand login = new SqlCommand();
+                login.Connection = sc;
+                login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating,@Comment)";
+                login.Parameters.AddWithValue("@ID", docID);
+                login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+                login.Parameters.AddWithValue("@Rating", value);
+                login.Parameters.AddWithValue("@Comment", txtComment4.Text);
+
+                login.ExecuteNonQuery();
+            }
+            catch
+            {
+                lblStarVal.Text = "Error - Not signed in or no document name!";
+            }
+        }
+        else { lblStarVal.Text = "Please Select a Rating"; }
+        lblStarVal.Visible = true;
     }
     protected void btnSubmit5(object sender, EventArgs e)
     {
-        id = 5;
-        lblStarVal.Text = "Rating Submitted!";
-        sc.Open();
-        SqlCommand login = new SqlCommand();
-        login.Connection = sc;
-        login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating)";
-        login.Parameters.AddWithValue("@ID", 5);
-        login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
-        login.Parameters.AddWithValue("@Rating", value);
+        if (value != 0)
+        {
+            try
+            {
+                sc.Open();
+                SqlCommand check = new SqlCommand();
+                check.CommandText = "Select ID FROM [dbo].[Documents] WHERE Name = '" + doc5.InnerText + "'";
+                SqlConnection cn = new SqlConnection(conStr);
+                cn.Open();
+                check.Connection = cn;
+                SqlDataReader reader = check.ExecuteReader();
 
-        login.ExecuteNonQuery();
+                while (reader.Read())
+                {
+                    docID = reader["ID"].ToString();
+                }
+                cn.Close();
+                sc.Close();
+
+
+                lblStarVal.Text = "Rating Submitted!";
+                sc.Open();
+                SqlCommand login = new SqlCommand();
+                login.Connection = sc;
+                login.CommandText = "INSERT INTO [dbo].[Ratings] VALUES (@ID, @accountID, @Rating,@Comment)";
+                login.Parameters.AddWithValue("@ID", docID);
+                login.Parameters.AddWithValue("@accountID", Session["accountID"].ToString());    //Must be loggin in or accountID = null
+                login.Parameters.AddWithValue("@Rating", value);
+                login.Parameters.AddWithValue("@Comment", txtComment5.Text);
+
+                login.ExecuteNonQuery();
+            }
+            catch
+            {
+                lblStarVal.Text = "Error - Not signed in or no document name!";
+            }
+        }
+        else { lblStarVal.Text = "Please Select a Rating"; }
+        lblStarVal.Visible = true;
     }
 
 
