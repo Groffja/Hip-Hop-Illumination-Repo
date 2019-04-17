@@ -9,6 +9,11 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Check session is expire or timeout. 
+        if (Session["adminLoggedIn"] == null)
+        {
+            Response.Redirect("Login.aspx?info=0");
+        }
         GridView1.DataBind();
         GridView2.DataBind();
         GridView1.Visible = false;
