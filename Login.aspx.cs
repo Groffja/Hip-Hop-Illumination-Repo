@@ -81,8 +81,8 @@ public partial class _Default : System.Web.UI.Page
                     Session["accountID"] = accountReaderID;
                     if (type == "Admin")
                     {
-                        Response.Redirect("AdminHomepage.aspx");
                         Session["adminLoggedIn"] = "true";
+                        Response.Redirect("AdminHomepage.aspx");
                     }
                     else { Response.Redirect("ProfilePage.aspx"); }
 
