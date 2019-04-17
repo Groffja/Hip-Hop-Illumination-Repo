@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="_Default" %>
+<%@ Page Title="" Language="C#" MasterPageFile="MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -15,6 +15,7 @@
     <style>
     
     </style>
+    <title> Hip Hop IllumiNation.com</title>
     <section id="contact">
         <div class="container">
             <div class="row">
@@ -34,10 +35,12 @@
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" id="email" type="text" placeholder="Your Email *" runat="server" required="required" data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
+                                    <p class="help-block text-danger">
+                                 
+                                    </p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="phone" type="text" placeholder="Your Phone *" runat="server" required="required" data-validation-required-message="Please enter your phone number.">
+                                    <input class="form-control" id="phone" type="text" placeholder="Topic *" runat="server" required="required" data-validation-required-message="Please enter a topic.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -62,4 +65,5 @@
         </div>
     </section>
 </asp:Content>
+
 
