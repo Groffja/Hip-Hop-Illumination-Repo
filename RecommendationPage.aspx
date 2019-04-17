@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style type="text/css">
-        section{
+section{
         padding-top: 50px !important;
         margin: 10px;
         background: url(img/header-bg.jpg);
@@ -88,10 +88,10 @@ body{
             <asp:Label ID="Label2" runat="server" Text="Your Recommandation" ForeColor="White"></asp:Label>
             <br />
             <asp:DropDownList ID="ddlRecommendation" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="ID" CssClass="form-control"></asp:DropDownList>            
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringRec %>" SelectCommand="SELECT  Documents.ID, Documents.Name FROM Documents">
-<%--                <SelectParameters>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString %>" SelectCommand="SELECT Documents.ID , Documents.Name FROM Lessons INNER JOIN Documents ON Lessons.ID = Documents.ID WHERE Lessons.accountID = @accountID">
+                <SelectParameters>
             <asp:ControlParameter ControlID="TextBox1" Name="accountID" PropertyName="Text" Type="String" Defaultvalue=""  />
-            </SelectParameters>--%>
+            </SelectParameters>
             </asp:SqlDataSource>            
             
             <br />

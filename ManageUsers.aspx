@@ -4,7 +4,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <title>Hip Hop IllumiNation.com</title>
     <form  id="form2"  runat="server">
     <style>
   table {
