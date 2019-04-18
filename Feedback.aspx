@@ -120,7 +120,7 @@
     
     
 
-        <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringFeedback %>" SelectCommand="SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM LoginInfo INNER JOIN Feedback ON LoginInfo.accountID = Feedback.accountID"></asp:SqlDataSource>
+     <asp:SqlDataSource ID="SqlDataSourceFeedback" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringFeedback %>" SelectCommand="SELECT Feedback.accountID, LoginInfo.username, LoginInfo.email, Feedback.comment FROM LoginInfo INNER JOIN Feedback ON LoginInfo.accountID = Feedback.accountID"></asp:SqlDataSource>
 
     
     

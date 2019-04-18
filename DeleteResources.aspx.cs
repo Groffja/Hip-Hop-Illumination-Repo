@@ -9,6 +9,10 @@ public partial class DeleteResources : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        // Check session is expire or timeout. 
+        if (Session["adminLoggedIn"] == null)
+        {
+            Response.Redirect("Login.aspx?info=0");
+        }
     }
 }
