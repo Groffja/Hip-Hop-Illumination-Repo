@@ -73,7 +73,9 @@
     <form id="form2" runat="server">
      
          <br/>
+        <asp:Panel ID="panel2" runat="server"  DefaultButton="btnSearchbar">
         <asp:TextBox ID="txtSearchbar" runat="server" class="form-control-sm"  Placeholder="Search Lesson" Width="300px"></asp:TextBox>
+            </asp:Panel>
          
         <p>
             
