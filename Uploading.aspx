@@ -1,39 +1,43 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="Uploading.aspx.cs" Inherits="Uploading" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="AdminMasterPage.master" AutoEventWireup="true" CodeFile="Uploading.aspx.cs" Inherits="Uploading" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!DOCTYPE html>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <%--    <!DOCTYPE html>
 
-<html>
-
+<html>--%>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
     <style>
-        body{
+        body {
+            background-image: url(img/header-bg.jpg);
+        }
 
-    background-image:url(img/header-bg.jpg);
-}
-h3{
-      color: white;
-  }
-table {
+        h3 {
+            color: white;
+        }
+
+        table {
             border-collapse: collapse;
             border-spacing: 0;
             width: 100%;
             border: 1px solid #ddd yellow;
         }
-</style>
+    </style>
 
-<body>
-    <form id="form1" runat="server">
+    <body>
+        <form id="form1" runat="server">
 
-                    <div class="container">
+            <div class="container">
                 <div class="row">
                     <div class="col">
 
-
-
-
-            <center>
+                        <center>
                 <h3>Upload a Lesson</h3>
                 
                 <br />
@@ -45,7 +49,6 @@ table {
                 <br />
                 <br />
 
-                
                 <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Category:" Width="150px" Height="50px"></asp:Label>
                 <asp:TextBox ID="TextBox2" runat="server" Width="300px" Height="30px"></asp:TextBox>
                 <br />
@@ -69,7 +72,7 @@ table {
             <br />
 
 
-            <asp:GridView  visible="true" ID="gvDocuments" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID"  CellPadding="10" PageSize="5">
+            <asp:GridView  visible="true" ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID"  CellPadding="10" PageSize="5">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
                         <ItemTemplate>
@@ -83,25 +86,16 @@ table {
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-
-
-            </div>
+                    </div>
                     <asp:SqlDataSource ID="SqlDataSource69" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString %>" SelectCommand="SELECT [Name] AS Title, [DocumentCategory] AS Category, [DocumentCategory2] AS Subcategory, [DocumentCategory3] AS Subcategory2 FROM [Documents]"></asp:SqlDataSource>
+                </div>
             </div>
+
+            <div class="col-6">
             </div>
 
-
-                                                </div>
-                    <div class="col-6">
-
-              
-</div>
-
-                        </div>
-</div>
-
-    </form>
-</body>
-</html>
+        </form>
+    </body>
+    </html>
 </asp:Content>
 
