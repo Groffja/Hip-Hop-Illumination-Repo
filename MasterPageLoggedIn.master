@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">    
-    
-    <title> Hip Hop IllumiNation.com </title>
+    <meta name="author" content="">
+
+    <title>Hip Hop IllumiNation.com </title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -19,73 +19,79 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
-        .btn-secondary
-   {
-    
-    background-color:#fed136;
-}
-        navbar-dark{
-            background:  #212529;
+        .btn-secondary {
+            background-color: #fed136;
         }
+
+        navbar-dark {
+            background: #212529;
+        }
+
         a:-webkit-any-link {
             cursor: pointer;
             text-decoration: none;
+        }
+
+        #mainNav {
+            background-color: #212529;
         }
     </style>
 </head>
 
 <body id="page-top">
     <form id="form1" runat="server">
-        <nav  class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-          <a class="navbar-brand" href="index.aspx">Hip Hop Illumination</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="ProfileDetails.aspx">Profile</a>
-              </li>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="index.aspx">Hip Hop IllumiNation</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="ProfileDetails.aspx">Profile</a>
+                        </li>
 
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons</a>
-                  <div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="YourLessons.aspx">Your Lessons</a>
-                        <a class="dropdown-item" href="BrowseLessons.aspx">Browse Lessons</a>                        
-                  </div>
-              </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Resources.aspx">Resources</a>
-              </li>
-               <li class="nav-item">
-                <asp:LinkButton class="nav-link" ID="LinkBtnRecommendation" runat="server" OnClick="LinkBtnRecommendation_Click" ForeColor="White" >Recommendations</asp:LinkButton>
-                </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Review Us.aspx">Rate Lessons</a>
-              </li>                
-              <li class="nav-item">
-                <a class="nav-link" href="ContactUs.aspx">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-          <asp:Button ID="btnLogout" OnClick="btnLogout_Click"  runat="server" class="btn btn-secondary" Text="Sign Out" />
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="YourLessons.aspx">Your Lessons</a>
+                                <a class="dropdown-item" href="BrowseLessons.aspx">Browse Lessons</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Resources.aspx">Resources</a>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton class="nav-link" ID="LinkBtnRecommendation" runat="server" OnClick="LinkBtnRecommendation_Click" ForeColor="White">Recommendations</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Review Us.aspx">Illuminate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ContactUs.aspx">Support</a>
+                        </li>
+                    </ul>
+                </div>
+                <asp:Button ID="btnLogout" OnClick="btnLogout_Click" runat="server" class="btn btn-secondary" Text="Sign Out" CausesValidation="False" />
+            </div>
         </nav>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </form>
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Plugin JavaScript -->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <!-- Contact form JavaScript -->
-        <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/contact_me.js"></script>
-        <!-- Custom scripts for this template -->
-        <script src="js/agency.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
 </body>
 </html>
