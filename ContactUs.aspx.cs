@@ -26,12 +26,11 @@ public partial class ContactUs : System.Web.UI.Page
     protected void MessageButton_Click(object sender, EventArgs e)
     {
 
-        //stored in the feedback table
-        //    stringName = name.ToString();
-        //   stringEmail = email.ToString();
 
 
-        string message = messageTextArea.Value.ToString();
+        string topic = phone.Value.ToString();
+        string message = topic + " - " + messageTextArea.Value.ToString();
+        string newMessage = HttpUtility.HtmlEncode(message);
         
         try
         {
@@ -41,7 +40,7 @@ public partial class ContactUs : System.Web.UI.Page
             cmd.Connection = cn;
             
             cmd.CommandText = "INSERT INTO [dbo].[Feedback] VALUES (@accountID, @message);";
-            cmd.Parameters.AddWithValue("@message", message);
+            cmd.Parameters.AddWithValue("@message", newMessage);
             cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
             
             cmd.ExecuteNonQuery();

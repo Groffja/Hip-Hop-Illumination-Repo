@@ -280,8 +280,16 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">Want to Contact Us?</h2>
+                     <div class="section-subheading">Email: info@HipHopIllumiNation.com</div>
+                    <br />
+                    <div class="section-subheading">Phone: (578)-224-8716</div>
+                    <br />
+                    <br />
+                    <br />
                     <h2 class="section-subheading" style="color:gold">Create an account and send us a message!</h2>
-                    <h3 class="section-subheading text-muted">Your feedback is important to us!</h3>
+                    
+                   
+                    
                 </div>
             </div>
             <div class="row">
@@ -312,7 +320,7 @@
                         </li>
                         <li class="list-inline-item">
                             <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
+                                <i class="fab fa-youtube-square"></i>
                             </a>
                         </li>
                     </ul>

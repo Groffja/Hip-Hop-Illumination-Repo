@@ -71,22 +71,7 @@ public partial class Feedback : System.Web.UI.Page
 
     }
 
-    //protected void btnSearchUsername_Click(object sender, EventArgs e)
-    //{
-    //    String searchUsername = TxtSearchUsername.Text;
-    //    Session["username"] = searchUsername;
-
-    //    GridView2.DataBind();
-    //    usernameSearchFeedback.Visible = true;
-    //    GridView2.Visible = false;
-
-    //    if (txtSearch.Text == "")
-    //    {
-    //        usernameSearchFeedback.Visible = false;
-    //        GridView2.Visible = true;
-    //    }
-
-    //}
+   
 
 
 
@@ -100,4 +85,5 @@ public partial class Feedback : System.Web.UI.Page
     {
         BindGrid2();
     }
+
 }
