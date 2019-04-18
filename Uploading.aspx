@@ -72,7 +72,7 @@
             <br />
 
 
-            <asp:GridView  visible="true" ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID"  CellPadding="10" PageSize="5">
+            <asp:GridView  visible="true" ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID"  CellPadding="10" PageSize="10">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
                         <ItemTemplate>
@@ -86,6 +86,9 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+                            <br />
+                            <br />
+                            <br />
                     </div>
                     <asp:SqlDataSource ID="SqlDataSource69" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString %>" SelectCommand="SELECT [Name] AS Title, [DocumentCategory] AS Category, [DocumentCategory2] AS Subcategory, [DocumentCategory3] AS Subcategory2 FROM [Documents]"></asp:SqlDataSource>
                 </div>

@@ -7055,7 +7055,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 
 .align-content-center {
     -ms-flex-line-pack: center !important;
-    align-content: center !important
+    align-content: center !important;
+    text-align: center;
 }
 
 .align-content-between {

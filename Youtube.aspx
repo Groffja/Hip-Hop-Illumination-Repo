@@ -59,7 +59,7 @@
     
     <center>
         <div>
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" CssClass="table-dark table-hover align-content-center" width="90%" AutoGenerateColumns="False" DataSourceID="SqlDataSource123">
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" CssClass="table-dark table-hover align-content-center" width="110%" height="110%" AutoGenerateColumns="False" CellSpacing="5" DataSourceID="SqlDataSource123">
                 <Columns>
                     <asp:BoundField DataField="title" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="15%" HeaderText="Title" SortExpression="title" />
                     <asp:BoundField DataField="category" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="15%" HeaderText="Category" SortExpression="category" />

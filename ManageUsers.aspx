@@ -94,7 +94,7 @@ background-color:#fed136;
         </h3>
         
     <br />
-        <asp:Panel ID="panel" runat="server" Visible="false">
+        <asp:Panel ID="panel" runat="server" DefaultButton="btnSearch">
         <asp:TextBox ID="txtSearch" runat="server" class="form-control-sm" Width="300px" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
               &nbsp;
     <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" Text="Search" OnClick="btnSearch_Click" />

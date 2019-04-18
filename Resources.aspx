@@ -36,7 +36,9 @@
     <h3> Resources Just For You!</h3>
     <br/>
     <br/>
+        <asp:Panel ID="panel2" runat="server"  DefaultButton="btnSearch">
     <asp:TextBox ID="txtSearch" runat="server" class="form-control-sm" Width="300px"  Placeholder="Search By Title" ></asp:TextBox>
+            </asp:Panel>
     <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" Text="Search" OnClick="btnSearch_Click" />
     <br/>
     <br/>

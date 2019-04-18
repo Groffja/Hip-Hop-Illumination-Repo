@@ -96,13 +96,17 @@
           </center>
           </div>       
         <center>
+            <asp:Panel ID="panel1" runat="server"  DefaultButton="btnSearch">
     <asp:TextBox ID="txtSearch" runat="server" class="form-control-sm" PlaceHolder="Lesson Name" Width="300px" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+                </asp:Panel>
     <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" Text="Search" OnClick="btnSearch_Click" />
         <br />
         <br />
         </center>
         <center>
+            <asp:Panel ID="panel2" runat="server"  DefaultButton="btnCat">
     <asp:TextBox ID="txtCat" runat="server" class="form-control-sm" PlaceHolder="Category Name" Width="300px" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+                </asp:Panel>
     <asp:Button ID="btnCat" runat="server" class="btn btn-secondary" Text="Search Category" OnClick="btnCatSearch_Click" />
     <br />
     <br />
