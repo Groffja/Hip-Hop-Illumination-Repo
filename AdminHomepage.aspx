@@ -14,29 +14,27 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    display:block;    
+    display:block;
+    
 }
-        h2{
-            color:white;
-        }
-        .vertical-center{
-            margin:0;
-            position:absolute;
-            top:50%;
-            left:50%;
-            -ms-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
-        }
-        
+        .container {
+  position: center;
+  max-width: 400px;
+  padding: 300px;
+  background-color: white;
+}
+        /*.font {
+            
+        }*/
     </style>
     <body>
-        <form>
-            <div class="vertical-center">
-       
-           
+        <%--<img src="img/about/bright-clear-close-up-401107.jpg" style="width:100%; display:block; margin:auto; height:100%; background-size:cover"/>--%>
+       <form action="/action_page.php">
+           <div  class="container" style="background-color:white;border:15px groove;border-color:gold;">
+          <center>
            <h2>Welcome Nicholas Carrington</h2>
 
-             
+              </center>
     </div>
   </form> 
     </body>
