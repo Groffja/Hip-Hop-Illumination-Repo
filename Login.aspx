@@ -302,13 +302,12 @@ input[type=text]:placeholder {
 
 body {
     margin: 0;
-    background: url(img/header-bg.jpg);
-    background-size: 1440px 800px;            
+    background: url(img/about/Login.jpg);
+    background-size: 100%;            
     font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 </style>
-    
+
     </head>
 
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="DeleteResources.aspx.cs" Inherits="DeleteResources" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="AdminMasterPage.master" AutoEventWireup="true" CodeFile="DeleteResources.aspx.cs" Inherits="DeleteResources" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -48,10 +48,6 @@ th, td {
     border:1px solid white;
 }
     
-
-
-
-
 
 </style>
         </head>

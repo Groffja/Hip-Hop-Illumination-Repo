@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Hip Hop IllumiNation.com </title>
+    <title>Hip Hop IllumiNation.com </title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -19,13 +19,12 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-<style>
-    a:-webkit-any-link {
-    
-    cursor: pointer;
-    text-decoration: none;
-}
-</style>
+    <style>
+        a:-webkit-any-link {
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
 
 </head>
 
@@ -35,11 +34,10 @@
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="Index.aspx">Hip Hop IllumiNation</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                
         </div>
     </nav>
-    
-    
+
+
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
         <div class="container">
@@ -47,7 +45,7 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">Critical Consciousness</h2>
                     <br />
-                   <%-- <h3 class="section-subheading text-muted">Harnessing the power of hip hop for positive youth development</h3>--%>
+                    <%-- <h3 class="section-subheading text-muted">Harnessing the power of hip hop for positive youth development</h3>--%>
                 </div>
             </div>
             <div class="row">
@@ -104,26 +102,26 @@
                     </a>
                     <div class="portfolio-caption">
                         <h4>Social Issues</h4>
-                       <%-- <p class="text-muted">Branding</p>--%>
+                        <%-- <p class="text-muted">Branding</p>--%>
                     </div>
                 </div>
-               
-                </div>
-      
+
+            </div>
+
         </div>
     </section>
 
     <!--Six Cs -->
 
-    <section style="background-color:lightgray">
-             <div class="container"> 
-                 <div class="row">
-        <div class="col-lg-12 text-center" >
-            <center>
+    <section style="background-color: lightgray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <center>
         <h2 class="section-heading text-uppercase">What is Critical Consciousness?</h2>
         <br /> 
       
-            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px; line-height: 1.75">
 
             Critical consciousness has been defined briefly as the “capacity to recognize and overcome
             sociopolitical barriers.” It consists of two components: critical reflection and critical 
@@ -133,12 +131,12 @@
                 “sociopolitical control.” If supported intentionally, this control leads to individual or collective social action to effect social change.
                 </h3>
                </center>
-        <br />
-      
-            <center>
+                    <br />
+
+                    <center>
         <h2 class="section-heading text-uppercase">Why is Critical Consciousness Important for Young Men of Color?</h2>
        
-            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px; line-height: 1.75">
             Theories on critical consciousness suggest that it can help marginalized youth overcome structural barriers or constraints. 
                 Attainment of critical consciousness has been associated with improved mental health, school engagement, 
                 career development, and occupational status among marginalized youth. In addition, when supported by caring
@@ -152,12 +150,12 @@
            
                 </h3>
             </center>
-            <br />
-          
-            <center>
+                    <br />
+
+                    <center>
             <h2 class="section-heading text-uppercase">How Does Hip Hop IllumiNation Contribute to Critical Consciousness?</h2>
        
-            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px; line-height: 1.75">
            Hip Hop IllumiNation, recognizing that hip hop culture is rooted in perceptions of oppression and marginalization, 
                 leverages the music’s provocative themes to generate critical consciousness among young men of color. It is well 
                 known that hip hop artists often exhibit critical reflection in their music, earning some the label of 
@@ -167,12 +165,12 @@
            
                 </h3>
                 </center>
+                </div>
             </div>
-                     </div>
-</div>
+        </div>
     </section>
-  
-    
+
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -228,13 +226,13 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 class="text-uppercase">Brief Summary</h2>
-                                <p class="item-intro text-muted"> </p>
+                                <p class="item-intro text-muted"></p>
                                 <%--<img class="img-fluid d-block mx-auto" src="img/portfolio/headphones.jpg" alt="">--%>
-                                <p style="text-align:left">Critical consciousness has been defined briefly as the “capacity to recognize and overcome sociopolitical barriers.” It consists of two components: critical reflection and critical action. Critical reflection refers to the deep analysis of systemic oppression, such as social, economic, and other conditions that restrict access to opportunities. Critical action begins with the perceived ability to change oppressive conditions in the community or society. This is referred to as “sociopolitical control.” If supported well, this control leads to individual or collective social action to create social change.</p>
-                               <br />
+                                <p style="text-align: left">Critical consciousness has been defined briefly as the “capacity to recognize and overcome sociopolitical barriers.” It consists of two components: critical reflection and critical action. Critical reflection refers to the deep analysis of systemic oppression, such as social, economic, and other conditions that restrict access to opportunities. Critical action begins with the perceived ability to change oppressive conditions in the community or society. This is referred to as “sociopolitical control.” If supported well, this control leads to individual or collective social action to create social change.</p>
+                                <br />
                                 <br />
 
-                                <p style="font-style:italic; color:gray">Sign in to read full article</p>
+                                <p style="font-style: italic; color: gray">Sign in to read full article</p>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fas fa-times"></i>
                                     Close 
@@ -258,16 +256,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
-                           <div class="modal-body">
+                            <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 class="text-uppercase">Brief Summary</h2>
-                                <p class="item-intro text-muted"> </p>
+                                <p class="item-intro text-muted"></p>
                                 <%--<img class="img-fluid d-block mx-auto" src="img/portfolio/headphones.jpg" alt="">--%>
-                                <p style="text-align:left">Critical consciousness has been defined briefly as the “capacity to recognize and overcome sociopolitical barriers.” It consists of two components: critical reflection and critical action. Critical reflection refers to the deep analysis of systemic oppression, such as social, economic, and other conditions that restrict access to opportunities. Critical action begins with the perceived ability to change oppressive conditions in the community or society. This is referred to as “sociopolitical control.” If supported well, this control leads to individual or collective social action to create social change.</p>
-                               <br />
+                                <p style="text-align: left">Critical consciousness has been defined briefly as the “capacity to recognize and overcome sociopolitical barriers.” It consists of two components: critical reflection and critical action. Critical reflection refers to the deep analysis of systemic oppression, such as social, economic, and other conditions that restrict access to opportunities. Critical action begins with the perceived ability to change oppressive conditions in the community or society. This is referred to as “sociopolitical control.” If supported well, this control leads to individual or collective social action to create social change.</p>
+                                <br />
                                 <br />
 
-                                <p style="font-style:italic; color:gray">Sign in to read full article</p>
+                                <p style="font-style: italic; color: gray">Sign in to read full article</p>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fas fa-times"></i>
                                     Close 
@@ -294,13 +292,13 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 class="text-uppercase">Brief Summary</h2>
-                                <p class="item-intro text-muted"> </p>
+                                <p class="item-intro text-muted"></p>
                                 <%--<img class="img-fluid d-block mx-auto" src="img/portfolio/headphones.jpg" alt="">--%>
-                                <p style="text-align:left">Critical consciousness has been defined briefly as the “capacity to recognize and overcome sociopolitical barriers.” It consists of two components: critical reflection and critical action. Critical reflection refers to the deep analysis of systemic oppression, such as social, economic, and other conditions that restrict access to opportunities. Critical action begins with the perceived ability to change oppressive conditions in the community or society. This is referred to as “sociopolitical control.” If supported well, this control leads to individual or collective social action to create social change.</p>
-                               <br />
+                                <p style="text-align: left">Critical consciousness has been defined briefly as the “capacity to recognize and overcome sociopolitical barriers.” It consists of two components: critical reflection and critical action. Critical reflection refers to the deep analysis of systemic oppression, such as social, economic, and other conditions that restrict access to opportunities. Critical action begins with the perceived ability to change oppressive conditions in the community or society. This is referred to as “sociopolitical control.” If supported well, this control leads to individual or collective social action to create social change.</p>
+                                <br />
                                 <br />
 
-                                <p style="font-style:italic; color:gray">Sign in to read full article</p>
+                                <p style="font-style: italic; color: gray">Sign in to read full article</p>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fas fa-times"></i>
                                     Close 
@@ -330,7 +328,7 @@
                                 <%--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>--%>
                                 <img class="img-fluid d-block mx-auto" src="img/portfolio/MusicNote.jpg" width="400px" height="800px" alt="">
                                 <p>An internal sense of overall positive self-worth and self-efficacy; one’s global self-regard, as opposed to domain specific beliefs.</p>
-                                
+
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fas fa-times"></i>
                                     Close

@@ -8,7 +8,7 @@ using System.Collections.Specialized;
 using System.Data.SqlClient;
 
 
-public partial class _Default : System.Web.UI.Page
+public partial class ContactUs : System.Web.UI.Page
 {
     string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
