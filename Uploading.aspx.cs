@@ -127,16 +127,13 @@ public partial class Uploading : System.Web.UI.Page
 
         }
     }
-
+    
     protected void Row_Deleting(object sender, EventArgs e)
     {
         //int row = GridView1.SelectedIndex;
         //string rowCell = GridView1.SelectedRow.Cells.ToString();
 
-
-
         sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
-
         sc.Open();
         System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
         delete.Connection = sc;
@@ -146,5 +143,4 @@ public partial class Uploading : System.Web.UI.Page
 
 
     }
-
 }

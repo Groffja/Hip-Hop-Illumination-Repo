@@ -112,10 +112,7 @@ public partial class BrowseLessons : System.Web.UI.Page
 
     }
 
-    //protected void Search(object sender, EventArgs e)
-    //{
-    //    this.BindGrid();
-    //}
+ 
 
     private void BindGrid()
     {
@@ -195,5 +192,4 @@ public partial class BrowseLessons : System.Web.UI.Page
     {
 
     }
-
 }

@@ -11,6 +11,21 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Prevent the users who try to skip the login step by visit specified page. 
+        if (!Page.IsPostBack)
+        {
+            Session.Abandon();
+        }
+        if (Request.QueryString["info"] != null)
+        {
+            string message = Request.QueryString["info"].ToString();
+            if (message == "0")
+            {
+                Response.Write("you need login first to visit user page.");
+            }
+        }
+
+
         txtUsername.Focus();
     }
     String userType;
@@ -66,6 +81,7 @@ public partial class _Default : System.Web.UI.Page
                     Session["accountID"] = accountReaderID;
                     if (type == "Admin")
                     {
+                        Session["adminLoggedIn"] = "true";
                         Response.Redirect("AdminHomepage.aspx");
                     }
                     else { Response.Redirect("ProfilePage.aspx"); }
@@ -88,5 +104,7 @@ public partial class _Default : System.Web.UI.Page
     {
         Response.Redirect("createUser.aspx", false);
     }
+
+
 
 }

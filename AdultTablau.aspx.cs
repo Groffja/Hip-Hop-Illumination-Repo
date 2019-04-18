@@ -9,6 +9,12 @@ public partial class AdultTablau : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Check session is expire or timeout. 
+        if (Session["adminLoggedIn"] == null)
+        {
+            Response.Redirect("Login.aspx?info=0");
+        }
+
         populationPyramid.Visible = false;
         gender.Visible = false;
         youthMap.Visible = false;

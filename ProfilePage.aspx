@@ -6,6 +6,7 @@
     <style>
         section {
             margin: 0;
+
             /*background: url(img/team/amps.jpg);*/
             background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(img/team/amps.jpg);
             width: 1900px;
@@ -13,6 +14,7 @@
             height: 1280px;
             /*opacity: 0.5;
             filter: alpha(opacity=50);*/
+
         }
     </style>
     <section>
