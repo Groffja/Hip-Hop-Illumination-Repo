@@ -95,19 +95,26 @@
               <br />
           </center>
           </div>       
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+&nbsp;
         <center>
-    <asp:TextBox ID="txtSearch" runat="server" class="form-control-sm" PlaceHolder="Lesson Name" Width="300px" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
-    <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" Text="Search" OnClick="btnSearch_Click" />
+            <asp:Panel ID="p" runat="server" DefaultButton="btnSearch">
+    <asp:TextBox ID="txtSearch" runat="server" class="form-control-sm" PlaceHolder="Lesson Name" Width="15%" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+    <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" Text="Search" OnClick="btnSearch_Click" width="7%" />
+                </asp:Panel>
+                </center>        
         <br />
-        <br />
-        </center>
-        <center>
-    <asp:TextBox ID="txtCat" runat="server" class="form-control-sm" PlaceHolder="Category Name" Width="300px" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
-    <asp:Button ID="btnCat" runat="server" class="btn btn-secondary" Text="Search Category" OnClick="btnCatSearch_Click" />
+                <center>
+                    <asp:Panel ID="Panel1" runat="server" DefaultButton="btnCat">
+    <asp:TextBox ID="txtCat" runat="server" class="form-control-sm" PlaceHolder="Category Name" Width="15%" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+    <asp:Button ID="btnCat" runat="server" class="btn btn-secondary" Text="Search" OnClick="btnCatSearch_Click" width="7%"/>
     <br />
     <br />
     <br />
-        </center>
+                </asp:Panel>
+            </center>
+
     <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">There are currently no available lessons!</asp:Label>
     <asp:GridView ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server"  AutoGenerateColumns="False" DataKeyNames="ID" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" >
        

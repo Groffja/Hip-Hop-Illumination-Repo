@@ -160,7 +160,6 @@ function checkPass()
             <br />
             
             <asp:DropDownList ID="ddlState" runat="server" Width="240px"  CssClass="form-control">
-    <asp:ListItem Value="">State *</asp:ListItem>
 	<asp:ListItem Value="AL">Alabama</asp:ListItem>
 	<asp:ListItem Value="AK">Alaska</asp:ListItem>
 	<asp:ListItem Value="AZ">Arizona</asp:ListItem>

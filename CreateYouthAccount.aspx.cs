@@ -106,7 +106,6 @@ public partial class CreateYouthAccount : System.Web.UI.Page
             favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
             favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
 
-
             sc.Open();
             string emails = " ";
             SqlCommand emailCheck = new SqlCommand();
@@ -123,11 +122,6 @@ public partial class CreateYouthAccount : System.Web.UI.Page
             }
 
 
-            // if Country is not United States
-            if (ddlState.Enabled == false)
-            {
-                YouthState = " ";
-            }
 
             reader1.Close();
             sc.Close();
@@ -171,7 +165,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
                 insert.Connection = sc;
                 insert.CommandText = "INSERT into [dbo].Youth VALUES(@youthFirstName, @youthLastName, " +
-                    "@youthState, @youthCountry, @youthGender, @youthEmail, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
+                    "NULLIF(@youthState,' '), @youthCountry, @youthGender, @youthEmail, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
 
                 insert.Parameters.AddWithValue("@youthFirstName", YouthFirstName);
                 insert.Parameters.AddWithValue("@youthLastName", YouthLastName);

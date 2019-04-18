@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hip Hop IllumiNation.com </title>
+    <title> Hip Hop IllumiNation.com </title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -19,12 +19,13 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-    <style>
-        a:-webkit-any-link {
-            cursor: pointer;
-            text-decoration: none;
-        }
-    </style>
+<style>
+    a:-webkit-any-link {
+    
+    cursor: pointer;
+    text-decoration: none;
+}
+</style>
 
 </head>
 
@@ -34,10 +35,11 @@
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="Index.aspx">Hip Hop IllumiNation</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                
         </div>
     </nav>
-
-
+    
+    
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
         <div class="container">
@@ -101,7 +103,7 @@
                     </a>
                     <div class="portfolio-caption">
                         <h4>Confidence</h4>
-                        <%-- <p class="text-muted">Branding</p>--%>
+                       <%-- <p class="text-muted">Branding</p>--%>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -115,7 +117,7 @@
                     </a>
                     <div class="portfolio-caption">
                         <h4>Connection</h4>
-                        <%-- <p class="text-muted">Website Design</p>--%>
+                       <%-- <p class="text-muted">Website Design</p>--%>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -138,15 +140,15 @@
 
     <!--Six Cs -->
 
-    <section style="background-color: lightgray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <center>
+    <section style="background-color:lightgray">
+             <div class="container"> 
+                 <div class="row">
+        <div class="col-lg-12 text-center" >
+            <center>
         <h2 class="section-heading text-uppercase">Why Are the Six C's Important for Young Men of Color?</h2>
         <br /> 
        
-                <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px; line-height: 1.75">
+                <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
 
             Young men of color disproportionately face negative perceptions about their attitudes, skills, and behaviors. 
             These perceptions are reflected not only in institutional policies/cultures (e.g., school discipline, police brutality) 
@@ -168,13 +170,13 @@
             and the academic skills to succeed (Competence).
 
                 </h3>
-            </center>
-                    <br />
-                    <br />
-                    <center>
+            </center>   
+        <br />
+        <br />
+            <center>
         <h2 class="section-heading text-uppercase">How Does Hip Hop IllumiNation Contribute to the Six Cs?</h2>
       
-            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px; line-height: 1.75">
+            <h3 class="section-subheading text-muted" style="font-style:normal; text-align:left; width:900px">
             Hip Hop IllumiNation’s lessons use examples from hip hop music where one or more sub domains 
             of the Six Cs is demonstrated. Youth are prompted to identify how each positive asset is 
             demonstrated in the music, reflect on how they can relate to the artist’s experience, and 
@@ -190,12 +192,12 @@
 
                 </h3>
                 </center>
-                </div>
             </div>
-        </div>
+                     </div>
+</div>
     </section>
-
-
+  
+    
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -251,11 +253,11 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 class="text-uppercase">Caring</h2>
-                                <p class="item-intro text-muted"></p>
+                                <p class="item-intro text-muted"> </p>
                                 <img class="img-fluid d-block mx-auto" src="img/portfolio/headphones.jpg" alt="">
                                 <p>A sense of sympathy and empathy for others.</p>
                                 <ul class="list-inline">
-                                    <li>Date: April 2019</li>
+                                    <li>Date: April 2019</li>                                    
                                     <li>Category: Caring</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -284,13 +286,13 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 class="text-uppercase">Character</h2>
-                                <p class="item-intro text-muted"></p>
+                                <p class="item-intro text-muted"> </p>
                                 <img class="img-fluid d-block mx-auto" src="img/portfolio/number2.jpg" alt="">
 
                                 <p>Respect for societal and cultural rules, possession of standards for correct behaviors, a sense of right and wrong, and integrity.</p>
                                 <ul class="list-inline">
                                     <li>Date: April 2019</li>
-
+                                   
                                     <li>Category: Character</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -319,12 +321,12 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 class="text-uppercase">Competence</h2>
-                                <p class="item-intro text-muted"></p>
+                                <p class="item-intro text-muted"> </p>
                                 <img class="img-fluid d-block mx-auto" src="img/6C11.jpeg" alt="">
                                 <p>Positive view of one’s abilities in domain specific areas including social, academic, cognitive, and vocational.</p>
                                 <ul class="list-inline">
                                     <li>Date: April 2019</li>
-
+                                    
                                     <li>Category: Competence</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -388,7 +390,7 @@
                                 <h2 class="text-uppercase">Connection</h2>
                                 <%--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>--%>
                                 <img class="img-fluid d-block mx-auto" src="img/portfolio/connection.jpg" alt="">
-
+                                
                                 <p>Positive bonds with people and institutions that are reflected in mutual exchanges between the individual and peers, family, school, and community in which both parties contribute to the relationship.</p>
                                 <ul class="list-inline">
                                     <li>Date: April 2019</li>
@@ -420,9 +422,9 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 class="text-uppercase">Contribution</h2>
-                                <%-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>--%>
-                                <img class="img-fluid d-block mx-auto" src="img/portfolio/microphone_02.jpg" alt="">
-
+                               <%-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>--%>
+                                <img class="img-fluid d-block mx-auto" src="img/portfolio/microphone_02.jpg"  alt="">
+                                
                                 <p>Contribution is frequently added to the original model as scholars have recognized the importance of youth engagement in family, civic, and political life. This model suggests that youth experience positive development when their strengths in these areas are aligned with positive opportunities to grow.</p>
                                 <ul class="list-inline">
                                     <li>Date: April 2019</li>

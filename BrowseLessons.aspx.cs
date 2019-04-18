@@ -112,7 +112,7 @@ public partial class BrowseLessons : System.Web.UI.Page
 
     }
 
- 
+    
 
     private void BindGrid()
     {
@@ -140,9 +140,9 @@ public partial class BrowseLessons : System.Web.UI.Page
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE ((DocumentCategory LIKE '%' + @category + '%') OR (DocumentCategory2 LIKE '%' + @category + '%') OR (DocumentCategory3 LIKE '%' + @category + '%')";
+                cmd.CommandText = "SELECT ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE ((DocumentCategory LIKE '%' + @category + '%') OR (DocumentCategory2 LIKE '%' + @category + '%') OR (DocumentCategory3 LIKE '%' + @category + '%'))";
                 cmd.Connection = cn;
-                cmd.Parameters.AddWithValue("@Name", txtCat.Text.Trim());
+                cmd.Parameters.AddWithValue("@category", txtCat.Text.Trim());
                 DataTable dt = new DataTable();
                 using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                 {
@@ -180,7 +180,7 @@ public partial class BrowseLessons : System.Web.UI.Page
 
     protected void btnCatSearch_Click(object sender, EventArgs e)
     {
-        BindGrid();
+        CategoryGridBind();
     }
 
     protected void txtSearch_TextChanged(object sender, EventArgs e)
@@ -192,4 +192,5 @@ public partial class BrowseLessons : System.Web.UI.Page
     {
 
     }
+
 }
