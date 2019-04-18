@@ -23,7 +23,13 @@
        });   
     </script>
     <style>
-    
+        body{
+
+            margin: 0;
+            padding:0;
+
+            background-image: url(img/header-bg.jpg);
+        }
     </style>
     <title> Hip Hop IllumiNation.com</title>
     <section id="contact">
