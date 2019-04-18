@@ -72,7 +72,7 @@
             <br />
 
 
-            <asp:GridView  visible="true" ID="gvDocuments" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID"  CellPadding="10" PageSize="5">
+            <asp:GridView  visible="true" ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server" AutoGenerateColumns="False" OnRowDeleting="Row_Deleting"  DataKeyNames="ID"  CellPadding="10" PageSize="5">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
                         <ItemTemplate>
