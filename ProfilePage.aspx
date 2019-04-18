@@ -6,7 +6,8 @@
     <style>
         section{
             margin: 0;
-    background: url(img/team/amps.jpg);
+    background-image: url(img/about/Login.jpg);
+    background:no-repeat;
 
     width:1900px;
     background-size: 100%;    
