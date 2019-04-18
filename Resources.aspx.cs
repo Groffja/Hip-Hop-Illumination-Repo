@@ -29,4 +29,20 @@ public partial class Resources : System.Web.UI.Page
         Response.Write("<script>window.open('"+url+"','_blank')</script>");
      
     }
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        BindGrid();
+    }
+
+    private void BindGrid()
+    {
+        string title = txtSearch.Text.Trim();
+
+
+        SqlDataSource1.SelectCommand = "SELECT Resources.title, Resources.category, Resources.Hyperlink FROM Resources WHERE([title] LIKE '%" + title + "%')";
+
+        
+
+}
 }
