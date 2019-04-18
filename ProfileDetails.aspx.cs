@@ -85,7 +85,7 @@ public partial class ProfileDetails : System.Web.UI.Page
                     
                     txtLastName.Text = lastName;
                     
-                    DropDownstate.Text = state;
+                    DropDownstate.SelectedValue = state;
                     
                     DropDowncountry.Text = country;
                     DropDowngender.Text = gender;
@@ -126,7 +126,7 @@ public partial class ProfileDetails : System.Web.UI.Page
                     txtLastName.Text = lastName;
                   
                 
-                    DropDownstate.Text = state;
+                    DropDownstate.SelectedValue = state;
                     
                     DropDowncountry.Text = country;
                     DropDowngender.Text = gender;
@@ -134,47 +134,23 @@ public partial class ProfileDetails : System.Web.UI.Page
                 }
                 reader.Close();
             }
-            else
-            {
-                //getFields.CommandText = "select youthWorkerFirstName, youthWorkerMiddleName, youthWorkerLastName, youthWorkerStreet, youthWorkerCity, youthWorkerState, youthWorkerZip, youthWorkerCountry, youthWorkerGender, email, youthWorkerDateOfBirth, username from YouthWorker where email=@email";
-                //getFields.Parameters.Add(new SqlParameter("@email", (string)Session["email"]));
-                //SqlDataReader reader = getFields.ExecuteReader();
-                //while (reader.Read())
-                //{
-                //    firstName = reader["youthWorkerFirstName"].ToString();
-                //    middleName = reader["youthWorkerMiddleName"].ToString();
-                //    lastName = reader["youthWorkerLastName"].ToString();
-                //    street = reader["youthWorkerStreet"].ToString();
-                //    city = reader["youthWorkerCity"].ToString();
-                //    state = reader["youthWorkerState"].ToString();
-                //    zip = reader["youthWorkerZip"].ToString();
-                //    country = reader["youthWorkerCountry"].ToString();
-                //    gender = reader["youthWorkerGender"].ToString();
-                //    email = reader["email"].ToString();
-                //    dateOfBirth = reader["youthWorkerDateOfBirth"].ToString();
-                //    username = reader["username"].ToString();
-
-                //    txtUsername.Text = username;
-                //    txtFirstName.Text = firstName;
-                //    txtMiddleName.Text = middleName;
-                //    txtLastName.Text = lastName;
-                //    txtStreet.Text = street;
-                //    txtCity.Text = city;
-                //    DropDownstate.Text = state;
-                //    txtZip.Text = zip;
-                //    DropDowncountry.Text = country;
-                //    DropDowngender.Text = gender;
-                //    txtEmail.Text = email;
-                //    DateTime oDate = DateTime.Parse(dateOfBirth);
-                //    txtDateOfBirth.Text = oDate.ToString("MM/dd/yyyy");
-                //}
-                //reader.Close();
-            }
         }
         sc.Close();
     }
 
-
+    protected void DropDowncountry_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        String US = "US";
+        string country = DropDowncountry.SelectedValue;
+        if (country == US)
+        {
+            DropDownstate.Enabled = true;
+        }
+        else
+        {
+            DropDownstate.Enabled = false;
+        }
+    }
 
     protected void Edit_Click(object sender, EventArgs e)
     {
@@ -188,7 +164,8 @@ public partial class ProfileDetails : System.Web.UI.Page
       
         DropDowncountry.Enabled = true;
         DropDowngender.Enabled = true;
-        
+
+
     }
 
     protected void Confirm_Click(object sender, EventArgs e)
@@ -212,8 +189,14 @@ public partial class ProfileDetails : System.Web.UI.Page
         
         favoriteMusic = txtFavoriteMusic.Text;
         favoriteArtist = txtFavoriteArtist.Text;
-       
-       
+
+        // if Country is not United States
+        if (DropDownstate.Enabled == false)
+        {
+            DropDownstate.SelectedIndex = 0;
+            state = " ";
+        }
+
         string lastUpdated = DateTime.Now.ToString();
         string lastUpdatedBy = ((string)Session["username"]);
 

@@ -39,6 +39,7 @@
                 <div class="form-group">
                     <asp:Label ID="lblState" runat="server" CssClass="col-form-label" Text="State"></asp:Label>
                     <asp:DropDownList ID="DropDownstate" runat="server" EnableViewState="true" CssClass="form-control" Width="400px" Height="30px" Enabled="False">
+                        <asp:ListItem Value="">N/A</asp:ListItem>
                         <asp:ListItem Value="AL">Alabama</asp:ListItem>
                         <asp:ListItem Value="AK">Alaska</asp:ListItem>
                         <asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -96,7 +97,7 @@
 
                 <div class="form-group">
                     <asp:Label ID="lblCountry" runat="server" CssClass="col-form-label" Text="Country"></asp:Label>
-                    <asp:DropDownList ID="DropDowncountry" EnableViewState="true" runat="server" CssClass="form-control" Width="400px" Height="30px" Enabled="False">
+                    <asp:DropDownList ID="DropDowncountry" EnableViewState="true" runat="server" OnSelectedIndexChanged="DropDowncountry_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control" Width="400px" Height="30px" Enabled="False">
                         <asp:ListItem Value="US" Selected="True">United States</asp:ListItem>
 
                         <asp:ListItem Value="AF">Afghanistan</asp:ListItem>
@@ -606,7 +607,7 @@
 
                 <div class="form-group">
                     <asp:Button ID="Edit" runat="server" Text="Edit Profile Information" Class="btn btn-primary" OnClick="Edit_Click" />
-                    <asp:Button ID="Confirm" runat="server" Text="Submit Changes" Class="btn auto-style1" Visible="False" OnClick="Confirm_Click" />
+                    <asp:Button ID="Confirm" runat="server" Text="Submit Changes" Class="btn btn-primary" Visible="False" OnClick="Confirm_Click" />
                 </div>
             </div>
         </div>
