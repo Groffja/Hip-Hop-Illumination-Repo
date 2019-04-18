@@ -14,12 +14,6 @@ public partial class ProfilePage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Check session is expire or timeout. 
-        if (Session["email"] == null)
-        {
-            Response.Redirect("Login.aspx?info=0");
-        }
-
         try
         {
             sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";

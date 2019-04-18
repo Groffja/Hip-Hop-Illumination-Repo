@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Activities.Validation;
-using System.Configuration;
 
 public partial class CreateAdultAccount : System.Web.UI.Page
 {
@@ -19,7 +18,7 @@ public partial class CreateAdultAccount : System.Web.UI.Page
 
         try
         {
-            sc.ConnectionString = ConfigurationManager.ConnectionStrings["manageUsers"].ConnectionString;
+            sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
 
         }
 
@@ -43,7 +42,6 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         }
         else
         {
-            //DropDownstate.SelectedItem.Value = " ";
             DropDownstate.Enabled = false;
         }
     }
@@ -66,7 +64,7 @@ public partial class CreateAdultAccount : System.Web.UI.Page
         // if Country is not United States
         if (DropDownstate.Enabled == false)
         {
-            state = " ";
+            state = "test ";
         }
         sc.Open();
         string emails = " ";
@@ -132,7 +130,7 @@ public partial class CreateAdultAccount : System.Web.UI.Page
             insert.Connection = sc;
 
             insert.CommandText = "INSERT INTO [dbo].[Adult] VALUES (@FirstName,@LastName," +
-                "@State, @Country,@Gender,@User,@Email,@DateOfBirth,@Username,@Password, @DateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID);";
+                "NULLIF(@State,' '),@Country,@Gender,@User,@Email,@DateOfBirth,@Username,@Password, @DateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID);";
 
             insert.Parameters.AddWithValue("@FirstName", tempAdult.getFirstName());
             insert.Parameters.AddWithValue("@LastName", tempAdult.getLastName());

@@ -154,7 +154,6 @@ function checkPass()
             <asp:Label ID="lblState" runat="server" Text="State" Width="180px"></asp:Label>
             <br />
             <asp:DropDownList ID="DropDownstate" runat="server" Width="240px" CssClass="form-control">
-    <asp:ListItem Value="">State *</asp:ListItem>
 	<asp:ListItem Value="AL">Alabama</asp:ListItem>
 	<asp:ListItem Value="AK">Alaska</asp:ListItem>
 	<asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -215,7 +214,7 @@ function checkPass()
             <br />
            
             <asp:DropDownList ID="DropDowncountry" runat="server"  Width="240px" OnSelectedIndexChanged="DropDowncountry_SelectedIndexChanged" AutoPostBack="True" CssClass="form-control">
-                    <asp:ListItem Value="US">United States</asp:ListItem>                    
+                    <asp:ListItem Selected="true" Value="US">United States</asp:ListItem>                    
                     <asp:ListItem>Afghanistan</asp:ListItem>
                     <asp:ListItem>Albania</asp:ListItem>
                     <asp:ListItem>Algeria</asp:ListItem>
