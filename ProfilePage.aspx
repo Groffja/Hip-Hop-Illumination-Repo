@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                     </div>
-                    <div class="col-xl-5" style="background-color:white">
+                    <div class="col-xl-5" style="background-color:white;border:15px groove;border-color:gold;">
                         <div class="team-member" >
                             <img class="mx-auto rounded-circle" src="img/about/LandingPageAdmin.jpg" alt="">
                          

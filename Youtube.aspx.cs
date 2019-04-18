@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,7 @@ public partial class Youtube : System.Web.UI.Page
 {
     string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
     string youtube = " ";
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -22,14 +22,17 @@ public partial class Youtube : System.Web.UI.Page
             FillData();
         }
     }
+
+
     protected void OpenDocument(object sender, EventArgs e)
     {
         LinkButton lnk = (LinkButton)sender;
         GridViewRow gr = (GridViewRow)lnk.NamingContainer;
-
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
     }
+
+
     private void Download(int id)
     {
         DataTable dt = new DataTable();
@@ -40,23 +43,19 @@ public partial class Youtube : System.Web.UI.Page
             cmd.Parameters.Add("@resourceID", SqlDbType.Int).Value = id;
             cn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-
             dt.Load(reader);
         }
 
-        string name = dt.Rows[0]["title"].ToString();
-        //byte[] documentBytes = (byte[])dt.Rows[0]["Hyperlink"];
+        string name = dt.Rows[0]["title"].ToString();        
         string video = dt.Rows[0]["Hyperlink"].ToString();
         youtube = video;
         Response.ClearContent();
-        Response.ContentType = "appliction/octetstream";
-        //Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
-        // Response.AddHeader("Content-Length", documentBytes.Length.ToString());
-
-        //Response.BinaryWrite(documentBytes);
+        Response.ContentType = "appliction/octetstream";       
         Response.Flush();
         Response.Close();
     }
+
+
     private void FillData()
     {
         DataTable dt = new DataTable();
@@ -78,13 +77,9 @@ public partial class Youtube : System.Web.UI.Page
     }
 
 
+    // Save Button to commit resource
     protected void Button1_Click(object sender, EventArgs e)
-    {
-        //FileInfo fi = new FileInfo(FileUpload1.FileName);
-        //byte[] Hyperlink = FileUpload1.FileBytes;
-
-
-
+    {        
         using (SqlConnection cn = new SqlConnection(conStr))
         {
             SqlCommand cmd = new SqlCommand("SaveVideos", cn);
@@ -93,8 +88,6 @@ public partial class Youtube : System.Web.UI.Page
             cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = txtTitle.Text;
             cmd.Parameters.Add("@Hyperlink", SqlDbType.VarChar).Value = txtUrl.Text;
             cmd.Parameters.Add("@category", SqlDbType.VarChar).Value = txtCategory.Text;
-
-
             cn.Open();
             cmd.ExecuteNonQuery();
         }
@@ -102,15 +95,16 @@ public partial class Youtube : System.Web.UI.Page
         Response.Redirect("Youtube.aspx");
     }
 
-
-
+    
     protected void Button2_Click(object sender, EventArgs e)
-    {       
-        UrlIsValid(txtUrl.Text);
+    {      
         
+        UrlIsValid(txtUrl.Text); // Sends URL to Validator        
 
     }
 
+
+    // Check URL Button
     public bool UrlIsValid(string url)
     {
         
@@ -131,8 +125,7 @@ public partial class Youtube : System.Web.UI.Page
                     bool valid = true;
                     Label5.Text = "URL is Valid!";
                     //txtUrl.Enabled = false;
-                    return valid;
-                    
+                    return valid;                    
 
                 }
                 else if (statusCode >= 500 && statusCode <= 510) //Server Errors
@@ -141,8 +134,7 @@ public partial class Youtube : System.Web.UI.Page
                     Debug.WriteLine(String.Format("The remote server has thrown an internal error. Url is not valid: {0}", url));
                     Label5.Text = "Invalid URL. Please Try Again.";
                     Button3.Visible = true;
-                    return false;
-                    
+                    return false;                    
                 }
                 
             }
@@ -167,11 +159,11 @@ public partial class Youtube : System.Web.UI.Page
             Label5.Text = "Invalid URL. Please Try Again.";
             Button3.Visible = true;
         }
-        return false;
-        
+        return false;        
     }
 
 
+    // Continue Anyway Button
     protected void Button3_Click(object sender, EventArgs e)
     {
         Button1.Enabled = true;

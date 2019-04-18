@@ -59,7 +59,7 @@
     
     <center>
         <div>
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" CssClass="table-dark table-hover align-content-center" width="90%" AutoGenerateColumns="False" DataSourceID="SqlDataSource123">
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" CssClass="table-dark table-hover align-content-center" width="94%" AutoGenerateColumns="False" DataSourceID="SqlDataSource123" Height="289px">
                 <Columns>
                     <asp:BoundField DataField="title" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="15%" HeaderText="Title" SortExpression="title" />
                     <asp:BoundField DataField="category" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="15%" HeaderText="Category" SortExpression="category" />
@@ -68,7 +68,7 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource123" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString2 %>" SelectCommand="SELECT [title], [category], [Hyperlink] FROM [Resources]"></asp:SqlDataSource>
             <br />
-            <asp:GridView ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server"  AutoGenerateColumns="False" DataKeyNames="resourceID" HorizontalAlign="Center" Width="100%" AllowPaging="True" PageSize="100" CellPadding="10" Visible="false" >
+            <asp:GridView ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server"  AutoGenerateColumns="False" DataKeyNames="resourceID" HorizontalAlign="Center" Width="79%" AllowPaging="True" PageSize="100" CellPadding="10" Visible="false" Height="3998px" >
        
         <AlternatingRowStyle />
         <Columns>

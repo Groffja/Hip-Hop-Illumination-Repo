@@ -7,13 +7,15 @@ using System.Web.UI.WebControls;
 
 public partial class Default2 : System.Web.UI.Page
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
+
+
     protected void btnContinue_Click(object sender, EventArgs e)
-    {
-        
+    {        
         if (adultYes.Checked)
         {
             Response.Redirect("CreateAdultAccount.aspx");
@@ -22,5 +24,8 @@ public partial class Default2 : System.Web.UI.Page
             Response.Redirect("CreateYouthAccount.aspx");
             }
         else { Label1.Text = "Not all options selected"; }
+
     }
+
+
 }

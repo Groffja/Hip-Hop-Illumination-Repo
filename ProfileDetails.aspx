@@ -22,7 +22,9 @@
             </div>
             <div class="col-sm-4" style="margin: 0 auto">
                 <div class="col-md-6">
+                    <asp:Panel ID="Panel1" runat="server" DefaultButton="Confirm">
                     <div class="form-group">
+                        
                         <asp:Label ID="lblUsername" runat="server" CssClass="col-form-label" Text="Username"></asp:Label>
                         <asp:TextBox ID="txtUsername" runat="server" EnableViewState="true" CssClass="form-control" Width="460px" Enabled="False"></asp:TextBox>
                         <p class="help-block text-danger"></p>
@@ -609,7 +611,9 @@
                         <asp:Button ID="Edit" runat="server" Text="Edit Profile Information" CssClass="btn-primary" OnClick="Edit_Click"/>
                         <asp:Button ID="Confirm" runat="server" Text="Submit Changes" CssClass="auto-style1" Visible="False" OnClick="Confirm_Click" />
                     </div>
+                        </asp:Panel>
                 </div>
+                
             </div>
         </div>
        

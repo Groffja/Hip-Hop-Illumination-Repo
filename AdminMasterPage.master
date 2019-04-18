@@ -63,9 +63,10 @@
           Delete
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="DeleteResources.aspx">Delete Resource</a>
+          
           <a class="dropdown-item" href="ManageUsers.aspx">Delete User</a>
           <a class="dropdown-item" href="AdminPDF.aspx">Delete Content</a>
+            <a class="dropdown-item" href="DeleteResources.aspx">Delete Resource</a>
         </div>
       </li> 
 
@@ -76,8 +77,15 @@
                  </li> 
               
 
-                <li class="nav-item">
-                 <a class="nav-link" href="Feedback.aspx">Feedback</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFeedback" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Feedback
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="Feedback.aspx">Comments</a>
+                        <a class="dropdown-item" href="Ratings.aspx">Ratings</a>
+                    </div>
+                 
                 </li>
 
 

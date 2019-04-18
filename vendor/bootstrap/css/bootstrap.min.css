@@ -224,7 +224,7 @@ button {
     }
 
 button, input, optgroup, select, textarea {
-    margin: 0 0 3px 0;
+    margin: 0 0 3px 0px;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit
@@ -1834,7 +1834,9 @@ pre {
 
 .table-dark {
     color: #fff;
-    background-color: #343a40
+    background-color: #343a40;
+    text-align: center;
+    margin-right: 0px;
 }
 
     .table-dark td, .table-dark th, .table-dark thead th {

@@ -29,12 +29,13 @@
     </style>
     <body>
         <%--<img src="img/about/bright-clear-close-up-401107.jpg" style="width:100%; display:block; margin:auto; height:100%; background-size:cover"/>--%>
-       <form action="/action_page.php" class="container">
+       <form action="/action_page.php">
+           <div  class="container" style="background-color:white;border:15px groove;border-color:gold;">
           <center>
            <h2>Welcome Nicholas Carrington</h2>
 
               </center>
-    
+    </div>
   </form> 
     </body>
 </asp:Content>

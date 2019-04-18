@@ -10,8 +10,7 @@ using System.Data.SqlClient;
 
 public partial class Uploading : System.Web.UI.Page
 {
-    //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-    //string exception = string.Empty;
+    
     string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
@@ -22,6 +21,8 @@ public partial class Uploading : System.Web.UI.Page
             FillData();
         }
     }
+
+
     protected void OpenDocument(object sender, EventArgs e)
     {
         LinkButton lnk = (LinkButton)sender;
@@ -31,6 +32,8 @@ public partial class Uploading : System.Web.UI.Page
         Download(id);
     }
 
+
+
     private void Download(int id)
     {
         try
@@ -38,13 +41,14 @@ public partial class Uploading : System.Web.UI.Page
             DataTable dt = new DataTable();
             using (SqlConnection cn = new SqlConnection(conStr))
             {
+
                 SqlCommand cmd = new SqlCommand("GetDocument", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
                 cn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-
                 dt.Load(reader);
+
             }
 
             string name = dt.Rows[0]["Name"].ToString();
@@ -63,12 +67,19 @@ public partial class Uploading : System.Web.UI.Page
         {
 
         }
+
     }
+
+
+
+
     private void FillData()
     {
+
         try
         {
             DataTable dt = new DataTable();
+
             using (SqlConnection cn = new SqlConnection(conStr))
             {
                 SqlCommand cmd = new SqlCommand("GetDocuments", cn);
@@ -88,7 +99,11 @@ public partial class Uploading : System.Web.UI.Page
         {
 
         }
+
     }
+
+
+
 
     protected void save_Click(object sender, EventArgs e)
     {
@@ -96,7 +111,6 @@ public partial class Uploading : System.Web.UI.Page
         {
             FileInfo fi = new FileInfo(FileUpload1.FileName);
             byte[] documentContent = FileUpload1.FileBytes;
-
 
             string name = fi.Name;
             string extn = fi.Extension;
@@ -108,33 +122,32 @@ public partial class Uploading : System.Web.UI.Page
             {
                 SqlCommand cmd = new SqlCommand("SaveDocument", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-
                 cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = name;
                 cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
                 cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
                 cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = category;
                 cmd.Parameters.Add("@Category2", SqlDbType.VarChar).Value = category2;
                 cmd.Parameters.Add("@Category3", SqlDbType.VarChar).Value = category3;
-
                 cn.Open();
                 cmd.ExecuteNonQuery();
             }
+
             FillData();
             Response.Redirect("Uploading.aspx");
+
         }
         catch
         {
 
         }
+
     }
 
+
+
     protected void Row_Deleting(object sender, EventArgs e)
-    {
-        //int row = GridView1.SelectedIndex;
-        //string rowCell = GridView1.SelectedRow.Cells.ToString();
-
-
-
+    {   
+        
         sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
 
         sc.Open();
@@ -143,7 +156,6 @@ public partial class Uploading : System.Web.UI.Page
 
         delete.CommandText = "DELETE FROM [Documents] WHERE [DocumentID]=@DocumentID";
         delete.ExecuteNonQuery();
-
 
     }
 

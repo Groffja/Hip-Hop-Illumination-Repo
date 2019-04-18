@@ -68,10 +68,10 @@
                 <asp:LinkButton class="nav-link" ID="LinkBtnRecommendation" runat="server" OnClick="LinkBtnRecommendation_Click" ForeColor="White" >Recommendations</asp:LinkButton>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" href="Review Us.aspx">Illuminate</a>
+                <a class="nav-link" href="Review Us.aspx">Rate Lessons</a>
               </li>                
               <li class="nav-item">
-                <a class="nav-link" href="ContactUs.aspx">Support</a>
+                <a class="nav-link" href="ContactUs.aspx">Contact Us</a>
               </li>
             </ul>
           </div>
