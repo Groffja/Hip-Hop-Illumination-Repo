@@ -17,6 +17,11 @@ public partial class Uploading : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Check session is expire or timeout. 
+        if (Session["adminLoggedIn"] == null)
+        {
+            Response.Redirect("Login.aspx?info=0");
+        }
         if (!IsPostBack)
         {
             FillData();
@@ -98,11 +103,11 @@ public partial class Uploading : System.Web.UI.Page
             byte[] documentContent = FileUpload1.FileBytes;
 
 
-            string name = fi.Name;
-            string extn = fi.Extension;
-            string category = TextBox2.Text;
-            string category2 = txtCat2.Text;
-            string category3 = txtCat3.Text;
+            string name = HttpUtility.HtmlEncode(fi.Name);
+            string extn = HttpUtility.HtmlEncode(fi.Extension);
+            string category = HttpUtility.HtmlEncode(TextBox2.Text);
+            string category2 = HttpUtility.HtmlEncode(txtCat2.Text);
+            string category3 = HttpUtility.HtmlEncode(txtCat3.Text);
 
             using (SqlConnection cn = new SqlConnection(conStr))
             {

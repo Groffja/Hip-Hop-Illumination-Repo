@@ -122,10 +122,7 @@ public partial class YourLessons : System.Web.UI.Page
 
     }
 
-    //protected void Search(object sender, EventArgs e)
-    //{
-    //    this.BindGrid();
-    //}
+    
 
     private void BindGrid()
     {
@@ -135,10 +132,11 @@ public partial class YourLessons : System.Web.UI.Page
             {
                 try
                 {
+
                     cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID WHERE Lessons.accountID =" + Session["accountID"] + ";";
                     //cmd.CommandText = "SELECT Documents.ID, Documents.Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
                     cmd.Connection = cn;
-                    //cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
                     DataTable dt = new DataTable();
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {

@@ -17,7 +17,7 @@ public partial class RecommendationPage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         // Check session is expire or timeout. 
-        if (Session["adminLoggedIn"] == null)
+        if (Session["email"] == null)
         {
             Response.Redirect("Login.aspx?info=0");
         }
@@ -35,7 +35,7 @@ public partial class RecommendationPage : System.Web.UI.Page
         {
         }
 
-        
+
         System.Data.SqlClient.SqlCommand getID = new System.Data.SqlClient.SqlCommand();
         getID.Connection = sc;
         sc.Open();
@@ -108,7 +108,7 @@ public partial class RecommendationPage : System.Web.UI.Page
             int accountID = Convert.ToInt32(insert.ExecuteScalar());// get receiver ID
             TextBox1.Text = accountID.ToString();
 
-                
+
             //TextBox1.Text = Session["accountID"].ToString();
             //int accountID = Convert.ToInt32(TextBox1.Text);
 

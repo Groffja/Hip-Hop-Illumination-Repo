@@ -76,9 +76,15 @@
                  </li> 
               
 
-                <li class="nav-item">
-                 <a class="nav-link" href="Feedback.aspx">Feedback</a>
-                </li>
+                <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFeedback" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Feedback
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">          
+          <a class="dropdown-item" href="Feedback.aspx">See Feedback</a>
+          <a class="dropdown-item" href="Ratings.aspx">See Ratings</a>
+        </div>
+      </li> 
 
 
             <li class="nav-item">

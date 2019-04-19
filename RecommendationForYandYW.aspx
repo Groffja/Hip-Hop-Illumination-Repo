@@ -64,10 +64,10 @@ h1{
             </div>
             </div>
         
-
+        <center>
         <div class="row d-block mx-auto"> 
             <div class="col d-block mx-auto"
-
+    
     <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">You currently have no Recommendations!</asp:Label>
     <asp:GridView ID="GridView1" runat="server" class="table-dark table-striped table-hover marginZero" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
@@ -77,12 +77,13 @@ h1{
             <asp:BoundField DataField="dateRecommended" HeaderText="Date Recieved" SortExpression="dateRecommended" />
         </Columns>
     </asp:GridView>
+    </center>
 
                 </div>
             </div>
+                </center>
 
-
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringRecommendation %>" SelectCommand="SELECT Documents.Name, Documents.DocumentCategory, Recommendations.recommendedBy, Recommendations.dateRecommended FROM Documents INNER JOIN Recommendations ON Documents.ID = Recommendations.ID WHERE accountID = @recieverAccountID">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionStringRecommendation %>" SelectCommand="SELECT Documents.Name, Documents.DocumentCategory, Recommendations.recommendedBy,CONVERT(varchar, Recommendations.dateRecommended, 1) AS dateRecommended FROM Documents INNER JOIN Recommendations ON Documents.ID = Recommendations.ID WHERE accountID = @recieverAccountID">
 
                 <SelectParameters>
     <asp:ControlParameter ControlID="test" Name="recieverAccountID" PropertyName="Text" Type="String" Defaultvalue=""  />
@@ -90,12 +91,7 @@ h1{
         </asp:SqlDataSource>
 
         
-            <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+   
     </div>
     </div>
  

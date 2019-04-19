@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="AdminMasterPage.master" AutoEventWireup="true" CodeFile="Uploading.aspx.cs" Inherits="Uploading" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="AdminMasterPage.master" AutoEventWireup="true" CodeFile="Uploading.aspx.cs" Inherits="Uploading" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -49,16 +49,16 @@
                 <br />
                 <br />
 
-                <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Category:" Width="150px" Height="50px"></asp:Label>
-                <asp:TextBox ID="TextBox2" runat="server" Width="300px" Height="30px"></asp:TextBox>
+                <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Category:" Width="10%" Height="5%"></asp:Label>
+                <asp:TextBox ID="TextBox2" runat="server" Width="20%" Height="30px"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Label ID="lblCat2" runat="server" ForeColor="White" Text="Subcategory:" Width="150px" Height="50px"></asp:Label>
-                <asp:TextBox ID="txtCat2" runat="server" Width="300px"></asp:TextBox>
+                <asp:Label ID="lblCat2" runat="server" ForeColor="White" Text="Subcategory:" Width="10%" Height="5%"></asp:Label>
+                <asp:TextBox ID="txtCat2" runat="server" Width="20%"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Label ID="lblCat3" runat="server" ForeColor="White" Text="Subcategory:" Width="150px" Height="50px"></asp:Label>
-                <asp:TextBox ID="txtCat3" runat="server" Width="300px"></asp:TextBox>
+                <asp:Label ID="lblCat3" runat="server" ForeColor="White" Text="Subcategory:" Width="10%" Height="5%"></asp:Label>
+                <asp:TextBox ID="txtCat3" runat="server" Width="20%"></asp:TextBox>
 
             <br />
             <br />
@@ -82,6 +82,21 @@
                     <asp:TemplateField HeaderText="Name">
                         <ItemTemplate>
                             <asp:LinkButton ID="LinkButton1" OnClick="OpenDocument" runat="server" Text='<%# Eval("Name") %>'></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Category">
+                        <ItemTemplate>
+                            <asp:Label ID="Label"  runat="server" Text='<%# Eval("DocumentCategory") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Subcategory">
+                        <ItemTemplate>
+                            <asp:Label ID="Label2"  runat="server" Text='<%# Eval("DocumentCategory2") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Subcategory">
+                        <ItemTemplate>
+                            <asp:Label ID="Label3"  runat="server" Text='<%# Eval("DocumentCategory3") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

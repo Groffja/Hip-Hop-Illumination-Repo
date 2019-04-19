@@ -66,14 +66,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Resources.aspx">Resources</a>
                         </li>
+                       
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recommendations</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="RecommendationForYandYW.aspx">My Recommendations</a>
+                                <a class="dropdown-item" href="RecommendationPage.aspx">Recommend a Lesson</a>
+                            </div>
+                        </li>
+
                         <li class="nav-item">
-                            <asp:LinkButton class="nav-link" ID="LinkBtnRecommendation" runat="server" OnClick="LinkBtnRecommendation_Click" ForeColor="White">Recommendations</asp:LinkButton>
+                            <a class="nav-link" href="Review Us.aspx">Rate Lessons</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Review Us.aspx">Illuminate</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ContactUs.aspx">Support</a>
+                            <a class="nav-link" href="ContactUs.aspx">Contact Us</a>
                         </li>
                     </ul>
                 </div>

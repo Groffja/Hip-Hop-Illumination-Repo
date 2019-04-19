@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="Youtube.aspx.cs" Inherits="Youtube" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="Youtube.aspx.cs" Inherits="Youtube" ValidateRequest="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -9,6 +9,7 @@
     
 <html>
 <head >
+    
     <style type="text/css">
         body {
             background-image: url(http://localhost:65108/img/header-bg.jpg);
@@ -25,7 +26,9 @@
 
     
     <form id="form1" runat="server">
+
         <div class="container">
+            <h2>Upload a Resource</h2>
             <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -63,7 +66,7 @@
                 <Columns>
                     <asp:BoundField DataField="title" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="15%" HeaderText="Title" SortExpression="title" />
                     <asp:BoundField DataField="category" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="15%" HeaderText="Category" SortExpression="category" />
-                    <asp:BoundField DataField="Hyperlink" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="60%" HeaderText="Hyperlink" SortExpression="Hyperlink" />
+                    <asp:BoundField DataField="Hyperlink" HeaderStyle-CssClass="align-content-center" ControlStyle-Width="60%" HeaderText="Website" SortExpression="Hyperlink" />
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource123" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString2 %>" SelectCommand="SELECT [title], [category], [Hyperlink] FROM [Resources]"></asp:SqlDataSource>

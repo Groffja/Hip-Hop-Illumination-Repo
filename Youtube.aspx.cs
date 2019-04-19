@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +16,11 @@ public partial class Youtube : System.Web.UI.Page
     string youtube = " ";
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Check session is expire or timeout. 
+        if (Session["adminLoggedIn"] == null)
+        {
+            Response.Redirect("Login.aspx?info=0");
+        }
         if (!IsPostBack)
         {
             FillData();
@@ -45,15 +49,12 @@ public partial class Youtube : System.Web.UI.Page
         }
 
         string name = dt.Rows[0]["title"].ToString();
-        //byte[] documentBytes = (byte[])dt.Rows[0]["Hyperlink"];
+       
         string video = dt.Rows[0]["Hyperlink"].ToString();
         youtube = video;
         Response.ClearContent();
         Response.ContentType = "appliction/octetstream";
-        //Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
-        // Response.AddHeader("Content-Length", documentBytes.Length.ToString());
-
-        //Response.BinaryWrite(documentBytes);
+        
         Response.Flush();
         Response.Close();
     }
@@ -90,9 +91,13 @@ public partial class Youtube : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand("SaveVideos", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = txtTitle.Text;
-            cmd.Parameters.Add("@Hyperlink", SqlDbType.VarChar).Value = txtUrl.Text;
-            cmd.Parameters.Add("@category", SqlDbType.VarChar).Value = txtCategory.Text;
+            string title = HttpUtility.HtmlEncode(txtTitle.Text);
+            string website = HttpUtility.HtmlEncode(txtUrl.Text);
+            string cat = HttpUtility.HtmlEncode(txtCategory.Text);
+
+            cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = title;
+            cmd.Parameters.Add("@Hyperlink", SqlDbType.VarChar).Value = website;
+            cmd.Parameters.Add("@category", SqlDbType.VarChar).Value = cat;
 
 
             cn.Open();

@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="ContactUs" %>
+<%@ Page Title="" Language="C#" MasterPageFile="MasterPageLoggedIn.master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="ContactUs" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -23,7 +23,6 @@
         });
     </script>
     <style>
-
     </style>
     <title>Hip Hop IllumiNation.com</title>
     <section id="contact">
@@ -83,5 +82,4 @@
         </div>
     </section>
 </asp:Content>
-
 

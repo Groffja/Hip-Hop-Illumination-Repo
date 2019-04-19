@@ -45,7 +45,7 @@ public partial class ProfileDetails : System.Web.UI.Page
             exception = ex.GetType().ToString();
 
         }
-        // ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
 
         sc.Open();
         System.Data.SqlClient.SqlCommand getFields = new System.Data.SqlClient.SqlCommand();
@@ -68,8 +68,7 @@ public partial class ProfileDetails : System.Web.UI.Page
                     state = reader["state"].ToString();
                     country = reader["country"].ToString();
                     gender = reader["gender"].ToString();
-                    //email = reader["email"].ToString();
-                    //dateOfBirth = reader["dateOfBirth"].ToString();
+
                     username = reader["username"].ToString();
                     favoriteArtist = reader["favoriteArtist"].ToString();
                     favoriteMusic = reader["favoriteMusic"].ToString();
@@ -82,16 +81,16 @@ public partial class ProfileDetails : System.Web.UI.Page
 
                     txtUsername.Text = username;
                     txtFirstName.Text = firstName;
-                    
+
                     txtLastName.Text = lastName;
-                    
+
                     DropDownstate.SelectedValue = state;
-                    
+
                     DropDowncountry.Text = country;
                     DropDowngender.Text = gender;
-                    
-                   
-                    
+
+
+
                 }
                 reader.Close();
 
@@ -108,8 +107,8 @@ public partial class ProfileDetails : System.Web.UI.Page
                     state = reader["state"].ToString();
                     country = reader["country"].ToString();
                     gender = reader["gender"].ToString();
-                
-                    
+
+
                     username = reader["username"].ToString();
                     favoriteArtist = reader["favoriteArtist"].ToString();
                     favoriteMusic = reader["favoriteMusic"].ToString();
@@ -122,15 +121,15 @@ public partial class ProfileDetails : System.Web.UI.Page
 
                     txtUsername.Text = username;
                     txtFirstName.Text = firstName;
-                  
+
                     txtLastName.Text = lastName;
-                  
-                
+
+
                     DropDownstate.SelectedValue = state;
-                    
+
                     DropDowncountry.Text = country;
                     DropDowngender.Text = gender;
-                    
+
                 }
                 reader.Close();
             }
@@ -158,10 +157,10 @@ public partial class ProfileDetails : System.Web.UI.Page
         Confirm.Visible = true;
         txtUsername.Enabled = true;
         txtFirstName.Enabled = true;
-        
-     
+
+
         DropDownstate.Enabled = true;
-      
+
         DropDowncountry.Enabled = true;
         DropDowngender.Enabled = true;
 
@@ -176,19 +175,19 @@ public partial class ProfileDetails : System.Web.UI.Page
         Confirm.Visible = false;
         Edit.Visible = true;
 
-        username = txtUsername.Text;
-        firstName = txtFirstName.Text;
-   
-        lastName = txtLastName.Text;
-        
-      
+        username = HttpUtility.HtmlEncode(txtUsername.Text);
+        firstName = HttpUtility.HtmlEncode(txtFirstName.Text);
+
+        lastName = HttpUtility.HtmlEncode(txtLastName.Text);
+
+
         state = DropDownstate.Text;
-        
+
         country = DropDowncountry.Text;
         gender = DropDowngender.Text;
-        
-        favoriteMusic = txtFavoriteMusic.Text;
-        favoriteArtist = txtFavoriteArtist.Text;
+
+        favoriteMusic = HttpUtility.HtmlEncode(txtFavoriteMusic.Text);
+        favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
 
         // if Country is not United States
         if (DropDownstate.Enabled == false)
@@ -199,6 +198,7 @@ public partial class ProfileDetails : System.Web.UI.Page
 
         string lastUpdated = DateTime.Now.ToString();
         string lastUpdatedBy = ((string)Session["username"]);
+
 
 
         System.Data.SqlClient.SqlCommand updateRecord = new System.Data.SqlClient.SqlCommand();
@@ -214,7 +214,7 @@ public partial class ProfileDetails : System.Web.UI.Page
             updateRecord.Parameters.Add(new SqlParameter("@state", state));
             updateRecord.Parameters.Add(new SqlParameter("@country", country));
             updateRecord.Parameters.Add(new SqlParameter("@gender", gender));
-            
+
             updateRecord.Parameters.Add(new SqlParameter("@username", username));
             updateRecord.Parameters.Add(new SqlParameter("@favoriteArtist", favoriteArtist));
             updateRecord.Parameters.Add(new SqlParameter("@favoriteMusic", favoriteMusic));
@@ -231,14 +231,14 @@ public partial class ProfileDetails : System.Web.UI.Page
             updateRecord.CommandText = "Update Youth SET firstName = @firstName, lastName = @lastName, state = @state, country = @country, gender = @gender, username = @username, favoriteArtist = @favoriteArtist, favoriteMusic = @favoriteMusic, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy WHERE email=@emailSession";
             updateRecord.Parameters.Add(new SqlParameter("@emailSession", (string)Session["email"]));
             updateRecord.Parameters.Add(new SqlParameter("@firstName", firstName));
-            
+
             updateRecord.Parameters.Add(new SqlParameter("@lastName", lastName));
-            
+
             updateRecord.Parameters.Add(new SqlParameter("@state", state));
-            
+
             updateRecord.Parameters.Add(new SqlParameter("@country", country));
             updateRecord.Parameters.Add(new SqlParameter("@gender", gender));
-          
+
             updateRecord.Parameters.Add(new SqlParameter("@username", username));
             updateRecord.Parameters.Add(new SqlParameter("@favoriteArtist", favoriteArtist));
             updateRecord.Parameters.Add(new SqlParameter("@favoriteMusic", favoriteMusic));
@@ -248,40 +248,20 @@ public partial class ProfileDetails : System.Web.UI.Page
             updateRecord.ExecuteNonQuery();
         }
 
-        //else if ((string)Session["Accounttype"] == "YouthWorker")
-        //{
-        //    updateRecord.CommandText = "Update YouthWorker SET youthWorkerFirstName = @firstName, youthWorkerMiddleName = @middleName, youthWorkerLastName = @lastName, youthWorkerStreet = @street, youthWorkerCity = @city, youthWorkerState = @state, youthWorkerZip = @zip, youthWorkerCountry = @country, youthWorkerGender = @gender, email = @email, youthWorkerDateOfBirth = @dateOfBirth, username = @username, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy WHERE email=@emailSession";
-        //    updateRecord.Parameters.Add(new SqlParameter("@emailSession", (string)Session["email"]));
-        //    updateRecord.Parameters.Add(new SqlParameter("@firstName", firstName));
-        //    updateRecord.Parameters.Add(new SqlParameter("@middleName", middleName));
-        //    updateRecord.Parameters.Add(new SqlParameter("@lastName", lastName));
-        //    updateRecord.Parameters.Add(new SqlParameter("@street", street));
-        //    updateRecord.Parameters.Add(new SqlParameter("@city", city));
-        //    updateRecord.Parameters.Add(new SqlParameter("@state", state));
-        //    updateRecord.Parameters.Add(new SqlParameter("@zip", zip));
-        //    updateRecord.Parameters.Add(new SqlParameter("@country", country));
-        //    updateRecord.Parameters.Add(new SqlParameter("@gender", gender));
-        //    updateRecord.Parameters.Add(new SqlParameter("@email", email));
-        //    updateRecord.Parameters.Add(new SqlParameter("@dateOfBirth", dateOfBirth));
-        //    updateRecord.Parameters.Add(new SqlParameter("@username", username));
-        //    updateRecord.Parameters.Add(new SqlParameter("@lastUpdated", lastUpdated));
-        //    updateRecord.Parameters.Add(new SqlParameter("@lastUpdatedBy", lastUpdatedBy));
 
-        //    updateRecord.ExecuteNonQuery();
-        //}
 
         sc.Close();
 
         txtUsername.Enabled = false;
         txtFirstName.Enabled = false;
-        
+
         txtLastName.Enabled = false;
-        
+
         DropDownstate.Enabled = false;
-        
+
         DropDowncountry.Enabled = false;
         DropDowngender.Enabled = false;
-       
+
         txtFavoriteArtist.Enabled = false;
         txtFavoriteMusic.Enabled = false;
 
