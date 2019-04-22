@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="AdminMasterPage.master" AutoEventWireup="true" CodeFile="Feedback.aspx.cs" Inherits="Feedback" %>
+
+<%@ Page Title="" Language="C#" MasterPageFile="AdminMasterPage.master" AutoEventWireup="true" CodeFile="Feedback.aspx.cs" Inherits="Feedback" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -80,6 +81,7 @@
 
         <center>
               <h1 style="color:#fff;">Feedback</h1>
+
               
         
     <asp:Panel ID="panel2" runat="server"  DefaultButton="btnSearch">
@@ -91,6 +93,7 @@
               <br />
 
             <asp:Panel ID="panel1" runat="server"  DefaultButton="btnSearchUsername">
+
             <asp:TextBox ID="TxtSearchUsername" runat="server" class="form-control-sm" Width="300px" Placeholder="Search By Username" ></asp:TextBox>
                 <asp:Button ID="btnSearchUsername" runat="server" class="btn btn-secondary" Text="Search" OnClick="btnSearchUsername_Click" />
                </asp:Panel>
@@ -104,7 +107,7 @@
     <br />
        
     
-        <asp:GridView ID="GridView2" CssClass="table-dark table-striped table-hover" runat="server" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10"  AutoGenerateColumns="False" DataSourceID="SqlDataSourceFeedback">
+        <asp:GridView ID="GridView2" CssClass="table-dark table-striped table-hover" runat="server" HorizontalAlign="Center" Width="75%" AllowPaging="True" PageSize="100" CellPadding="10"  AutoGenerateColumns="False" DataSourceID="SqlDataSourceFeedback" AllowSorting="True">
 
             <Columns>
                 <asp:BoundField DataField="accountID" HeaderText="Account ID" SortExpression="accountID" />
@@ -170,3 +173,4 @@
 
     </form>
 </asp:Content>
+

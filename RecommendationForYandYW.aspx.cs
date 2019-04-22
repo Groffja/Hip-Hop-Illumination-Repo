@@ -14,16 +14,10 @@ public partial class RecommendationForYandYW : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Check session is expire or timeout. 
-        if (Session["email"] == null)
-        {
-            Response.Redirect("Login.aspx?info=0");
-        }
-
         try
         {
 
-            sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+            sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
@@ -39,7 +33,7 @@ public partial class RecommendationForYandYW : System.Web.UI.Page
         {
             try
             {
-                sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+                sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
 
                 sc.Open();
                 System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
@@ -52,7 +46,6 @@ public partial class RecommendationForYandYW : System.Web.UI.Page
             }
  
         }
-
     }
     protected void btnSeeData_Click(object sender, EventArgs e)
     {               

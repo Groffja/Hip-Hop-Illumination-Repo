@@ -9,11 +9,6 @@ public partial class Resources : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Check session is expire or timeout. 
-        if (Session["email"] == null)
-        {
-            Response.Redirect("Login.aspx?info=0");
-        }
 
     }
 
@@ -27,22 +22,9 @@ public partial class Resources : System.Web.UI.Page
         string url = " ";
         url = row.Cells[3].Text;
         Response.Write("<script>window.open('"+url+"','_blank')</script>");
-     
-    }
-
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        BindGrid();
-    }
-
-    private void BindGrid()
-    {
-        string title = txtSearch.Text.Trim();
-
-
-        SqlDataSource1.SelectCommand = "SELECT Resources.title, Resources.category, Resources.Hyperlink FROM Resources WHERE([title] LIKE '%" + title + "%')";
-
         
 
-}
+        
+    }
+
 }

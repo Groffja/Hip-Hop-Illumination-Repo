@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +11,8 @@ using System.Text.RegularExpressions;
 
 public partial class YourLessons : System.Web.UI.Page
 {
-    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+    string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -46,6 +47,7 @@ public partial class YourLessons : System.Web.UI.Page
 
     }
 
+
     protected void OpenDocument(object sender, EventArgs e)
     {
         LinkButton lnk = (LinkButton)sender;
@@ -69,10 +71,8 @@ public partial class YourLessons : System.Web.UI.Page
             noLessons.Text = "Not signed into an account!!";
             noLessons.Visible = true;
         }
-
-
-
     }
+
 
     private void Download(int id)
     {
@@ -84,24 +84,23 @@ public partial class YourLessons : System.Web.UI.Page
             cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
             cn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-
             dt.Load(reader);
         }
 
         string name = dt.Rows[0]["Name"].ToString();
-        byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];
-        //string documentCategory = dt.Rows[0]["DocumentCategory"].ToString();
-        //new
+        byte[] documentBytes = (byte[])dt.Rows[0]["DocumentContent"];       
 
         Response.ClearContent();
         Response.ContentType = "appliction/octetstream";
         Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + name));
         Response.AddHeader("Content-Length", documentBytes.Length.ToString());
-
         Response.BinaryWrite(documentBytes);
         Response.Flush();
         Response.Close();
     }
+
+
+
     private void FillData()
     {
         DataTable dt = new DataTable();
@@ -121,7 +120,6 @@ public partial class YourLessons : System.Web.UI.Page
         }
 
     }
-
     
 
     private void BindGrid()
@@ -131,10 +129,9 @@ public partial class YourLessons : System.Web.UI.Page
             using (SqlCommand cmd = new SqlCommand())
             {
                 try
-                {
-
-                    cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID WHERE Lessons.accountID =" + Session["accountID"] + ";";
-                    //cmd.CommandText = "SELECT Documents.ID, Documents.Name, DocumentCategory,DocumentCategory2,DocumentCategory3 FROM Documents WHERE Name LIKE '%' + @Name + '%'";
+                {  
+                    
+                    cmd.CommandText = "SELECT Documents.ID, Name, DocumentCategory,DocumentCategory2,DocumentCategory3, Lessons.dateStarted FROM  Documents INNER JOIN Lessons ON Documents.ID = Lessons.ID WHERE Name LIKE '%' + @Name + '%'";
                     cmd.Connection = cn;
                     cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
                     DataTable dt = new DataTable();
@@ -143,7 +140,8 @@ public partial class YourLessons : System.Web.UI.Page
                         sda.Fill(dt);
                         gvDocuments.DataSource = dt;
                         gvDocuments.DataBind();
-                    }
+                    }                       
+                    
                 }
                 catch
                 {
@@ -152,13 +150,10 @@ public partial class YourLessons : System.Web.UI.Page
                 }
             }
         }
-    }
+    }  
 
-    protected void OnPageIndexChanging(Object sender, GridViewPageEventArgs e)
-    {
-        gvDocuments.PageIndex = e.NewPageIndex;
-        this.BindGrid();
-    }
+
+
 
     protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
     {
@@ -175,21 +170,8 @@ public partial class YourLessons : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        BindGrid();
+        BindGrid();          
     }
+    
 
-    protected void txtSearch_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void gvDocuments_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void gvDocuments_SelectedIndexChanged1(object sender, EventArgs e)
-    {
-
-    }
 }

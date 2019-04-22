@@ -11,31 +11,15 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Prevent the users who try to skip the login step by visit specified page. 
-        if (!Page.IsPostBack)
-        {
-            Session.Abandon();
-        }
-        if (Request.QueryString["info"] != null)
-        {
-            string message = Request.QueryString["info"].ToString();
-            if (message == "0")
-            {
-                Response.Write("you need login first to visit user page.");
-            }
-        }
-
-
         txtUsername.Focus();
     }
     String userType;
-    public static string username = "";
     protected void btnLogin_Click(object sender, EventArgs e)
 
     {
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+        sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
         sc.Open();
         System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
         findPass.Connection = sc;
@@ -77,11 +61,9 @@ public partial class _Default : System.Web.UI.Page
                     Session["username"] = user;
                     Session.Add("email", txtUsername.Text);
                     Session.Add("accountType", type);
-                    Session.Add("username", username);
                     Session["accountID"] = accountReaderID;
                     if (type == "Admin")
                     {
-                        Session["adminLoggedIn"] = "true";
                         Response.Redirect("AdminHomepage.aspx");
                     }
                     else { Response.Redirect("ProfilePage.aspx"); }
@@ -104,7 +86,5 @@ public partial class _Default : System.Web.UI.Page
     {
         Response.Redirect("createUser.aspx", false);
     }
-
-
 
 }

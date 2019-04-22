@@ -89,13 +89,16 @@
         <br />
         <br />
         <br />
+        <br />
         <div class="container">
             <div></div>
             <center>
+
               <h1 style="color:#fff;">Your Lessons</h1>
               
               <br />
           </center>
+
         </div>
         <center>
     <asp:Panel ID="panel1" runat="server"  DefaultButton="btnSearch">
@@ -132,6 +135,7 @@
                         </asp:Label>
                     </ItemTemplate>
                     <ControlStyle Width="15%" />
+
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Sub-Category 1">
                     <ItemTemplate>
@@ -153,6 +157,7 @@
 
         </asp:GridView>
         
+
     </body>
 
 </asp:Content>

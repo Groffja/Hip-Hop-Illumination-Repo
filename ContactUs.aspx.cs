@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ using System.Data.SqlClient;
 public partial class ContactUs : System.Web.UI.Page
 
 {
-    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+    string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -39,9 +40,14 @@ public partial class ContactUs : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
 
-            cmd.CommandText = "INSERT INTO [dbo].[Feedback] VALUES (@accountID, @message);";
-            cmd.Parameters.AddWithValue("@message", newMessage);
+
+            cmd.CommandText = "INSERT INTO [dbo].[Feedback] VALUES (@accountID, @message, @lastUpdated, @lastUpdatedBy);";
+
             cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
+            cmd.Parameters.AddWithValue("@message", newMessage);
+            cmd.Parameters.AddWithValue("@lastUpdated", DateTime.Now.ToString());
+            cmd.Parameters.AddWithValue("@lastUpdatedBy", Session["username"]);
+
 
             cmd.ExecuteNonQuery();
 

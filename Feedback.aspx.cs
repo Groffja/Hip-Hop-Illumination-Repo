@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,7 @@ using System.Text.RegularExpressions;
 public partial class Feedback : System.Web.UI.Page
 {
 
-    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+    string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
     protected void Page_Load(object sender, EventArgs e)
     {
         DataBind();
@@ -71,22 +72,7 @@ public partial class Feedback : System.Web.UI.Page
 
     }
 
-    //protected void btnSearchUsername_Click(object sender, EventArgs e)
-    //{
-    //    String searchUsername = TxtSearchUsername.Text;
-    //    Session["username"] = searchUsername;
-
-    //    GridView2.DataBind();
-    //    usernameSearchFeedback.Visible = true;
-    //    GridView2.Visible = false;
-
-    //    if (txtSearch.Text == "")
-    //    {
-    //        usernameSearchFeedback.Visible = false;
-    //        GridView2.Visible = true;
-    //    }
-
-    //}
+   
 
 
 
@@ -100,4 +86,6 @@ public partial class Feedback : System.Web.UI.Page
     {
         BindGrid2();
     }
+
+
 }

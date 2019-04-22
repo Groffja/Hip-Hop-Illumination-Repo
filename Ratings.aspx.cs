@@ -11,12 +11,12 @@ using System.Text.RegularExpressions;
 
 public partial class _Default : System.Web.UI.Page
 {
-    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+    string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
 
     protected void Page_Load(object sender, EventArgs e)
     {
         DataBind();
-
+        
     }
 
 
@@ -29,7 +29,7 @@ public partial class _Default : System.Web.UI.Page
     private void BindGrid()
     {
         string lesson = txtSearchbar.Text.Trim();
-        SqlDataSourceRating.SelectCommand = "SELECT Ratings.ratingID as RatingID, Documents.Name as Lesson, Ratings.rating as Rating, Ratings.comment as Comment, LoginInfo.username as Username FROM Documents INNER JOIN Ratings ON Documents.ID = Ratings.ID INNER JOIN LoginInfo ON Ratings.accountID = LoginInfo.accountID WHERE Name LIKE '%" + lesson + "%'";
-
+        SqlDataSourceRating.SelectCommand = "SELECT Ratings.ratingID as RatingID, Documents.Name as Lesson, Ratings.rating as Rating, Ratings.comment as Comment, LoginInfo.username as Username FROM Documents INNER JOIN Ratings ON Documents.ID = Ratings.ID INNER JOIN LoginInfo ON Ratings.accountID = LoginInfo.accountID WHERE Name LIKE '%"+ lesson + "%'";
+        
     }
 }
