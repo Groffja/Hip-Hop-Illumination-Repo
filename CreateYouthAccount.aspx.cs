@@ -99,8 +99,8 @@ public partial class CreateYouthAccount : System.Web.UI.Page
             YouthState = HttpUtility.HtmlEncode(ddlState.Text);
             YouthCountry = HttpUtility.HtmlEncode(ddlCountry.SelectedItem.Value);
             YouthEmail = HttpUtility.HtmlEncode(txtEmail.Text);
-            YouthGender = HttpUtility.HtmlEncode(ddlGender.SelectedItem.Value);
             YouthDateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
+            YouthGender = HttpUtility.HtmlEncode(ddlGender.SelectedItem.Value);
             YouthUserName = HttpUtility.HtmlEncode(txtUsername.Text);
             YouthPassword = HttpUtility.HtmlEncode(txtPassword.Text);
             favoriteArtist = HttpUtility.HtmlEncode(txtFavoriteArtist.Text);
@@ -127,18 +127,18 @@ public partial class CreateYouthAccount : System.Web.UI.Page
             sc.Close();
             if (emails == " ")
             {
-
+                Youth tempYouth = new Youth(YouthFirstName, YouthLastName, YouthState, YouthCountry, YouthEmail, YouthDateOfBirth.ToString(), YouthGender, favoriteArtist, favoriteMusic, YouthUserName, YouthPassword);
                 //INSERT INTO LOGININFO
                 sc.Open();
                 SqlCommand login = new SqlCommand();
                 login.Connection = sc;
                 login.CommandText = "INSERT INTO [dbo].[LoginInfo] VALUES (@accountType, @username, @Xpassword, @email, @lastUpdated, @lastUpdatedBy);";
                 login.Parameters.AddWithValue("@accountType", "Youth");
-                login.Parameters.AddWithValue("@username", YouthUserName);
-                login.Parameters.AddWithValue("@Xpassword", PasswordHash.HashPassword(YouthPassword));
-                login.Parameters.AddWithValue("@email", YouthEmail);
+                login.Parameters.AddWithValue("@username", tempYouth.getUserName());
+                login.Parameters.AddWithValue("@Xpassword", PasswordHash.HashPassword(tempYouth.getPassword()));
+                login.Parameters.AddWithValue("@email", tempYouth.getEmail());
                 login.Parameters.AddWithValue("@lastUpdated", DateTime.Now.ToString());
-                login.Parameters.AddWithValue("@lastUpdatedBy", YouthUserName);
+                login.Parameters.AddWithValue("@lastUpdatedBy", tempYouth.getUserName());
                 login.ExecuteNonQuery();
                 sc.Close();
 
@@ -149,7 +149,7 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 SqlCommand accountID = new SqlCommand();
                 accountID.Connection = sc;
                 accountID.CommandText = "Select accountID from loginInfo WHERE email = @email";
-                accountID.Parameters.AddWithValue("@email", YouthEmail);
+                accountID.Parameters.AddWithValue("@email", tempYouth.getEmail());
 
                 SqlDataReader reader = accountID.ExecuteReader();
                 while (reader.Read())
@@ -167,20 +167,20 @@ public partial class CreateYouthAccount : System.Web.UI.Page
                 insert.CommandText = "INSERT into [dbo].Youth VALUES(@youthFirstName, @youthLastName, " +
                     "NULLIF(@youthState,' '), @youthCountry, @youthGender, @youthEmail, @youthDateOfBirth, @username, @password, @dateCreated, @lastUpdated, @lastUpdatedBy, NULLIF(@favoriteArtist, ' '), NULLIF(@favoriteMusic, ' '), @accountID)";
 
-                insert.Parameters.AddWithValue("@youthFirstName", YouthFirstName);
-                insert.Parameters.AddWithValue("@youthLastName", YouthLastName);
-                insert.Parameters.AddWithValue("@youthState", YouthState);
-                insert.Parameters.AddWithValue("@youthCountry", YouthCountry);
-                insert.Parameters.AddWithValue("@youthEmail", YouthEmail);
-                insert.Parameters.AddWithValue("@youthGender", YouthGender);
-                insert.Parameters.AddWithValue("@youthDateOfBirth", YouthDateOfBirth);
-                insert.Parameters.AddWithValue("@userName", YouthUserName);
-                insert.Parameters.AddWithValue("@password", PasswordHash.HashPassword(YouthPassword));
+                insert.Parameters.AddWithValue("@youthFirstName", tempYouth.getFirstName());
+                insert.Parameters.AddWithValue("@youthLastName", tempYouth.getLastName());
+                insert.Parameters.AddWithValue("@youthState", tempYouth.getState());
+                insert.Parameters.AddWithValue("@youthCountry", tempYouth.getCountry());
+                insert.Parameters.AddWithValue("@youthEmail", tempYouth.getEmail());
+                insert.Parameters.AddWithValue("@youthGender", tempYouth.getGender());
+                insert.Parameters.AddWithValue("@youthDateOfBirth", tempYouth.getDateOfBirth());
+                insert.Parameters.AddWithValue("@userName", tempYouth.getUserName());
+                insert.Parameters.AddWithValue("@password", PasswordHash.HashPassword(tempYouth.getPassword()));
                 insert.Parameters.AddWithValue("@dateCreated", DateTime.Today);
                 insert.Parameters.AddWithValue("@lastUpdated", DateTime.Now.ToString());
-                insert.Parameters.AddWithValue("@lastUpdatedBy", YouthUserName);
-                insert.Parameters.AddWithValue("@favoriteArtist", favoriteArtist);
-                insert.Parameters.AddWithValue("@favoriteMusic", favoriteMusic);
+                insert.Parameters.AddWithValue("@lastUpdatedBy", tempYouth.getUserName());
+                insert.Parameters.AddWithValue("@favoriteArtist", tempYouth.getFavoriteArtist());
+                insert.Parameters.AddWithValue("@favoriteMusic", tempYouth.getFavoriteMusic());
                 insert.Parameters.AddWithValue("@accountID", accountID1);
 
 
