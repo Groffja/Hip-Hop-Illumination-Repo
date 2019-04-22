@@ -10,36 +10,31 @@ public class Youth
 {
 
     private string firstName;
-    private string middleName;
     private string lastName;
-    private string street;
-    private string city;
     private string state;
-    private string zipCode;
     private string country;
     private string email;
     private string dateOfBirth;
-    private string username;
+    private string gender;
+    private string userName;
     private string password;
+    private string favoriteArtist;
+    private string favoriteMusic;
     private int lessonID;
-    private int adultID;
-    private int schoolID;
     private string dateCreated = DateTime.Now.ToString("yyyy-MM-dd");
 
-    public Youth(string firstName, string middleName, string lastName, string street, string city, string state, string zipCode, string country, string email, string dateOfBirth,
-        string username, string password)
+    public Youth(string firstName, string lastName, string state, string country, string email, string dateOfBirth, string gender, string favoriteArtist, string favoriteMusic, string userName, string password)
     {
         setFirstName(firstName);
         setLastName(lastName);
-        setMiddleName(middleName);
-        setStreet(street);
-        setCity(city);
         setState(state);
-        setZipCode(zipCode);
         setCountry(country);
         setEmail(email);
         setDateOfBirth(dateOfBirth);
-        setUsername(username);
+        setGender(gender);
+        setFavoriteArtist(favoriteArtist);
+        setFavoriteMusic(favoriteMusic);
+        setUserName(userName);
         setPassword(password);
     }
 
@@ -47,155 +42,96 @@ public class Youth
     {
         this.firstName = firstName;
     }
-
-    protected void setMiddleName(string middleName)
-    {
-        this.middleName = middleName;
-    }
-
     protected void setLastName(string lastName)
     {
         this.lastName = lastName;
     }
-
-    protected void setCity(string city)
-    {
-        this.city = city;
-    }
-
     protected void setState(string state)
     {
         this.state = state;
     }
-
-    protected void setStreet(string street)
-    {
-        this.street = street;
-    }
-
     protected void setCountry(string country)
     {
         this.country = country;
     }
-
-    protected void setZipCode(string zipCode)
-    {
-        this.zipCode = zipCode;
-    }
-
+ 
     protected void setEmail(string email)
     {
         this.email = email;
     }
-
     protected void setDateOfBirth(string dateOfBirth)
     {
         this.dateOfBirth = dateOfBirth;
     }
-
-    protected void setUsername(string username)
+    protected void setFavoriteArtist(string favoriteArtist)
     {
-        this.username = username;
+        this.favoriteArtist = favoriteArtist;
     }
-
+    protected void setFavoriteMusic(string favoriteMusic)
+    {
+        this.favoriteMusic = favoriteMusic;
+    }
+    protected void setUserName(string userName)
+    {
+        this.userName = userName;
+    }
     protected void setPassword(string password)
     {
         this.password = password;
     }
-
-    protected void setLessonID(int lessonID)
+    protected void setGender(string gender)
     {
-        this.lessonID = lessonID;
+        this.gender = gender;
     }
 
-    protected void setAdultID(int adultID)
-    {
-        this.adultID = adultID;
-    }
-
-    protected void setSchoolID(int schoolID)
-    {
-        this.schoolID = schoolID;
-    }
-
+    //getters     
     public string getFirstName()
     {
         return this.firstName;
     }
-
-    public string getMiddleName()
-    {
-        return this.middleName;
-    }
-
     public string getLastName()
     {
         return this.lastName;
     }
-
-    public string getCity()
-    {
-        return this.city;
-    }
-
     public string getState()
     {
         return this.state;
     }
-
-    public string getStreet()
-    {
-        return this.street;
-    }
-
     public string getCountry()
     {
         return this.country;
-    }
-
-    public string getZipCode()
-    {
-        return this.zipCode;
     }
 
     public string getEmail()
     {
         return this.email;
     }
-
     public string getDateOfBirth()
     {
         return this.dateOfBirth;
     }
-
-    public string getUsername()
+    public string getFavoriteArtist()
     {
-        return this.username;
+        return this.favoriteArtist;
     }
-
+    public string getFavoriteMusic()
+    {
+        return this.favoriteMusic;
+    }
+    public string getUserName()
+    {
+        return this.userName;
+    }
     public string getPassword()
     {
         return this.password;
     }
-
-    public int getLessonID()
+    public string getGender()
     {
-        return this.lessonID;
+        return this.gender;
     }
-
-    public int getAdultID()
-    {
-        return this.adultID;
-    }
-
-    public int getSchoolID()
-    {
-        return this.schoolID;
-    }
-
     public string getDateCreated()
     {
         return this.dateCreated;
     }
-
 }
