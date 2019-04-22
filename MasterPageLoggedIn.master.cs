@@ -15,7 +15,7 @@ public partial class MasterPageLoggedIn : System.Web.UI.MasterPage
         try
         {
 
-            sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+            sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
@@ -31,7 +31,7 @@ public partial class MasterPageLoggedIn : System.Web.UI.MasterPage
         {
             try
             {
-                sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+                sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
 
                 sc.Open();
                 System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();

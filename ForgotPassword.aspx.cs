@@ -21,7 +21,7 @@ public partial class _Default : System.Web.UI.Page
     {
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+        sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
         sc.Open();
 
         ////MailAddress hostEmail = (MailAddress)'qschaefer4@gmail.com';
@@ -58,7 +58,7 @@ public partial class _Default : System.Web.UI.Page
 
         MailMessage message = new MailMessage();
         SmtpClient SmtpServer = new SmtpClient("smtp-mail.outlook.com");
-        message.From = new MailAddress("ammonmd@dukes.jmu.edu");  //from
+        message.From = new MailAddress("");  //from
         message.To.Add(txtUsername.Text);  //to
         message.Subject = "subject"; //subject
         message.Body = "redirect to reset password webpage";  //body

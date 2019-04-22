@@ -12,7 +12,7 @@ using System.Diagnostics;
 
 public partial class Youtube : System.Web.UI.Page
 {
-    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+    string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
     string youtube = " ";
 
     protected void Page_Load(object sender, EventArgs e)
@@ -88,6 +88,8 @@ public partial class Youtube : System.Web.UI.Page
             cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = txtTitle.Text;
             cmd.Parameters.Add("@Hyperlink", SqlDbType.VarChar).Value = txtUrl.Text;
             cmd.Parameters.Add("@category", SqlDbType.VarChar).Value = txtCategory.Text;
+            cmd.Parameters.Add("@lastUpdated", SqlDbType.VarChar).Value = DateTime.Now.ToString();
+            cmd.Parameters.Add("@lastUpdatedBy", SqlDbType.VarChar).Value = "Admin";
             cn.Open();
             cmd.ExecuteNonQuery();
         }

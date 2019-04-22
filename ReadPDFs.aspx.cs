@@ -11,7 +11,7 @@ public partial class ReadPDFs : System.Web.UI.Page
 {
     //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
     //string exception = string.Empty;
-    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+    string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -74,26 +74,5 @@ public partial class ReadPDFs : System.Web.UI.Page
 
     }
 
-    //protected void Button1_Click(object sender, EventArgs e)
-    //{
-    //    FileInfo fi = new FileInfo(FileUpload1.FileName);
-    //    byte[] documentContent = FileUpload1.FileBytes;
-
-    //    string name = fi.Name;
-    //    string extn = fi.Extension;
-
-    //    using (SqlConnection cn = new SqlConnection(conStr))
-    //    {
-    //        SqlCommand cmd = new SqlCommand("SaveDocument", cn);
-    //        cmd.CommandType = CommandType.StoredProcedure;
-
-    //        cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = name;
-    //        cmd.Parameters.Add("@Content", SqlDbType.VarBinary).Value = documentContent;
-    //        cmd.Parameters.Add("@Extn", SqlDbType.VarChar).Value = extn;
-
-    //        cn.Open();
-    //        cmd.ExecuteNonQuery();
-    //    }
-    //    FillData();
-    //}
+   
 }

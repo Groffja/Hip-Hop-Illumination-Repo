@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 public partial class BrowseLessons : System.Web.UI.Page
 {
-    string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+    string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -42,14 +42,18 @@ public partial class BrowseLessons : System.Web.UI.Page
 
         int id = int.Parse(gvDocuments.DataKeys[gr.RowIndex].Value.ToString());
         Download(id);
-
+        BrowseLesson tempBrowselesson = new BrowseLesson(id, Convert.ToInt32(Session["accountID"]), DateTime.Now.ToString(), DateTime.Now.ToString()); //BrowseLessons Class
         try
         {
             SqlConnection cn = new SqlConnection(conStr);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
-            cmd.CommandText = "INSERT INTO Lessons VALUES (" + id + "," + Session["accountID"] + ",GETDATE(),GETDATE(),'" + Session["username"] + "');";
+            cmd.CommandText = "INSERT INTO Lessons VALUES ( @id , @accountID, @dateStarted, @lastUpdated,'" + Session["username"] + "');";
+            cmd.Parameters.AddWithValue("@id", tempBrowselesson.getLessonID());
+            cmd.Parameters.AddWithValue("@accountID", tempBrowselesson.getaccountID());
+            cmd.Parameters.AddWithValue("@dateStarted", tempBrowselesson.getDateStarted());
+            cmd.Parameters.AddWithValue("@lastUpdated", tempBrowselesson.getLastUpdated());
             cmd.ExecuteNonQuery();
             cn.Close();
         }
