@@ -270,4 +270,3 @@ public partial class ProfileDetails : System.Web.UI.Page
     {
 
     }
-}

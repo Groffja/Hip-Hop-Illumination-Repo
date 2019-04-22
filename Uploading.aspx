@@ -1,39 +1,43 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="Uploading.aspx.cs" Inherits="Uploading" %>
+<%@ Page Title="" Language="C#" MasterPageFile="AdminMasterPage.master" AutoEventWireup="true" CodeFile="Uploading.aspx.cs" Inherits="Uploading" ValidateRequest="false" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!DOCTYPE html>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <%--    <!DOCTYPE html>
 
-<html>
-
+<html>--%>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
     <style>
-        body{
+        body {
+            background-image: url(img/header-bg.jpg);
+        }
 
-    background-image:url(img/header-bg.jpg);
-}
-h3{
-      color: white;
-  }
-table {
+        h3 {
+            color: white;
+        }
+
+        table {
             border-collapse: collapse;
             border-spacing: 0;
             width: 100%;
             border: 1px solid #ddd yellow;
         }
-</style>
+    </style>
 
-<body>
-    <form id="form1" runat="server">
+    <body>
+        <form id="form1" runat="server">
 
-                    <div class="container">
+            <div class="container">
                 <div class="row">
                     <div class="col">
 
-
-
-
-            <center>
+                        <center>
                 <h3>Upload a Lesson</h3>
                 
                 <br />
@@ -45,17 +49,16 @@ table {
                 <br />
                 <br />
 
-                
-                <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Category:" Width="150px" Height="50px"></asp:Label>
-                <asp:TextBox ID="TextBox2" runat="server" Width="300px" Height="30px"></asp:TextBox>
+                <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Category:" Width="10%" Height="5%"></asp:Label>
+                <asp:TextBox ID="TextBox2" runat="server" Width="20%" Height="30px"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Label ID="lblCat2" runat="server" ForeColor="White" Text="Subcategory:" Width="150px" Height="50px"></asp:Label>
-                <asp:TextBox ID="txtCat2" runat="server" Width="300px"></asp:TextBox>
+                <asp:Label ID="lblCat2" runat="server" ForeColor="White" Text="Subcategory:" Width="10%" Height="5%"></asp:Label>
+                <asp:TextBox ID="txtCat2" runat="server" Width="20%"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Label ID="lblCat3" runat="server" ForeColor="White" Text="Subcategory:" Width="150px" Height="50px"></asp:Label>
-                <asp:TextBox ID="txtCat3" runat="server" Width="300px"></asp:TextBox>
+                <asp:Label ID="lblCat3" runat="server" ForeColor="White" Text="Subcategory:" Width="10%" Height="5%"></asp:Label>
+                <asp:TextBox ID="txtCat3" runat="server" Width="20%"></asp:TextBox>
 
             <br />
             <br />
@@ -81,30 +84,33 @@ table {
                             <asp:LinkButton ID="LinkButton1" OnClick="OpenDocument" runat="server" Text='<%# Eval("Name") %>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Category">
+                        <ItemTemplate>
+                            <asp:Label ID="Label"  runat="server" Text='<%# Eval("DocumentCategory") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Subcategory">
+                        <ItemTemplate>
+                            <asp:Label ID="Label2"  runat="server" Text='<%# Eval("DocumentCategory2") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Subcategory">
+                        <ItemTemplate>
+                            <asp:Label ID="Label3"  runat="server" Text='<%# Eval("DocumentCategory3") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-                <br />
-                <br />
-                <br />
-                <br />
-
-            </div>
+                    </div>
                     <asp:SqlDataSource ID="SqlDataSource69" runat="server" ConnectionString="<%$ ConnectionStrings:hhidatabaseConnectionString %>" SelectCommand="SELECT [Name] AS Title, [DocumentCategory] AS Category, [DocumentCategory2] AS Subcategory, [DocumentCategory3] AS Subcategory2 FROM [Documents]"></asp:SqlDataSource>
+                </div>
             </div>
+
+            <div class="col-6">
             </div>
 
-
-                                                </div>
-                    <div class="col-6">
-
-              
-</div>
-
-                        </div>
-</div>
-
-    </form>
-</body>
-</html>
+        </form>
+    </body>
+    </html>
 </asp:Content>
 

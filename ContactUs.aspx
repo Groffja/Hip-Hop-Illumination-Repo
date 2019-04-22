@@ -24,7 +24,6 @@
         });
     </script>
     <style>
-
     </style>
     <title>Hip Hop IllumiNation.com</title>
     <section id="contact">
@@ -84,5 +83,4 @@
         </div>
     </section>
 </asp:Content>
-
 
