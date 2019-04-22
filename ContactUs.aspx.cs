@@ -32,13 +32,14 @@ public partial class ContactUs : System.Web.UI.Page
         string topic = phone.Value.ToString();
         string message = topic + " - " + messageTextArea.Value.ToString();
         string newMessage = HttpUtility.HtmlEncode(message);
-        
+
         try
         {
             SqlConnection cn = new SqlConnection(conStr);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
+
 
             cmd.CommandText = "INSERT INTO [dbo].[Feedback] VALUES (@accountID, @message, @lastUpdated, @lastUpdatedBy);";
 
@@ -47,8 +48,9 @@ public partial class ContactUs : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@lastUpdated", DateTime.Now.ToString());
             cmd.Parameters.AddWithValue("@lastUpdatedBy", Session["username"]);
 
+
             cmd.ExecuteNonQuery();
-        
+
             cmd.Parameters.Clear();
             cn.Close();
 
@@ -68,7 +70,7 @@ public partial class ContactUs : System.Web.UI.Page
 
 
 
-        
+
 
 
 

@@ -71,28 +71,14 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
         content: '\f0eb';
         font-family: FontAwesome;
     }
-/*checks{
-   content: '\f00c';
-   color: forestgreen;                                     green check
-}*/
+
 </style>        
         </head>
     <body>
             
             <br />
             <asp:GridView ID="gvDocuments" runat="server" CssClass="table-dark table-hover" AutoGenerateColumns="False" DataKeyNames="ID">
-               <%-- <Columns>
-                    <asp:TemplateField HeaderText="Document ID">
-                        <ItemTemplate>
-                            <%# Container.DataItemIndex+1 %>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Documents">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1"  runat="server" Text='<%# Eval("Name") %>'></asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>--%>
+               
             </asp:GridView>
         
     
@@ -117,14 +103,7 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
       <th scope="col" >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Rating</th>
       <th scope="col">Comment</th>
       <th scope="col">Submit</th>
-      <%--<th scope="col">Status</th>                        green checks--%>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>      
-      <td id="doc1" runat="server"></td>
-      <%--<td><asp:Button class="btn btn-primary" Text="Read" runat="server"  onclick="btnRead" /></td>--%>
+     
       <td>         
         <div class="stars input-group"  >  
     <input class="star star-1" ClientIDMode="static" runat="server" id="star1" type="radio" name="star" hidden/>
