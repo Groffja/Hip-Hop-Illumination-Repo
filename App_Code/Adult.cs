@@ -6,7 +6,7 @@ using System.Web;
 /// <summary>
 /// Summary description for Class1
 /// </summary>
-public class Adult
+public class Adult : User
 {
     private string firstName;
     private string lastName;
@@ -39,34 +39,11 @@ public class Adult
         setPassword(password);
     }   
 
-    protected void setFirstName(string firstName)
-    {
-        this.firstName = firstName;
-    }
-    protected void setLastName(string lastName)
-    {
-        this.lastName = lastName;
-    }
-    protected void setState(string state)
-    {
-        this.state = state;
-    }
-    protected void setCountry(string country)
-    {
-        this.country = country;
-    }
     protected void setAdultType(string adultType)
     {
         this.adultType = adultType;
     }
-    protected void setEmail(string email)
-    {
-        this.email = email;
-    }
-    protected void setDateOfBirth(string dateOfBirth)
-    {
-        this.dateOfBirth = dateOfBirth;
-    }
+    
     protected void setFavoriteArtist(string favoriteArtist)
     {
         this.favoriteArtist = favoriteArtist;
@@ -79,43 +56,17 @@ public class Adult
     {
         this.userName = userName;
     }
-    protected void setPassword(string password)
-    {
-        this.password = password;
-    }    
+       
     protected void setGender(string gender)
     {
         this.gender = gender;
     }
 
     //getters     
-    public string getFirstName()
-    {
-        return this.firstName;
-    }
-    public string getLastName()
-    {
-        return this.lastName;
-    }
-    public string getState()
-    {
-        return this.state;
-    }
-    public string getCountry()
-    {
-        return this.country;
-    }
+    
     public string getAdultType()
     {
         return this.adultType;
-    }
-    public string getEmail()
-    {
-        return this.email;
-    }
-    public string getDateOfBirth()
-    {
-        return this.dateOfBirth;
     }
     public string getFavoriteArtist()
     {
@@ -129,16 +80,10 @@ public class Adult
     {
         return this.userName;
     }
-    public string getPassword()
-    {
-        return this.password;
-    }
+    
     public string getGender()
     {
         return this.gender;
     }
-    public string getDateCreated()
-    {
-        return this.dateCreated;
-    }
+    
 }

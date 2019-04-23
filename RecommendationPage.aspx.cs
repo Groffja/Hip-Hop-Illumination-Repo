@@ -30,7 +30,7 @@ public partial class RecommendationPage : System.Web.UI.Page
         {
         }
 
-        
+
         System.Data.SqlClient.SqlCommand getID = new System.Data.SqlClient.SqlCommand();
         getID.Connection = sc;
         sc.Open();
@@ -104,13 +104,14 @@ public partial class RecommendationPage : System.Web.UI.Page
             int accountID = Convert.ToInt32(insert.ExecuteScalar());// get receiver ID
             TextBox1.Text = accountID.ToString();
 
-                
+
             //TextBox1.Text = Session["accountID"].ToString();
             //int accountID = Convert.ToInt32(TextBox1.Text);
-            
+
 
 
         }
 
     }
+}
 

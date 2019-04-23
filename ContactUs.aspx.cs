@@ -33,20 +33,21 @@ public partial class ContactUs : System.Web.UI.Page
         string message = topic + " - " + messageTextArea.Value.ToString();
         string newMessage = HttpUtility.HtmlEncode(message);
 
+        Feedback tempFeedback = new Feedback(Convert.ToInt32(Session["accountID"]), newMessage, DateTime.Now.ToString(), Convert.ToString(Session["username"])); //temp Feeback Object
         try
         {
             SqlConnection cn = new SqlConnection(conStr);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
-
+            
 
             cmd.CommandText = "INSERT INTO [dbo].[Feedback] VALUES (@accountID, @message, @lastUpdated, @lastUpdatedBy);";
 
-            cmd.Parameters.AddWithValue("@accountID", Session["accountID"]);
-            cmd.Parameters.AddWithValue("@message", newMessage);
-            cmd.Parameters.AddWithValue("@lastUpdated", DateTime.Now.ToString());
-            cmd.Parameters.AddWithValue("@lastUpdatedBy", Session["username"]);
+            cmd.Parameters.AddWithValue("@accountID", tempFeedback.getAccountID());
+            cmd.Parameters.AddWithValue("@message", tempFeedback.getMessage());
+            cmd.Parameters.AddWithValue("@lastUpdated", tempFeedback.getLastUpdated());
+            cmd.Parameters.AddWithValue("@lastUpdatedBy", tempFeedback.getLastUpdatedBy());
 
 
             cmd.ExecuteNonQuery();
