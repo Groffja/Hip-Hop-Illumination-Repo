@@ -31,6 +31,7 @@ public partial class ProfileDetails : System.Web.UI.Page
         try
         {
             sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+            //sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";  AWS Link
 
         }
 
@@ -226,28 +227,6 @@ public partial class ProfileDetails : System.Web.UI.Page
 
             updateRecord.ExecuteNonQuery();
         }
-
-        //else if ((string)Session["Accounttype"] == "YouthWorker")
-        //{
-        //    updateRecord.CommandText = "Update YouthWorker SET youthWorkerFirstName = @firstName, youthWorkerMiddleName = @middleName, youthWorkerLastName = @lastName, youthWorkerStreet = @street, youthWorkerCity = @city, youthWorkerState = @state, youthWorkerZip = @zip, youthWorkerCountry = @country, youthWorkerGender = @gender, email = @email, youthWorkerDateOfBirth = @dateOfBirth, username = @username, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy WHERE email=@emailSession";
-        //    updateRecord.Parameters.Add(new SqlParameter("@emailSession", (string)Session["email"]));
-        //    updateRecord.Parameters.Add(new SqlParameter("@firstName", firstName));
-        //    updateRecord.Parameters.Add(new SqlParameter("@middleName", middleName));
-        //    updateRecord.Parameters.Add(new SqlParameter("@lastName", lastName));
-        //    updateRecord.Parameters.Add(new SqlParameter("@street", street));
-        //    updateRecord.Parameters.Add(new SqlParameter("@city", city));
-        //    updateRecord.Parameters.Add(new SqlParameter("@state", state));
-        //    updateRecord.Parameters.Add(new SqlParameter("@zip", zip));
-        //    updateRecord.Parameters.Add(new SqlParameter("@country", country));
-        //    updateRecord.Parameters.Add(new SqlParameter("@gender", gender));
-        //    updateRecord.Parameters.Add(new SqlParameter("@email", email));
-        //    updateRecord.Parameters.Add(new SqlParameter("@dateOfBirth", dateOfBirth));
-        //    updateRecord.Parameters.Add(new SqlParameter("@username", username));
-        //    updateRecord.Parameters.Add(new SqlParameter("@lastUpdated", lastUpdated));
-        //    updateRecord.Parameters.Add(new SqlParameter("@lastUpdatedBy", lastUpdatedBy));
-
-        //    updateRecord.ExecuteNonQuery();
-        //}
 
         sc.Close();
 

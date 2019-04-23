@@ -12,6 +12,7 @@ public partial class Uploading : System.Web.UI.Page
 {
     
     string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+    //string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";  AWS Link
     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -149,6 +150,7 @@ public partial class Uploading : System.Web.UI.Page
     {   
         
         sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+        //sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";  AWS Link
 
         sc.Open();
         System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();

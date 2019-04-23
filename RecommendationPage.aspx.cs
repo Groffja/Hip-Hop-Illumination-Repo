@@ -20,6 +20,7 @@ public partial class RecommendationPage : System.Web.UI.Page
         {
 
             sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+            //sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";  AWS Link
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
@@ -45,6 +46,7 @@ public partial class RecommendationPage : System.Web.UI.Page
             try
             {
                 sc.ConnectionString = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+                //sc.ConnectionString = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";  AWS Link
                 sc.Open();
                 System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
                 insert.Connection = sc;

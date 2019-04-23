@@ -370,7 +370,7 @@ body {
     <div id="formFooter">
       <a class="underlineHover" href="UserQuestions.aspx">Create Account</a>
         <br />
-      <a class="underlineHover" href="ForgotPassword.aspx">Forgot Password</a>
+      <%--<a class="underlineHover" href="ForgotPassword.aspx">Forgot Password</a>--%>
     </div>
 
   </div>

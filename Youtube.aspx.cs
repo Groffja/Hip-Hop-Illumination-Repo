@@ -13,6 +13,7 @@ using System.Diagnostics;
 public partial class Youtube : System.Web.UI.Page
 {
     string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
+    //string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";  AWS Link
     string youtube = " ";
 
     protected void Page_Load(object sender, EventArgs e)
