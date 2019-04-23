@@ -103,7 +103,12 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
       <th scope="col" >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Rating</th>
       <th scope="col">Comment</th>
       <th scope="col">Submit</th>
-     
+     </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>      
+      <td id="doc1" runat="server"></td>
       <td>         
         <div class="stars input-group"  >  
     <input class="star star-1" ClientIDMode="static" runat="server" id="star1" type="radio" name="star" hidden/>
