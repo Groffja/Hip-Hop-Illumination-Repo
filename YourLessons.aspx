@@ -102,7 +102,7 @@
         </div>
         <center>
     <asp:Panel ID="panel1" runat="server"  DefaultButton="btnSearch">
-    <asp:TextBox ID="txtSearch" runat="server" class="form-control-sm" Width="20%" OnTextChanged="txtSearch_TextChanged" placeholder="Search Lesson"></asp:TextBox>
+    <asp:TextBox ID="txtSearch" runat="server" class="form-control-sm" Width="20%"  placeholder="Search Lesson"></asp:TextBox>
     <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" Text="Search" OnClick="btnSearch_Click" />        
     </asp:Panel>
         

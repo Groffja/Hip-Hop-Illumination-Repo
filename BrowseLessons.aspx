@@ -120,9 +120,10 @@
     <br />
     <br />
                 </asp:Panel>
+            <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">There are currently no available lessons!</asp:Label>
             </center>
 
-    <asp:Label ID="noLessons" runat="server" forecolor="White" class="form-control-sm" Visible="false">There are currently no available lessons!</asp:Label>
+    
     <asp:GridView ID="gvDocuments" CssClass="table-dark table-striped table-hover" runat="server"  AutoGenerateColumns="False" DataKeyNames="ID" HorizontalAlign="Center" Width="75%"  CellPadding="10" >
        
         <AlternatingRowStyle />

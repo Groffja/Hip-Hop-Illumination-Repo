@@ -14,7 +14,7 @@ public partial class Feedback : System.Web.UI.Page
 {
 
     string conStr = @"Server =localhost;Database=hhidatabase;Trusted_Connection=Yes;";
-    //string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;";
+    //string conStr = @"server=hhidatabase.chi0h0eoorog.us-east-1.rds.amazonaws.com;database=hhidatabase;uid=hhi;password=hhidatabase;"; AWS LINK
     protected void Page_Load(object sender, EventArgs e)
     {
         DataBind();
